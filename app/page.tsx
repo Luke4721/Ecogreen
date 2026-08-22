@@ -66,9 +66,9 @@ export default function Home() {
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <img 
-              src="/logo.png" 
+              src="/logo_transparent.png" 
               alt="Eco Green" 
-              className={`h-10 w-auto object-contain transition-all duration-300 ${currentTheme === 'dark' ? 'brightness-125' : ''}`}
+              className="h-12 md:h-14 w-auto object-contain transition-all duration-300 drop-shadow-md"
             />
           </Link>
           
@@ -359,7 +359,7 @@ export default function Home() {
       <ClientsMarquee />
 
       {/* FOOTER */}
-      <footer className="bg-slate-950 text-white pt-24 pb-12 relative overflow-hidden">
+      <footer className="bg-green-950 text-white pt-24 pb-12 relative overflow-hidden">
         {/* Giant background text just for style */}
         
 
@@ -368,9 +368,9 @@ export default function Home() {
             <div className="lg:col-span-2">
               <div className="flex items-center gap-2 mb-8 bg-white/5 inline-block p-4 rounded-xl">
                 <img 
-                  src="/logo.png" 
+                  src="/logo_white_text.png" 
                   alt="Eco Green" 
-                  className="h-10 w-auto object-contain brightness-125" 
+                  className="h-16 md:h-20 w-auto object-contain drop-shadow-lg" 
                 />
               </div>
               <p className="text-gray-400 text-lg mb-8 max-w-sm font-medium leading-relaxed">
