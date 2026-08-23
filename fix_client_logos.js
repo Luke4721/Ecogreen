@@ -1,18 +1,20 @@
 const fs = require('fs');
-
 let code = fs.readFileSync('app/page.tsx', 'utf8');
 
-// Replace clearbit logos with google favicons
-code = code.replace(
-  /https:\/\/logo\.clearbit\.com\/([a-z0-9.-]+)/g,
-  'https://www.google.com/s2/favicons?domain=$1&sz=128'
-);
+const clientLogosStr = `const clientLogos = [
+    { name: 'Samsung', url: 'https://cdn.simpleicons.org/samsung/black' },
+    { name: 'Oppo', url: 'https://cdn.simpleicons.org/oppo/black' },
+    { name: 'Panasonic', url: 'https://cdn.simpleicons.org/panasonic/black' },
+    { name: 'LG', url: 'https://cdn.simpleicons.org/lg/black' },
+    { name: 'HCL', url: 'https://cdn.simpleicons.org/hcl/black' },
+    { name: 'ITC Limited', url: '/client-logos/itc_limited.svg' },
+    { name: 'Wipro', url: 'https://cdn.simpleicons.org/wipro/black' },
+    { name: 'Mercedes-Benz', url: '/client-logos/mercedes_benz.svg' },
+    { name: 'Paytm', url: 'https://cdn.simpleicons.org/paytm/black' },
+    { name: 'Dell', url: 'https://cdn.simpleicons.org/dell/black' },
+  ];`;
 
-// Remove the onError fallbacks that were hardcoded
-code = code.replace(
-  /onError=\{\(e\) => \{.*?\}\}/g,
-  ''
-);
+code = code.replace(/const clientLogos = \[[\s\S]*?\];/, clientLogosStr);
 
 fs.writeFileSync('app/page.tsx', code);
-console.log('Fixed client logos');
+console.log('Fixed client logos in page.tsx');

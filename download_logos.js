@@ -19,17 +19,24 @@ async function download() {
     const ext = client.url.split('.').pop();
     const filename = `public/client-logos/${client.name.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.${ext}`;
     
+    // Check if file already exists
+    if (fs.existsSync(filename) && fs.statSync(filename).size > 100) {
+      console.log(`Already have ${filename}`);
+      continue;
+    }
+    
+    await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay to avoid 429
+    
     await new Promise((resolve, reject) => {
-      https.get(client.url, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res) => {
+      https.get(client.url, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' } }, (res) => {
         if (res.statusCode !== 200 && res.statusCode !== 301 && res.statusCode !== 302) {
            console.log(`Failed to download ${client.name} - ${res.statusCode}`);
            resolve();
            return;
         }
         
-        // Handle redirect
         if (res.statusCode === 301 || res.statusCode === 302) {
-           https.get(res.headers.location, { headers: { 'User-Agent': 'Mozilla/5.0' } }, (res2) => {
+           https.get(res.headers.location, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' } }, (res2) => {
              const file = fs.createWriteStream(filename);
              res2.pipe(file);
              file.on('finish', () => { file.close(); console.log(`Downloaded ${filename}`); resolve(); });

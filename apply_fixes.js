@@ -1,80 +1,50 @@
 const fs = require('fs');
 
-// 1. Fix app/page.tsx (Animations, Footer Text, Social Icons)
-let pageCode = fs.readFileSync('app/page.tsx', 'utf8');
+let code = fs.readFileSync('app/page.tsx', 'utf8');
 
-// A. Animations for cards
-pageCode = pageCode.replace(
-  /visible: \{ opacity: 1, y: 0, rotateY: 0, transition: \{ type: 'spring' as const, delay: i \* 0\.2, duration: 1\.5 \} \}/g,
-  "visible: { opacity: 1, y: 0, rotateY: 0, transition: { type: 'spring' as const, delay: i * 0.1, duration: 0.6 } }"
-);
+// 1. Fix the Header background
+const oldHeaderRegex = /<header className=\{\`fixed w-full top-0 z-50 transition-all duration-500 \$\{scrolled \? 'py-4 shadow-xl' : 'py-6'\} bg-white\/80 dark:bg-black\/20 backdrop-blur-xl border-b border-white\/20 dark:border-white\/10\`\}>/;
 
-// B. Remove annoying background text in footer
-pageCode = pageCode.replace(
-  /<div className="absolute top-0 left-0 w-full overflow-hidden whitespace-nowrap opacity-\[0\.03\] pointer-events-none">[\s\S]*?<\/div>/,
-  ''
-);
+const newHeader = `<header className={\`fixed w-full top-0 z-50 transition-all duration-500 \${scrolled ? 'py-4 shadow-xl bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800' : 'py-6 bg-transparent border-transparent'}\`}>`;
 
-// C. Import social icons
-if (!pageCode.includes('Facebook')) {
-  pageCode = pageCode.replace(
-    /Factory, MonitorPlay, Droplets\n\} from 'lucide-react';/,
-    "Factory, MonitorPlay, Droplets, Facebook, Instagram, Linkedin, Twitter\n} from 'lucide-react';"
-  );
-}
-
-// D. Replace social letters with icons
-const oldSocials = `{\\['f', 'ig', 'in', 'x'\\].map\\(\\(social, i\\) => \\(
-                  <a key=\\{i\\} href="#" className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-green-500 hover:-translate-y-2 transition-all duration-300 uppercase font-bold text-sm">
-                    \\{social\\}
-                  </a>
-                \\)\\)}`;
-
-const newSocials = `{[{ icon: <Facebook size={20} />, link: '#' }, { icon: <Instagram size={20} />, link: '#' }, { icon: <Linkedin size={20} />, link: '#' }, { icon: <Twitter size={20} />, link: '#' }].map((social, i) => (
-                  <a key={i} href={social.link} className="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-green-500 hover:-translate-y-2 transition-all duration-300 text-white">
-                    {social.icon}
-                  </a>
-                ))}`;
-
-pageCode = pageCode.replace(new RegExp(oldSocials), newSocials);
-
-fs.writeFileSync('app/page.tsx', pageCode);
-
-// 2. Fix app/request-quote/page.tsx (Add back button)
-let quoteCode = fs.readFileSync('app/request-quote/page.tsx', 'utf8');
-
-// Replace the <button> with an X icon to a <Link href="/"> with an X icon, or add a Back to Home link.
-// Let's add a "Back to Home" button at the top left of the screen, outside the white box, or change the X.
-// The user uploaded an image of it: media_1787424174700.png.
-// There is an X at the top right of the white modal.
-if (quoteCode.includes('<button className="absolute top-6 right-6 text-slate-400 hover:text-slate-600 transition-colors">')) {
-  quoteCode = quoteCode.replace(
-    /<button className="absolute top-6 right-6 text-slate-400 hover:text-slate-600 transition-colors">([\s\S]*?)<\/button>/,
-    '<Link href="/" className="absolute top-6 right-6 text-slate-400 hover:text-green-600 transition-colors">$1</Link>'
-  );
+if (code.match(oldHeaderRegex)) {
+    code = code.replace(oldHeaderRegex, newHeader);
+    console.log("Header fixed!");
 } else {
-  // If we can't find it easily, let's just insert a back button at the very top of the page.
-  // We'll replace the top container div.
-  quoteCode = quoteCode.replace(
-    /<div className="min-h-screen bg-gradient-to-br from-green-50 to-orange-50 flex items-center justify-center p-6">/,
-    `<div className="min-h-screen bg-gradient-to-br from-green-50 to-orange-50 flex items-center justify-center p-6 relative">
-      <Link href="/" className="absolute top-8 left-8 text-green-700 hover:text-green-900 font-bold flex items-center gap-2 bg-white px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all">
-        ← Back to Home
-      </Link>`
-  );
-  // And change the Display Quotes button from orange to green just in case
-  quoteCode = quoteCode.replace(/bg-orange-500 hover:bg-orange-600/g, 'bg-green-600 hover:bg-green-700');
+    console.log("Could not find header regex!");
 }
-if (!quoteCode.includes('import Link from "next/link";')) {
-  quoteCode = 'import Link from "next/link";\n' + quoteCode;
+
+// 2. Fix Woman Image cutout container
+const oldWomanContainer = `<div className="relative z-10 rounded-[3rem] overflow-hidden animate-float">
+                <img src="https://demo.casethemes.net/garbox/wp-content/uploads/2026/05/image13.webp" alt="Woman Recycling" className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" />
+              </div>`;
+
+const newWomanContainer = `<div className="relative z-10 animate-float drop-shadow-2xl">
+                <img src="https://demo.casethemes.net/garbox/wp-content/uploads/2026/05/image13.webp" alt="Woman Recycling" className="w-full h-auto object-contain hover:scale-105 transition-transform duration-700" />
+              </div>`;
+
+if (code.includes(oldWomanContainer)) {
+    code = code.replace(oldWomanContainer, newWomanContainer);
+    console.log("Woman container fixed!");
+} else {
+    console.log("Could not find woman container!");
 }
-fs.writeFileSync('app/request-quote/page.tsx', quoteCode);
 
-// 3. Fix app/business-solutions/page.tsx (Change orange button to green)
-let bizCode = fs.readFileSync('app/business-solutions/page.tsx', 'utf8');
-bizCode = bizCode.replace(/bg-orange-500 hover:bg-orange-600/g, 'bg-green-600 hover:bg-green-700');
-bizCode = bizCode.replace(/text-orange-500/g, 'text-green-600');
-bizCode = bizCode.replace(/text-orange-600/g, 'text-green-700');
-fs.writeFileSync('app/business-solutions/page.tsx', bizCode);
 
-console.log('All changes applied successfully!');
+// 3. Fix FAQ Guy cutout container
+const oldFaqContainer = `<div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl bg-green-50/50 dark:bg-green-900/20 relative z-10 animate-float">
+                <img src="https://demo.casethemes.net/garbox/wp-content/uploads/2026/05/image11.png" alt="FAQ" className="w-full h-full object-cover" />
+              </div>`;
+
+const newFaqContainer = `<div className="relative z-10 animate-float drop-shadow-2xl">
+                <img src="https://demo.casethemes.net/garbox/wp-content/uploads/2026/05/image11.png" alt="FAQ" className="w-full h-auto object-contain" />
+              </div>`;
+
+if (code.includes(oldFaqContainer)) {
+    code = code.replace(oldFaqContainer, newFaqContainer);
+    console.log("FAQ container fixed!");
+} else {
+    console.log("Could not find FAQ container!");
+}
+
+fs.writeFileSync('app/page.tsx', code);
