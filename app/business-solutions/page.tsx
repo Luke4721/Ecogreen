@@ -1,67 +1,74 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ShieldCheck, Factory, Truck, Recycle, Leaf, BarChart3 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowLeft, MonitorPlay, Zap, Droplets, Factory, ShieldCheck, Recycle } from 'lucide-react';
 
 export default function BusinessSolutions() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm h-20 flex items-center">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <Link href="/" className="inline-flex items-center text-green-700 hover:text-green-900 font-medium">
-            <ArrowLeft className="mr-2" size={20} /> Back to Home
-          </Link>
-          <Link href="/request-quote" className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-medium transition-colors">
-            Get a Quote
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] selection:bg-green-500 selection:text-white">
+      <header className="fixed w-full z-50 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all">
+        <div className="container mx-auto px-6 h-20 flex items-center">
+          <Link href="/" className="inline-flex items-center text-slate-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 font-bold uppercase tracking-wider text-sm transition-colors">
+            <ArrowLeft className="mr-2" size={18} /> Home
           </Link>
         </div>
       </header>
 
-      <main className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <span className="text-green-600 font-bold uppercase tracking-wider text-sm mb-2 block">Our Services</span>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">SECURE. CERTIFIED. ENGINEERED for Circular Economy</h1>
-            <p className="text-xl text-gray-600">
-              We empower global brands to achieve zero-waste goals through state-of-the-art recycling technology and uncompromising data security.
-            </p>
+      <main className="pt-40 pb-32">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-4xl mx-auto mb-20">
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-green-600 font-black tracking-[0.2em] uppercase mb-4">• Enterprise Services</motion.p>
+            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-none mb-8">
+              B2B Sustainability <br/>Architecture
+            </motion.h1>
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-xl text-slate-600 dark:text-slate-400 font-medium">
+              We design and execute closed-loop material recovery systems for the world's largest hardware manufacturers.
+            </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            {[
-              { title: 'E-Waste Management', icon: ShieldCheck, desc: 'End-to-end IT asset disposition featuring certified dismantling and military-grade data destruction to protect your enterprise security and ensure compliance.' },
-              { title: 'Lithium Battery Recycling', icon: Factory, desc: 'Specialized processing for EV and electronic batteries, focusing on the high-purity extraction of lithium and cobalt to power tomorrow sustainably.' },
-              { title: 'Plastic Waste Recycling', icon: Recycle, desc: 'Advanced sorting and precision pelletizing technology that transforms industrial and commercial plastic waste into high-quality, reusable materials.' },
-              { title: 'Paper Recycling', icon: Leaf, desc: 'Maximize environmental impact with closed-loop processing that saves trees, conserves water, and dramatically reduces your corporate carbon footprint.' },
-              { title: 'Green Metal Recovery', icon: Truck, desc: 'High-yield extraction of iron, copper, and aluminum from complex industrial waste streams, securing essential raw materials for the circular economy.' },
-              { title: 'EPR Consulting', icon: BarChart3, desc: 'Strategic guidance to seamlessly navigate government regulations, manage compliance documentation, and achieve your Extended Producer Responsibility targets.' }
-            ].map((service, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-xl shadow-md border border-gray-100 hover:border-green-500 transition-colors">
-                <div className="w-14 h-14 bg-green-100 text-green-700 rounded-lg flex items-center justify-center mb-6">
-                  <service.icon size={28} />
+          {/* Bento Box Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {/* Box 1 (Large) */}
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="md:col-span-2 bg-slate-900 rounded-[2rem] p-10 md:p-14 relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-8 opacity-20 transform group-hover:scale-110 transition-transform duration-700">
+                <MonitorPlay size={150} className="text-green-500" />
+              </div>
+              <div className="relative z-10 h-full flex flex-col justify-end">
+                <h3 className="text-4xl font-black text-white mb-4">Secure ITAD</h3>
+                <p className="text-slate-300 text-lg font-medium max-w-md">Military-grade data destruction and complete IT asset disposition for enterprise data centers.</p>
+              </div>
+            </motion.div>
+
+            {/* Box 2 (Tall) */}
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="md:row-span-2 bg-green-600 rounded-[2rem] p-10 md:p-14 relative overflow-hidden group">
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 transform group-hover:rotate-12 transition-transform duration-700">
+                <Zap size={200} className="text-white" />
+              </div>
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center">
+                  <Zap size={32} className="text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed mb-6">{service.desc}</p>
-                <Link href="/request-quote" className="text-green-600 font-bold hover:text-green-800 inline-flex items-center">
-                  Request Service <ArrowLeft className="ml-2 rotate-180" size={16} />
-                </Link>
+                <div>
+                  <h3 className="text-4xl font-black text-white mb-4">EV Battery Recycling</h3>
+                  <p className="text-green-100 text-lg font-medium">Safe discharge and hydrometallurgical extraction of cobalt, lithium, and nickel from spent EV cells.</p>
+                </div>
               </div>
-            ))}
-          </div>
+            </motion.div>
 
-          <div className="bg-green-900 rounded-2xl p-12 text-center text-white">
-            <h2 className="text-3xl font-bold mb-8">Why Enterprises trust ECO GREEN</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-green-700">
-              <div className="px-8">
-                <p className="text-5xl font-bold text-orange-400 mb-2">100+</p>
-                <h4 className="text-xl font-bold mb-2">Enterprise Partners</h4>
-                <p className="text-green-200">Global Brands & Fortune 500 Clients rely on our secure processing.</p>
-              </div>
-              <div className="px-8 pt-8 md:pt-0">
-                <p className="text-5xl font-bold text-orange-400 mb-2">12+</p>
-                <h4 className="text-xl font-bold mb-2">Years of Excellence</h4>
-                <p className="text-green-200">Pioneers in Urban Mining and Industrial-scale materials recovery.</p>
-              </div>
-            </div>
+            {/* Box 3 */}
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] p-10 relative overflow-hidden group hover:border-green-500 transition-colors">
+              <ShieldCheck size={48} className="text-slate-900 dark:text-white mb-6 transform group-hover:scale-110 transition-transform" />
+              <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3">Compliance Audits</h3>
+              <p className="text-slate-600 dark:text-slate-400 font-medium">Full ESG reporting and downstream auditing.</p>
+            </motion.div>
+
+            {/* Box 4 */}
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] p-10 relative overflow-hidden group hover:border-green-500 transition-colors">
+              <Recycle size={48} className="text-slate-900 dark:text-white mb-6 transform group-hover:scale-110 transition-transform" />
+              <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3">Plastic Aggregation</h3>
+              <p className="text-slate-600 dark:text-slate-400 font-medium">Baled polymer recovery for manufacturing.</p>
+            </motion.div>
           </div>
         </div>
       </main>

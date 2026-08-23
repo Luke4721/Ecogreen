@@ -1,43 +1,90 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Briefcase, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, Briefcase, MapPin } from 'lucide-react';
+
+const jobs = [
+  { id: 1, title: 'Senior Hydrometallurgist', dept: 'Engineering', loc: 'London, UK', type: 'Full-time' },
+  { id: 2, title: 'Logistics Coordinator', dept: 'Operations', loc: 'Berlin, DE', type: 'Full-time' },
+  { id: 3, title: 'ESG Compliance Auditor', dept: 'Legal', loc: 'Remote', type: 'Contract' },
+  { id: 4, title: 'Robotics Technician', dept: 'Engineering', loc: 'London, UK', type: 'Full-time' },
+  { id: 5, title: 'Sustainability Analyst', dept: 'Data', loc: 'Remote', type: 'Full-time' }
+];
 
 export default function Careers() {
+  const [filter, setFilter] = useState('All');
+  const filteredJobs = filter === 'All' ? jobs : jobs.filter(j => j.dept === filter);
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white shadow-sm h-20 flex items-center">
-        <div className="container mx-auto px-4">
-          <Link href="/" className="inline-flex items-center text-green-700 hover:text-green-900 font-medium">
-            <ArrowLeft className="mr-2" size={20} /> Back to Home
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] selection:bg-green-500 selection:text-white">
+      <header className="fixed w-full z-50 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all">
+        <div className="container mx-auto px-6 h-20 flex items-center">
+          <Link href="/" className="inline-flex items-center text-slate-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 font-bold uppercase tracking-wider text-sm transition-colors">
+            <ArrowLeft className="mr-2" size={18} /> Home
           </Link>
         </div>
       </header>
 
-      <main className="py-20">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-16">
-            <span className="text-orange-500 font-bold uppercase tracking-widest text-sm mb-4 block">JOIN THE CIRCULAR REVOLUTION</span>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">Build a Career with Purpose.<br/>Engineer the Future.</h1>
-            <p className="text-xl text-gray-600">
-              Work at the Forefront of Sustainability.
-            </p>
+      <main className="pt-40 pb-32">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <div className="text-center mb-20">
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-green-600 font-black tracking-[0.2em] uppercase mb-4">• Join The Mission</motion.p>
+            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-none mb-8">
+              Build the Circular <br />Economy
+            </motion.h1>
           </div>
 
-          <div className="bg-white p-10 rounded-2xl shadow-lg border border-gray-100 mb-12 text-center">
-            <Briefcase className="mx-auto text-green-600 mb-6" size={48} />
-            <p className="text-lg text-gray-700 leading-relaxed max-w-2xl mx-auto mb-8">
-              We are a team of environmental scientists, engineers, and logistical experts working to eliminate industrial waste. At Eco Green, you aren't just taking a job—you are joining a mission to solve one of the planet's most critical industrial challenges. We operate at the intersection of advanced technology and ecology.
-            </p>
+          <div className="flex flex-wrap gap-4 justify-center mb-12">
+            {['All', 'Engineering', 'Operations', 'Legal', 'Data'].map(dept => {
+              const isActive = filter === dept;
+              const btnClass = isActive 
+                ? "px-6 py-3 rounded-full font-bold uppercase tracking-wider text-sm transition-all bg-green-500 text-white shadow-lg shadow-green-500/30" 
+                : "px-6 py-3 rounded-full font-bold uppercase tracking-wider text-sm transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800";
+              return (
+                <button 
+                  key={dept}
+                  onClick={() => setFilter(dept)}
+                  className={btnClass}
+                >
+                  {dept}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="space-y-4">
+            <AnimatePresence mode="popLayout">
+              {filteredJobs.map(job => (
+                <motion.div 
+                  key={job.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white dark:bg-slate-900 rounded-3xl p-8 border border-slate-100 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-xl hover:border-green-500 transition-all cursor-pointer group"
+                >
+                  <div>
+                    <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-3 group-hover:text-green-500 transition-colors">{job.title}</h3>
+                    <div className="flex flex-wrap gap-4 text-sm font-bold text-slate-500 uppercase tracking-wider">
+                      <span className="flex items-center"><Briefcase size={16} className="mr-2" /> {job.dept}</span>
+                      <span className="flex items-center"><MapPin size={16} className="mr-2" /> {job.loc}</span>
+                      <span className="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full">{job.type}</span>
+                    </div>
+                  </div>
+                  <button className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 rounded-full font-bold uppercase tracking-wider hover:bg-green-500 hover:text-white transition-colors">
+                    Apply Now
+                  </button>
+                </motion.div>
+              ))}
+            </AnimatePresence>
             
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 max-w-xl mx-auto">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Pitch Your Profile</h3>
-              <p className="text-gray-600 mb-6">
-                Don't see an open role that fits your exact skills? We are always looking for exceptional talent in metallurgy, compliance, and supply chain logistics. 
-              </p>
-              <a href="mailto:careers@ecogreenrecyclingpvtltd.com" className="inline-flex items-center justify-center w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors">
-                Email Your Resume <ChevronRight className="ml-2" size={18} />
-              </a>
-            </div>
+            {filteredJobs.length === 0 && (
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-20 text-slate-500 font-medium">
+                <p>No open positions in this department. Check back later!</p>
+              </motion.div>
+            )}
           </div>
         </div>
       </main>

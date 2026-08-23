@@ -4,6 +4,9 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { motion } from 'framer-motion';
+import LiveMagneticNumber from '@/components/LiveMagneticNumber';
+import AbstractConstruct from '@/components/AbstractConstruct';
+import StackingWasteGraph from '@/components/StackingWasteGraph';
 import CountUp from 'react-countup';
 import { 
   Sun, Moon, ArrowRight, Zap, ShieldCheck, Leaf, 
@@ -250,10 +253,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: 'E-Waste Management', img: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=800&q=80', icon: <MonitorPlay size={32}/> },
-              { title: 'Lithium Battery', img: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80', icon: <Zap size={32}/> },
-              { title: 'Plastic Waste', img: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80', icon: <Droplets size={32}/> },
-              { title: 'Green Metal Recovery', img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80', icon: <Factory size={32}/> }
+              { title: 'E-Waste Management', type: 'ewaste', icon: <MonitorPlay size={32}/>, color: 'from-emerald-400 to-green-600' },
+              { title: 'Lithium Battery', type: 'battery', icon: <Zap size={32}/>, color: 'from-blue-400 to-indigo-600' },
+              { title: 'Plastic Waste', type: 'plastic', icon: <Droplets size={32}/>, color: 'from-teal-400 to-emerald-600' },
+              { title: 'Green Metal Recovery', type: 'metal', icon: <Factory size={32}/>, color: 'from-yellow-400 to-amber-600' }
             ].map((srv, idx) => (
               <motion.div
                 key={idx}
@@ -264,17 +267,23 @@ export default function Home() {
                   hidden: { opacity: 0, y: 150, scale: 0.8 },
                   visible: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring' as const, delay: idx * 0.15, duration: 1.5 } }
                 }}
-                className="group relative h-[450px] rounded-[2rem] overflow-hidden cursor-pointer shadow-xl"
+                className="group relative h-[450px] rounded-[3rem] overflow-hidden cursor-pointer shadow-xl bg-white border border-slate-100"
+                style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
               >
-                <img src={srv.img} alt={srv.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-125" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-500"></div>
+                {/* Image layer */}
+                <div className="absolute inset-0 p-6 pb-32 transition-transform duration-700 group-hover:scale-110 group-hover:-translate-y-4">
+                  <div className="w-full h-full"><AbstractConstruct type={srv.type} /></div>
+                </div>
                 
-                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                  <div className="w-16 h-16 rounded-full bg-green-500 text-white flex items-center justify-center mb-6 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-lg shadow-green-500/50">
+                {/* Content layer (bottom info box) */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 bg-white/80 backdrop-blur-xl border-t border-slate-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${srv.color} text-white flex items-center justify-center mb-4 shadow-lg`}>
                     {srv.icon}
                   </div>
-                  <h3 className="text-3xl font-bold text-white mb-2">{srv.title}</h3>
-                  <div className="w-0 h-1 bg-green-500 group-hover:w-full transition-all duration-500 ease-out"></div>
+                  <h3 className="text-2xl font-black text-slate-900 leading-tight mb-2">
+                    {srv.title}
+                  </h3>
+                  <div className="w-12 h-1 bg-slate-900 rounded-full transition-all duration-500 group-hover:w-full group-hover:bg-green-500"></div>
                 </div>
               </motion.div>
             ))}
@@ -282,33 +291,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NUMBERS/IMPACT - CRAZY BIG */}
-      <section className="py-32 bg-green-600 relative overflow-hidden">
-        {/* Background texture/image */}
-        <div className="absolute inset-0 opacity-20 mix-blend-overlay">
-          <img src="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=2000&q=80" className="w-full h-full object-cover" alt="texture" />
-        </div>
-        
+      {/* NUMBERS/IMPACT - CRAZY BIG (Magnetic Live Ticker) */}
+      <section className="py-32 bg-slate-50 border-y border-slate-200 relative overflow-hidden" style={{ perspective: 2000 }}>
+        <StackingWasteGraph />
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={zoomIn}>
-              <h3 className="text-7xl md:text-9xl font-black text-white mb-4 drop-shadow-2xl">
-                <CountUp end={60} duration={3} />K<span className="text-green-300 text-5xl">+</span>
-              </h3>
-              <p className="text-xl font-bold text-green-100 uppercase tracking-widest">MT E-Waste Recycled</p>
-            </motion.div>
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={zoomIn}>
-              <h3 className="text-7xl md:text-9xl font-black text-white mb-4 drop-shadow-2xl">
-                <CountUp end={700} duration={3} /><span className="text-green-300 text-5xl">+</span>
-              </h3>
-              <p className="text-xl font-bold text-green-100 uppercase tracking-widest">tCO2e Emissions Saved</p>
-            </motion.div>
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={zoomIn}>
-              <h3 className="text-7xl md:text-9xl font-black text-white mb-4 drop-shadow-2xl">
-                <CountUp end={200} duration={3} />K<span className="text-green-300 text-5xl">+</span>
-              </h3>
-              <p className="text-xl font-bold text-green-100 uppercase tracking-widest">MT Paper Recycled</p>
-            </motion.div>
+            <LiveMagneticNumber baseValue={60142.00} label="MT E-Waste Recycled" suffix="+" />
+            <LiveMagneticNumber baseValue={728.50} label="tCO2e Emissions Saved" suffix="+" />
+            <LiveMagneticNumber baseValue={205419.00} label="MT Paper Recycled" suffix="+" />
           </div>
         </div>
       </section>
@@ -607,21 +597,21 @@ export default function Home() {
 
 function ClientsMarquee() {
   const clientLogos = [
-    { name: 'Samsung', url: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg' },
-    { name: 'Oppo', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/OPPO_Logo.svg' },
-    { name: 'Vivo', url: 'https://upload.wikimedia.org/wikipedia/commons/e/e5/Vivo_mobile_logo.png' },
-    { name: 'Whirlpool', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Whirlpool_Corporation_Logo.svg' },
-    { name: 'HCL', url: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/HCL_Technologies_logo.svg' },
-    { name: 'ITC Limited', url: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/ITC_Limited_Logo.svg' },
-    { name: 'Haier', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Haier_logo.svg' },
-    { name: 'Wipro', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Wipro_Primary_Logo_Color_RGB.svg' },
-    { name: 'Mercedes-Benz', url: 'https://upload.wikimedia.org/wikipedia/commons/9/90/Mercedes-Logo.svg' },
-    { name: 'Paytm', url: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Paytm_logo.svg' },
+    { name: 'Samsung', url: '/client-logos/samsung.png' },
+    { name: 'Oppo', url: '/client-logos/oppo.png' },
+    { name: 'Vivo', url: '/client-logos/vivo.png' },
+    { name: 'Whirlpool', url: '/client-logos/whirlpool.png' },
+    { name: 'HCL', url: '/client-logos/hcl.png' },
+    { name: 'ITC Limited', url: '/client-logos/itc.png' },
+    { name: 'Haier', url: '/client-logos/haier.png' },
+    { name: 'Wipro', url: '/client-logos/wipro.png' },
+    { name: 'Mercedes-Benz', url: '/client-logos/mercedes.png' },
+    { name: 'Paytm', url: '/client-logos/paytm.png' },
   ];
 
   const renderLogos = () => clientLogos.map((client, idx) => (
     <div key={idx} className="flex flex-col items-center justify-center bg-white dark:bg-slate-900 px-10 py-8 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-black/50 border border-slate-100 dark:border-slate-800 w-[280px] h-[140px] mx-6 hover:-translate-y-2 transition-transform duration-300 grayscale hover:grayscale-0">
-      <img src={client.url} alt={client.name} className="max-h-12 max-w-full object-contain" />
+      <img src={client.url} alt={client.name} className="max-h-12 max-w-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
     </div>
   ));
 
@@ -632,12 +622,13 @@ function ClientsMarquee() {
         <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white tracking-tight">INDUSTRY LEADERS</motion.h2>
       </div>
       
-      <div className="relative flex overflow-x-hidden group w-full py-10">
-        <div className="animate-marquee whitespace-nowrap flex items-center group-hover:[animation-play-state:paused]">
-          {renderLogos()}
-        </div>
-        <div className="absolute top-10 animate-marquee2 whitespace-nowrap flex items-center group-hover:[animation-play-state:paused]">
-          {renderLogos()}
+      <div className="relative flex overflow-hidden group w-full py-10">
+        <div className="flex animate-marquee hover:[animation-play-state:paused] w-max">
+          {[...clientLogos, ...clientLogos].map((client, idx) => (
+            <div key={idx} className="flex-shrink-0 flex flex-col items-center justify-center bg-white dark:bg-slate-900 px-10 py-8 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-black/50 border border-slate-100 dark:border-slate-800 w-[280px] h-[140px] mx-4 hover:-translate-y-2 transition-transform duration-300 grayscale hover:grayscale-0">
+              <img src={client.url} alt={client.name} className="max-h-12 max-w-full object-contain" />
+            </div>
+          ))}
         </div>
       </div>
     </section>
