@@ -42,3 +42,5 @@ next-env.d.ts
 
 .vercel
 .env*
+assets/vid/Plastic_E_Waste_Recycling.mp4
+_old_site_archive/

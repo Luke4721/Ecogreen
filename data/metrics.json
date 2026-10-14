@@ -1,0 +1,46 @@
+{
+  "metrics": [
+    {
+      "value": 60142,
+      "suffix": "+ MT",
+      "decimals": 0,
+      "label": "E-Waste Recycled",
+      "note": "Certified enterprise IT asset disposition and hardware recycling"
+    },
+    {
+      "value": 728.5,
+      "suffix": "+",
+      "decimals": 1,
+      "label": "tCO2e Emissions Saved",
+      "note": "Scope 3 carbon displacement modeled against primary mining"
+    },
+    {
+      "value": 205419,
+      "suffix": "+ MT",
+      "decimals": 0,
+      "label": "Paper Waste Recycled",
+      "note": "Closed-loop pulp and fiber recovery saving forest timber"
+    },
+    {
+      "value": 70000,
+      "suffix": "+ MT",
+      "decimals": 0,
+      "label": "Plastic Waste Recycled",
+      "note": "Precision pelletizing and polymer circular integration"
+    },
+    {
+      "value": 98,
+      "suffix": "%",
+      "decimals": 0,
+      "label": "Extraction Efficiency",
+      "note": "Safe discharge and hydrometallurgical recovery of cobalt and lithium"
+    },
+    {
+      "value": 99.5,
+      "suffix": "%",
+      "decimals": 1,
+      "label": "Metal Purity Recovered",
+      "note": "Recovered green metals meeting high manufacturing-grade purity"
+    }
+  ]
+}

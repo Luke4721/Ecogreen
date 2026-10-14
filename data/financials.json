@@ -1,0 +1,42 @@
+{
+  "currency": "INR",
+  "disclaimer": "Figures are illustrative and unaudited. Audited financial statements and the DRHP will be published ahead of listing.",
+  "years": [
+    {
+      "label": "FY23",
+      "revenue": "48.20",
+      "ebitda": "9.60",
+      "ebitdaMargin": "19.9%",
+      "pat": "6.10",
+      "facilities": 2,
+      "employees": 145
+    },
+    {
+      "label": "FY24",
+      "revenue": "76.50",
+      "ebitda": "16.80",
+      "ebitdaMargin": "22.0%",
+      "pat": "11.20",
+      "facilities": 2,
+      "employees": 210
+    },
+    {
+      "label": "FY25",
+      "revenue": "118.40",
+      "ebitda": "28.50",
+      "ebitdaMargin": "24.1%",
+      "pat": "19.80",
+      "facilities": 3,
+      "employees": 320
+    },
+    {
+      "label": "FY26E",
+      "revenue": "172.00",
+      "ebitda": "43.00",
+      "ebitdaMargin": "25.0%",
+      "pat": "30.50",
+      "facilities": 4,
+      "employees": 460
+    }
+  ]
+}

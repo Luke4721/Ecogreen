@@ -1,0 +1,29 @@
+{
+  "locations": [
+    {
+      "city": "Greater Noida",
+      "address": "Plot No. 479, Habibpur, Main Dadri Road, Greater Noida, Uttar Pradesh, 201306",
+      "capability": "Plant & Registered Office · Primary IT Asset Disposition (ITAD), Military-Grade Data Destruction, Mechanical Dismantling, and Corporate Headquarters"
+    },
+    {
+      "city": "Mathura",
+      "address": "Khasra No. 193/1, 199/1 & 199/2, Noorpur Bangar Bajna, Tehsil Maant, Mathura, Uttar Pradesh, 281201",
+      "capability": "Metallurgical & Refining Complex · High-Purity Green Metal Recovery, Lithium-Ion Battery Black Mass Extraction, and Polymer Pelletizing Lines"
+    },
+    {
+      "city": "Bengaluru",
+      "address": "Electronic City Phase 1, Hosur Road, Bengaluru, Karnataka, 560100",
+      "capability": "Southern Technology Corridor Vector · Real-Time GPS Chain-of-Custody Ingestion, Secure Reverse Logistics, and Fleet Staging"
+    },
+    {
+      "city": "Mumbai",
+      "address": "MIDC Industrial Area, Turbhe, Navi Mumbai, Maharashtra, 400705",
+      "capability": "Western Operations & Institutional Accounts · Enterprise Compliance Audits, Financial Sector Data Destruction, and Client Liaison"
+    },
+    {
+      "city": "Hyderabad",
+      "address": "HITEC City Industrial Corridor, Madhapur, Hyderabad, Telangana, 500081",
+      "capability": "Enterprise Ingestion Hub · Dedicated Corporate Hardware Retrieval, Serialized Ingestion Tracking, and Regional Dispatch"
+    }
+  ]
+}

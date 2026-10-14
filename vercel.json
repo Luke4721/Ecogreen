@@ -1,0 +1,16 @@
+{
+  "framework": null,
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/investors/:path*",
+      "destination": "/about/",
+      "permanent": false
+    },
+    {
+      "source": "/investors",
+      "destination": "/about/",
+      "permanent": false
+    }
+  ]
+}

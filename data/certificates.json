@@ -1,0 +1,53 @@
+{
+  "certificates": [
+    {
+      "name": "ISO 9001:2015",
+      "number": "ISO-QMS-9001-2015-884",
+      "issuer": "International Organization for Standardization (TUV)",
+      "scope": "Operational excellence, quality management, and asset disposition across all facilities",
+      "expiry": "2027-08-30"
+    },
+    {
+      "name": "ISO 14001:2015",
+      "number": "ISO-EMS-14001-2015-612",
+      "issuer": "TUV Rheinland / ISO Accreditation",
+      "scope": "Environmental management systems, zero-harm atmospheric emissions, and closed-loop liquid recovery",
+      "expiry": "2027-08-30"
+    },
+    {
+      "name": "ISO 27001:2022",
+      "number": "ISO-ISMS-27001-2022-441",
+      "issuer": "British Standards Institution (BSI)",
+      "scope": "Information security management, chain of custody, and certified data destruction protocols",
+      "expiry": "2028-02-15"
+    },
+    {
+      "name": "ISO 45001:2018",
+      "number": "ISO-OHSMS-45001-2018-309",
+      "issuer": "Global Quality Certifications",
+      "scope": "Occupational health and safety management in advanced metallurgical and dismantling operations",
+      "expiry": "2027-11-12"
+    },
+    {
+      "name": "Global Recycled Standard (GRS) 4.0",
+      "number": "GRS-CU-884102-2024",
+      "issuer": "Control Union Certifications",
+      "scope": "Safe, equitable, and transparent supply chains from end-of-life processing to secondary raw material production",
+      "expiry": "2027-04-18"
+    },
+    {
+      "name": "Green Air Standard",
+      "number": "GAS-EC-2023-77",
+      "issuer": "Clean Air Industrial Certification Council",
+      "scope": "Industry-leading emission controls and zero-harm atmospheric processing during complex metal extraction",
+      "expiry": "2028-01-10"
+    },
+    {
+      "name": "CPCB E-Waste Authorization",
+      "number": "CPCB/B-29016/(SC)/EW-04/2016",
+      "issuer": "Central Pollution Control Board, MoEFCC",
+      "scope": "Authorized e-waste dismantler, recycler, and statutory EPR fulfillment partner under E-Waste Rules 2016",
+      "expiry": "2028-12-31"
+    }
+  ]
+}

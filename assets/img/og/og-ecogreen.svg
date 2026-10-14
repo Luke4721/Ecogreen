@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04140A" />
+      <stop offset="60%" stop-color="#0B2E13" />
+      <stop offset="100%" stop-color="#12421C" />
+    </linearGradient>
+    <linearGradient id="leaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#66BB6A" />
+      <stop offset="100%" stop-color="#43A047" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1050" cy="120" r="280" fill="#2E7D32" opacity="0.25" filter="blur(60px)"/>
+  <circle cx="150" cy="520" r="220" fill="#43A047" opacity="0.2" filter="blur(60px)"/>
+  
+  <g transform="translate(100, 110)">
+    <rect x="0" y="0" width="160" height="34" rx="17" fill="rgba(67, 160, 71, 0.2)" stroke="#43A047" stroke-width="1.5"/>
+    <text x="80" y="22" font-family="-apple-system, Inter, sans-serif" font-size="13" font-weight="700" fill="#A5D6A7" text-anchor="middle" letter-spacing="2">INDIA'S SPECIALIST</text>
+    
+    <text x="0" y="110" font-family="-apple-system, Inter, sans-serif" font-size="64" font-weight="900" fill="#FBFFF9" letter-spacing="-1.5">EcoGreen</text>
+    <text x="0" y="180" font-family="-apple-system, Inter, sans-serif" font-size="44" font-weight="700" fill="#A5D6A7" letter-spacing="-1">Enterprise E-Waste &amp; Green Metal Recovery</text>
+    
+    <text x="0" y="250" font-family="-apple-system, Inter, sans-serif" font-size="22" font-weight="400" fill="#E8F5E9" opacity="0.85">
+      Certified ITAD · Military-Grade Data Destruction · Closed-Loop Circular Economy
+    </text>
+
+    <!-- Stats row -->
+    <g transform="translate(0, 320)">
+      <rect x="0" y="0" width="280" height="90" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="24" y="42" font-family="-apple-system, Inter, sans-serif" font-size="32" font-weight="800" fill="#66BB6A">98%</text>
+      <text x="24" y="68" font-family="-apple-system, Inter, sans-serif" font-size="14" font-weight="500" fill="#FBFFF9" opacity="0.7">Extraction Efficiency</text>
+      
+      <rect x="310" y="0" width="280" height="90" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="334" y="42" font-family="-apple-system, Inter, sans-serif" font-size="32" font-weight="800" fill="#66BB6A">&gt;99.5%</text>
+      <text x="334" y="68" font-family="-apple-system, Inter, sans-serif" font-size="14" font-weight="500" fill="#FBFFF9" opacity="0.7">Metal Purity Recovery</text>
+      
+      <rect x="620" y="0" width="280" height="90" rx="12" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="644" y="42" font-family="-apple-system, Inter, sans-serif" font-size="32" font-weight="800" fill="#66BB6A">60,000+ MT</text>
+      <text x="644" y="68" font-family="-apple-system, Inter, sans-serif" font-size="14" font-weight="500" fill="#FBFFF9" opacity="0.7">E-Waste Recycled</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,52 @@
+{
+  "people": [
+    {
+      "name": "Apoorv Chaturvedi",
+      "role": "Founder & Managing Director",
+      "group": "leadership",
+      "bio": "Over 12 years pioneering circular economy infrastructure and urban mining across India. Founded EcoGreen on the conviction that urban mining is the future of raw material security."
+    },
+    {
+      "name": "Deepak Sinha",
+      "role": "Chief Operating Officer",
+      "group": "leadership",
+      "bio": "Leads pan-India reverse logistics, plant operations, and technical dismantling pipelines with strict adherence to ISO standards and zero-landfill protocols."
+    },
+    {
+      "name": "Vikramaditya Sen",
+      "role": "Chief Financial Officer",
+      "group": "leadership",
+      "bio": "Capital markets and corporate finance executive with 18+ years in industrial manufacturing and technology infrastructure, directing EcoGreen's financial governance and public readiness."
+    },
+    {
+      "name": "Dr. Ananya Mukherjee",
+      "role": "Head of R&D and Metallurgical Innovation",
+      "group": "leadership",
+      "bio": "PhD in Chemical Metallurgy. Directs proprietary closed-loop hydrometallurgical recovery, battery black mass refining, and precision mineral extraction lines."
+    },
+    {
+      "name": "Apoorv Chaturvedi",
+      "role": "Executive Chairman & Managing Director",
+      "group": "board",
+      "bio": "Directs overall strategic trajectory, capital deployment, and corporate governance for EcoGreen Recyclers (P) Limited."
+    },
+    {
+      "name": "Rajeshwari Iyer",
+      "role": "Independent Director & Audit Committee Chair",
+      "group": "board",
+      "bio": "Former Senior Partner at leading audit and assurance firm; Fellow Chartered Accountant with 28+ years advising public boards on internal controls, risk management, and statutory reporting."
+    },
+    {
+      "name": "K. S. Ramanathan",
+      "role": "Non-Executive Director",
+      "group": "board",
+      "bio": "Industrial manufacturing veteran and former managing director of national engineering infrastructure consortia; advises on facility expansion and automated recovery pipelines."
+    },
+    {
+      "name": "Dr. Meenakshi Sundaram",
+      "role": "Independent Director & ESG Committee Chair",
+      "group": "board",
+      "bio": "Distinguished environmental scientist and former advisor to international climate institutions on industrial circularity, Scope 3 decarbonization, and ESG compliance."
+    }
+  ]
+}

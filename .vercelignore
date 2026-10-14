@@ -1,0 +1,5 @@
+_old_site_archive/
+.git/
+.env*
+*.log
+assets/vid/Plastic_E_Waste_Recycling.mp4

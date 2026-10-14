@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The E-Waste Story — EcoGreen</title>
+<meta name="description" content="India throws away 1.75 million tonnes of electronics every year. This is the story of what happens to it — and the standard we built to do it properly.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%231B5E20'/%3E%3Cpath d='M11 19a6 6 0 0 1-1-11.9C15 6 16 5.6 17.6 3.5c.8 1.7 1.6 3.5 1.6 6.7 0 4.7-4.1 8.8-8.2 8.8Z' fill='%23A5D6A7'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#0B2E13; --ink-2:#0F3A19;
+  --green:#1B5E20; --green-2:#2E7D32; --green-3:#43A047;
+  --green-4:#A5D6A7; --green-5:#C8E6C9;
+  --paper:#FFFFFF; --paper-2:#F5FBF7; --paper-3:#EAF4ED;
+  --rule:#DCE9DF; --body:#3E4A41; --muted:#6E7C72;
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --maxw:1360px; --pad:40px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-focus:cubic-bezier(.19,1,.22,1);
+
+  --green-900:#0B2E13; --green-800:#12421C; --green-700:#1B5E20; --green-600:#2E7D32;
+  --green-300:#A5D6A7; --green-100:#E8F5E9; --ink-soft:#3B4A3E; --ink-mute:#6E7C71;
+  --line:rgba(11,46,19,.12); --header-h:80px; --gut:clamp(24px,5vw,80px);
+  --r-s:8px; --r-m:14px; --r-pill:999px;
+  --shadow-l:0 40px 80px -40px rgba(11,46,19,.35);
+  --shadow-m:0 16px 40px -20px rgba(11,46,19,.22);
+}
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body{
+  margin:0; font-family:var(--sans); font-size:16.5px; line-height:1.7;
+  color:var(--body); background:var(--paper); -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+.wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 var(--pad); }
+.skip{ position:absolute; left:-9999px; top:0; background:var(--green); color:#fff; padding:12px 20px; z-index:9999; }
+.skip:focus{ left:0; }
+
+/* Progress bar */
+.progress{ position:fixed; top:0; left:0; height:3px; width:0;
+  background:linear-gradient(90deg,var(--green-3),var(--green-4));
+  z-index:1000; transition:width .1s linear; }
+
+/* ============================================================
+   HEADER — site-wide navbar
+   ============================================================ */
+.site-header{
+  position:fixed; top:0; left:0; right:0; z-index:900;
+  height:var(--header-h); display:flex; align-items:center;
+  transition:transform .5s var(--ease), background .3s ease,
+             box-shadow .3s ease, backdrop-filter .3s ease, border-color .3s ease;
+  border-bottom:1px solid transparent;
+}
+.site-header.is-hidden{ transform:translateY(-110%); }
+.site-header.is-solid{
+  background:rgba(253,254,251,.92);
+  backdrop-filter:blur(16px) saturate(160%);
+  -webkit-backdrop-filter:blur(16px) saturate(160%);
+  border-bottom-color:var(--line);
+}
+.site-header.on-dark:not(.is-solid) .brand,
+.site-header.on-dark:not(.is-solid) .nav-link{ color:#fff; }
+.site-header.on-dark:not(.is-solid) .brand b{ color:var(--green-300); }
+.site-header.on-dark:not(.is-solid) .burger span{ background:#fff; }
+
+.header-inner{
+  width:100%; max-width:var(--maxw); margin-inline:auto;
+  padding-inline:var(--gut);
+  display:flex; align-items:center; justify-content:space-between; gap:24px;
+}
+
+.brand{
+  display:inline-flex; align-items:center; gap:11px;
+  font-size:19px; font-weight:750; letter-spacing:-.032em;
+  color:var(--green-900); flex:none; text-decoration:none;
+}
+.brand-logo{
+  height:32px; width:auto; max-height:34px;
+  object-fit:contain; display:block; flex:none;
+}
+.brand-logo--dark{ display:none; }
+.site-header.is-solid .brand-logo--light{ display:none; }
+.site-header.is-solid .brand-logo--dark{ display:block; }
+.site-header:not(.on-dark) .brand-logo--light{ display:none; }
+.site-header:not(.on-dark) .brand-logo--dark{ display:block; }
+
+.nav{ display:flex; align-items:center; gap:36px; }
+.nav-list{ display:flex; align-items:center; gap:32px; list-style:none; margin:0; padding:0; }
+.nav-item{ position:relative; }
+.nav-link{
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:14.5px; font-weight:500; letter-spacing:-.006em;
+  color:var(--ink); padding:6px 0; transition:color .25s ease;
+  position:relative; text-decoration:none;
+  background:none; border:none; cursor:pointer; font-family:inherit;
+}
+.nav-link:hover{ color:var(--green-700); }
+.nav-link[aria-current="page"]{ color:var(--green-800); font-weight:600; }
+.nav-link .caret{ width:10px; height:10px; transition:transform .3s var(--ease); opacity:.5; }
+.nav-item.open > .nav-link .caret{ transform:rotate(180deg); }
+.nav-link::after{
+  content:""; position:absolute; left:0; bottom:-6px; height:1px; width:0;
+  background:var(--green-600); transition:width .35s var(--ease);
+}
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after{ width:100%; }
+
+.drop{
+  position:absolute; top:calc(100% + 18px); left:50%;
+  transform:translateX(-50%) translateY(-6px);
+  min-width:300px; padding:12px; background:#fff;
+  border:1px solid var(--line); border-radius:var(--r-m);
+  box-shadow:var(--shadow-l);
+  opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .28s var(--ease), transform .32s var(--ease), visibility .28s;
+  list-style:none; margin:0;
+}
+.drop::before{
+  content:""; position:absolute; top:-24px; left:0; right:0; height:24px;
+}
+.nav-item.open .drop{ opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+.drop a{
+  display:block; padding:12px 14px; border-radius:var(--r-s);
+  font-size:14px; font-weight:500; color:var(--ink-soft);
+  transition:background .2s ease, color .2s ease; text-decoration:none;
+}
+.drop a:hover{ background:var(--green-100); color:var(--green-800); }
+.drop a span{ display:block; margin-top:3px; font-size:12.5px; font-weight:400; color:var(--ink-mute); line-height:1.45; }
+
+.header-cta{
+  display:inline-flex; align-items:center; gap:8px; flex:none;
+  padding:12px 22px; border-radius:var(--r-pill);
+  font-size:14px; font-weight:600;
+  background:var(--green-700); color:#fff; text-decoration:none;
+  transition:background .25s ease, transform .35s var(--ease), box-shadow .35s ease;
+}
+.header-cta:hover{
+  background:var(--green-600);
+  transform:translateY(-1px);
+  box-shadow:0 12px 24px -12px rgba(27,94,32,.6);
+}
+.header-cta svg{ width:13px; height:13px; }
+
+.burger{
+  display:none; width:42px; height:42px; border-radius:var(--r-s);
+  place-items:center; flex-direction:column; gap:5px; flex:none;
+  background:none; border:none; cursor:pointer;
+}
+.burger span{ display:block; width:20px; height:1.5px; border-radius:2px; background:var(--ink); transition:transform .35s var(--ease), opacity .2s ease; }
+.burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+@media (max-width:960px){
+  :root{ --header-h:72px; }
+  .nav{
+    position:fixed; inset:var(--header-h) 0 auto 0;
+    flex-direction:column; align-items:stretch; gap:0;
+    max-height:calc(100svh - var(--header-h)); overflow-y:auto;
+    padding:24px var(--gut) 48px; background:var(--paper);
+    border-bottom:1px solid var(--line); box-shadow:var(--shadow-l);
+    transform:translateY(-12px); opacity:0; visibility:hidden; pointer-events:none;
+    transition:opacity .28s ease, transform .38s var(--ease), visibility .28s;
+  }
+  .nav.is-open{ opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0); }
+  .nav-list{ flex-direction:column; align-items:stretch; gap:0; }
+  .nav-item{ border-bottom:1px solid var(--line); }
+  .nav-link{ width:100%; justify-content:space-between; padding:18px 0; font-size:16px; font-weight:550; color:var(--ink) !important; }
+  .nav-link::after{ display:none; }
+  .drop{
+    position:static; transform:none; min-width:0; padding:0 0 12px 16px;
+    background:transparent; border:0; box-shadow:none;
+    opacity:1; visibility:visible; pointer-events:auto;
+    max-height:0; overflow:hidden; transition:max-height .4s var(--ease);
+  }
+  .nav-item.open .drop{ max-height:480px; }
+  .burger{ display:flex; }
+  .header-cta{ display:none; }
+}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+[data-anim]{
+  opacity:0;
+  transition:opacity .9s var(--ease), transform .9s var(--ease);
+  will-change:opacity, transform;
+}
+[data-anim="fade-up"]{ transform:translateY(40px); }
+[data-anim="fade-in"]{ transform:none; }
+[data-anim="slide-left"]{ transform:translateX(-48px); }
+[data-anim="slide-right"]{ transform:translateX(48px); }
+[data-anim="scale-in"]{ transform:scale(.94); }
+[data-anim].is-in{ opacity:1; transform:none; }
+
+/* Stagger containers */
+[data-stagger] > *{
+  opacity:0; transform:translateY(28px);
+  transition:opacity .8s var(--ease), transform .8s var(--ease);
+}
+[data-stagger].is-in > *{ opacity:1; transform:none; }
+[data-stagger].is-in > *:nth-child(1){ transition-delay:.05s; }
+[data-stagger].is-in > *:nth-child(2){ transition-delay:.15s; }
+[data-stagger].is-in > *:nth-child(3){ transition-delay:.25s; }
+[data-stagger].is-in > *:nth-child(4){ transition-delay:.35s; }
+[data-stagger].is-in > *:nth-child(5){ transition-delay:.45s; }
+[data-stagger].is-in > *:nth-child(6){ transition-delay:.55s; }
+[data-stagger].is-in > *:nth-child(7){ transition-delay:.65s; }
+[data-stagger].is-in > *:nth-child(8){ transition-delay:.75s; }
+
+/* Word-split headline */
+[data-split] .word{ display:inline-block; overflow:hidden; vertical-align:top; }
+[data-split] .word > span{
+  display:inline-block; transform:translateY(110%);
+  transition:transform 1s var(--ease);
+}
+[data-split].is-in .word > span{ transform:translateY(0); }
+
+/* ============================================================
+   FOCUS-PULL — cinematic blur-to-sharp reveal
+   Applies to the Two Standards section columns
+   ============================================================ */
+[data-focus]{
+  opacity:0;
+  transform:scale(1.07);
+  filter:blur(18px) saturate(.1) brightness(.68);
+  transition:
+    opacity 1s var(--ease-focus),
+    transform 1.8s var(--ease-focus),
+    filter 1.8s var(--ease-focus);
+  will-change:opacity, transform, filter;
+}
+[data-focus].is-in{
+  opacity:1;
+  transform:scale(1);
+  filter:blur(0) saturate(var(--focus-end-saturate, 1)) brightness(1);
+}
+[data-focus][data-delay="1"]{ transition-delay:.18s; }
+[data-focus][data-delay="2"]{ transition-delay:.36s; }
+
+@media (prefers-reduced-motion:reduce){
+  [data-anim], [data-stagger] > *, [data-split] .word > span, [data-focus]{
+    opacity:1 !important; transform:none !important; filter:none !important;
+    transition:none !important;
+  }
+}
+
+/* HERO */
+.hero{ position:relative; margin-top:0; min-height:100svh;
+  background:var(--ink); color:#fff; overflow:hidden; isolation:isolate; }
+.hero__media{ position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.hero__media iframe,
+.hero__media video{
+  position:absolute; top:50%; left:50%; width:100vw; height:56.25vw;
+  min-width:177.78vh; min-height:100vh;
+  transform:translate(-50%,-50%); border:0;
+  object-fit:cover;
+  filter:saturate(.95) contrast(1.02);
+}
+.hero__scrim{ position:absolute; inset:0; z-index:1;
+  background:
+    linear-gradient(180deg, rgba(11,46,19,.28) 0%, rgba(11,46,19,.18) 40%, rgba(11,46,19,.88) 100%),
+    radial-gradient(130% 80% at 20% 78%, rgba(27,94,32,.55), transparent 65%);
+}
+.hero__name{ position:absolute; left:var(--pad); top:50%; transform:translateY(-50%);
+  z-index:3; max-width:640px; pointer-events:none; }
+.hero__name-rule{ width:52px; height:2px; background:#fff; margin-bottom:22px; }
+.hero__name-line{ font-family:var(--serif); font-weight:600;
+  font-size:clamp(34px,4.4vw,58px); line-height:1.04; letter-spacing:-.025em;
+  color:#fff; margin:0 0 14px; }
+.hero__name-role{ font-family:var(--sans); font-size:13px; font-weight:600;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--green-4); }
+.hero__rail{ position:absolute; left:0; right:0; bottom:0; z-index:3;
+  padding:56px var(--pad) 64px;
+  display:grid; grid-template-columns:1.15fr 1fr; gap:60px; align-items:end; }
+.hero__title{ font-family:var(--serif); font-weight:500;
+  font-size:clamp(32px,3.8vw,54px); line-height:1.06; letter-spacing:-.025em;
+  color:#fff; margin:0; max-width:16ch; }
+.hero__title em{ font-style:italic; font-weight:400; color:var(--green-4); }
+.hero__aside{ max-width:520px; justify-self:end; }
+.hero__aside p{ font-size:15px; line-height:1.6; color:rgba(255,255,255,.86); margin:0 0 18px; }
+.hero__aside p strong{ color:#fff; font-weight:600; }
+.hero__cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
+.btn{ display:inline-flex; align-items:center; gap:9px;
+  padding:13px 22px; border-radius:6px; font-size:13.5px; font-weight:600;
+  text-decoration:none;
+  transition:transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease); }
+.btn svg{ width:13px; height:13px; transition:transform .25s var(--ease); }
+.btn:hover{ transform:translateY(-1px); }
+.btn:hover svg{ transform:translateX(3px); }
+.btn--primary{ background:var(--green-3); color:#fff; }
+.btn--primary:hover{ background:#4CB750; }
+.btn--ghost{ background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.4); }
+.btn--ghost:hover{ border-color:#fff; background:rgba(255,255,255,.08); }
+@media (max-width:900px){
+  .hero__name{ top:110px; transform:none; left:22px; right:22px; }
+  .hero__rail{ grid-template-columns:1fr; gap:26px; padding:40px 22px 44px; }
+  .hero__aside{ justify-self:start; }
+}
+
+/* SECTIONS */
+.section{ padding:130px 0; position:relative; }
+.section--paper{ background:var(--paper); }
+.section--soft{ background:var(--paper-2); }
+.section--dark{ background:var(--ink); color:#fff; }
+.chead{ text-align:center; max-width:900px; margin:0 auto 72px; }
+.chead h2{ font-family:var(--serif); font-weight:500;
+  font-size:clamp(32px,3.6vw,52px); line-height:1.1; letter-spacing:-.025em;
+  color:var(--ink); margin:0 0 26px; }
+.chead h2 em{ font-style:italic; font-weight:400; color:var(--green); }
+.chead p{ font-size:17px; line-height:1.7; color:var(--body); margin:0 auto; max-width:74ch; }
+
+/* PHOTO STRIP */
+.strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
+  padding:0 var(--pad); max-width:1500px; margin:80px auto 0; }
+.strip figure{ margin:0; position:relative; aspect-ratio:4/3;
+  overflow:hidden; background:var(--paper-3); }
+.strip img{ width:100%; height:100%; object-fit:cover;
+  filter:grayscale(.15); transition:transform .6s var(--ease), filter .4s var(--ease); }
+.strip figure:hover img{ transform:scale(1.03); filter:grayscale(0); }
+.strip figcaption{ position:absolute; left:14px; bottom:12px; right:14px;
+  font-size:11.5px; font-weight:500; color:#fff;
+  text-shadow:0 1px 6px rgba(0,0,0,.4); }
+@media (max-width:760px){ .strip{ grid-template-columns:1fr; gap:10px; } }
+
+/* ============================================================
+   TWO STANDARDS — focus-pull section
+   ============================================================ */
+.standards{ padding:140px 0; overflow:hidden; }
+.standards__grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) minmax(0,1fr);
+  gap:56px;
+  align-items:center;
+  max-width:1500px;
+  margin:0 auto;
+  padding:0 var(--pad);
+}
+.standard{
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.03);
+  padding:40px 34px;
+  border-radius:2px;
+  position:relative;
+}
+.standard--old{ --focus-end-saturate:.35; }
+.standard--new{
+  --focus-end-saturate:1;
+  background:rgba(67,160,71,.08);
+  border-color:rgba(165,214,167,.4);
+}
+.standard__eyebrow{
+  display:inline-block;
+  font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--green-4);
+  margin-bottom:18px;
+}
+.standard--old .standard__eyebrow{ color:rgba(255,255,255,.45); }
+.standard h3{
+  font-family:var(--serif); font-weight:500;
+  font-size:22px; line-height:1.22; letter-spacing:-.015em;
+  color:#fff;
+  margin:0 0 24px;
+}
+.standard ul{ list-style:none; margin:0; padding:0; }
+.standard li{
+  font-size:14.5px; line-height:1.55;
+  color:rgba(255,255,255,.78);
+  padding:12px 0 12px 30px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  position:relative;
+}
+.standard li:last-child{ border-bottom:0; padding-bottom:0; }
+.standard li .mark{
+  position:absolute; left:0; top:12px;
+  font-size:14px; font-weight:700; line-height:1;
+}
+.standard--old li{ color:rgba(255,255,255,.5); }
+.standard--old li .mark{ color:rgba(255,255,255,.35); }
+.standard--new li .mark{ color:var(--green-4); }
+
+.standards__body{ text-align:center; max-width:520px; margin:0 auto; }
+.standards__body h2{
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(28px,3.2vw,42px); line-height:1.12; letter-spacing:-.025em;
+  color:#fff; margin:0 0 28px;
+}
+.standards__body h2 em{ font-style:italic; font-weight:400; color:var(--green-4); }
+.standards__body p{
+  font-size:15.5px; line-height:1.72;
+  color:rgba(255,255,255,.78);
+  margin:0 0 18px; text-align:left;
+}
+@media (max-width:1000px){
+  .standards__grid{ grid-template-columns:1fr; gap:32px; }
+}
+
+/* ============================================================
+   REGULATORY TIMELINE
+   ============================================================ */
+.timeline{
+  max-width:1400px;
+  margin:0 auto;
+  padding:0 var(--pad);
+  position:relative;
+}
+.timeline__track{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:0;
+  position:relative;
+}
+.timeline__track::before{
+  content:"";
+  position:absolute;
+  left:8%; right:8%;
+  top:78px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--rule) 8%,var(--rule) 92%,transparent);
+}
+.tl-item{
+  padding:0 16px;
+  text-align:center;
+  position:relative;
+}
+.tl-item__year{
+  font-family:var(--sans);
+  font-size:13px; font-weight:600; letter-spacing:.14em;
+  color:var(--green-2);
+  display:block;
+  margin-bottom:32px;
+}
+.tl-item__dot{
+  width:14px; height:14px;
+  border-radius:50%;
+  background:var(--paper);
+  border:2px solid var(--green-3);
+  display:block;
+  margin:0 auto 28px;
+  position:relative;
+  z-index:1;
+  transition:transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.tl-item.is-in .tl-item__dot{
+  transform:scale(1.15);
+  box-shadow:0 0 0 8px rgba(67,160,71,.14);
+}
+.tl-item h4{
+  font-family:var(--serif); font-weight:500;
+  font-size:16px; line-height:1.2; letter-spacing:-.01em;
+  color:var(--ink);
+  margin:0 0 10px;
+}
+.tl-item p{
+  font-size:13.5px; line-height:1.55;
+  color:var(--muted);
+  margin:0;
+}
+@media (max-width:1000px){
+  .timeline__track{ grid-template-columns:1fr; gap:40px; }
+  .timeline__track::before{ display:none; }
+  .tl-item{ text-align:left; padding:0 0 0 34px; border-left:1px solid var(--rule); }
+  .tl-item__dot{ position:absolute; left:-7px; top:2px; margin:0; }
+  .tl-item__year{ margin-bottom:10px; }
+}
+
+/* PATTERNED DARK — Closed Loop */
+.patterned{
+  background:var(--ink);
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(67,160,71,.16), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(27,94,32,.24), transparent 45%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.04'%3E%3Ccircle cx='40' cy='40' r='22'/%3E%3Ccircle cx='40' cy='40' r='14'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E");
+}
+.formula{
+  display:inline-flex; align-items:center; gap:18px;
+  padding:16px 32px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:100px;
+  font-family:var(--serif); font-weight:500;
+  font-size:clamp(20px,2.4vw,30px); letter-spacing:-.02em;
+  color:#fff; margin:34px 0 40px;
+}
+.formula em{ font-style:italic; color:var(--green-4); font-weight:400; }
+.formula .op{ font-family:var(--sans); font-weight:400; font-size:.72em;
+  color:rgba(255,255,255,.5); padding:0 4px; }
+.italic-quote{
+  font-family:var(--serif); font-style:italic; font-weight:400;
+  font-size:clamp(22px,2.4vw,30px); line-height:1.34; letter-spacing:-.015em;
+  color:#fff; max-width:780px; margin:44px auto 0;
+}
+.italic-quote em{ color:var(--green-4); }
+
+/* DECADE */
+.decade{ display:grid; grid-template-columns:1.25fr 1fr; gap:72px;
+  align-items:center; max-width:1360px; margin:0 auto; padding:0 var(--pad); }
+.decade__media{ position:relative; overflow:hidden; }
+.decade__media img{ width:100%; aspect-ratio:16/11; object-fit:cover;
+  background:var(--paper-3); will-change:transform; }
+.badge{ position:absolute; top:-34px; right:-34px; width:130px; height:130px;
+  display:grid; place-items:center; color:#fff; text-align:center; z-index:2; }
+.badge svg{ position:absolute; inset:0; width:100%; height:100%; }
+.badge__inner{ position:relative; z-index:1; font-family:var(--sans); line-height:1.05; }
+.badge__inner strong{ display:block; font-family:var(--serif); font-weight:600;
+  font-size:30px; letter-spacing:-.02em; margin-bottom:4px; }
+.badge__inner span{ font-size:9.5px; font-weight:600; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--green-4); }
+.decade__body h2{ font-family:var(--serif); font-weight:500;
+  font-size:clamp(28px,3.2vw,42px); line-height:1.1; letter-spacing:-.025em;
+  color:var(--ink); margin:0 0 26px; }
+.decade__body h2 em{ font-style:italic; font-weight:400; color:var(--green); }
+.decade__body p{ font-size:16.5px; line-height:1.72; color:var(--body); margin:0 0 18px; }
+@media (max-width:900px){
+  .decade{ grid-template-columns:1fr; gap:60px; }
+  .badge{ top:-20px; right:20px; width:104px; height:104px; }
+  .badge__inner strong{ font-size:24px; }
+}
+
+/* STATS */
+.stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+  border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); margin-top:120px; }
+.stat{ padding:48px 32px; border-right:1px solid var(--rule); }
+.stat:last-child{ border-right:0; }
+.stat__value{ font-family:var(--serif); font-weight:500;
+  font-size:clamp(36px,4vw,54px); line-height:1; letter-spacing:-.03em;
+  color:var(--green); display:flex; align-items:baseline; gap:5px; margin-bottom:14px; }
+.stat__value small{ font-family:var(--sans); font-size:14px; font-weight:600;
+  color:var(--muted); letter-spacing:0; }
+.stat__label{ font-size:11.5px; font-weight:600; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--green-2); margin-bottom:10px; }
+.stat__note{ font-size:14px; line-height:1.55; color:var(--body); margin:0; }
+@media (max-width:900px){
+  .stats{ grid-template-columns:1fr 1fr; }
+  .stat:nth-child(2){ border-right:0; }
+  .stat:nth-child(1),.stat:nth-child(2){ border-bottom:1px solid var(--rule); }
+}
+@media (max-width:560px){
+  .stats{ grid-template-columns:1fr; }
+  .stat{ border-right:0; border-bottom:1px solid var(--rule); }
+  .stat:last-child{ border-bottom:0; }
+}
+
+/* SERVICES */
+.svc{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  max-width:1360px; margin:0 auto; padding:0 var(--pad); }
+.svc-card{ background:var(--paper); border:1px solid var(--rule);
+  padding:40px 32px; display:flex; flex-direction:column;
+  transition:border-color .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease); }
+.svc-card:hover{ border-color:var(--green-3); transform:translateY(-4px);
+  box-shadow:0 24px 48px -24px rgba(27,94,32,.2); }
+.svc-card__num{ font-size:11.5px; font-weight:600; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--green-3); margin-bottom:22px; }
+.svc-card h3{ font-family:var(--serif); font-weight:500;
+  font-size:22px; line-height:1.22; letter-spacing:-.015em;
+  color:var(--ink); margin:0 0 16px; }
+.svc-card p{ font-size:15px; line-height:1.68; color:var(--body);
+  margin:0 0 24px; flex-grow:1; }
+.svc-card__link{ display:inline-flex; align-items:center; gap:7px;
+  font-size:13.5px; font-weight:600; color:var(--green); text-decoration:none;
+  transition:gap .3s var(--ease); }
+.svc-card__link:hover{ gap:11px; }
+.svc-card__link svg{ width:13px; height:13px; }
+@media (max-width:900px){ .svc{ grid-template-columns:1fr; } }
+
+/* FOOTER */
+.foot{ background:var(--ink); color:rgba(255,255,255,.72); padding:110px 0 32px; }
+.foot__top{ display:grid; grid-template-columns:1.1fr 1fr; gap:72px;
+  align-items:start; margin-bottom:80px; }
+.foot__hashtag{ font-family:var(--serif); font-style:italic; font-weight:500;
+  font-size:clamp(34px,4.6vw,62px); line-height:1.05; letter-spacing:-.03em;
+  color:#fff; margin:0; }
+.foot__hashtag em{ font-style:italic; color:var(--green-4); }
+.contact-card{ background:var(--paper); color:var(--body);
+  padding:40px 40px 44px; border-radius:2px; }
+.contact-card h3{ font-family:var(--serif); font-weight:600;
+  font-size:30px; line-height:1.1; letter-spacing:-.02em;
+  color:var(--ink); margin:0 0 26px; }
+.contact-card h4{ font-family:var(--sans); font-size:11.5px; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--green); margin:22px 0 10px; }
+.contact-card p{ font-style:normal; font-size:14px; line-height:1.65;
+  color:var(--body); margin:0; }
+.contact-card a{ color:var(--green); text-decoration:none; }
+.contact-card a:hover{ text-decoration:underline; }
+.contact-card__socials{ display:flex; gap:10px; margin-top:26px; }
+.contact-card__socials a{ width:34px; height:34px; display:grid; place-items:center;
+  border:1px solid var(--rule); border-radius:6px; color:var(--ink);
+  transition:background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease); }
+.contact-card__socials a:hover{ background:var(--green); color:#fff; border-color:var(--green); }
+.contact-card__socials svg{ width:15px; height:15px; }
+.contact-card__cta{ display:inline-flex; align-items:center; gap:8px;
+  margin-top:26px; padding:12px 22px; background:var(--green); color:#fff;
+  font-size:13px; font-weight:600; text-decoration:none; border-radius:6px;
+  transition:background .2s var(--ease); }
+.contact-card__cta:hover{ background:var(--green-2); }
+.contact-card__cta svg{ width:13px; height:13px; }
+.foot__cols{ display:grid; grid-template-columns:repeat(4,1fr); gap:48px;
+  padding-bottom:60px; border-bottom:1px solid rgba(255,255,255,.1); }
+.foot-col h4{ font-family:var(--sans); font-size:12px; font-weight:600;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--green-4); margin:0 0 22px; }
+.foot-col ul{ list-style:none; margin:0; padding:0; }
+.foot-col li{ margin-bottom:11px; }
+.foot-col a{ font-size:14px; color:rgba(255,255,255,.75); text-decoration:none;
+  transition:color .2s var(--ease); }
+.foot-col a:hover{ color:#fff; }
+.foot__bottom{ padding-top:30px; display:flex; justify-content:space-between;
+  flex-wrap:wrap; gap:16px; font-size:12.5px; color:rgba(255,255,255,.45); }
+.foot__bottom nav{ display:flex; gap:24px; }
+.foot__bottom a{ color:inherit; text-decoration:none; }
+.foot__bottom a:hover{ color:#fff; }
+@media (max-width:900px){
+  .foot__top{ grid-template-columns:1fr; gap:48px; margin-bottom:56px; }
+  .foot__cols{ grid-template-columns:1fr 1fr; gap:36px; }
+}
+@media (max-width:560px){
+  .foot__cols{ grid-template-columns:1fr; }
+  .contact-card{ padding:32px 26px; }
+}
+
+/* ============================================================
+   DARK-SECTION TEXT OVERRIDES — MUST BE LAST
+   ============================================================ */
+.section--dark .chead h2,
+.patterned .chead h2,
+.standards .standards__body h2{ color:#fff; }
+.section--dark .chead h2 em,
+.patterned .chead h2 em,
+.standards .standards__body h2 em{ color:var(--green-4); }
+.section--dark .chead p,
+.patterned .chead p{ color:rgba(255,255,255,.82); }
+.section--dark .standards__body p,
+.patterned .italic-quote{ color:rgba(255,255,255,.82); }
+.section--dark .standards__body p strong{ color:#fff; font-weight:600; }
+
+@media (max-width:900px){
+  :root{ --pad:24px; }
+  .section{ padding:88px 0; }
+  .chead{ margin-bottom:52px; }
+}
+</style>
+</head>
+
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="site-header on-dark" id="siteHeader">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="EcoGreen home">
+      <img src="/assets/img/ecogreen-logo.png" alt="EcoGreen" class="brand-logo brand-logo--light" width="170" height="32" decoding="async">
+      <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen" class="brand-logo brand-logo--dark" width="170" height="32" decoding="async">
+    </a>
+
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link" href="/story/">Story</a></li>
+        <li class="nav-item has-drop">
+          <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul class="drop">
+            <li><a href="/services/">Services overview<span>What we do and who we serve</span></a></li>
+            <li><a href="/services/itad/">ITAD &amp; Data Destruction<span>NIST 800-88 purge, on-site shredding</span></a></li>
+            <li><a href="/services/recycling/">Recycling &amp; Recovery<span>Hydrometallurgical recovery streams</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item has-drop">
+          <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
+            Impact
+            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul class="drop">
+            <li><a href="/sustainability/">Sustainability<span>ESG reporting and impact data</span></a></li>
+            <li><a href="/compliance/">Compliance<span>Certifications and regulatory record</span></a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="/press/">Press</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about/">About</a></li>
+      </ul>
+    </nav>
+
+    <a class="header-cta" href="/contact/">
+      Book a pickup
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__media" aria-hidden="true">
+      <video autoplay muted loop playsinline poster="/assets/img/facility-aerial.jpg">
+        <source src="/assets/vid/hero.mp4" type="video/mp4">
+        <source src="/assets/vid/hero-mobile.mp4" type="video/mp4">
+        <source src="/assets/vid/Plastic_E_Waste_Recycling.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
+
+    <div class="hero__name" data-anim="slide-left">
+      <div class="hero__name-rule"></div>
+      <div class="hero__name-line">THE ECOGREEN STANDARD</div>
+      <div class="hero__name-role">CPCB Authorised · Since 2015</div>
+    </div>
+
+    <div class="hero__rail">
+      <h1 class="hero__title" data-split>The E-Waste India <em>Forgot.</em> The Standard We Built.</h1>
+
+      <div class="hero__aside" data-anim="fade-up">
+        <p>India generates <strong>1.75 million tonnes</strong> of electronic waste every year. Most of it disappears into an informal economy no auditor can trace.</p>
+        <p>This is the story of what happens to it — and the standard we built to make sure it happens <strong>properly.</strong></p>
+        <div class="hero__cta-row">
+          <a href="#began" class="btn btn--primary">
+            Read the story
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="/contact/" class="btn btn--ghost">
+            Schedule a pickup
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1 — BEGAN WITH A REFUSAL -->
+  <section class="section section--paper" id="began">
+    <div class="wrap">
+      <div class="chead" data-anim="fade-up">
+        <h2 data-split>It Began with a <em>Refusal.</em></h2>
+        <p>The story started in 2015, when e-waste in India was handled by an informal sector no one could trace. We refused to process a single device we could not account for. What looked like a business limitation became the foundation of everything we've built since.</p>
+      </div>
+    </div>
+
+    <div class="strip" data-stagger>
+      <figure>
+        <img src="/assets/img/story-01.jpg" alt="Early EcoGreen collection operations">
+        <figcaption>First collection route — Greater Noida, 2015</figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/img/story-02.jpg" alt="Manual sorting floor at the EcoGreen facility">
+        <figcaption>Manual sorting floor — every asset tagged and logged</figcaption>
+      </figure>
+      <figure>
+        <img src="/assets/img/story-03.jpg" alt="First NIST-certified data destruction event">
+        <figcaption>First NIST 800-88 Rev.1 certified destruction — 2017</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2 — TWO STANDARDS (focus-pull) -->
+  <section class="section section--dark standards">
+    <div class="standards__grid">
+
+      <aside class="standard standard--old" data-focus data-delay="1">
+        <span class="standard__eyebrow">The Old Way</span>
+        <h3>What the sector did.</h3>
+        <ul>
+          <li><span class="mark">×</span>No serialised manifests</li>
+          <li><span class="mark">×</span>No certificates of destruction</li>
+          <li><span class="mark">×</span>No downstream audits</li>
+          <li><span class="mark">×</span>No proof of where data went</li>
+        </ul>
+      </aside>
+
+      <div class="standards__body" data-focus>
+        <h2 data-split>A Decision That Reshaped <em>E-Waste in India.</em></h2>
+        <p>When we started, the entire sector ran on trust. No manifests, no serialised certificates, no downstream audits. Enterprise clients had no way to prove what had happened to their data.</p>
+        <p>We built the opposite. Every asset was photographed, weighed, scanned and logged the moment it entered our facility. Every gram that left was documented against a chain of custody an enterprise auditor could accept without follow-up.</p>
+        <p>That decision shaped everything that came after — our own collection network, NIST 800-88 Rev.1 certification, unannounced downstream audits. It was slower. It was more expensive. It was the only version worth doing.</p>
+      </div>
+
+      <aside class="standard standard--new" data-focus data-delay="2">
+        <span class="standard__eyebrow">The EcoGreen Way</span>
+        <h3>What we built instead.</h3>
+        <ul>
+          <li><span class="mark">✓</span>Serialised manifest per asset</li>
+          <li><span class="mark">✓</span>NIST 800-88 Rev.1 certificate per device</li>
+          <li><span class="mark">✓</span>Unannounced downstream audits</li>
+          <li><span class="mark">✓</span>Complete auditable chain of custody</li>
+        </ul>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- 3 — REGULATORY TIMELINE -->
+  <section class="section section--soft">
+    <div class="wrap">
+      <div class="chead" data-anim="fade-up">
+        <h2 data-split>Securing India's First <em>Auditable Chain of Custody.</em></h2>
+        <p>In 2016 the E-Waste (Management) Rules formalised what responsible recycling had to look like. We were already there. What followed was a decade of stacking certifications — each one forcing a stricter standard than the last.</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline__track" data-stagger>
+        <div class="tl-item">
+          <span class="tl-item__year">2011</span>
+          <span class="tl-item__dot"></span>
+          <h4>Rules Introduced</h4>
+          <p>E-Waste (Management &amp; Handling) Rules notified</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-item__year">2015</span>
+          <span class="tl-item__dot"></span>
+          <h4>EcoGreen Founded</h4>
+          <p>First collection route in Greater Noida</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-item__year">2016</span>
+          <span class="tl-item__dot"></span>
+          <h4>CPCB Authorised</h4>
+          <p>Formal recycler &amp; dismantler authorisation granted</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-item__year">2018</span>
+          <span class="tl-item__dot"></span>
+          <h4>ISO Certified</h4>
+          <p>ISO 14001 (environment) &amp; ISO 45001 (safety)</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-item__year">2023</span>
+          <span class="tl-item__dot"></span>
+          <h4>R2v3 Aligned</h4>
+          <p>Downstream vendor chain independently audited</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-item__year">2025</span>
+          <span class="tl-item__dot"></span>
+          <h4>60,142 MT</h4>
+          <p>Certified processing volume — FY25 milestone</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 — CLOSED LOOP -->
+  <section class="section patterned">
+    <div class="wrap">
+      <div class="chead" style="margin-bottom:0;" data-anim="fade-up">
+        <h2 data-split>Why We Call It <em>a Closed Loop.</em></h2>
+        <p style="max-width:720px;">Because the material that comes out of your devices goes back into India — not into an export container, not into an open yard, not into a smelter someone signed off on without ever visiting.</p>
+
+        <div class="formula" data-anim="scale-in">
+          Collect <em class="op">+</em> Certify <em class="op">+</em> Recover <em class="op">=</em> <em>Closed&nbsp;Loop</em>
+        </div>
+
+        <p style="max-width:720px;">Every stage is documented. Every downstream refiner is audited. Every certificate is retrievable by serial number. Nothing is assumed.</p>
+        <p class="italic-quote">Not disposal. Recovery. Not export. Domestic supply. Not trust. <em>Proof.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 — DECADE LATER -->
+  <section class="section section--paper">
+    <div class="decade">
+      <div class="decade__media" data-anim="fade-up">
+        <div class="badge">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <polygon points="50,3 92,26 92,74 50,97 8,74 8,26" fill="#1B5E20"/>
+            <polygon points="50,9 86,29 86,71 50,91 14,71 14,29" fill="none" stroke="#A5D6A7" stroke-width="0.9"/>
+          </svg>
+          <div class="badge__inner">
+            <strong>SINCE</strong>
+            <span>2015</span>
+          </div>
+        </div>
+        <img src="/assets/img/facility-aerial.jpg" alt="EcoGreen facility — Greater Noida" data-parallax="0.08">
+      </div>
+
+      <div class="decade__body" data-anim="fade-up">
+        <h2 data-split>A Decade Later, <em>Still Refusing.</em></h2>
+        <p>What started as a single collection route in Greater Noida is now a national network — five facilities, licensed collection partners in major metros, and a downstream refiner chain audited unannounced every quarter.</p>
+        <p>We have processed <strong>60,142 metric tonnes</strong> of certified e-waste. We have saved an estimated <strong>728.5 tCO₂e</strong> against primary mining. We have recovered <strong>98%</strong> of the recoverable metals — and shipped every gram back into Indian manufacturing.</p>
+        <p>The scale changed. The refusal didn't.</p>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="stats" data-stagger>
+        <div class="stat">
+          <div class="stat__value"><span data-count="60142">0</span><small>MT</small></div>
+          <div class="stat__label">E-Waste Recycled</div>
+          <p class="stat__note">Certified enterprise ITAD and mechanical dismantling.</p>
+        </div>
+        <div class="stat">
+          <div class="stat__value"><span data-count="728.5" data-decimals="1">0</span><small>tCO₂e</small></div>
+          <div class="stat__label">Emissions Saved</div>
+          <p class="stat__note">Scope 3 displacement vs. primary mining.</p>
+        </div>
+        <div class="stat">
+          <div class="stat__value"><span data-count="98">0</span><small>%</small></div>
+          <div class="stat__label">Extraction Efficiency</div>
+          <p class="stat__note">Hydrometallurgical recovery of cobalt, lithium, nickel.</p>
+        </div>
+        <div class="stat">
+          <div class="stat__value"><span data-count="99.5" data-decimals="1">0</span><small>%</small></div>
+          <div class="stat__label">Metal Purity</div>
+          <p class="stat__note">Gold, silver, copper and palladium at manufacturing grade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 — SERVICES -->
+  <section class="section section--soft">
+    <div class="wrap">
+      <div class="chead" data-anim="fade-up">
+        <h2 data-split>Three Services. <em>One Unbroken Chain of Custody.</em></h2>
+        <p>Everything we do is in service of a single outcome: your e-waste disappears, and you can prove exactly where it went.</p>
+      </div>
+    </div>
+
+    <div class="svc" data-stagger>
+      <article class="svc-card">
+        <div class="svc-card__num">01 / ITAD</div>
+        <h3>IT Asset Disposition &amp; Data Destruction</h3>
+        <p>NIST 800-88 Rev.1 Purge wipes or on-site physical shredding, with a serialised certificate of destruction issued per device. Reconciliation reports accepted by enterprise auditors without follow-up.</p>
+        <a class="svc-card__link" href="/services/itad/">
+          Explore ITAD
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+      <article class="svc-card">
+        <div class="svc-card__num">02 / RECOVERY</div>
+        <h3>E-Waste Recycling &amp; Material Recovery</h3>
+        <p>Closed-loop recovery of copper, gold, silver, palladium, cobalt, lithium and nickel — separated and routed to refiners who feed Indian manufacturing, not exported raw.</p>
+        <a class="svc-card__link" href="/services/recycling/">
+          Explore recycling
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+      <article class="svc-card">
+        <div class="svc-card__num">03 / COMPLIANCE</div>
+        <h3>Compliance, Reporting &amp; Chain of Custody</h3>
+        <p>CPCB authorisation, E-Waste Rules 2016 documentation, and the complete audit trail your procurement team needs. Unannounced downstream vendor audits, published openly.</p>
+        <a class="svc-card__link" href="/compliance/">
+          View certifications
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <h2 class="foot__hashtag" data-anim="fade-up">#ClosingThe<em>Loop</em></h2>
+
+      <div class="contact-card" data-anim="fade-up">
+        <h3>Contact Us</h3>
+        <p>EcoGreen Recyclers (P) Limited<br>Plot No. 479, Habibpur, Main Dadri Road<br>Greater Noida (U.P.) — 201306</p>
+        <h4>Phone</h4>
+        <p><a href="tel:+919319253708">+91 93192 53708</a></p>
+        <h4>Email</h4>
+        <p><a href="mailto:operation@ecogreen.eco">operation@ecogreen.eco</a></p>
+        <div class="contact-card__socials">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 0 1 2.5 6 2.5 2.5 0 0 1 0 3.5 2.5 2.5 0 0 1 2.5 1a2.5 2.5 0 0 1 2.48 2.5ZM.22 8h4.56v14H.22V8Zm7.32 0h4.37v1.92h.06c.61-1.1 2.1-2.26 4.32-2.26 4.62 0 5.47 2.92 5.47 6.72V22h-4.56v-6.68c0-1.59-.03-3.64-2.22-3.64-2.22 0-2.56 1.73-2.56 3.52V22H7.54V8Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.8-.48-5.62a2.95 2.95 0 0 0-2.08-2.08C18.62 3.8 12 3.8 12 3.8s-6.62 0-8.44.5A2.95 2.95 0 0 0 1.48 6.38C1 8.2 1 12 1 12s0 3.8.48 5.62a2.95 2.95 0 0 0 2.08 2.08c1.82.5 8.44.5 8.44.5s6.62 0 8.44-.5a2.95 2.95 0 0 0 2.08-2.08C23 15.8 23 12 23 12ZM9.8 15.5v-7l6 3.5-6 3.5Z"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2h3.3l-7.2 8.24L23 22h-6.62l-5.18-6.78L5.27 22H1.96l7.7-8.8L1 2h6.79l4.68 6.2L18.24 2Zm-1.16 18h1.83L7.02 3.9H5.06L17.08 20Z"/></svg></a>
+        </div>
+        <a class="contact-card__cta" href="/contact/">
+          Get in Touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="foot__cols">
+      <div class="foot-col">
+        <h4>About Us</h4>
+        <ul>
+          <li><a href="/about/">Company Overview</a></li>
+          <li><a href="/story/">Our Journey</a></li>
+          <li><a href="/about/leadership/">Leadership</a></li>
+          <li><a href="/about/csr/">Corporate Social Responsibility</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/itad/">ITAD &amp; Data Destruction</a></li>
+          <li><a href="/services/recycling/">E-Waste Recycling</a></li>
+          <li><a href="/services/recovery/">Material Recovery</a></li>
+          <li><a href="/services/refurbishment/">Refurbishment</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Compliance</h4>
+        <ul>
+          <li><a href="/compliance/cpcb/">CPCB Authorisation</a></li>
+          <li><a href="/compliance/iso/">ISO 14001 &amp; 45001</a></li>
+          <li><a href="/compliance/r2v3/">R2v3 Downstream</a></li>
+          <li><a href="/compliance/reports/">Annual Reports</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/contact/">Schedule a Pickup</a></li>
+          <li><a href="/press/">Press &amp; Media</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot__bottom">
+      <span>© <span id="year">2026</span> EcoGreen Recyclers (P) Limited — All Rights Reserved.</span>
+      <nav aria-label="Legal">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<script>
+/* ============================================================
+   1. Headline word-split
+   ============================================================ */
+document.querySelectorAll('[data-split]').forEach(el => {
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+  textNodes.forEach(node => {
+    const words = node.textContent.split(/(\s+)/);
+    const frag = document.createDocumentFragment();
+    words.forEach(w => {
+      if (!w.trim()) { frag.appendChild(document.createTextNode(w)); return; }
+      const wrap = document.createElement('span');
+      wrap.className = 'word';
+      const inner = document.createElement('span');
+      inner.textContent = w;
+      wrap.appendChild(inner);
+      frag.appendChild(wrap);
+    });
+    node.parentNode.replaceChild(frag, node);
+  });
+});
+
+/* ============================================================
+   2. Reveal observer — includes [data-focus]
+   ============================================================ */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-in');
+      revealObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+document.querySelectorAll('[data-anim], [data-stagger], [data-split], [data-focus]').forEach(el => {
+  revealObs.observe(el);
+});
+
+/* Timeline dots */
+const dotObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-in');
+      dotObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.6 });
+
+document.querySelectorAll('.tl-item').forEach(el => dotObs.observe(el));
+
+/* ============================================================
+   3. Count-up
+   ============================================================ */
+const easeOut = t => 1 - Math.pow(1 - t, 3);
+const animateCount = (el) => {
+  const target = parseFloat(el.dataset.count);
+  const decimals = parseInt(el.dataset.decimals || '0', 10);
+  const duration = 1600;
+  const start = performance.now();
+  const tick = (now) => {
+    const t = Math.min((now - start) / duration, 1);
+    const val = target * easeOut(t);
+    el.textContent = val.toLocaleString('en-IN', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals
+    });
+    if (t < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+};
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+
+/* ============================================================
+   4. Parallax
+   ============================================================ */
+const parallaxEls = [...document.querySelectorAll('[data-parallax]')];
+if (parallaxEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let ticking = false;
+  const updateParallax = () => {
+    const vh = window.innerHeight;
+    parallaxEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const speed = parseFloat(el.dataset.parallax) || 0.08;
+      const offset = (rect.top + rect.height / 2 - vh / 2) * -speed;
+      el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0) scale(1.06)`;
+    });
+    ticking = false;
+  };
+  const onScroll = () => {
+    if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  updateParallax();
+}
+
+/* ============================================================
+   5. Progress bar
+   ============================================================ */
+const progress = document.getElementById('progress');
+let progTicking = false;
+const updateProgress = () => {
+  const h = document.documentElement;
+  const max = h.scrollHeight - h.clientHeight;
+  progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  progTicking = false;
+};
+window.addEventListener('scroll', () => {
+  if (!progTicking) { requestAnimationFrame(updateProgress); progTicking = true; }
+}, { passive: true });
+updateProgress();
+
+/* Year */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
