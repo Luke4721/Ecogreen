@@ -203,7 +203,8 @@
     .hero-kknag-banner {
       position: relative;
       height: 840px;
-      min-height: 85vh;
+      max-height: calc(100vh - 86px);
+      min-height: 620px;
       background: #000000;
       overflow: hidden;
       display: flex;
@@ -327,15 +328,16 @@
       color: #ffffff;
       width: 530px;
       padding: 56px 48px;
-      border-radius: 4px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      border-radius: 6px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
       position: relative;
       z-index: 2;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
       border-left: 4px solid var(--eg-green-light);
     }
 
     .overview-floating-card .kknag-eyebrow {
-      color: var(--eg-green-mint);
+      color: #f26522;
     }
 
     .overview-floating-card h2 {
@@ -348,8 +350,8 @@
     }
 
     .overview-floating-card p {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.86);
+      font-size: 14.5px;
+      color: rgba(255, 255, 255, 0.88);
       line-height: 1.75;
       margin-bottom: 34px;
     }
@@ -358,45 +360,69 @@
        ZONE 5: CLIENT ESTEEMED CUSTOMERS (10 LOGOS IN 2 ROWS)
        ============================================================ */
     .clients-marquee-sec {
-      padding: 120px 0 100px;
+      padding: 100px 0 90px;
       background: #ffffff;
       text-align: center;
     }
 
     .clients-logo-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 36px 60px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      background: #ffffff;
+      border: 1px solid #ebebeb;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
       margin-top: 48px;
-      max-width: 1100px;
+      max-width: 1140px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .clients-logo-cell {
-      height: 56px;
+      height: 96px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 16px;
+      padding: 16px 28px;
+      border-right: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
       transition: all 0.25s ease;
+      background: #ffffff;
     }
+
+    .clients-logo-cell:nth-child(5n) {
+      border-right: none;
+    }
+
+    .clients-logo-cell:nth-child(n+6) {
+      border-bottom: none;
+    }
+
     .clients-logo-cell img {
-      max-height: 44px;
-      max-width: 150px;
+      max-height: 38px;
+      max-width: 135px;
+      width: auto;
+      height: auto;
       object-fit: contain;
+      transition: transform 0.28s ease, filter 0.28s ease;
+      filter: grayscale(10%) opacity(0.88);
     }
+
     .clients-logo-cell:hover {
-      transform: scale(1.1);
+      background: #fbfdfb;
+    }
+
+    .clients-logo-cell:hover img {
+      transform: scale(1.08);
+      filter: grayscale(0%) opacity(1);
     }
 
     /* ============================================================
        ZONE 6: OUR ACCREDITATIONS (6 AUTHENTIC CERTIFICATION SEALS)
        ============================================================ */
     .accreditations-seal-sec {
-      padding: 90px 0 110px;
+      padding: 80px 0 100px;
       background: #ffffff;
       text-align: center;
       border-bottom: 1px solid #eeeeee;
@@ -406,8 +432,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;
-      margin-top: 50px;
+      gap: 36px;
+      margin-top: 48px;
       flex-wrap: wrap;
     }
 
@@ -415,7 +441,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 130px;
+      width: 135px;
       text-align: center;
       transition: all 0.28s ease;
       cursor: pointer;
@@ -487,7 +513,7 @@
     .business-card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(10, 26, 16, 0.1) 0%, rgba(10, 26, 16, 0.95) 72%);
+      background: linear-gradient(180deg, rgba(8, 20, 13, 0.05) 0%, rgba(8, 20, 13, 0.45) 45%, rgba(8, 20, 13, 0.94) 75%, rgba(8, 20, 13, 0.99) 100%);
     }
 
     .business-card-text {
@@ -513,10 +539,10 @@
 
     /* ============================================================
        ZONE 8: INDUSTRIES WE SERVE (WITH AMBER PANEL IMAGE)
-       Image: /assets/img/ref/amber-panel.webp
+       Image: /assets/img/ref/amber-circuit.jpg
        ============================================================ */
     .industries-dark-sec {
-      padding: 140px 0 150px;
+      padding: 130px 0 140px;
       background: var(--eg-forest-sec);
       position: relative;
       color: #ffffff;
@@ -525,7 +551,7 @@
     .industries-dark-scrim {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(8, 20, 13, 0.98) 0%, rgba(14, 38, 23, 0.95) 100%);
+      background: linear-gradient(135deg, rgba(6, 16, 10, 0.98) 0%, rgba(11, 28, 18, 0.96) 100%);
     }
 
     .industries-dark-content {
@@ -538,7 +564,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 50px;
       align-items: center;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
     .industries-left-head h2 {
@@ -552,33 +578,46 @@
     }
 
     .industries-amber-panel {
+      position: relative;
       height: 260px;
-      border-radius: 4px;
+      border-radius: 6px;
       overflow: hidden;
-      box-shadow: 0 14px 40px rgba(242, 101, 34, 0.45);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 16px 45px rgba(242, 101, 34, 0.35);
+      border: 1px solid rgba(242, 101, 34, 0.45);
     }
     .industries-amber-panel img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      filter: sepia(0.85) saturate(3) hue-rotate(-22deg) brightness(1.15) contrast(1.1);
+      transition: transform 0.4s ease;
+    }
+    .industries-amber-panel:hover img {
+      transform: scale(1.05);
+    }
+    .industries-amber-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 60% 40%, rgba(242, 101, 34, 0.2) 0%, rgba(0, 0, 0, 0.45) 100%);
+      pointer-events: none;
     }
 
     .industries-pills-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 18px;
     }
 
     .industry-pill-btn {
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 9999px;
-      padding: 16px 22px;
+      padding: 16px 20px;
       color: #ffffff;
       font-family: var(--font-heading);
-      font-size: 14.5px;
-      font-weight: 600;
+      font-size: 13.5px;
+      font-weight: 700;
       text-align: center;
       display: flex;
       align-items: center;
@@ -595,14 +634,18 @@
       transition: all 0.25s ease;
     }
     .industry-pill-btn:hover {
-      background: var(--eg-green);
-      border-color: var(--eg-green);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 22px rgba(46, 125, 50, 0.45);
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.45);
+      transform: translateY(-2px);
     }
-    .industry-pill-btn:hover .ind-icon {
-      color: #ffffff;
-      transform: scale(1.15);
+    .industry-pill-btn.active {
+      background: #ffffff !important;
+      color: #0b2414 !important;
+      border-color: #ffffff !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    }
+    .industry-pill-btn.active .ind-icon {
+      color: #2E7D32 !important;
     }
 
     /* ============================================================
@@ -611,7 +654,7 @@
        ============================================================ */
     .services-dark-sec {
       padding: 130px 0 160px;
-      background: #08140d;
+      background: #06140c;
       color: #ffffff;
       text-align: center;
     }
@@ -662,18 +705,19 @@
     .service-white-card {
       background: #ffffff;
       color: var(--text-dark);
-      border-radius: 4px;
-      padding: 48px 36px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+      border-radius: 6px;
+      padding: 44px 34px 36px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
       text-align: left;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 310px;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .service-white-card:hover {
       transform: translateY(-8px);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
     }
 
     .service-white-card-num {
@@ -686,7 +730,7 @@
 
     .service-white-card-title {
       font-family: var(--font-heading);
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 700;
       color: var(--eg-forest-card);
       margin-bottom: 14px;
@@ -697,24 +741,25 @@
       font-size: 13.5px;
       color: #666666;
       line-height: 1.65;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .service-white-card-arrow {
-      width: 36px;
-      height: 36px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      background: var(--eg-forest-card);
+      background: var(--eg-green);
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
-      align-self: flex-start;
-      transition: background 0.25s ease;
+      font-size: 16px;
+      margin-left: auto;
+      transition: background 0.25s ease, transform 0.25s ease;
     }
     .service-white-card:hover .service-white-card-arrow {
-      background: var(--eg-green);
+      background: var(--eg-green-dark);
+      transform: scale(1.08);
     }
 
     /* ============================================================
@@ -722,8 +767,8 @@
        Images: /assets/img/ref/affil-1.png to affil-6.png
        ============================================================ */
     .testimonials-split-sec {
-      padding: 140px 0 120px;
-      background: #f6f8f6;
+      padding: 130px 0 110px;
+      background: #f7faf7 url('/assets/img/ref/chevron-bg.svg') right center / 680px auto no-repeat;
       border-bottom: 1px solid #e5ebe6;
     }
 
@@ -747,9 +792,9 @@
 
     .testi-right-quote-box {
       background: #ffffff;
-      padding: 56px 48px;
-      border-radius: 4px;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+      padding: 52px 46px 44px;
+      border-radius: 6px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
       position: relative;
       border-left: 4px solid var(--eg-green);
     }
@@ -758,7 +803,7 @@
       font-size: 16.5px;
       color: #333333;
       line-height: 1.75;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       font-style: italic;
     }
 
@@ -863,7 +908,7 @@
       gap: 16px;
       margin-bottom: 24px;
       font-family: var(--font-heading);
-      font-size: 17px;
+      font-size: 16.5px;
       font-weight: 600;
     }
 
@@ -882,46 +927,57 @@
 
     .sustain-kknag-right-badges {
       display: flex;
-      gap: 36px;
+      gap: 32px;
       justify-content: center;
     }
 
     .sustain-circle-seal {
-      width: 210px;
-      height: 210px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
-      border: 3px dashed var(--eg-green-mint);
+      border: 3px solid #4CAF50;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(76, 175, 80, 0.2);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
-      background: rgba(10, 26, 16, 0.75);
-      backdrop-filter: blur(8px);
+      padding: 18px;
+      background: rgba(10, 26, 16, 0.88);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .sustain-circle-seal:hover {
+      transform: translateY(-6px) scale(1.04);
+      border-color: #81C784;
     }
     .sustain-circle-seal strong {
       font-family: var(--font-heading);
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .sustain-circle-seal strong span {
       color: var(--eg-green-mint);
-      margin-bottom: 6px;
     }
     .sustain-circle-seal span {
-      font-size: 12px;
+      font-size: 11.5px;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.4;
+      letter-spacing: 0.08em;
+      color: var(--eg-green-mint);
+      font-weight: 600;
+      line-height: 1.35;
     }
 
     /* ============================================================
        ZONE 12: PRODUCT CARDS WITH CORNER RIBBONS & HI-RES IMAGES
-       Images: /assets/img/ref/product-1.webp, 2.webp, 3.webp
+       Images: /assets/img/ref/product-1.jpg, 2.jpg, 3.jpg
        ============================================================ */
     .streams-kknag-sec {
-      padding: 140px 0 150px;
-      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+      padding: 130px 0 140px;
+      background: linear-gradient(180deg, #edf4ee 0%, #e2ece3 50%, #edf4ee 100%);
       text-align: center;
     }
 
@@ -936,18 +992,21 @@
       background: #ffffff;
       color: var(--eg-forest-card);
       font-family: var(--font-heading);
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.05em;
       padding: 12px 28px;
       border-radius: 9999px;
       cursor: pointer;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
     }
     .filter-pill.active, .filter-pill:hover {
-      background: var(--eg-green-dark);
+      background: var(--eg-green);
       color: #ffffff;
+      box-shadow: 0 6px 18px rgba(46, 125, 50, 0.35);
     }
 
     .streams-cards-grid {
@@ -958,18 +1017,19 @@
 
     .stream-ribbon-card {
       background: #ffffff;
-      border-radius: 4px;
+      border-radius: 6px;
       overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
       text-align: left;
       position: relative;
-      transition: transform 0.25s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       min-height: 520px;
       display: flex;
       flex-direction: column;
     }
     .stream-ribbon-card:hover {
       transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
     }
 
     /* Folded Green Triangle Corner Ribbon */
@@ -998,22 +1058,22 @@
     }
 
     .stream-card-img-wrap {
-      height: 280px;
-      background: #f8fafc;
+      height: 250px;
+      background: #06140c;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 0;
     }
     .stream-card-img-wrap img {
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain;
-      transition: transform 0.4s ease;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
     }
     .stream-ribbon-card:hover .stream-card-img-wrap img {
-      transform: scale(1.06);
+      transform: scale(1.08);
     }
 
     .stream-card-body {
@@ -1312,16 +1372,16 @@
       <h2 class="kknag-heading" style="margin-bottom:0;">Client Esteemed Customers</h2>
 
       <div class="clients-logo-grid">
-        <div class="clients-logo-cell"><img src="/assets/img/ref/client-1.webp" alt="Toyota"></div>
-        <div class="clients-logo-cell"><img src="/assets/img/ref/client-2.webp" alt="Volkswagen"></div>
-        <div class="clients-logo-cell"><img src="/assets/img/ref/client-3.webp" alt="Webasto"></div>
-        <div class="clients-logo-cell"><img src="/assets/img/ref/client-4.webp" alt="Tata"></div>
-        <div class="clients-logo-cell"><img src="/assets/img/ref/client-5.webp" alt="Client Partner"></div>
-        <div class="clients-logo-cell"><img src="/assets/img/ref/client-6.webp" alt="Softex"></div>
-        <div class="clients-logo-cell"><img src="/assets/img/ref/client-7.webp" alt="Client Partner"></div>
-        <div class="clients-logo-cell"><img src="/assets/img/ref/client-8.webp" alt="Client Partner"></div>
-        <div class="clients-logo-cell"><img src="/assets/img/ref/client-9.webp" alt="Samsung"></div>
-        <div class="clients-logo-cell"><img src="/assets/img/ref/client-10.webp" alt="Panasonic"></div>
+        <div class="clients-logo-cell" title="Toyota"><img src="/assets/img/ref/client-1.svg" alt="Toyota"></div>
+        <div class="clients-logo-cell" title="Volkswagen"><img src="/assets/img/ref/client-2.svg" alt="Volkswagen"></div>
+        <div class="clients-logo-cell" title="Tata"><img src="/assets/img/ref/client-3.svg" alt="Tata"></div>
+        <div class="clients-logo-cell" title="Samsung"><img src="/assets/img/ref/client-4.svg" alt="Samsung"></div>
+        <div class="clients-logo-cell" title="Panasonic"><img src="/assets/img/ref/client-5.svg" alt="Panasonic"></div>
+        <div class="clients-logo-cell" title="Dell Technologies"><img src="/assets/img/ref/client-6.svg" alt="Dell Technologies"></div>
+        <div class="clients-logo-cell" title="Cisco Systems"><img src="/assets/img/ref/client-7.svg" alt="Cisco Systems"></div>
+        <div class="clients-logo-cell" title="HP Enterprise"><img src="/assets/img/ref/client-8.svg" alt="HP Enterprise"></div>
+        <div class="clients-logo-cell" title="Intel"><img src="/assets/img/ref/client-9.svg" alt="Intel"></div>
+        <div class="clients-logo-cell" title="Sony"><img src="/assets/img/ref/client-10.svg" alt="Sony"></div>
       </div>
     </div>
   </section>
@@ -1385,7 +1445,7 @@
             <p class="business-card-desc">
               Certified non-recoverable NIST SP 800-88 Clear and Purge data sanitization, on-site optical shredding, and serialized chain of custody.
             </p>
-            <a href="/services/itad/" class="btn-eg-green">KNOW MORE</a>
+            <a href="/services/itad/" class="btn-eg-green">KNOW MORE &rarr;</a>
           </div>
         </div>
 
@@ -1398,7 +1458,7 @@
             <p class="business-card-desc">
               Zero-emission chemical leaching recovering 98% of Gold, Silver, Copper, Cobalt, and Lithium re-injected into domestic production.
             </p>
-            <a href="/services/recovery/" class="btn-eg-green">KNOW MORE</a>
+            <a href="/services/recovery/" class="btn-eg-green">KNOW MORE &rarr;</a>
           </div>
         </div>
 
@@ -1411,7 +1471,7 @@
             <p class="business-card-desc">
               Direct Central Pollution Control Board portal synchronization, automated Form 6 manifests, and quarterly vendor audit validation.
             </p>
-            <a href="/compliance/" class="btn-eg-green">KNOW MORE</a>
+            <a href="/compliance/" class="btn-eg-green">KNOW MORE &rarr;</a>
           </div>
         </div>
       </div>
@@ -1420,6 +1480,7 @@
 
   <!-- ============================================================
        ZONE 8: INDUSTRIES WE SERVE (WITH AMBER PANEL IMAGE)
+       Image: /assets/img/ref/amber-circuit.jpg
        ============================================================ -->
   <section class="industries-dark-sec">
     <div class="industries-dark-scrim"></div>
@@ -1431,40 +1492,40 @@
           <a href="/services/" class="btn-eg-pill">EXPLORE ALL SECTORS</a>
         </div>
         <div class="industries-amber-panel">
-          <img src="/assets/img/ref/amber-panel.webp" alt="Industries We Serve — High-Performance Materials">
+          <img src="/assets/img/ref/amber-circuit.jpg" alt="Industries We Serve — Microelectronics & High-Tech Materials">
         </div>
       </div>
 
-      <div class="industries-pills-grid">
-        <div class="industry-pill-btn">
+      <div class="industries-pills-grid" id="industriesPillsGrid">
+        <div class="industry-pill-btn active" data-sector="data-centers">
           <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/><line x1="10" y1="6" x2="18" y2="6"/><line x1="10" y1="18" x2="18" y2="18"/></svg>
           <span>Data Centers &amp; Cloud</span>
         </div>
-        <div class="industry-pill-btn">
+        <div class="industry-pill-btn" data-sector="banking">
           <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M3 10h18"/><path d="M12 3l9 7H3l9-7z"/><path d="M6 10v8"/><path d="M10 10v8"/><path d="M14 10v8"/><path d="M18 10v8"/></svg>
           <span>Banking &amp; Financial (BFSI)</span>
         </div>
-        <div class="industry-pill-btn">
+        <div class="industry-pill-btn" data-sector="telecom">
           <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.93 4.93a10 10 0 0 1 14.14 0"/><path d="M7.76 7.76a6 6 0 0 1 8.48 0"/><circle cx="12" cy="12" r="2"/><path d="M12 14v7"/><path d="M9 21h6"/></svg>
           <span>Telecommunications</span>
         </div>
-        <div class="industry-pill-btn">
+        <div class="industry-pill-btn" data-sector="automotive">
           <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 3c-.1.2-.1.5-.1.8v4.3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 10l1.5-3"/></svg>
           <span>Automotive &amp; EV Mobility</span>
         </div>
-        <div class="industry-pill-btn">
+        <div class="industry-pill-btn" data-sector="electronics">
           <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="9" y1="6" x2="15" y2="6"/></svg>
           <span>Consumer Electronics OEMs</span>
         </div>
-        <div class="industry-pill-btn">
+        <div class="industry-pill-btn" data-sector="healthcare">
           <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
           <span>Healthcare &amp; Medical IT</span>
         </div>
-        <div class="industry-pill-btn">
+        <div class="industry-pill-btn" data-sector="aerospace">
           <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span>Aerospace &amp; Defense</span>
         </div>
-        <div class="industry-pill-btn">
+        <div class="industry-pill-btn" data-sector="clean-tech">
           <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           <span>Renewable Energy &amp; CleanTech</span>
         </div>
@@ -1540,11 +1601,17 @@
         </div>
 
         <div class="testi-right-quote-box">
+          <div style="font-size: 54px; line-height: 1; font-family: Georgia, serif; color: #2E7D32; opacity: 0.35; margin-bottom: 4px;">&ldquo;</div>
           <p class="testi-quote-text">
             "EcoGreen manages our nationwide ITAD across 14 enterprise branches. Their NIST 800-88 certificates and serialized custody reports satisfy our external Big-4 compliance audits with zero findings."
           </p>
-          <div class="testi-author-name">Head of Corporate IT Infrastructure</div>
-          <div class="testi-author-desig">Leading Multinational Technology Provider</div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 24px; padding-top: 18px; border-top: 1px solid #f0f0f0;">
+            <div>
+              <div class="testi-author-name">Head of Corporate IT Infrastructure</div>
+              <div class="testi-author-desig">Leading Multinational Technology Provider</div>
+            </div>
+            <img src="/assets/img/ref/client-7.svg" alt="Cisco Systems" style="height: 26px; width: auto; opacity: 0.75;">
+          </div>
         </div>
       </div>
 
@@ -1570,27 +1637,34 @@
     <div class="container">
       <div class="sustain-kknag-grid">
         <div class="sustain-kknag-left">
-          <span class="kknag-eyebrow">SUSTAINABILITY INITIATIVES</span>
+          <span class="kknag-eyebrow" style="color: #A5D6A7;">SUSTAINABILITY INITIATIVES</span>
           <h2>Our Material Recovery and Processing Has Minimal Environmental Impact</h2>
 
           <div class="sustain-kknag-check-item">
             <span class="green-circle-arrow">&rarr;</span>
-            <span>Zero Landfill, Zero Export — 100% Domestic Supply</span>
+            <span>Zero Landfill, Zero Export — 100% Domestic Supply Chain</span>
           </div>
 
           <div class="sustain-kknag-check-item">
             <span class="green-circle-arrow">&rarr;</span>
             <span>Scope 3 Carbon Displacement — 728.5+ tCO₂e Saved</span>
           </div>
+
+          <div class="sustain-kknag-check-item">
+            <span class="green-circle-arrow">&rarr;</span>
+            <span>Closed-Loop Circular Economy — ISO 14001:2015 Audited</span>
+          </div>
         </div>
 
         <div class="sustain-kknag-right-badges">
           <div class="sustain-circle-seal">
-            <strong>60,142+</strong>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A5D6A7" stroke-width="2" style="margin-bottom:6px;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            <strong>60,142<span>+</span></strong>
             <span>Metric Tonnes Re-entered</span>
           </div>
           <div class="sustain-circle-seal">
-            <strong>728.5+</strong>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A5D6A7" stroke-width="2" style="margin-bottom:6px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <strong>728.5<span>+</span></strong>
             <span>tCO₂e Emissions Avoided</span>
           </div>
         </div>
@@ -1615,12 +1689,12 @@
           <div class="card-corner-ribbon"></div>
           <span class="card-corner-ribbon-text">NIST 800</span>
           <div class="stream-card-img-wrap">
-            <img src="/assets/img/ref/product-1.webp" alt="Server Racks ITAD">
+            <img src="/assets/img/ref/product-1.jpg" alt="Enterprise Server Racks ITAD">
           </div>
           <div class="stream-card-body">
             <h3 class="stream-card-title">Enterprise Server Racks &amp; Cryptographic Storage</h3>
             <p class="stream-card-desc">
-              High-density rack decommissioning with degaussing and certified media destruction.
+              High-density rack decommissioning with certified media destruction, cryptographic purge, and serialized custody certificates.
             </p>
             <a href="/services/itad/" class="stream-card-link">KNOW MORE &rarr;</a>
           </div>
@@ -1631,12 +1705,12 @@
           <div class="card-corner-ribbon"></div>
           <span class="card-corner-ribbon-text">99.5%</span>
           <div class="stream-card-img-wrap">
-            <img src="/assets/img/ref/product-2.webp" alt="Precious Metals Recovery">
+            <img src="/assets/img/ref/product-2.jpg" alt="Precious Metals & Accelerator Hardware">
           </div>
           <div class="stream-card-body">
             <h3 class="stream-card-title">Hydrometallurgical Copper &amp; Precious Metals</h3>
             <p class="stream-card-desc">
-              Extracted manufacturing-grade gold, silver, palladium, and copper cathodes.
+              Extracted manufacturing-grade gold, silver, palladium, and copper cathodes recovering 98% of critical mineral inputs.
             </p>
             <a href="/services/recovery/" class="stream-card-link">KNOW MORE &rarr;</a>
           </div>
@@ -1647,12 +1721,12 @@
           <div class="card-corner-ribbon"></div>
           <span class="card-corner-ribbon-text">FORM 6</span>
           <div class="stream-card-img-wrap">
-            <img src="/assets/img/ref/product-3.webp" alt="Circuit Boards & Li-ion Batteries">
+            <img src="/assets/img/ref/product-3.jpg" alt="Circuit Boards & Li-ion Battery Packs">
           </div>
           <div class="stream-card-body">
             <h3 class="stream-card-title">High-Density Circuit Boards &amp; Li-ion Batteries</h3>
             <p class="stream-card-desc">
-              Black mass separation recovering cobalt, nickel, and battery-grade lithium salts.
+              Black mass separation recovering cobalt, nickel, and battery-grade lithium salts re-injected into domestic production.
             </p>
             <a href="/compliance/" class="stream-card-link">KNOW MORE &rarr;</a>
           </div>
@@ -1760,19 +1834,64 @@
 
   <script>
     document.getElementById('kknagYear').textContent = new Date().getFullYear();
+
+    // Industry Pills Interactive Tab Selection
+    const indPills = document.querySelectorAll('#industriesPillsGrid .industry-pill-btn');
+    indPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        indPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+      });
+    });
+
+    // Stream Cards Interactive Filter
+    const filterPills = document.querySelectorAll('.streams-filter-pills .filter-pill');
+    const streamCards = document.querySelectorAll('.stream-ribbon-card');
+    filterPills.forEach((pill, idx) => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        if (idx === 0) {
+          streamCards.forEach(c => c.style.display = 'flex');
+        } else if (idx === 1) {
+          streamCards[0].style.display = 'flex';
+          streamCards[1].style.display = 'none';
+          streamCards[2].style.display = 'none';
+        } else if (idx === 2) {
+          streamCards[0].style.display = 'none';
+          streamCards[1].style.display = 'flex';
+          streamCards[2].style.display = 'flex';
+        }
+      });
+    });
+
+    // Hero Video Pause / Play Control
+    const heroVid = document.querySelector('.hero-kknag-video');
+    const heroCtrl = document.querySelector('.hero-control-btn');
+    if (heroVid && heroCtrl) {
+      heroCtrl.addEventListener('click', () => {
+        if (heroVid.paused) {
+          heroVid.play();
+          heroCtrl.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+        } else {
+          heroVid.pause();
+          heroCtrl.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+        }
+      });
+    }
   </script>
   <!-- ============================================================
        FLOATING COMPARISON SWITCHER (TESTING SETTING)
        ============================================================ -->
-  <aside id="testing-comparison-dock" aria-label="Version Switcher" style="position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 99999; display: flex; align-items: center; background: rgba(14, 22, 17, 0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 9999px; padding: 6px 10px; box-shadow: 0 14px 40px rgba(0,0,0,0.45); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; gap: 4px;">
-    <span style="color: #A5D6A7; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0 12px 0 8px; border-right: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 6px;">
+  <aside id="testing-comparison-dock" aria-label="Version Switcher" style="position: fixed; bottom: 20px; right: 24px; z-index: 99999; display: flex; align-items: center; background: rgba(14, 22, 17, 0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 9999px; padding: 6px 10px; box-shadow: 0 14px 40px rgba(0,0,0,0.45); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; gap: 4px;">
+    <span style="color: #A5D6A7; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0 10px 0 6px; border-right: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 6px;">
       <span style="display:inline-block; width: 7px; height: 7px; border-radius: 50%; background: #4CAF50; box-shadow: 0 0 8px #4CAF50;"></span>
       Testing Setting
     </span>
-    <a href="/" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 9999px; font-size: 12.5px; font-weight: 600; text-decoration: none; color: #d0d0d0; transition: all 0.2s ease;">
+    <a href="/" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 9999px; font-size: 12px; font-weight: 600; text-decoration: none; color: #d0d0d0; transition: all 0.2s ease;">
       <span>🌿</span> Original EcoGreen
     </a>
-    <a href="/test" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 9999px; font-size: 12.5px; font-weight: 700; text-decoration: none; background: #2E7D32; color: #ffffff; box-shadow: 0 2px 10px rgba(46, 125, 50, 0.5);">
+    <a href="/test" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-weight: 700; text-decoration: none; background: #2E7D32; color: #ffffff; box-shadow: 0 2px 10px rgba(46, 125, 50, 0.5);">
       <span>★</span> K. K. Nag Structure
     </a>
   </aside>

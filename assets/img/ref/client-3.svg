@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 38" fill="none">
+    <g transform="translate(8, 6)">
+      <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 3c3.9 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7zm-4 4v2h2.5v7h3v-7H16V9H8z" fill="#002D62"/>
+      <text x="32" y="19" font-family="'Montserrat', 'Arial Black', sans-serif" font-size="22" font-weight="900" fill="#002D62" letter-spacing="0.14em">TATA</text>
+    </g>
+  </svg>
