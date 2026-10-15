@@ -198,13 +198,13 @@
     }
 
     /* ============================================================
-       ZONE 3: HERO VIDEO BANNER (TALL 840PX WITH 3 STATS)
+       ZONE 3: HERO VIDEO BANNER (PROPORTIONED ~640PX WITH 3 STATS)
        ============================================================ */
     .hero-kknag-banner {
       position: relative;
-      height: 840px;
+      height: 640px;
       max-height: calc(100vh - 86px);
-      min-height: 620px;
+      min-height: 560px;
       background: #000000;
       overflow: hidden;
       display: flex;
@@ -242,13 +242,13 @@
 
     .hero-hashtag-main {
       font-family: var(--font-heading);
-      font-size: 64px;
+      font-size: 54px;
       font-weight: 800;
       font-style: italic;
       color: #ffffff;
       letter-spacing: -0.01em;
       text-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
-      margin-bottom: 70px;
+      margin-bottom: 44px;
     }
 
     .hero-stats-row {
@@ -264,23 +264,23 @@
 
     .hero-stat-num {
       font-family: var(--font-heading);
-      font-size: 68px;
+      font-size: 56px;
       font-weight: 800;
       color: #ffffff;
       line-height: 1;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
     }
     .hero-stat-num span {
       color: var(--eg-green-mint);
       font-weight: 700;
-      font-size: 52px;
+      font-size: 44px;
       margin-left: 2px;
     }
 
     .hero-stat-lbl {
       font-family: var(--font-heading);
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 600;
       color: rgba(255, 255, 255, 0.9);
       text-transform: uppercase;
@@ -316,8 +316,8 @@
        ============================================================ */
     .overview-sec {
       position: relative;
-      height: 780px;
-      min-height: 780px;
+      min-height: 620px;
+      padding: 65px 0;
       background: #0f1626 url('/assets/img/ref/factory-technician.webp') right center / cover no-repeat;
       display: flex;
       align-items: center;
@@ -327,7 +327,7 @@
       background: var(--eg-forest-card);
       color: #ffffff;
       width: 530px;
-      padding: 56px 48px;
+      padding: 46px 42px;
       border-radius: 6px;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
       position: relative;
@@ -360,7 +360,7 @@
        ZONE 5: CLIENT ESTEEMED CUSTOMERS (10 LOGOS IN 2 ROWS)
        ============================================================ */
     .clients-marquee-sec {
-      padding: 100px 0 90px;
+      padding: 65px 0 65px;
       background: #ffffff;
       text-align: center;
     }
@@ -373,18 +373,18 @@
       border-radius: 6px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-      margin-top: 48px;
+      margin-top: 40px;
       max-width: 1140px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .clients-logo-cell {
-      height: 96px;
+      height: 92px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 16px 28px;
+      padding: 14px 24px;
       border-right: 1px solid #f0f0f0;
       border-bottom: 1px solid #f0f0f0;
       transition: all 0.25s ease;
@@ -400,13 +400,13 @@
     }
 
     .clients-logo-cell img {
-      max-height: 38px;
-      max-width: 135px;
+      max-height: 42px;
+      max-width: 140px;
       width: auto;
       height: auto;
       object-fit: contain;
       transition: transform 0.28s ease, filter 0.28s ease;
-      filter: grayscale(10%) opacity(0.88);
+      filter: grayscale(12%) opacity(0.88);
     }
 
     .clients-logo-cell:hover {
@@ -422,7 +422,7 @@
        ZONE 6: OUR ACCREDITATIONS (6 AUTHENTIC CERTIFICATION SEALS)
        ============================================================ */
     .accreditations-seal-sec {
-      padding: 80px 0 100px;
+      padding: 50px 0 55px;
       background: #ffffff;
       text-align: center;
       border-bottom: 1px solid #eeeeee;
@@ -433,7 +433,7 @@
       justify-content: center;
       align-items: center;
       gap: 36px;
-      margin-top: 48px;
+      margin-top: 32px;
       flex-wrap: wrap;
     }
 
@@ -441,32 +441,35 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 135px;
+      width: 120px;
       text-align: center;
-      transition: all 0.28s ease;
+      transition: transform 0.25s ease;
       cursor: pointer;
+      background: transparent;
+      border: none;
+      box-shadow: none;
     }
     .accred-seal-item:hover {
-      transform: translateY(-8px) scale(1.06);
+      transform: translateY(-4px) scale(1.05);
     }
 
     .seal-badge-img {
-      width: 120px;
-      height: 120px;
+      width: 105px;
+      height: 105px;
       object-fit: contain;
-      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.08));
-      transition: all 0.28s ease;
+      filter: none;
+      transition: transform 0.25s ease;
     }
     .accred-seal-item:hover .seal-badge-img {
-      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.16));
+      filter: none;
     }
 
     /* ============================================================
-       ZONE 7: THREE BUSINESS LINES (TALL 660PX PHOTO CARDS)
+       ZONE 7: THREE BUSINESS LINES (PROPORTIONED 520PX PHOTO CARDS)
        Images: /assets/img/ref/business-epp.webp, eps.webp, rotomould.webp
        ============================================================ */
     .business-cards-sec {
-      padding: 130px 0 150px;
+      padding: 75px 0 85px;
       background: #ffffff;
       text-align: center;
     }
@@ -475,12 +478,12 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
-      margin-top: 56px;
+      margin-top: 44px;
     }
 
     .business-photo-card {
       position: relative;
-      height: 660px;
+      height: 520px;
       border-radius: 4px;
       overflow: hidden;
       box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
@@ -488,7 +491,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 44px 34px;
+      padding: 36px 30px;
       color: #ffffff;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
@@ -542,7 +545,7 @@
        Image: /assets/img/ref/amber-circuit.jpg
        ============================================================ */
     .industries-dark-sec {
-      padding: 130px 0 140px;
+      padding: 75px 0 85px;
       background: var(--eg-forest-sec);
       position: relative;
       color: #ffffff;
@@ -564,7 +567,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 50px;
       align-items: center;
-      margin-bottom: 50px;
+      margin-bottom: 38px;
     }
 
     .industries-left-head h2 {
@@ -579,7 +582,7 @@
 
     .industries-amber-panel {
       position: relative;
-      height: 260px;
+      height: 240px;
       border-radius: 6px;
       overflow: hidden;
       box-shadow: 0 16px 45px rgba(242, 101, 34, 0.35);
@@ -649,49 +652,48 @@
     }
 
     /* ============================================================
-       ZONE 9: SERVICES (PANORAMIC FACILITY VIDEO 520PX + 3 CARDS)
+       ZONE 9: SERVICES (FULL-BLEED FACILITY VIDEO BACKGROUND + 3 CARDS)
        Video: /assets/vid/services-bg.mp4
        ============================================================ */
     .services-dark-sec {
-      padding: 130px 0 160px;
+      position: relative;
+      overflow: hidden;
+      padding: 85px 0 95px;
       background: #06140c;
       color: #ffffff;
       text-align: center;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+    }
+
+    .services-full-bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .services-full-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 20, 12, 0.78) 0%, rgba(6, 20, 12, 0.58) 50%, rgba(6, 20, 12, 0.82) 100%);
+      z-index: 2;
+      pointer-events: none;
     }
 
     .services-dark-sec .kknag-eyebrow {
-      color: #f26522;
+      color: #4CAF50;
     }
 
     .services-dark-sec .kknag-heading {
       color: #ffffff;
-      margin-bottom: 50px;
-    }
-
-    .services-panoramic-photo {
-      width: 100%;
-      height: 520px;
-      border-radius: 6px;
-      overflow: hidden;
-      margin-bottom: -110px;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
-      background: #000000;
-    }
-    .services-panoramic-photo img,
-    .services-panoramic-video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      opacity: 0.88;
-    }
-    .services-video-scrim {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(8, 20, 13, 0.2) 0%, rgba(8, 20, 13, 0.55) 100%);
-      pointer-events: none;
+      margin-bottom: 44px;
     }
 
     .services-white-cards-row {
@@ -699,20 +701,20 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
       position: relative;
-      z-index: 2;
+      z-index: 3;
     }
 
     .service-white-card {
       background: #ffffff;
       color: var(--text-dark);
       border-radius: 6px;
-      padding: 44px 34px 36px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
+      padding: 38px 32px 34px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
       text-align: left;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 310px;
+      min-height: 290px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .service-white-card:hover {
@@ -766,8 +768,12 @@
        ZONE 10: TESTIMONIALS & AFFILIATIONS (WITH REAL AFFIL LOGOS)
        Images: /assets/img/ref/affil-1.png to affil-6.png
        ============================================================ */
+    /* ============================================================
+       ZONE 10: TESTIMONIALS & AFFILIATIONS (WITH REAL AFFIL LOGOS)
+       Images: /assets/img/ref/affil-1.png to affil-6.png
+       ============================================================ */
     .testimonials-split-sec {
-      padding: 130px 0 110px;
+      padding: 75px 0 70px;
       background: #f7faf7 url('/assets/img/ref/chevron-bg.svg') right center / 680px auto no-repeat;
       border-bottom: 1px solid #e5ebe6;
     }
@@ -775,24 +781,24 @@
     .testi-split-grid {
       display: grid;
       grid-template-columns: 1fr 1.6fr;
-      gap: 70px;
+      gap: 60px;
       align-items: center;
-      margin-bottom: 90px;
+      margin-bottom: 50px;
     }
 
     .testi-left-box h2 {
       font-family: var(--font-heading);
-      font-size: 38px;
+      font-size: 36px;
       font-weight: 700;
       color: #111111;
       margin-top: 8px;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       line-height: 1.25;
     }
 
     .testi-right-quote-box {
       background: #ffffff;
-      padding: 52px 46px 44px;
+      padding: 40px 38px 36px;
       border-radius: 6px;
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
       position: relative;
@@ -800,10 +806,10 @@
     }
 
     .testi-quote-text {
-      font-size: 16.5px;
+      font-size: 16px;
       color: #333333;
-      line-height: 1.75;
-      margin-bottom: 24px;
+      line-height: 1.72;
+      margin-bottom: 22px;
       font-style: italic;
     }
 
@@ -823,17 +829,17 @@
     .affiliations-row-wrap {
       text-align: center;
       border-top: 1px solid #dde5de;
-      padding-top: 60px;
+      padding-top: 40px;
     }
 
     .affiliations-lbl {
       font-family: var(--font-heading);
-      font-size: 15px;
+      font-size: 14.5px;
       font-weight: 700;
       color: #666666;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      margin-bottom: 36px;
+      margin-bottom: 28px;
     }
 
     .affiliations-badges-row {
@@ -844,7 +850,7 @@
       flex-wrap: wrap;
     }
     .affil-logo-box img {
-      max-height: 44px;
+      max-height: 42px;
       max-width: 140px;
       object-fit: contain;
       filter: grayscale(10%) opacity(0.85);
@@ -860,7 +866,7 @@
        Image: /assets/img/ref/green-leaves.webp
        ============================================================ */
     .sustainability-kknag-sec {
-      padding: 140px 0;
+      padding: 75px 0 80px;
       background: var(--eg-forest-deep);
       color: #ffffff;
       position: relative;
@@ -898,7 +904,7 @@
       font-size: 36px;
       font-weight: 700;
       line-height: 1.32;
-      margin-bottom: 38px;
+      margin-bottom: 34px;
       color: #ffffff;
     }
 
@@ -906,15 +912,15 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       font-family: var(--font-heading);
-      font-size: 16.5px;
+      font-size: 16px;
       font-weight: 600;
     }
 
     .green-circle-arrow {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       background: var(--eg-green-light);
       color: #ffffff;
@@ -932,8 +938,8 @@
     }
 
     .sustain-circle-seal {
-      width: 200px;
-      height: 200px;
+      width: 190px;
+      height: 190px;
       border-radius: 50%;
       border: 3px solid #4CAF50;
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(76, 175, 80, 0.2);
@@ -942,7 +948,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 18px;
+      padding: 16px;
       background: rgba(10, 26, 16, 0.88);
       backdrop-filter: blur(10px);
       transition: transform 0.3s ease, border-color 0.3s ease;
@@ -953,7 +959,7 @@
     }
     .sustain-circle-seal strong {
       font-family: var(--font-heading);
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 800;
       color: #ffffff;
       margin-bottom: 4px;
@@ -976,7 +982,7 @@
        Images: /assets/img/ref/product-1.jpg, 2.jpg, 3.jpg
        ============================================================ */
     .streams-kknag-sec {
-      padding: 130px 0 140px;
+      padding: 75px 0 85px;
       background: linear-gradient(180deg, #edf4ee 0%, #e2ece3 50%, #edf4ee 100%);
       text-align: center;
     }
@@ -985,7 +991,7 @@
       display: flex;
       justify-content: center;
       gap: 14px;
-      margin-bottom: 52px;
+      margin-bottom: 38px;
     }
 
     .filter-pill {
@@ -1023,7 +1029,7 @@
       text-align: left;
       position: relative;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      min-height: 520px;
+      min-height: 480px;
       display: flex;
       flex-direction: column;
     }
@@ -1058,7 +1064,7 @@
     }
 
     .stream-card-img-wrap {
-      height: 250px;
+      height: 240px;
       background: #06140c;
       overflow: hidden;
       display: flex;
@@ -1077,7 +1083,7 @@
     }
 
     .stream-card-body {
-      padding: 32px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
@@ -1121,23 +1127,23 @@
     .footer-kknag-sec {
       background: var(--eg-forest-deep);
       color: rgba(255, 255, 255, 0.78);
-      padding: 130px 0 36px;
+      padding: 75px 0 36px;
     }
 
     .footer-main-grid {
       display: grid;
       grid-template-columns: 1.7fr 1.1fr;
-      gap: 70px;
-      margin-bottom: 70px;
+      gap: 60px;
+      margin-bottom: 45px;
     }
 
     .footer-brand-hashtag {
       font-family: var(--font-heading);
-      font-size: 44px;
+      font-size: 38px;
       font-weight: 800;
       font-style: italic;
       color: #ffffff;
-      margin-bottom: 48px;
+      margin-bottom: 36px;
     }
 
     .footer-nav-columns {
@@ -1372,16 +1378,16 @@
       <h2 class="kknag-heading" style="margin-bottom:0;">Client Esteemed Customers</h2>
 
       <div class="clients-logo-grid">
-        <div class="clients-logo-cell" title="Toyota"><img src="/assets/img/ref/client-1.svg" alt="Toyota"></div>
-        <div class="clients-logo-cell" title="Volkswagen"><img src="/assets/img/ref/client-2.svg" alt="Volkswagen"></div>
-        <div class="clients-logo-cell" title="Tata"><img src="/assets/img/ref/client-3.svg" alt="Tata"></div>
-        <div class="clients-logo-cell" title="Samsung"><img src="/assets/img/ref/client-4.svg" alt="Samsung"></div>
-        <div class="clients-logo-cell" title="Panasonic"><img src="/assets/img/ref/client-5.svg" alt="Panasonic"></div>
-        <div class="clients-logo-cell" title="Dell Technologies"><img src="/assets/img/ref/client-6.svg" alt="Dell Technologies"></div>
-        <div class="clients-logo-cell" title="Cisco Systems"><img src="/assets/img/ref/client-7.svg" alt="Cisco Systems"></div>
-        <div class="clients-logo-cell" title="HP Enterprise"><img src="/assets/img/ref/client-8.svg" alt="HP Enterprise"></div>
-        <div class="clients-logo-cell" title="Intel"><img src="/assets/img/ref/client-9.svg" alt="Intel"></div>
-        <div class="clients-logo-cell" title="Sony"><img src="/assets/img/ref/client-10.svg" alt="Sony"></div>
+        <div class="clients-logo-cell" title="Samsung"><img src="/assets/img/logos/samsung.svg" alt="Samsung"></div>
+        <div class="clients-logo-cell" title="Mercedes-Benz"><img src="/assets/img/logos/mercedes-benz.png" alt="Mercedes-Benz"></div>
+        <div class="clients-logo-cell" title="HCL Technologies"><img src="/assets/img/logos/hcl.svg" alt="HCL Technologies"></div>
+        <div class="clients-logo-cell" title="Wipro"><img src="/assets/img/logos/wipro.svg" alt="Wipro"></div>
+        <div class="clients-logo-cell" title="Whirlpool"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool"></div>
+        <div class="clients-logo-cell" title="Haier"><img src="/assets/img/logos/haier.png" alt="Haier"></div>
+        <div class="clients-logo-cell" title="ITC Limited"><img src="/assets/img/logos/itc.png" alt="ITC Limited"></div>
+        <div class="clients-logo-cell" title="OPPO"><img src="/assets/img/logos/oppo.svg" alt="OPPO"></div>
+        <div class="clients-logo-cell" title="Vivo"><img src="/assets/img/logos/vivo.svg" alt="Vivo"></div>
+        <div class="clients-logo-cell" title="Paytm"><img src="/assets/img/logos/paytm.svg" alt="Paytm"></div>
       </div>
     </div>
   </section>
@@ -1534,19 +1540,18 @@
   </section>
 
   <!-- ============================================================
-       ZONE 9: SERVICES (PANORAMIC FACILITY VIDEO 520PX + 3 WHITE CARDS)
+       ZONE 9: SERVICES (FULL-BLEED FACILITY VIDEO BACKGROUND + 3 WHITE CARDS)
        ============================================================ -->
   <section class="services-dark-sec">
-    <div class="container">
-      <span class="kknag-eyebrow">OUR SERVICES</span>
-      <h2 class="kknag-heading">Meeting Every Demand</h2>
+    <!-- Full-bleed background video covering the whole section -->
+    <video class="services-full-bg-video" autoplay muted loop playsinline poster="/assets/img/ref/services-bg-poster.jpg">
+      <source src="/assets/vid/services-bg.mp4" type="video/mp4">
+    </video>
+    <div class="services-full-bg-overlay"></div>
 
-      <div class="services-panoramic-photo">
-        <video class="services-panoramic-video" autoplay muted loop playsinline poster="/assets/img/ref/services-bg-poster.jpg">
-          <source src="/assets/vid/services-bg.mp4" type="video/mp4">
-        </video>
-        <div class="services-video-scrim"></div>
-      </div>
+    <div class="container" style="position: relative; z-index: 3; width: 100%;">
+      <span class="kknag-eyebrow" style="color: #4CAF50;">OUR SERVICES</span>
+      <h2 class="kknag-heading" style="color: #ffffff; margin-bottom: 44px;">Meeting Every Demand</h2>
 
       <div class="services-white-cards-row">
         <!-- Box 1 -->
@@ -1610,7 +1615,7 @@
               <div class="testi-author-name">Head of Corporate IT Infrastructure</div>
               <div class="testi-author-desig">Leading Multinational Technology Provider</div>
             </div>
-            <img src="/assets/img/ref/client-7.svg" alt="Cisco Systems" style="height: 26px; width: auto; opacity: 0.75;">
+            <img src="/assets/img/logos/hcl.svg" alt="HCL Technologies" style="height: 24px; width: auto; opacity: 0.75;">
           </div>
         </div>
       </div>
