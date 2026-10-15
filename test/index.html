@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoGreen Recyclers (P) Limited — #ClosingTheLoop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       1:1 PIXEL-PERFECT REPLICATION OF K. K. NAG HOMEPAGE
+       Color Theme: EcoGreen Brand Green & Deep Forest (#2E7D32)
+       All Reference Assets Integrated from /assets/img/ref/
+       ============================================================ */
+    :root {
+      --eg-green: #2E7D32;              /* Primary Action Brand Green */
+      --eg-green-dark: #1B5E20;         /* Deep Forest Green (Hover) */
+      --eg-green-vibrant: #388E3C;      /* Mid Vibrant Green */
+      --eg-green-light: #43A047;        /* Leaf Bright Green */
+      --eg-green-mint: #A5D6A7;         /* Mint Eyebrow Accent */
+      --eg-green-pale: #E8F5E9;         /* Soft Green Tint */
+      --eg-forest-deep: #0B2414;        /* Deep Forest (Replaces Navy #141738) */
+      --eg-forest-card: #113821;        /* Floating Card Dark Green */
+      --eg-forest-sec: #0A1A10;         /* Dark Section Forest Background */
+      --eg-forest-darker: #06140C;      /* Footer Base Dark */
+      --kknag-orange: #f26522;          /* Accent Orange / Amber */
+      --text-dark: #222222;
+      --text-muted: #555555;
+      --border-light: #e2e8f0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background-color: #ffffff;
+      font-size: 14.5px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Common Eyebrow */
+    .kknag-eyebrow {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--eg-green);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+    }
+
+    /* Common Section Heading */
+    .kknag-heading {
+      font-family: var(--font-heading);
+      font-size: 34px;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.25;
+      margin-bottom: 28px;
+    }
+
+    /* Green Buttons */
+    .btn-eg-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--eg-green);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 14px 30px;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-eg-green:hover {
+      background: var(--eg-green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(46, 125, 50, 0.4);
+    }
+
+    .btn-eg-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--eg-green);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 13px 30px;
+      border-radius: 9999px;
+      transition: all 0.25s ease;
+    }
+    .btn-eg-pill:hover {
+      background: var(--eg-green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(46, 125, 50, 0.45);
+    }
+
+
+    /* ============================================================
+       ZONE 2: MAIN NAVIGATION BAR (STICKY WHITE)
+       ============================================================ */
+    .main-header {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .main-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 86px;
+    }
+
+    .brand-logo-wrap img {
+      height: 44px;
+      width: auto;
+    }
+
+    .main-nav-list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .main-nav-item a {
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1a1a1a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .main-nav-item a:hover {
+      color: var(--eg-green);
+    }
+
+    .nav-arrow-icon {
+      font-size: 9px;
+      color: #888888;
+    }
+
+    .header-right-tools {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .search-btn-icon {
+      width: 19px;
+      height: 19px;
+      color: #333333;
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       ZONE 3: HERO VIDEO BANNER (TALL 840PX WITH 3 STATS)
+       ============================================================ */
+    .hero-kknag-banner {
+      position: relative;
+      height: 840px;
+      min-height: 85vh;
+      background: var(--eg-forest-sec);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #ffffff;
+    }
+
+    .hero-kknag-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      opacity: 0.38;
+    }
+
+    .hero-kknag-scrim {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(11, 36, 20, 0.45) 0%, rgba(6, 18, 11, 0.88) 100%);
+    }
+
+    .hero-kknag-center {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .hero-hashtag-main {
+      font-family: var(--font-heading);
+      font-size: 64px;
+      font-weight: 800;
+      font-style: italic;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      text-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
+      margin-bottom: 70px;
+    }
+
+    .hero-stats-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero-stat-box {
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-heading);
+      font-size: 68px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 12px;
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    }
+    .hero-stat-num span {
+      color: var(--eg-green-mint);
+      font-weight: 700;
+      font-size: 52px;
+      margin-left: 2px;
+    }
+
+    .hero-stat-lbl {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-stat-pipe {
+      font-size: 56px;
+      color: rgba(255, 255, 255, 0.35);
+      font-weight: 200;
+    }
+
+    .hero-control-btn {
+      position: absolute;
+      bottom: 30px;
+      right: 32px;
+      z-index: 3;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       ZONE 4: CORPORATE INTRO WITH HI-RES FACTORY PHOTO (780PX)
+       Image: /assets/img/ref/factory-technician.webp
+       ============================================================ */
+    .overview-sec {
+      position: relative;
+      height: 780px;
+      min-height: 780px;
+      background: #0f1626 url('/assets/img/ref/factory-technician.webp') right center / cover no-repeat;
+      display: flex;
+      align-items: center;
+    }
+
+    .overview-floating-card {
+      background: var(--eg-forest-card);
+      color: #ffffff;
+      width: 530px;
+      padding: 56px 48px;
+      border-radius: 4px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+      position: relative;
+      z-index: 2;
+      border-left: 4px solid var(--eg-green-light);
+    }
+
+    .overview-floating-card .kknag-eyebrow {
+      color: var(--eg-green-mint);
+    }
+
+    .overview-floating-card h2 {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.32;
+      margin-bottom: 22px;
+      color: #ffffff;
+    }
+
+    .overview-floating-card p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.86);
+      line-height: 1.75;
+      margin-bottom: 34px;
+    }
+
+    /* ============================================================
+       ZONE 5: CLIENT ESTEEMED CUSTOMERS (10 LOGOS IN 2 ROWS)
+       ============================================================ */
+    .clients-marquee-sec {
+      padding: 120px 0 100px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .clients-logo-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 36px 60px;
+      margin-top: 48px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .clients-logo-cell {
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 16px;
+      transition: all 0.25s ease;
+    }
+    .clients-logo-cell img {
+      max-height: 44px;
+      max-width: 150px;
+      object-fit: contain;
+    }
+    .clients-logo-cell:hover {
+      transform: scale(1.1);
+    }
+
+    /* ============================================================
+       ZONE 6: OUR ACCREDITATIONS (6 AUTHENTIC CERTIFICATION SEALS)
+       ============================================================ */
+    .accreditations-seal-sec {
+      padding: 90px 0 110px;
+      background: #ffffff;
+      text-align: center;
+      border-bottom: 1px solid #eeeeee;
+    }
+
+    .accred-seals-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .accred-seal-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 130px;
+      text-align: center;
+      transition: all 0.28s ease;
+      cursor: pointer;
+    }
+    .accred-seal-item:hover {
+      transform: translateY(-8px) scale(1.06);
+    }
+
+    .seal-badge-img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.08));
+      transition: all 0.28s ease;
+    }
+    .accred-seal-item:hover .seal-badge-img {
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.16));
+    }
+
+    /* ============================================================
+       ZONE 7: THREE BUSINESS LINES (TALL 660PX PHOTO CARDS)
+       Images: /assets/img/ref/business-epp.webp, eps.webp, rotomould.webp
+       ============================================================ */
+    .business-cards-sec {
+      padding: 130px 0 150px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .business-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 56px;
+    }
+
+    .business-photo-card {
+      position: relative;
+      height: 660px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 44px 34px;
+      color: #ffffff;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .business-photo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.26);
+    }
+
+    .business-card-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+    .business-photo-card:hover .business-card-bg {
+      transform: scale(1.08);
+    }
+
+    .business-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10, 26, 16, 0.1) 0%, rgba(10, 26, 16, 0.95) 72%);
+    }
+
+    .business-card-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .business-card-title {
+      font-family: var(--font-heading);
+      font-size: 25px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .business-card-desc {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.65;
+      margin-bottom: 26px;
+    }
+
+    /* ============================================================
+       ZONE 8: INDUSTRIES WE SERVE (WITH AMBER PANEL IMAGE)
+       Image: /assets/img/ref/amber-panel.webp
+       ============================================================ */
+    .industries-dark-sec {
+      padding: 140px 0 150px;
+      background: var(--eg-forest-sec);
+      position: relative;
+      color: #ffffff;
+    }
+
+    .industries-dark-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(8, 20, 13, 0.98) 0%, rgba(14, 38, 23, 0.95) 100%);
+    }
+
+    .industries-dark-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .industries-top-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .industries-left-head h2 {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-top: 10px;
+      margin-bottom: 28px;
+    }
+
+    .industries-amber-panel {
+      height: 260px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 14px 40px rgba(242, 101, 34, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .industries-amber-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .industries-pills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .industry-pill-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 9999px;
+      padding: 18px 24px;
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 14.5px;
+      font-weight: 600;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .industry-pill-btn:hover {
+      background: var(--eg-green);
+      border-color: var(--eg-green);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(46, 125, 50, 0.45);
+    }
+
+    /* ============================================================
+       ZONE 9: SERVICES (PANORAMIC ENGINEERS PHOTO 520PX + 3 CARDS)
+       Image: /assets/img/ref/services-engineers.webp
+       ============================================================ */
+    .services-dark-sec {
+      padding: 130px 0 160px;
+      background: #08140d;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .services-dark-sec .kknag-eyebrow {
+      color: #f26522;
+    }
+
+    .services-dark-sec .kknag-heading {
+      color: #ffffff;
+      margin-bottom: 50px;
+    }
+
+    .services-panoramic-photo {
+      width: 100%;
+      height: 520px;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: -110px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .services-panoramic-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .services-white-cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-white-card {
+      background: #ffffff;
+      color: var(--text-dark);
+      border-radius: 4px;
+      padding: 48px 36px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 310px;
+      transition: transform 0.3s ease;
+    }
+    .service-white-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-white-card-num {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--eg-green);
+      margin-bottom: 10px;
+    }
+
+    .service-white-card-title {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--eg-forest-card);
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .service-white-card-desc {
+      font-size: 13.5px;
+      color: #666666;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .service-white-card-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--eg-forest-card);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      align-self: flex-start;
+      transition: background 0.25s ease;
+    }
+    .service-white-card:hover .service-white-card-arrow {
+      background: var(--eg-green);
+    }
+
+    /* ============================================================
+       ZONE 10: TESTIMONIALS & AFFILIATIONS (WITH REAL AFFIL LOGOS)
+       Images: /assets/img/ref/affil-1.png to affil-6.png
+       ============================================================ */
+    .testimonials-split-sec {
+      padding: 140px 0 120px;
+      background: #f6f8f6;
+      border-bottom: 1px solid #e5ebe6;
+    }
+
+    .testi-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 70px;
+      align-items: center;
+      margin-bottom: 90px;
+    }
+
+    .testi-left-box h2 {
+      font-family: var(--font-heading);
+      font-size: 38px;
+      font-weight: 700;
+      color: #111111;
+      margin-top: 8px;
+      margin-bottom: 30px;
+      line-height: 1.25;
+    }
+
+    .testi-right-quote-box {
+      background: #ffffff;
+      padding: 56px 48px;
+      border-radius: 4px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.07);
+      position: relative;
+      border-left: 4px solid var(--eg-green);
+    }
+
+    .testi-quote-text {
+      font-size: 16.5px;
+      color: #333333;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+
+    .testi-author-name {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--eg-forest-card);
+    }
+
+    .testi-author-desig {
+      font-size: 13.5px;
+      color: #777777;
+    }
+
+    /* Affiliations Strip with Real Images */
+    .affiliations-row-wrap {
+      text-align: center;
+      border-top: 1px solid #dde5de;
+      padding-top: 60px;
+    }
+
+    .affiliations-lbl {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 36px;
+    }
+
+    .affiliations-badges-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .affil-logo-box img {
+      max-height: 44px;
+      max-width: 140px;
+      object-fit: contain;
+      filter: grayscale(10%) opacity(0.85);
+      transition: all 0.25s ease;
+    }
+    .affil-logo-box:hover img {
+      filter: grayscale(0%) opacity(1);
+      transform: scale(1.08);
+    }
+
+    /* ============================================================
+       ZONE 11: SUSTAINABILITY (WITH DIAGONAL GREEN LEAVES IMAGE)
+       Image: /assets/img/ref/green-leaves.webp
+       ============================================================ */
+    .sustainability-kknag-sec {
+      padding: 140px 0;
+      background: var(--eg-forest-deep);
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sustain-leaves-backdrop {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      background: url('/assets/img/ref/green-leaves.webp') center/cover no-repeat;
+      opacity: 0.85;
+      pointer-events: none;
+      mask-image: linear-gradient(to right, transparent 0%, black 35%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%);
+    }
+
+    .sustain-kknag-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sustain-kknag-left .kknag-eyebrow {
+      color: var(--eg-green-mint);
+    }
+
+    .sustain-kknag-left h2 {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.32;
+      margin-bottom: 38px;
+      color: #ffffff;
+    }
+
+    .sustain-kknag-check-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .green-circle-arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--eg-green-light);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .sustain-kknag-right-badges {
+      display: flex;
+      gap: 36px;
+      justify-content: center;
+    }
+
+    .sustain-circle-seal {
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      border: 3px dashed var(--eg-green-mint);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      background: rgba(10, 26, 16, 0.75);
+      backdrop-filter: blur(8px);
+    }
+    .sustain-circle-seal strong {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--eg-green-mint);
+      margin-bottom: 6px;
+    }
+    .sustain-circle-seal span {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       ZONE 12: PRODUCT CARDS WITH CORNER RIBBONS & HI-RES IMAGES
+       Images: /assets/img/ref/product-1.webp, 2.webp, 3.webp
+       ============================================================ */
+    .streams-kknag-sec {
+      padding: 140px 0 150px;
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+      text-align: center;
+    }
+
+    .streams-filter-pills {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 52px;
+    }
+
+    .filter-pill {
+      background: #ffffff;
+      color: var(--eg-forest-card);
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s ease;
+    }
+    .filter-pill.active, .filter-pill:hover {
+      background: var(--eg-green-dark);
+      color: #ffffff;
+    }
+
+    .streams-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .stream-ribbon-card {
+      background: #ffffff;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      text-align: left;
+      position: relative;
+      transition: transform 0.25s ease;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+    }
+    .stream-ribbon-card:hover {
+      transform: translateY(-8px);
+    }
+
+    /* Folded Green Triangle Corner Ribbon */
+    .card-corner-ribbon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 76px solid var(--eg-green);
+      border-left: 76px solid transparent;
+      z-index: 3;
+    }
+    .card-corner-ribbon-text {
+      position: absolute;
+      top: 15px;
+      right: 5px;
+      transform: rotate(45deg);
+      font-size: 10px;
+      font-weight: 800;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-family: var(--font-heading);
+      letter-spacing: 0.08em;
+      z-index: 4;
+    }
+
+    .stream-card-img-wrap {
+      height: 280px;
+      background: #f8fafc;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .stream-card-img-wrap img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+    .stream-ribbon-card:hover .stream-card-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .stream-card-body {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .stream-card-title {
+      font-family: var(--font-heading);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--eg-forest-card);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    .stream-card-desc {
+      font-size: 13.5px;
+      color: #666666;
+      line-height: 1.65;
+      margin-bottom: 22px;
+      flex-grow: 1;
+    }
+
+    .stream-card-link {
+      color: var(--eg-green);
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stream-card-link:hover {
+      color: var(--eg-green-dark);
+    }
+
+    /* ============================================================
+       ZONE 13: FOOTER WITH FLOATING WHITE CARD & OFFICIAL BADGE
+       Image: /assets/img/ref/footer-badge.svg
+       ============================================================ */
+    .footer-kknag-sec {
+      background: var(--eg-forest-deep);
+      color: rgba(255, 255, 255, 0.78);
+      padding: 130px 0 36px;
+    }
+
+    .footer-main-grid {
+      display: grid;
+      grid-template-columns: 1.7fr 1.1fr;
+      gap: 70px;
+      margin-bottom: 70px;
+    }
+
+    .footer-brand-hashtag {
+      font-family: var(--font-heading);
+      font-size: 44px;
+      font-weight: 800;
+      font-style: italic;
+      color: #ffffff;
+      margin-bottom: 48px;
+    }
+
+    .footer-nav-columns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+
+    .footer-nav-col h4 {
+      font-family: var(--font-heading);
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 22px;
+    }
+
+    .footer-nav-col ul {
+      list-style: none;
+    }
+
+    .footer-nav-col li {
+      margin-bottom: 12px;
+    }
+
+    .footer-nav-col a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+    .footer-nav-col a:hover {
+      color: var(--eg-green-mint);
+      padding-left: 4px;
+    }
+
+    /* Distinctive White Floating "Contact Us" Card on the right */
+    .footer-floating-contact-card {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: 48px 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      color: #333333;
+      text-align: left;
+    }
+
+    .footer-contact-title {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--eg-green-dark);
+      margin-bottom: 24px;
+    }
+
+    .footer-contact-item {
+      margin-bottom: 20px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-contact-item strong {
+      display: block;
+      color: var(--eg-green-dark);
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 5px;
+    }
+
+    .footer-contact-item a {
+      color: var(--eg-green);
+      font-weight: 600;
+    }
+
+    .footer-card-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid #eeeeee;
+    }
+
+    .footer-stamp-badge img {
+      max-height: 52px;
+      width: auto;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.6);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom-bar nav {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-bottom-bar a:hover {
+      color: #ffffff;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-hashtag-main { font-size: 46px; margin-bottom: 40px; }
+      .hero-stat-num { font-size: 46px; }
+      .hero-kknag-banner { height: auto; min-height: 600px; padding: 100px 0; }
+      .overview-sec { height: auto; padding: 80px 0; }
+      .overview-floating-card { width: 100%; }
+      .business-cards-grid { grid-template-columns: 1fr; }
+      .services-white-cards-row { grid-template-columns: 1fr; }
+      .industries-pills-grid { grid-template-columns: repeat(2, 1fr); }
+      .testi-split-grid { grid-template-columns: 1fr; }
+      .sustain-kknag-grid { grid-template-columns: 1fr; }
+      .streams-cards-grid { grid-template-columns: 1fr; }
+      .footer-main-grid { grid-template-columns: 1fr; }
+      .footer-nav-columns { grid-template-columns: repeat(2, 1fr); }
+      .main-nav-list { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+
+  <!-- ============================================================
+       ZONE 2: MAIN NAVIGATION (WHITE STICKY HEADER)
+       ============================================================ -->
+  <header class="main-header">
+    <div class="container">
+      <a href="/" class="brand-logo-wrap" aria-label="EcoGreen Home">
+        <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen Recyclers (P) Limited">
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="main-nav-list">
+          <li class="main-nav-item">
+            <a href="/about/">ABOUT US <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/services/">BUSINESS LINES <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/services/">SERVICES <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/sustainability/">SUSTAINABILITY <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/press/">RESOURCES <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-right-tools">
+        <svg class="search-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <a href="/contact/" class="btn-eg-green">GET IN TOUCH</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       ZONE 3: HERO VIDEO BANNER (840PX WITH 3 STATS)
+       ============================================================ -->
+  <section class="hero-kknag-banner">
+    <video class="hero-kknag-video" autoplay muted loop playsinline poster="/assets/img/facility-aerial.jpg">
+      <source src="/assets/vid/hero.mp4" type="video/mp4">
+      <source src="/assets/vid/Plastic_E_Waste_Recycling.mp4" type="video/mp4">
+    </video>
+    <div class="hero-kknag-scrim"></div>
+
+    <div class="container">
+      <div class="hero-kknag-center">
+        <h1 class="hero-hashtag-main">#ClosingTheLoop</h1>
+
+        <div class="hero-stats-row">
+          <div class="hero-stat-box">
+            <div class="hero-stat-num">60,142<span>+</span></div>
+            <div class="hero-stat-lbl">MT E-Waste Recycled</div>
+          </div>
+
+          <div class="hero-stat-pipe">|</div>
+
+          <div class="hero-stat-box">
+            <div class="hero-stat-num">728.5<span>+</span></div>
+            <div class="hero-stat-lbl">tCO₂e Emissions Saved</div>
+          </div>
+
+          <div class="hero-stat-pipe">|</div>
+
+          <div class="hero-stat-box">
+            <div class="hero-stat-num">10<span>+</span></div>
+            <div class="hero-stat-lbl">Years of Compliance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-control-btn" title="Toggle Sound / Pause">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 4: CORPORATE INTRO WITH HI-RES FACTORY OPERATOR (780PX)
+       ============================================================ -->
+  <section class="overview-sec">
+    <div class="container">
+      <div class="overview-floating-card">
+        <span class="kknag-eyebrow">WELCOME TO ECOGREEN</span>
+        <h2>Advanced Closed-Loop Material Recovery &amp; ITAD for Critical Applications</h2>
+        <p>
+          Founded in 2015, EcoGreen Recyclers (P) Limited is a statutory leader in end-to-end IT Asset Disposition (ITAD), high-purity non-ferrous metallurgical refining, and circular electronics manufacturing feed. Operating across 5 major industrial corridors, we secure India's closed-loop lifecycle from hardware decommissioning to domestic remanufacturing.
+        </p>
+        <a href="/about/" class="btn-eg-green">ABOUT ECOGREEN &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 5: CLIENT ESTEEMED CUSTOMERS (10 CRISP LOGOS IN 2 ROWS)
+       ============================================================ -->
+  <section class="clients-marquee-sec">
+    <div class="container">
+      <span class="kknag-eyebrow">OUR CLIENTS</span>
+      <h2 class="kknag-heading" style="margin-bottom:0;">Client Esteemed Customers</h2>
+
+      <div class="clients-logo-grid">
+        <div class="clients-logo-cell"><img src="/assets/img/ref/client-1.webp" alt="Toyota"></div>
+        <div class="clients-logo-cell"><img src="/assets/img/ref/client-2.webp" alt="Volkswagen"></div>
+        <div class="clients-logo-cell"><img src="/assets/img/ref/client-3.webp" alt="Webasto"></div>
+        <div class="clients-logo-cell"><img src="/assets/img/ref/client-4.webp" alt="Tata"></div>
+        <div class="clients-logo-cell"><img src="/assets/img/ref/client-5.webp" alt="Client Partner"></div>
+        <div class="clients-logo-cell"><img src="/assets/img/ref/client-6.webp" alt="Softex"></div>
+        <div class="clients-logo-cell"><img src="/assets/img/ref/client-7.webp" alt="Client Partner"></div>
+        <div class="clients-logo-cell"><img src="/assets/img/ref/client-8.webp" alt="Client Partner"></div>
+        <div class="clients-logo-cell"><img src="/assets/img/ref/client-9.webp" alt="Samsung"></div>
+        <div class="clients-logo-cell"><img src="/assets/img/ref/client-10.webp" alt="Panasonic"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 6: OUR ACCREDITATIONS (6 AUTHENTIC CERTIFICATION SEALS)
+       ============================================================ -->
+  <section class="accreditations-seal-sec">
+    <div class="container">
+      <h2 class="kknag-heading">Our Accreditations</h2>
+
+      <div class="accred-seals-row">
+        <!-- Seal 1: IATF 16949 -->
+        <div class="accred-seal-item" title="IATF 16949 Automotive Standard Certified">
+          <img src="/assets/img/ref/iaft.png" alt="IATF 16949 Certified" class="seal-badge-img">
+        </div>
+
+        <!-- Seal 2: ISO 9001 -->
+        <div class="accred-seal-item" title="ISO 9001:2015 Quality Management Certified">
+          <img src="/assets/img/ref/iso9001.png" alt="ISO 9001 Quality Management Certified" class="seal-badge-img">
+        </div>
+
+        <!-- Seal 3: ISO 14001 -->
+        <div class="accred-seal-item" title="ISO 14001:2015 Environmental Management Certified">
+          <img src="/assets/img/ref/iso14001.png" alt="ISO 14001 Environmental EMS Certified" class="seal-badge-img">
+        </div>
+
+        <!-- Seal 4: ISO 27001 -->
+        <div class="accred-seal-item" title="ISO 27001 Information Security Management Certified">
+          <img src="/assets/img/ref/ISO27001.png" alt="ISO 27001 Information Security Certified" class="seal-badge-img">
+        </div>
+
+        <!-- Seal 5: ISO 45001 -->
+        <div class="accred-seal-item" title="ISO 45001:2018 Occupational Health & Safety Certified">
+          <img src="/assets/img/ref/iso45001.png" alt="ISO 45001 Occupational Safety Certified" class="seal-badge-img">
+        </div>
+
+        <!-- Seal 6: TISAX -->
+        <div class="accred-seal-item" title="TISAX Automotive Security Assessment">
+          <img src="/assets/img/ref/tisax.png" alt="TISAX Automotive Information Security Certified" class="seal-badge-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 7: 3 BUSINESS LINES (TALL 660PX PHOTO CARDS)
+       ============================================================ -->
+  <section class="business-cards-sec">
+    <div class="container">
+      <span class="kknag-eyebrow">OUR BUSINESS LINES</span>
+      <h2 class="kknag-heading">Three Distinctive Business Lines, Using Advanced Dismantling and Hydrometallurgical Processes</h2>
+
+      <div class="business-cards-grid">
+        <!-- Card 1: ITAD (EPP) -->
+        <div class="business-photo-card">
+          <img src="/assets/img/ref/business-epp.webp" alt="ITAD and Data Destruction" class="business-card-bg">
+          <div class="business-card-overlay"></div>
+          <div class="business-card-text">
+            <h3 class="business-card-title">IT Asset Disposition (ITAD)</h3>
+            <p class="business-card-desc">
+              Certified non-recoverable NIST SP 800-88 Clear and Purge data sanitization, on-site optical shredding, and serialized chain of custody.
+            </p>
+            <a href="/services/itad/" class="btn-eg-green">KNOW MORE</a>
+          </div>
+        </div>
+
+        <!-- Card 2: Hydrometallurgy (EPS) -->
+        <div class="business-photo-card">
+          <img src="/assets/img/ref/business-eps.webp" alt="Hydrometallurgical Refining" class="business-card-bg">
+          <div class="business-card-overlay"></div>
+          <div class="business-card-text">
+            <h3 class="business-card-title">Hydrometallurgical Refining</h3>
+            <p class="business-card-desc">
+              Zero-emission chemical leaching recovering 98% of Gold, Silver, Copper, Cobalt, and Lithium re-injected into domestic production.
+            </p>
+            <a href="/services/recovery/" class="btn-eg-green">KNOW MORE</a>
+          </div>
+        </div>
+
+        <!-- Card 3: EPR Compliance (Rotomould) -->
+        <div class="business-photo-card">
+          <img src="/assets/img/ref/business-rotomould.webp" alt="Statutory EPR Compliance" class="business-card-bg">
+          <div class="business-card-overlay"></div>
+          <div class="business-card-text">
+            <h3 class="business-card-title">Statutory EPR Compliance</h3>
+            <p class="business-card-desc">
+              Direct Central Pollution Control Board portal synchronization, automated Form 6 manifests, and quarterly vendor audit validation.
+            </p>
+            <a href="/compliance/" class="btn-eg-green">KNOW MORE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 8: INDUSTRIES WE SERVE (WITH AMBER PANEL IMAGE)
+       ============================================================ -->
+  <section class="industries-dark-sec">
+    <div class="industries-dark-scrim"></div>
+    <div class="container industries-dark-content">
+      <div class="industries-top-split">
+        <div class="industries-left-head">
+          <span class="kknag-eyebrow" style="color: #f26522;">INDUSTRIES WE SERVE</span>
+          <h2>A Broad and Varied Spectrum of Industries</h2>
+          <a href="/services/" class="btn-eg-pill">EXPLORE ALL SECTORS</a>
+        </div>
+        <div class="industries-amber-panel">
+          <img src="/assets/img/ref/amber-panel.webp" alt="Industries We Serve — High-Performance Materials">
+        </div>
+      </div>
+
+      <div class="industries-pills-grid">
+        <div class="industry-pill-btn"><span>💻</span> Data Centers &amp; Cloud</div>
+        <div class="industry-pill-btn"><span>🏦</span> Banking &amp; Financial (BFSI)</div>
+        <div class="industry-pill-btn"><span>📡</span> Telecommunications</div>
+        <div class="industry-pill-btn"><span>🚗</span> Automotive &amp; EV Mobility</div>
+        <div class="industry-pill-btn"><span>📱</span> Consumer Electronics OEMs</div>
+        <div class="industry-pill-btn"><span>🏥</span> Healthcare &amp; Medical IT</div>
+        <div class="industry-pill-btn"><span>🛡️</span> Aerospace &amp; Defense</div>
+        <div class="industry-pill-btn"><span>⚡</span> Renewable Energy &amp; CleanTech</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 9: SERVICES (PANORAMIC ENGINEERS 520PX + 3 WHITE CARDS)
+       ============================================================ -->
+  <section class="services-dark-sec">
+    <div class="container">
+      <span class="kknag-eyebrow">OUR SERVICES</span>
+      <h2 class="kknag-heading">Meeting Every Demand</h2>
+
+      <div class="services-panoramic-photo">
+        <img src="/assets/img/ref/services-engineers.webp" alt="EcoGreen Engineering Operations">
+      </div>
+
+      <div class="services-white-cards-row">
+        <!-- Box 1 -->
+        <div class="service-white-card">
+          <div>
+            <div class="service-white-card-num">01</div>
+            <h3 class="service-white-card-title">GPS REVERSE LOGISTICS</h3>
+            <p class="service-white-card-desc">
+              Geo-fenced nationwide fleet with biometric tamper-evident seals and electronic chain-of-custody transfer.
+            </p>
+          </div>
+          <div class="service-white-card-arrow">&rarr;</div>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="service-white-card">
+          <div>
+            <div class="service-white-card-num">02</div>
+            <h3 class="service-white-card-title">VALUE ENGINEERING</h3>
+            <p class="service-white-card-desc">
+              Hydrometallurgical extraction yielding LME-grade copper cathodes, investment-grade bullion, and precursor battery black mass.
+            </p>
+          </div>
+          <div class="service-white-card-arrow">&rarr;</div>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="service-white-card">
+          <div>
+            <div class="service-white-card-num">03</div>
+            <h3 class="service-white-card-title">WITNESSED DESTRUCTION</h3>
+            <p class="service-white-card-desc">
+              Heavy-duty mobile shredder units dispatched to client campus facilities with dual-camera live streaming.
+            </p>
+          </div>
+          <div class="service-white-card-arrow">&rarr;</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 10: TESTIMONIALS & AFFILIATIONS (WITH REAL AFFIL LOGOS)
+       ============================================================ -->
+  <section class="testimonials-split-sec">
+    <div class="container">
+      <div class="testi-split-grid">
+        <div class="testi-left-box">
+          <span class="kknag-eyebrow">CUSTOMER TESTIMONIALS</span>
+          <h2>What Our Customers Say</h2>
+          <a href="/about/" class="btn-eg-green">READ MORE SUCCESS STORIES</a>
+        </div>
+
+        <div class="testi-right-quote-box">
+          <p class="testi-quote-text">
+            "EcoGreen manages our nationwide ITAD across 14 enterprise branches. Their NIST 800-88 certificates and serialized custody reports satisfy our external Big-4 compliance audits with zero findings."
+          </p>
+          <div class="testi-author-name">Head of Corporate IT Infrastructure</div>
+          <div class="testi-author-desig">Leading Multinational Technology Provider</div>
+        </div>
+      </div>
+
+      <div class="affiliations-row-wrap">
+        <div class="affiliations-lbl">Our Affiliations</div>
+        <div class="affiliations-badges-row">
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-1.png" alt="Affiliation Body"></div>
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-2.png" alt="Affiliation Body"></div>
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-3.png" alt="Affiliation Body"></div>
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-4.png" alt="Affiliation Body"></div>
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-5.png" alt="Affiliation Body"></div>
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-6.png" alt="Affiliation Body"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 11: SUSTAINABILITY (WITH DIAGONAL GREEN LEAVES IMAGE)
+       ============================================================ -->
+  <section class="sustainability-kknag-sec">
+    <div class="sustain-leaves-backdrop"></div>
+    <div class="container">
+      <div class="sustain-kknag-grid">
+        <div class="sustain-kknag-left">
+          <span class="kknag-eyebrow">SUSTAINABILITY INITIATIVES</span>
+          <h2>Our Material Recovery and Processing Has Minimal Environmental Impact</h2>
+
+          <div class="sustain-kknag-check-item">
+            <span class="green-circle-arrow">&rarr;</span>
+            <span>Zero Landfill, Zero Export — 100% Domestic Supply</span>
+          </div>
+
+          <div class="sustain-kknag-check-item">
+            <span class="green-circle-arrow">&rarr;</span>
+            <span>Scope 3 Carbon Displacement — 728.5+ tCO₂e Saved</span>
+          </div>
+        </div>
+
+        <div class="sustain-kknag-right-badges">
+          <div class="sustain-circle-seal">
+            <strong>60,142+</strong>
+            <span>Metric Tonnes Re-entered</span>
+          </div>
+          <div class="sustain-circle-seal">
+            <strong>728.5+</strong>
+            <span>tCO₂e Emissions Avoided</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 12: PRODUCT CARDS WITH CORNER RIBBONS & HI-RES IMAGES
+       ============================================================ -->
+  <section class="streams-kknag-sec">
+    <div class="container">
+      <div class="streams-filter-pills">
+        <div class="filter-pill active">ALL RECOVERY STREAMS</div>
+        <div class="filter-pill">ITAD HARDWARE</div>
+        <div class="filter-pill">REFINED METALS</div>
+      </div>
+
+      <div class="streams-cards-grid">
+        <!-- Card 1 -->
+        <div class="stream-ribbon-card">
+          <div class="card-corner-ribbon"></div>
+          <span class="card-corner-ribbon-text">NIST 800</span>
+          <div class="stream-card-img-wrap">
+            <img src="/assets/img/ref/product-1.webp" alt="Server Racks ITAD">
+          </div>
+          <div class="stream-card-body">
+            <h3 class="stream-card-title">Enterprise Server Racks &amp; Cryptographic Storage</h3>
+            <p class="stream-card-desc">
+              High-density rack decommissioning with degaussing and certified media destruction.
+            </p>
+            <a href="/services/itad/" class="stream-card-link">KNOW MORE &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="stream-ribbon-card">
+          <div class="card-corner-ribbon"></div>
+          <span class="card-corner-ribbon-text">99.5%</span>
+          <div class="stream-card-img-wrap">
+            <img src="/assets/img/ref/product-2.webp" alt="Precious Metals Recovery">
+          </div>
+          <div class="stream-card-body">
+            <h3 class="stream-card-title">Hydrometallurgical Copper &amp; Precious Metals</h3>
+            <p class="stream-card-desc">
+              Extracted manufacturing-grade gold, silver, palladium, and copper cathodes.
+            </p>
+            <a href="/services/recovery/" class="stream-card-link">KNOW MORE &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="stream-ribbon-card">
+          <div class="card-corner-ribbon"></div>
+          <span class="card-corner-ribbon-text">FORM 6</span>
+          <div class="stream-card-img-wrap">
+            <img src="/assets/img/ref/product-3.webp" alt="Circuit Boards & Li-ion Batteries">
+          </div>
+          <div class="stream-card-body">
+            <h3 class="stream-card-title">High-Density Circuit Boards &amp; Li-ion Batteries</h3>
+            <p class="stream-card-desc">
+              Black mass separation recovering cobalt, nickel, and battery-grade lithium salts.
+            </p>
+            <a href="/compliance/" class="stream-card-link">KNOW MORE &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 13: FOOTER WITH FLOATING WHITE CARD & STAMP BADGE
+       ============================================================ -->
+  <footer class="footer-kknag-sec">
+    <div class="container">
+      <div class="footer-main-grid">
+        <!-- Left: Brand Hashtag & 4 Nav Columns -->
+        <div>
+          <div class="footer-brand-hashtag">#ClosingTheLoop</div>
+
+          <div class="footer-nav-columns">
+            <div class="footer-nav-col">
+              <h4>About Us</h4>
+              <ul>
+                <li><a href="/about/">Overview</a></li>
+                <li><a href="/story/">Our Journey</a></li>
+                <li><a href="/about/leadership/">Leadership</a></li>
+                <li><a href="/about/csr/">CSR Policy</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Business Lines</h4>
+              <ul>
+                <li><a href="/services/itad/">ITAD Services</a></li>
+                <li><a href="/services/recovery/">Metal Recovery</a></li>
+                <li><a href="/compliance/">EPR Fulfillment</a></li>
+                <li><a href="/services/refurbishment/">Refurbishment</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Services</h4>
+              <ul>
+                <li><a href="/services/">Reverse Logistics</a></li>
+                <li><a href="/services/recovery/">Urban Mining</a></li>
+                <li><a href="/services/itad/">Witnessed Shredding</a></li>
+                <li><a href="/compliance/">Audited Disposal</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Portals</h4>
+              <ul>
+                <li><a href="/compliance/">EPR Portal</a></li>
+                <li><a href="/services/itad/">ITAD Vault</a></li>
+                <li><a href="/compliance/reports/">Form 6 Retrieval</a></li>
+                <li><a href="/press/">Annual Returns</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: The Distinctive White Floating "Contact Us" Card -->
+        <div>
+          <div class="footer-floating-contact-card">
+            <h3 class="footer-contact-title">Contact Us</h3>
+
+            <div class="footer-contact-item">
+              <strong>Corporate Headquarters &amp; Plant:</strong>
+              EcoGreen Recyclers (P) Limited<br>
+              Plot No. 479, Habibpur, Main Dadri Road,<br>
+              Greater Noida (U.P.) — 201306
+            </div>
+
+            <div class="footer-contact-item">
+              <strong>Direct Helpline:</strong>
+              <a href="tel:+919319253708">+91 93192 53708</a>
+            </div>
+
+            <div class="footer-contact-item">
+              <strong>Email Operations Desk:</strong>
+              <a href="mailto:operation@ecogreen.eco">operation@ecogreen.eco</a>
+            </div>
+
+            <div class="footer-card-bottom-row">
+              <a href="/contact/" class="btn-eg-green">GET IN TOUCH</a>
+              <div class="footer-stamp-badge">
+                <img src="/assets/img/ref/footer-badge.svg" alt="Certified Standards Badge">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>&copy; <span id="kknagYear">2026</span> EcoGreen Recyclers (P) Limited. All Rights Reserved.</span>
+        <nav aria-label="Legal">
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms &amp; Conditions</a>
+          <a href="/assets/docs/code-of-conduct.pdf" target="_blank">Code of Conduct</a>
+          <a href="/sitemap.xml">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('kknagYear').textContent = new Date().getFullYear();
+  </script>
+  <!-- ============================================================
+       FLOATING COMPARISON SWITCHER (TESTING SETTING)
+       ============================================================ -->
+  <aside id="testing-comparison-dock" aria-label="Version Switcher" style="position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 99999; display: flex; align-items: center; background: rgba(14, 22, 17, 0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 9999px; padding: 6px 10px; box-shadow: 0 14px 40px rgba(0,0,0,0.45); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; gap: 4px;">
+    <span style="color: #A5D6A7; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0 12px 0 8px; border-right: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 6px;">
+      <span style="display:inline-block; width: 7px; height: 7px; border-radius: 50%; background: #4CAF50; box-shadow: 0 0 8px #4CAF50;"></span>
+      Testing Setting
+    </span>
+    <a href="/" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 9999px; font-size: 12.5px; font-weight: 600; text-decoration: none; color: #d0d0d0; transition: all 0.2s ease;">
+      <span>🌿</span> Original EcoGreen
+    </a>
+    <a href="/test" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 9999px; font-size: 12.5px; font-weight: 700; text-decoration: none; background: #2E7D32; color: #ffffff; box-shadow: 0 2px 10px rgba(46, 125, 50, 0.5);">
+      <span>★</span> K. K. Nag Structure
+    </a>
+  </aside>
+
+</body>
+</html>
