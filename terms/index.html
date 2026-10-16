@@ -16,53 +16,42 @@
 </head>
 <body>
 
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="progress" id="progress" aria-hidden="true"></div>
-
-  <header class="site-header" id="siteHeader">
-    <div class="header-inner">
-      <a class="brand" href="/" aria-label="EcoGreen home">
-        <img src="/assets/img/ecogreen-logo.png" alt="EcoGreen" class="brand-logo brand-logo--light" width="170" height="32" decoding="async">
-        <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen" class="brand-logo brand-logo--dark" width="170" height="32" decoding="async">
+    <!-- ============================================================
+       TOP HEADER (K. K. Nag Finalized Structure)
+       ============================================================ -->
+  <header class="main-header">
+    <div class="container">
+      <a href="/" class="brand-logo-wrap" aria-label="EcoGreen Home">
+        <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen Recyclers (P) Limited">
       </a>
 
-      <nav class="nav" id="primaryNav" aria-label="Primary">
-        <ul class="nav-list">
-          <li class="nav-item"><a class="nav-link" href="/story/">Story</a></li>
-          <li class="nav-item has-drop">
-            <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
-              Services
-              <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <ul class="drop">
-              <li><a href="/services/">Services overview<span>What we do and who we serve</span></a></li>
-              <li><a href="/services/itad/">ITAD &amp; Data Destruction<span>NIST 800-88 purge, on-site shredding</span></a></li>
-              <li><a href="/services/recycling/">Recycling &amp; Recovery<span>Hydrometallurgical recovery streams</span></a></li>
-            </ul>
+      <nav aria-label="Primary Navigation">
+        <ul class="main-nav-list">
+          <li class="main-nav-item">
+            <a href="/about/">ABOUT US <span class="nav-arrow-icon">&#9662;</span></a>
           </li>
-          <li class="nav-item has-drop">
-            <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
-              Impact
-              <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-            </button>
-            <ul class="drop">
-              <li><a href="/sustainability/">Sustainability<span>ESG reporting and impact data</span></a></li>
-              <li><a href="/compliance/">Compliance<span>Certifications and regulatory record</span></a></li>
-            </ul>
+          <li class="main-nav-item">
+            <a href="/services/">BUSINESS LINES <span class="nav-arrow-icon">&#9662;</span></a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="/press/">Press</a></li>
-          <li class="nav-item"><a class="nav-link" href="/about/">About</a></li>
+          <li class="main-nav-item">
+            <a href="/services/">SERVICES <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/sustainability/">SUSTAINABILITY <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/press/">RESOURCES <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
         </ul>
       </nav>
 
-      <a class="header-cta" href="/contact/">
-        Book a pickup
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-
-      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header-right-tools">
+        <svg class="search-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <a href="/contact/" class="btn-eg-green">GET IN TOUCH</a>
+      </div>
     </div>
   </header>
 

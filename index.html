@@ -1,1166 +1,2330 @@
 <!DOCTYPE html>
-<html lang="en-IN">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>The E-Waste Story — EcoGreen</title>
-<meta name="description" content="India throws away 1.75 million tonnes of electronics every year. This is the story of what happens to it — and the standard we built to do it properly.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%231B5E20'/%3E%3Cpath d='M11 19a6 6 0 0 1-1-11.9C15 6 16 5.6 17.6 3.5c.8 1.7 1.6 3.5 1.6 6.7 0 4.7-4.1 8.8-8.2 8.8Z' fill='%23A5D6A7'/%3E%3C/svg%3E">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoGreen Recyclers (P) Limited — #ClosingTheLoop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700;1,800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       1:1 PIXEL-PERFECT REPLICATION OF K. K. NAG HOMEPAGE
+       Color Theme: EcoGreen Brand Green & Deep Forest (#2E7D32)
+       All Reference Assets Integrated from /assets/img/ref/
+       ============================================================ */
+    :root {
+      --eg-green: #2E7D32;              /* Primary Action Brand Green */
+      --eg-green-dark: #1B5E20;         /* Deep Forest Green (Hover) */
+      --eg-green-vibrant: #388E3C;      /* Mid Vibrant Green */
+      --eg-green-light: #43A047;        /* Leaf Bright Green */
+      --eg-green-mint: #A5D6A7;         /* Mint Eyebrow Accent */
+      --eg-green-pale: #E8F5E9;         /* Soft Green Tint */
+      --eg-forest-deep: #0B2414;        /* Deep Forest (Replaces Navy #141738) */
+      --eg-forest-card: #113821;        /* Floating Card Dark Green */
+      --eg-forest-sec: #0A1A10;         /* Dark Section Forest Background */
+      --eg-forest-darker: #06140C;      /* Footer Base Dark */
+      --kknag-orange: #f26522;          /* Accent Orange / Amber */
+      --text-dark: #222222;
+      --text-muted: #555555;
+      --border-light: #e2e8f0;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Open Sans', sans-serif;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
-:root{
-  --ink:#0B2E13; --ink-2:#0F3A19;
-  --green:#1B5E20; --green-2:#2E7D32; --green-3:#43A047;
-  --green-4:#A5D6A7; --green-5:#C8E6C9;
-  --paper:#FFFFFF; --paper-2:#F5FBF7; --paper-3:#EAF4ED;
-  --rule:#DCE9DF; --body:#3E4A41; --muted:#6E7C72;
-  --serif:"Fraunces",Georgia,serif;
-  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  --maxw:1360px; --pad:40px;
-  --ease:cubic-bezier(.22,.61,.36,1);
-  --ease-focus:cubic-bezier(.19,1,.22,1);
+    html {
+      scroll-behavior: smooth;
+    }
 
-  --green-900:#0B2E13; --green-800:#12421C; --green-700:#1B5E20; --green-600:#2E7D32;
-  --green-300:#A5D6A7; --green-100:#E8F5E9; --ink-soft:#3B4A3E; --ink-mute:#6E7C71;
-  --line:rgba(11,46,19,.12); --header-h:80px; --gut:clamp(24px,5vw,80px);
-  --r-s:8px; --r-m:14px; --r-pill:999px;
-  --shadow-l:0 40px 80px -40px rgba(11,46,19,.35);
-  --shadow-m:0 16px 40px -20px rgba(11,46,19,.22);
-}
-*,*::before,*::after{ box-sizing:border-box; }
-html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
-body{
-  margin:0; font-family:var(--sans); font-size:16.5px; line-height:1.7;
-  color:var(--body); background:var(--paper); -webkit-font-smoothing:antialiased;
-}
-img{ max-width:100%; display:block; }
-a{ color:inherit; }
-.wrap{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 var(--pad); }
-.skip{ position:absolute; left:-9999px; top:0; background:var(--green); color:#fff; padding:12px 20px; z-index:9999; }
-.skip:focus{ left:0; }
+    @media (min-width: 1025px) {
+      html {
+        scroll-behavior: auto; /* Let custom RAF controller drive the luxury smooth deceleration */
+        scroll-snap-type: none; /* Prevents browser snap engine conflict with smooth glide */
+      }
+    }
 
-/* Progress bar */
-.progress{ position:fixed; top:0; left:0; height:3px; width:0;
-  background:linear-gradient(90deg,var(--green-3),var(--green-4));
-  z-index:1000; transition:width .1s linear; }
+    body {
+      font-family: var(--font-body);
+      color: var(--text-dark);
+      background-color: #ffffff;
+      font-size: 14.5px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-/* ============================================================
-   HEADER — site-wide navbar
-   ============================================================ */
-.site-header{
-  position:fixed; top:0; left:0; right:0; z-index:900;
-  height:var(--header-h); display:flex; align-items:center;
-  transition:transform .5s var(--ease), background .3s ease,
-             box-shadow .3s ease, backdrop-filter .3s ease, border-color .3s ease;
-  border-bottom:1px solid transparent;
-}
-.site-header.is-hidden{ transform:translateY(-110%); }
-.site-header.is-solid{
-  background:rgba(253,254,251,.92);
-  backdrop-filter:blur(16px) saturate(160%);
-  -webkit-backdrop-filter:blur(16px) saturate(160%);
-  border-bottom-color:var(--line);
-}
-.site-header.on-dark:not(.is-solid) .brand,
-.site-header.on-dark:not(.is-solid) .nav-link{ color:#fff; }
-.site-header.on-dark:not(.is-solid) .brand b{ color:var(--green-300); }
-.site-header.on-dark:not(.is-solid) .burger span{ background:#fff; }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s ease;
+    }
 
-.header-inner{
-  width:100%; max-width:var(--maxw); margin-inline:auto;
-  padding-inline:var(--gut);
-  display:flex; align-items:center; justify-content:space-between; gap:24px;
-}
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-.brand{
-  display:inline-flex; align-items:center; gap:11px;
-  font-size:19px; font-weight:750; letter-spacing:-.032em;
-  color:var(--green-900); flex:none; text-decoration:none;
-}
-.brand-logo{
-  height:32px; width:auto; max-height:34px;
-  object-fit:contain; display:block; flex:none;
-}
-.brand-logo--dark{ display:none; }
-.site-header.is-solid .brand-logo--light{ display:none; }
-.site-header.is-solid .brand-logo--dark{ display:block; }
-.site-header:not(.on-dark) .brand-logo--light{ display:none; }
-.site-header:not(.on-dark) .brand-logo--dark{ display:block; }
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-.nav{ display:flex; align-items:center; gap:36px; }
-.nav-list{ display:flex; align-items:center; gap:32px; list-style:none; margin:0; padding:0; }
-.nav-item{ position:relative; }
-.nav-link{
-  display:inline-flex; align-items:center; gap:6px;
-  font-size:14.5px; font-weight:500; letter-spacing:-.006em;
-  color:var(--ink); padding:6px 0; transition:color .25s ease;
-  position:relative; text-decoration:none;
-  background:none; border:none; cursor:pointer; font-family:inherit;
-}
-.nav-link:hover{ color:var(--green-700); }
-.nav-link[aria-current="page"]{ color:var(--green-800); font-weight:600; }
-.nav-link .caret{ width:10px; height:10px; transition:transform .3s var(--ease); opacity:.5; }
-.nav-item.open > .nav-link .caret{ transform:rotate(180deg); }
-.nav-link::after{
-  content:""; position:absolute; left:0; bottom:-6px; height:1px; width:0;
-  background:var(--green-600); transition:width .35s var(--ease);
-}
-.nav-link:hover::after,
-.nav-link[aria-current="page"]::after{ width:100%; }
+    /* Common Eyebrow */
+    .kknag-eyebrow {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--eg-green);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
+    }
 
-.drop{
-  position:absolute; top:calc(100% + 18px); left:50%;
-  transform:translateX(-50%) translateY(-6px);
-  min-width:300px; padding:12px; background:#fff;
-  border:1px solid var(--line); border-radius:var(--r-m);
-  box-shadow:var(--shadow-l);
-  opacity:0; visibility:hidden; pointer-events:none;
-  transition:opacity .28s var(--ease), transform .32s var(--ease), visibility .28s;
-  list-style:none; margin:0;
-}
-.drop::before{
-  content:""; position:absolute; top:-24px; left:0; right:0; height:24px;
-}
-.nav-item.open .drop{ opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
-.drop a{
-  display:block; padding:12px 14px; border-radius:var(--r-s);
-  font-size:14px; font-weight:500; color:var(--ink-soft);
-  transition:background .2s ease, color .2s ease; text-decoration:none;
-}
-.drop a:hover{ background:var(--green-100); color:var(--green-800); }
-.drop a span{ display:block; margin-top:3px; font-size:12.5px; font-weight:400; color:var(--ink-mute); line-height:1.45; }
+    /* Common Section Heading */
+    .kknag-heading {
+      font-family: var(--font-heading);
+      font-size: 34px;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.25;
+      margin-bottom: 28px;
+    }
 
-.header-cta{
-  display:inline-flex; align-items:center; gap:8px; flex:none;
-  padding:12px 22px; border-radius:var(--r-pill);
-  font-size:14px; font-weight:600;
-  background:var(--green-700); color:#fff; text-decoration:none;
-  transition:background .25s ease, transform .35s var(--ease), box-shadow .35s ease;
-}
-.header-cta:hover{
-  background:var(--green-600);
-  transform:translateY(-1px);
-  box-shadow:0 12px 24px -12px rgba(27,94,32,.6);
-}
-.header-cta svg{ width:13px; height:13px; }
+    /* Green Buttons */
+    .btn-eg-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--eg-green);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 14px 30px;
+      border-radius: 4px;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-eg-green:hover {
+      background: var(--eg-green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(46, 125, 50, 0.4);
+    }
 
-.burger{
-  display:none; width:42px; height:42px; border-radius:var(--r-s);
-  place-items:center; flex-direction:column; gap:5px; flex:none;
-  background:none; border:none; cursor:pointer;
-}
-.burger span{ display:block; width:20px; height:1.5px; border-radius:2px; background:var(--ink); transition:transform .35s var(--ease), opacity .2s ease; }
-.burger[aria-expanded="true"] span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
-.burger[aria-expanded="true"] span:nth-child(2){ opacity:0; }
-.burger[aria-expanded="true"] span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+    .btn-eg-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--eg-green);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 13px 30px;
+      border-radius: 9999px;
+      transition: all 0.25s ease;
+    }
+    .btn-eg-pill:hover {
+      background: var(--eg-green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(46, 125, 50, 0.45);
+    }
 
-@media (max-width:960px){
-  :root{ --header-h:72px; }
-  .nav{
-    position:fixed; inset:var(--header-h) 0 auto 0;
-    flex-direction:column; align-items:stretch; gap:0;
-    max-height:calc(100svh - var(--header-h)); overflow-y:auto;
-    padding:24px var(--gut) 48px; background:var(--paper);
-    border-bottom:1px solid var(--line); box-shadow:var(--shadow-l);
-    transform:translateY(-12px); opacity:0; visibility:hidden; pointer-events:none;
-    transition:opacity .28s ease, transform .38s var(--ease), visibility .28s;
-  }
-  .nav.is-open{ opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0); }
-  .nav-list{ flex-direction:column; align-items:stretch; gap:0; }
-  .nav-item{ border-bottom:1px solid var(--line); }
-  .nav-link{ width:100%; justify-content:space-between; padding:18px 0; font-size:16px; font-weight:550; color:var(--ink) !important; }
-  .nav-link::after{ display:none; }
-  .drop{
-    position:static; transform:none; min-width:0; padding:0 0 12px 16px;
-    background:transparent; border:0; box-shadow:none;
-    opacity:1; visibility:visible; pointer-events:auto;
-    max-height:0; overflow:hidden; transition:max-height .4s var(--ease);
-  }
-  .nav-item.open .drop{ max-height:480px; transform:none !important; left:auto; }
-  .drop a{ padding:10px 12px; }
-  .burger{ display:flex; }
-  .header-cta{ display:none; }
-}
 
-/* ============================================================
-   SCROLL ANIMATIONS
-   ============================================================ */
-[data-anim]{
-  opacity:0;
-  transition:opacity .9s var(--ease), transform .9s var(--ease);
-  will-change:opacity, transform;
-}
-[data-anim="fade-up"]{ transform:translateY(40px); }
-[data-anim="fade-in"]{ transform:none; }
-[data-anim="slide-left"]{ transform:translateX(-48px); }
-[data-anim="slide-right"]{ transform:translateX(48px); }
-[data-anim="scale-in"]{ transform:scale(.94); }
-[data-anim].is-in{ opacity:1; transform:none; }
+    /* ============================================================
+       ZONE 2: MAIN NAVIGATION BAR (STICKY WHITE)
+       ============================================================ */
+    .main-header {
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: 80px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
 
-/* Stagger containers */
-[data-stagger] > *{
-  opacity:0; transform:translateY(28px);
-  transition:opacity .8s var(--ease), transform .8s var(--ease);
-}
-[data-stagger].is-in > *{ opacity:1; transform:none; }
-[data-stagger].is-in > *:nth-child(1){ transition-delay:.05s; }
-[data-stagger].is-in > *:nth-child(2){ transition-delay:.15s; }
-[data-stagger].is-in > *:nth-child(3){ transition-delay:.25s; }
-[data-stagger].is-in > *:nth-child(4){ transition-delay:.35s; }
-[data-stagger].is-in > *:nth-child(5){ transition-delay:.45s; }
-[data-stagger].is-in > *:nth-child(6){ transition-delay:.55s; }
-[data-stagger].is-in > *:nth-child(7){ transition-delay:.65s; }
-[data-stagger].is-in > *:nth-child(8){ transition-delay:.75s; }
+    .main-header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+    }
 
-/* Word-split headline */
-[data-split] .word{ display:inline-block; overflow:hidden; vertical-align:top; }
-[data-split] .word > span{
-  display:inline-block; transform:translateY(110%);
-  transition:transform 1s var(--ease);
-}
-[data-split].is-in .word > span{ transform:translateY(0); }
+    .brand-logo-wrap img {
+      height: 44px;
+      width: auto;
+    }
 
-/* ============================================================
-   FOCUS-PULL — cinematic blur-to-sharp reveal
-   Applies to the Two Standards section columns
-   ============================================================ */
-[data-focus]{
-  opacity:0;
-  transform:scale(1.07);
-  filter:blur(18px) saturate(.1) brightness(.68);
-  transition:
-    opacity 1s var(--ease-focus),
-    transform 1.8s var(--ease-focus),
-    filter 1.8s var(--ease-focus);
-  will-change:opacity, transform, filter;
-}
-[data-focus].is-in{
-  opacity:1;
-  transform:scale(1);
-  filter:blur(0) saturate(var(--focus-end-saturate, 1)) brightness(1);
-}
-[data-focus][data-delay="1"]{ transition-delay:.18s; }
-[data-focus][data-delay="2"]{ transition-delay:.36s; }
+    .main-nav-list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 32px;
+    }
 
-@media (prefers-reduced-motion:reduce){
-  [data-anim], [data-stagger] > *, [data-split] .word > span, [data-focus]{
-    opacity:1 !important; transform:none !important; filter:none !important;
-    transition:none !important;
-  }
-}
+    .main-nav-item a {
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #1a1a1a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .main-nav-item a:hover {
+      color: var(--eg-green);
+    }
 
-/* HERO */
-.hero{ position:relative; margin-top:0; min-height:100svh;
-  background:var(--ink); color:#fff; overflow:hidden; isolation:isolate; }
-.hero__media{ position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
-.hero__media iframe,
-.hero__media video{
-  position:absolute; top:50%; left:50%; width:100vw; height:56.25vw;
-  min-width:177.78vh; min-height:100vh;
-  transform:translate(-50%,-50%); border:0;
-  object-fit:cover;
-  filter:saturate(.95) contrast(1.02);
-}
-.hero__scrim{ position:absolute; inset:0; z-index:1;
-  background:
-    linear-gradient(180deg, rgba(11,46,19,.28) 0%, rgba(11,46,19,.18) 40%, rgba(11,46,19,.88) 100%),
-    radial-gradient(130% 80% at 20% 78%, rgba(27,94,32,.55), transparent 65%);
-}
-.hero__name{ position:absolute; left:var(--pad); top:50%; transform:translateY(-50%);
-  z-index:3; max-width:640px; pointer-events:none; }
-.hero__name-rule{ width:52px; height:2px; background:#fff; margin-bottom:22px; }
-.hero__name-line{ font-family:var(--serif); font-weight:600;
-  font-size:clamp(34px,4.4vw,58px); line-height:1.04; letter-spacing:-.025em;
-  color:#fff; margin:0 0 14px; }
-.hero__name-role{ font-family:var(--sans); font-size:13px; font-weight:600;
-  letter-spacing:.18em; text-transform:uppercase; color:var(--green-4); }
-.hero__rail{ position:absolute; left:0; right:0; bottom:0; z-index:3;
-  padding:56px var(--pad) 64px;
-  display:grid; grid-template-columns:1.15fr 1fr; gap:60px; align-items:end; }
-.hero__title{ font-family:var(--serif); font-weight:500;
-  font-size:clamp(32px,3.8vw,54px); line-height:1.06; letter-spacing:-.025em;
-  color:#fff; margin:0; max-width:16ch; }
-.hero__title em{ font-style:italic; font-weight:400; color:var(--green-4); }
-.hero__aside{ max-width:520px; justify-self:end; }
-.hero__aside p{ font-size:15px; line-height:1.6; color:rgba(255,255,255,.86); margin:0 0 18px; }
-.hero__aside p strong{ color:#fff; font-weight:600; }
-.hero__cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:22px; }
-.btn{ display:inline-flex; align-items:center; gap:9px;
-  padding:13px 22px; border-radius:6px; font-size:13.5px; font-weight:600;
-  text-decoration:none;
-  transition:transform .22s var(--ease), background .22s var(--ease), border-color .22s var(--ease); }
-.btn svg{ width:13px; height:13px; transition:transform .25s var(--ease); }
-.btn:hover{ transform:translateY(-1px); }
-.btn:hover svg{ transform:translateX(3px); }
-.btn--primary{ background:var(--green-3); color:#fff; }
-.btn--primary:hover{ background:#4CB750; }
-.btn--ghost{ background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.4); }
-.btn--ghost:hover{ border-color:#fff; background:rgba(255,255,255,.08); }
-@media (max-width:900px){
-  .hero__name{ top:110px; transform:none; left:22px; right:22px; }
-  .hero__rail{ grid-template-columns:1fr; gap:26px; padding:40px 22px 44px; }
-  .hero__aside{ justify-self:start; }
-}
+    .nav-arrow-icon {
+      font-size: 9px;
+      color: #888888;
+    }
 
-/* SECTIONS */
-.section{ padding:130px 0; position:relative; }
-.section--paper{ background:var(--paper); }
-.section--soft{ background:var(--paper-2); }
-.section--dark{ background:var(--ink); color:#fff; }
-.chead{ text-align:center; max-width:900px; margin:0 auto 72px; }
-.chead h2{ font-family:var(--serif); font-weight:500;
-  font-size:clamp(32px,3.6vw,52px); line-height:1.1; letter-spacing:-.025em;
-  color:var(--ink); margin:0 0 26px; }
-.chead h2 em{ font-style:italic; font-weight:400; color:var(--green); }
-.chead p{ font-size:17px; line-height:1.7; color:var(--body); margin:0 auto; max-width:74ch; }
+    .header-right-tools {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-/* PHOTO STRIP */
-.strip{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px;
-  padding:0 var(--pad); max-width:1500px; margin:80px auto 0; }
-.strip figure{ margin:0; position:relative; aspect-ratio:4/3;
-  overflow:hidden; background:var(--paper-3); }
-.strip img{ width:100%; height:100%; object-fit:cover;
-  filter:grayscale(.15); transition:transform .6s var(--ease), filter .4s var(--ease); }
-.strip figure:hover img{ transform:scale(1.03); filter:grayscale(0); }
-.strip figcaption{ position:absolute; left:14px; bottom:12px; right:14px;
-  font-size:11.5px; font-weight:500; color:#fff;
-  text-shadow:0 1px 6px rgba(0,0,0,.4); }
-@media (max-width:760px){ .strip{ grid-template-columns:1fr; gap:10px; } }
+    .search-btn-icon {
+      width: 19px;
+      height: 19px;
+      color: #333333;
+      cursor: pointer;
+    }
 
-/* ============================================================
-   TWO STANDARDS — focus-pull section
-   ============================================================ */
-.standards{ padding:140px 0; overflow:hidden; }
-.standards__grid{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) minmax(0,1fr);
-  gap:56px;
-  align-items:center;
-  max-width:1500px;
-  margin:0 auto;
-  padding:0 var(--pad);
-}
-.standard{
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.03);
-  padding:40px 34px;
-  border-radius:2px;
-  position:relative;
-}
-.standard--old{ --focus-end-saturate:.35; }
-.standard--new{
-  --focus-end-saturate:1;
-  background:rgba(67,160,71,.08);
-  border-color:rgba(165,214,167,.4);
-}
-.standard__eyebrow{
-  display:inline-block;
-  font-size:11px; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
-  color:var(--green-4);
-  margin-bottom:18px;
-}
-.standard--old .standard__eyebrow{ color:rgba(255,255,255,.45); }
-.standard h3{
-  font-family:var(--serif); font-weight:500;
-  font-size:22px; line-height:1.22; letter-spacing:-.015em;
-  color:#fff;
-  margin:0 0 24px;
-}
-.standard ul{ list-style:none; margin:0; padding:0; }
-.standard li{
-  font-size:14.5px; line-height:1.55;
-  color:rgba(255,255,255,.78);
-  padding:12px 0 12px 30px;
-  border-bottom:1px solid rgba(255,255,255,.07);
-  position:relative;
-}
-.standard li:last-child{ border-bottom:0; padding-bottom:0; }
-.standard li .mark{
-  position:absolute; left:0; top:12px;
-  font-size:14px; font-weight:700; line-height:1;
-}
-.standard--old li{ color:rgba(255,255,255,.5); }
-.standard--old li .mark{ color:rgba(255,255,255,.35); }
-.standard--new li .mark{ color:var(--green-4); }
+    /* ============================================================
+       ZONE 3: HERO VIDEO BANNER (FULL SCREEN COVER 100VH)
+       ============================================================ */
+    .hero-kknag-banner {
+      position: relative;
+      height: calc(100vh - 80px);
+      min-height: calc(100vh - 80px);
+      max-height: calc(100vh - 80px);
+      background: #000000;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: #ffffff;
+      scroll-snap-align: start;
+      scroll-margin-top: 80px;
+    }
 
-.standards__body{ text-align:center; max-width:520px; margin:0 auto; }
-.standards__body h2{
-  font-family:var(--serif); font-weight:500;
-  font-size:clamp(28px,3.2vw,42px); line-height:1.12; letter-spacing:-.025em;
-  color:#fff; margin:0 0 28px;
-}
-.standards__body h2 em{ font-style:italic; font-weight:400; color:var(--green-4); }
-.standards__body p{
-  font-size:15.5px; line-height:1.72;
-  color:rgba(255,255,255,.78);
-  margin:0 0 18px; text-align:left;
-}
-@media (max-width:1000px){
-  .standards__grid{ grid-template-columns:1fr; gap:32px; }
-}
+    .hero-kknag-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      opacity: 0.88;
+    }
 
-/* ============================================================
-   REGULATORY TIMELINE
-   ============================================================ */
-.timeline{
-  max-width:1400px;
-  margin:0 auto;
-  padding:0 var(--pad);
-  position:relative;
-}
-.timeline__track{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:0;
-  position:relative;
-}
-.timeline__track::before{
-  content:"";
-  position:absolute;
-  left:8%; right:8%;
-  top:78px;
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--rule) 8%,var(--rule) 92%,transparent);
-}
-.tl-item{
-  padding:0 16px;
-  text-align:center;
-  position:relative;
-}
-.tl-item__year{
-  font-family:var(--sans);
-  font-size:13px; font-weight:600; letter-spacing:.14em;
-  color:var(--green-2);
-  display:block;
-  margin-bottom:32px;
-}
-.tl-item__dot{
-  width:14px; height:14px;
-  border-radius:50%;
-  background:var(--paper);
-  border:2px solid var(--green-3);
-  display:block;
-  margin:0 auto 28px;
-  position:relative;
-  z-index:1;
-  transition:transform .5s var(--ease), box-shadow .5s var(--ease);
-}
-.tl-item.is-in .tl-item__dot{
-  transform:scale(1.15);
-  box-shadow:0 0 0 8px rgba(67,160,71,.14);
-}
-.tl-item h4{
-  font-family:var(--serif); font-weight:500;
-  font-size:16px; line-height:1.2; letter-spacing:-.01em;
-  color:var(--ink);
-  margin:0 0 10px;
-}
-.tl-item p{
-  font-size:13.5px; line-height:1.55;
-  color:var(--muted);
-  margin:0;
-}
-@media (max-width:1000px){
-  .timeline__track{ grid-template-columns:1fr; gap:40px; }
-  .timeline__track::before{ display:none; }
-  .tl-item{ text-align:left; padding:0 0 0 34px; border-left:1px solid var(--rule); }
-  .tl-item__dot{ position:absolute; left:-7px; top:2px; margin:0; }
-  .tl-item__year{ margin-bottom:10px; }
-}
+    .hero-kknag-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.55) 100%);
+    }
 
-/* PATTERNED DARK — Closed Loop */
-.patterned{
-  background:var(--ink);
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(67,160,71,.16), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(27,94,32,.24), transparent 45%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.04'%3E%3Ccircle cx='40' cy='40' r='22'/%3E%3Ccircle cx='40' cy='40' r='14'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E");
-}
-.formula{
-  display:inline-flex; align-items:center; gap:18px;
-  padding:16px 32px;
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:100px;
-  font-family:var(--serif); font-weight:500;
-  font-size:clamp(20px,2.4vw,30px); letter-spacing:-.02em;
-  color:#fff; margin:34px 0 40px;
-}
-.formula em{ font-style:italic; color:var(--green-4); font-weight:400; }
-.formula .op{ font-family:var(--sans); font-weight:400; font-size:.72em;
-  color:rgba(255,255,255,.5); padding:0 4px; }
-.italic-quote{
-  font-family:var(--serif); font-style:italic; font-weight:400;
-  font-size:clamp(22px,2.4vw,30px); line-height:1.34; letter-spacing:-.015em;
-  color:#fff; max-width:780px; margin:44px auto 0;
-}
-.italic-quote em{ color:var(--green-4); }
+    .hero-kknag-center {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
 
-/* DECADE */
-.decade{ display:grid; grid-template-columns:1.25fr 1fr; gap:72px;
-  align-items:center; max-width:1360px; margin:0 auto; padding:0 var(--pad); }
-.decade__media{ position:relative; overflow:hidden; }
-.decade__media img{ width:100%; aspect-ratio:16/11; object-fit:cover;
-  background:var(--paper-3); will-change:transform; }
-.badge{ position:absolute; top:-34px; right:-34px; width:130px; height:130px;
-  display:grid; place-items:center; color:#fff; text-align:center; z-index:2; }
-.badge svg{ position:absolute; inset:0; width:100%; height:100%; }
-.badge__inner{ position:relative; z-index:1; font-family:var(--sans); line-height:1.05; }
-.badge__inner strong{ display:block; font-family:var(--serif); font-weight:600;
-  font-size:30px; letter-spacing:-.02em; margin-bottom:4px; }
-.badge__inner span{ font-size:9.5px; font-weight:600; letter-spacing:.18em;
-  text-transform:uppercase; color:var(--green-4); }
-.decade__body h2{ font-family:var(--serif); font-weight:500;
-  font-size:clamp(28px,3.2vw,42px); line-height:1.1; letter-spacing:-.025em;
-  color:var(--ink); margin:0 0 26px; }
-.decade__body h2 em{ font-style:italic; font-weight:400; color:var(--green); }
-.decade__body p{ font-size:16.5px; line-height:1.72; color:var(--body); margin:0 0 18px; }
-@media (max-width:900px){
-  .decade{ grid-template-columns:1fr; gap:60px; }
-  .badge{ top:-20px; right:20px; width:104px; height:104px; }
-  .badge__inner strong{ font-size:24px; }
-}
+    .hero-hashtag-main {
+      font-family: var(--font-heading);
+      font-size: clamp(38px, 5.2vh, 54px);
+      font-weight: 800;
+      font-style: italic;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      text-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
+      margin-bottom: clamp(20px, 3.5vh, 44px);
+    }
 
-/* STATS */
-.stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:0;
-  border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); margin-top:120px; }
-.stat{ padding:48px 32px; border-right:1px solid var(--rule); }
-.stat:last-child{ border-right:0; }
-.stat__value{ font-family:var(--serif); font-weight:500;
-  font-size:clamp(36px,4vw,54px); line-height:1; letter-spacing:-.03em;
-  color:var(--green); display:flex; align-items:baseline; gap:5px; margin-bottom:14px; }
-.stat__value small{ font-family:var(--sans); font-size:14px; font-weight:600;
-  color:var(--muted); letter-spacing:0; }
-.stat__label{ font-size:11.5px; font-weight:600; letter-spacing:.14em;
-  text-transform:uppercase; color:var(--green-2); margin-bottom:10px; }
-.stat__note{ font-size:14px; line-height:1.55; color:var(--body); margin:0; }
-@media (max-width:900px){
-  .stats{ grid-template-columns:1fr 1fr; }
-  .stat:nth-child(2){ border-right:0; }
-  .stat:nth-child(1),.stat:nth-child(2){ border-bottom:1px solid var(--rule); }
-}
-@media (max-width:560px){
-  .stats{ grid-template-columns:1fr; }
-  .stat{ border-right:0; border-bottom:1px solid var(--rule); }
-  .stat:last-child{ border-bottom:0; }
-}
+    .hero-stats-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(24px, 3.5vw, 50px);
+    }
 
-/* SERVICES */
-.svc{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
-  max-width:1360px; margin:0 auto; padding:0 var(--pad); }
-.svc-card{ background:var(--paper); border:1px solid var(--rule);
-  padding:40px 32px; display:flex; flex-direction:column;
-  transition:border-color .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease); }
-.svc-card:hover{ border-color:var(--green-3); transform:translateY(-4px);
-  box-shadow:0 24px 48px -24px rgba(27,94,32,.2); }
-.svc-card__num{ font-size:11.5px; font-weight:600; letter-spacing:.16em;
-  text-transform:uppercase; color:var(--green-3); margin-bottom:22px; }
-.svc-card h3{ font-family:var(--serif); font-weight:500;
-  font-size:22px; line-height:1.22; letter-spacing:-.015em;
-  color:var(--ink); margin:0 0 16px; }
-.svc-card p{ font-size:15px; line-height:1.68; color:var(--body);
-  margin:0 0 24px; flex-grow:1; }
-.svc-card__link{ display:inline-flex; align-items:center; gap:7px;
-  font-size:13.5px; font-weight:600; color:var(--green); text-decoration:none;
-  transition:gap .3s var(--ease); }
-.svc-card__link:hover{ gap:11px; }
-.svc-card__link svg{ width:13px; height:13px; }
-@media (max-width:900px){ .svc{ grid-template-columns:1fr; } }
+    .hero-stat-box {
+      text-align: center;
+    }
 
-/* FOOTER */
-.foot{ background:var(--ink); color:rgba(255,255,255,.72); padding:110px 0 32px; }
-.foot__top{ display:grid; grid-template-columns:1.1fr 1fr; gap:72px;
-  align-items:start; margin-bottom:80px; }
-.foot__hashtag{ font-family:var(--serif); font-style:italic; font-weight:500;
-  font-size:clamp(34px,4.6vw,62px); line-height:1.05; letter-spacing:-.03em;
-  color:#fff; margin:0; }
-.foot__hashtag em{ font-style:italic; color:var(--green-4); }
-.contact-card{ background:var(--paper); color:var(--body);
-  padding:40px 40px 44px; border-radius:2px; }
-.contact-card h3{ font-family:var(--serif); font-weight:600;
-  font-size:30px; line-height:1.1; letter-spacing:-.02em;
-  color:var(--ink); margin:0 0 26px; }
-.contact-card h4{ font-family:var(--sans); font-size:11.5px; font-weight:600;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--green); margin:22px 0 10px; }
-.contact-card p{ font-style:normal; font-size:14px; line-height:1.65;
-  color:var(--body); margin:0; }
-.contact-card a{ color:var(--green); text-decoration:none; }
-.contact-card a:hover{ text-decoration:underline; }
-.contact-card__socials{ display:flex; gap:10px; margin-top:26px; }
-.contact-card__socials a{ width:34px; height:34px; display:grid; place-items:center;
-  border:1px solid var(--rule); border-radius:6px; color:var(--ink);
-  transition:background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease); }
-.contact-card__socials a:hover{ background:var(--green); color:#fff; border-color:var(--green); }
-.contact-card__socials svg{ width:15px; height:15px; }
-.contact-card a.contact-card__cta,
-.contact-card__cta{ display:inline-flex; align-items:center; gap:8px;
-  margin-top:26px; padding:12px 22px; background:var(--green); color:#fff !important;
-  font-size:13px; font-weight:600; text-decoration:none !important; border-radius:6px;
-  transition:background .2s var(--ease), transform .2s var(--ease); }
-.contact-card a.contact-card__cta:hover,
-.contact-card__cta:hover{ background:var(--green-2); color:#fff !important; text-decoration:none !important; transform:translateY(-1px); }
-.contact-card__cta svg{ width:13px; height:13px; }
-.foot__cols{ display:grid; grid-template-columns:repeat(4,1fr); gap:48px;
-  padding-bottom:60px; border-bottom:1px solid rgba(255,255,255,.1); }
-.foot-col h4{ font-family:var(--sans); font-size:12px; font-weight:600;
-  letter-spacing:.16em; text-transform:uppercase; color:var(--green-4); margin:0 0 22px; }
-.foot-col ul{ list-style:none; margin:0; padding:0; }
-.foot-col li{ margin-bottom:11px; }
-.foot-col a{ font-size:14px; color:rgba(255,255,255,.75); text-decoration:none;
-  transition:color .2s var(--ease); }
-.foot-col a:hover{ color:#fff; }
-.foot__bottom{ padding-top:30px; display:flex; justify-content:space-between;
-  flex-wrap:wrap; gap:16px; font-size:12.5px; color:rgba(255,255,255,.45); }
-.foot__bottom nav{ display:flex; gap:24px; }
-.foot__bottom a{ color:inherit; text-decoration:none; }
-.foot__bottom a:hover{ color:#fff; }
-@media (max-width:900px){
-  .foot__top{ grid-template-columns:1fr; gap:48px; margin-bottom:56px; }
-  .foot__cols{ grid-template-columns:1fr 1fr; gap:36px; }
-}
-@media (max-width:560px){
-  .foot__cols{ grid-template-columns:1fr; }
-  .contact-card{ padding:32px 26px; }
-}
+    .hero-stat-num {
+      font-family: var(--font-heading);
+      font-size: clamp(38px, 5.2vh, 56px);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: clamp(6px, 1vh, 10px);
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    }
+    .hero-stat-num span {
+      color: var(--eg-green-mint);
+      font-weight: 700;
+      font-size: clamp(30px, 4.2vh, 44px);
+      margin-left: 2px;
+    }
 
-/* ============================================================
-   DARK-SECTION TEXT OVERRIDES — MUST BE LAST
-   ============================================================ */
-.section--dark .chead h2,
-.patterned .chead h2,
-.standards .standards__body h2{ color:#fff; }
-.section--dark .chead h2 em,
-.patterned .chead h2 em,
-.standards .standards__body h2 em{ color:var(--green-4); }
-.section--dark .chead p,
-.patterned .chead p{ color:rgba(255,255,255,.82); }
-.section--dark .standards__body p,
-.patterned .italic-quote{ color:rgba(255,255,255,.82); }
-.section--dark .standards__body p strong{ color:#fff; font-weight:600; }
+    .hero-stat-lbl {
+      font-family: var(--font-heading);
+      font-size: clamp(11.5px, 1.3vh, 13.5px);
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
 
-@media (max-width:900px){
-  :root{ --pad:24px; }
-  .section{ padding:88px 0; }
-  .chead{ margin-bottom:52px; }
-}
-</style>
+    .hero-stat-pipe {
+      font-size: clamp(38px, 5.2vh, 56px);
+      color: rgba(255, 255, 255, 0.35);
+      font-weight: 200;
+    }
+
+    .hero-control-btn {
+      position: absolute;
+      bottom: 30px;
+      right: 32px;
+      z-index: 3;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       ZONE 4: CORPORATE INTRO (FULL SCREEN COVER 100VH)
+       Image: /assets/img/ecogreen-technician.jpg
+       ============================================================ */
+    .overview-sec {
+      position: relative;
+      height: calc(100vh - 80px);
+      min-height: calc(100vh - 80px);
+      background: #0f1626 url('/assets/img/ecogreen-technician.jpg') right center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      scroll-snap-align: start;
+      scroll-margin-top: 80px;
+    }
+
+    .overview-floating-card {
+      background: var(--eg-forest-card);
+      color: #ffffff;
+      width: clamp(420px, 42vw, 530px);
+      max-height: calc(100vh - 120px);
+      padding: clamp(28px, 4.2vh, 48px) clamp(26px, 3.2vw, 44px);
+      border-radius: 6px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      border-left: 4px solid var(--eg-green-light);
+    }
+
+    .overview-floating-card .kknag-eyebrow {
+      color: #f26522;
+    }
+
+    .overview-floating-card h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 2.8vh, 28px);
+      font-weight: 700;
+      line-height: 1.32;
+      margin-bottom: clamp(14px, 2vh, 22px);
+      color: #ffffff;
+    }
+
+    .overview-floating-card p {
+      font-size: clamp(13px, 1.4vh, 14.5px);
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.7;
+      margin-bottom: clamp(18px, 2.5vh, 32px);
+    }
+
+    /* ============================================================
+       ZONE 5 & 6: CLIENTS & ACCREDITATIONS (FULL SCREEN SHOWCASE 100VH)
+       ============================================================ */
+    .clients-accred-unified-sec {
+      height: calc(100vh - 80px);
+      min-height: calc(100vh - 80px);
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      border-bottom: 1px solid #eeeeee;
+      scroll-snap-align: start;
+      scroll-margin-top: 80px;
+      padding: clamp(16px, 2.5vh, 32px) 0;
+    }
+
+    .clients-sub-block {
+      margin-bottom: clamp(16px, 2.5vh, 28px);
+    }
+
+    .clients-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      background: #ffffff;
+      border: 1px solid #ebebeb;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      margin-top: clamp(12px, 1.8vh, 22px);
+      max-width: 1140px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .clients-logo-cell {
+      height: clamp(66px, 8.5vh, 88px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-right: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+      transition: all 0.25s ease;
+      background: #ffffff;
+    }
+
+    .clients-logo-cell:nth-child(5n) {
+      border-right: none;
+    }
+
+    .clients-logo-cell:nth-child(n+6) {
+      border-bottom: none;
+    }
+
+    .clients-logo-cell img {
+      max-height: clamp(28px, 4vh, 38px);
+      max-width: 135px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.28s ease, filter 0.28s ease;
+      filter: grayscale(12%) opacity(0.88);
+    }
+
+    .clients-logo-cell:hover {
+      background: #fbfdfb;
+    }
+
+    .clients-logo-cell:hover img {
+      transform: scale(1.08);
+      filter: grayscale(0%) opacity(1);
+    }
+
+    .accred-sub-block {
+      padding-top: clamp(14px, 2vh, 24px);
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .accred-unified-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(20px, 2.4vh, 26px);
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: clamp(12px, 1.8vh, 20px);
+    }
+
+    .accred-seals-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(16px, 2.5vw, 36px);
+      flex-wrap: wrap;
+    }
+
+    .accred-seal-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: clamp(90px, 10vw, 115px);
+      text-align: center;
+      transition: transform 0.25s ease;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+    .accred-seal-item:hover {
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    .seal-badge-img {
+      width: clamp(68px, 8.2vh, 92px);
+      height: clamp(68px, 8.2vh, 92px);
+      object-fit: contain;
+      filter: none;
+      transition: transform 0.25s ease;
+    }
+    .accred-seal-item:hover .seal-badge-img {
+      filter: none;
+    }
+
+    /* ============================================================
+       ZONE 7: THREE BUSINESS LINES (FULL SCREEN COVER 100VH)
+       Images: /assets/img/ref/business-epp.webp, eps.webp, rotomould.webp
+       ============================================================ */
+    .business-cards-sec {
+      height: calc(100vh - 80px);
+      min-height: calc(100vh - 80px);
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      scroll-snap-align: start;
+      scroll-margin-top: 80px;
+      padding: clamp(16px, 2.5vh, 32px) 0;
+    }
+
+    .business-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(16px, 2vw, 32px);
+      margin-top: clamp(18px, 2.5vh, 32px);
+    }
+
+    .business-photo-card {
+      position: relative;
+      height: clamp(360px, 52vh, 490px);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: clamp(20px, 2.8vh, 32px) clamp(18px, 2vw, 28px);
+      color: #ffffff;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .business-photo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.26);
+    }
+
+    .business-card-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+    .business-photo-card:hover .business-card-bg {
+      transform: scale(1.08);
+    }
+
+    .business-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(8, 20, 13, 0.05) 0%, rgba(8, 20, 13, 0.45) 45%, rgba(8, 20, 13, 0.94) 75%, rgba(8, 20, 13, 0.99) 100%);
+    }
+
+    .business-card-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .business-card-title {
+      font-family: var(--font-heading);
+      font-size: clamp(18px, 2.4vh, 23px);
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: clamp(8px, 1.2vh, 14px);
+      line-height: 1.3;
+    }
+
+    .business-card-desc {
+      font-size: clamp(12px, 1.4vh, 13.5px);
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.6;
+      margin-bottom: clamp(14px, 2vh, 22px);
+    }
+
+    /* ============================================================
+       ZONE 8: INDUSTRIES WE SERVE (FULL SCREEN COVER 100VH)
+       Image: /assets/img/ref/amber-circuit.jpg
+       ============================================================ */
+    .industries-dark-sec {
+      height: calc(100vh - 80px);
+      min-height: calc(100vh - 80px);
+      max-height: calc(100vh - 80px);
+      padding: clamp(16px, 2.5vh, 32px) 0;
+      background: var(--eg-forest-sec);
+      position: relative;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      scroll-snap-align: start;
+      scroll-margin-top: 80px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .industries-dark-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(6, 16, 10, 0.98) 0%, rgba(11, 28, 18, 0.96) 100%);
+    }
+
+    .industries-dark-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .industries-top-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 3.5vw, 50px);
+      align-items: center;
+      margin-bottom: clamp(16px, 2.4vh, 32px);
+    }
+
+    .industries-left-head h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 3.4vh, 36px);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.25;
+      margin-top: 6px;
+      margin-bottom: clamp(14px, 2vh, 22px);
+    }
+
+    .industries-amber-panel {
+      position: relative;
+      height: clamp(150px, 22vh, 220px);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 16px 45px rgba(242, 101, 34, 0.35);
+      border: 1px solid rgba(242, 101, 34, 0.45);
+    }
+    .industries-amber-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(0.85) saturate(3) hue-rotate(-22deg) brightness(1.15) contrast(1.1);
+      transition: transform 0.4s ease;
+    }
+    .industries-amber-panel:hover img {
+      transform: scale(1.05);
+    }
+    .industries-amber-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 60% 40%, rgba(242, 101, 34, 0.2) 0%, rgba(0, 0, 0, 0.45) 100%);
+      pointer-events: none;
+    }
+
+    .industries-pills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(10px, 1.2vw, 16px);
+    }
+
+    .industry-pill-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+      padding: clamp(10px, 1.4vh, 14px) clamp(12px, 1.4vw, 18px);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: clamp(12px, 1.3vh, 13.5px);
+      font-weight: 700;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .industry-pill-btn .ind-icon {
+      width: 20px;
+      height: 20px;
+      color: #A5D6A7;
+      flex-shrink: 0;
+      transition: all 0.25s ease;
+    }
+    .industry-pill-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.45);
+      transform: translateY(-2px);
+    }
+    .industry-pill-btn.active {
+      background: #ffffff !important;
+      color: #0b2414 !important;
+      border-color: #ffffff !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    }
+    .industry-pill-btn.active .ind-icon {
+      color: #2E7D32 !important;
+    }
+
+    /* ============================================================
+       ZONE 9: SERVICES (FULL SCREEN COVER 100VH WITH BG VIDEO)
+       Video: /assets/vid/services-bg.mp4
+       ============================================================ */
+    .services-dark-sec {
+      position: relative;
+      overflow: hidden;
+      height: calc(100vh - 80px);
+      min-height: calc(100vh - 80px);
+      max-height: calc(100vh - 80px);
+      padding: clamp(16px, 2.5vh, 32px) 0;
+      background: #06140c;
+      color: #ffffff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      scroll-snap-align: start;
+      scroll-margin-top: 80px;
+      box-sizing: border-box;
+    }
+
+    .services-full-bg-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .services-full-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 20, 12, 0.78) 0%, rgba(6, 20, 12, 0.58) 50%, rgba(6, 20, 12, 0.82) 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .services-dark-sec .kknag-eyebrow {
+      color: #4CAF50;
+    }
+
+    .services-dark-sec .kknag-heading {
+      color: #ffffff;
+      margin-bottom: clamp(18px, 2.8vh, 36px);
+    }
+
+    .services-white-cards-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(16px, 2.2vw, 32px);
+      position: relative;
+      z-index: 3;
+    }
+
+    .service-white-card {
+      background: #ffffff;
+      color: var(--text-dark);
+      border-radius: 6px;
+      padding: clamp(22px, 3vh, 32px) clamp(20px, 2.2vw, 28px);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: clamp(210px, 28vh, 270px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-white-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .service-white-card-num {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--eg-green);
+      margin-bottom: 8px;
+    }
+
+    .service-white-card-title {
+      font-family: var(--font-heading);
+      font-size: clamp(16px, 2vh, 19px);
+      font-weight: 700;
+      color: var(--eg-forest-card);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+
+    .service-white-card-desc {
+      font-size: clamp(12px, 1.3vh, 13.5px);
+      color: #666666;
+      line-height: 1.6;
+      margin-bottom: clamp(14px, 2vh, 22px);
+    }
+
+    .service-white-card-arrow {
+      width: clamp(34px, 4vh, 42px);
+      height: clamp(34px, 4vh, 42px);
+      border-radius: 50%;
+      background: var(--eg-green);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin-left: auto;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+    .service-white-card:hover .service-white-card-arrow {
+      background: var(--eg-green-dark);
+      transform: scale(1.08);
+    }
+
+    /* ============================================================
+       ZONE 10: TESTIMONIALS & AFFILIATIONS (FULL SCREEN COVER 100VH)
+       Images: /assets/img/ref/affil-1.png to affil-6.png
+       ============================================================ */
+    .testimonials-split-sec {
+      height: calc(100vh - 80px);
+      min-height: calc(100vh - 80px);
+      max-height: calc(100vh - 80px);
+      padding: clamp(16px, 2.5vh, 32px) 0;
+      background: #f7faf7 url('/assets/img/ref/chevron-bg.svg') right center / 680px auto no-repeat;
+      border-bottom: 1px solid #e5ebe6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      scroll-snap-align: start;
+      scroll-margin-top: 80px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .testi-split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: clamp(24px, 3.5vw, 50px);
+      align-items: center;
+      margin-bottom: clamp(20px, 2.8vh, 38px);
+    }
+
+    .testi-left-box h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 3.4vh, 34px);
+      font-weight: 700;
+      color: #111111;
+      margin-top: 6px;
+      margin-bottom: clamp(12px, 1.8vh, 20px);
+      line-height: 1.25;
+    }
+
+    .testi-right-quote-box {
+      background: #ffffff;
+      padding: clamp(20px, 2.8vh, 32px) clamp(22px, 2.5vw, 34px);
+      border-radius: 6px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+      position: relative;
+      border-left: 4px solid var(--eg-green);
+    }
+
+    .testi-quote-text {
+      font-size: clamp(13px, 1.5vh, 15.5px);
+      color: #333333;
+      line-height: 1.65;
+      margin-bottom: clamp(12px, 1.5vh, 18px);
+      font-style: italic;
+    }
+
+    .testi-author-name {
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--eg-forest-card);
+    }
+
+    .testi-author-desig {
+      font-size: 13px;
+      color: #777777;
+    }
+
+    /* Affiliations Strip with Real Images */
+    .affiliations-row-wrap {
+      text-align: center;
+      border-top: 1px solid #dde5de;
+      padding-top: clamp(14px, 2vh, 26px);
+    }
+
+    .affiliations-lbl {
+      font-family: var(--font-heading);
+      font-size: clamp(12px, 1.3vh, 13.5px);
+      font-weight: 700;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: clamp(12px, 1.8vh, 20px);
+    }
+
+    .affiliations-badges-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(20px, 3vw, 48px);
+      flex-wrap: wrap;
+    }
+    .affil-logo-box img {
+      max-height: clamp(26px, 3.8vh, 38px);
+      max-width: 130px;
+      object-fit: contain;
+      filter: grayscale(10%) opacity(0.85);
+      transition: all 0.25s ease;
+    }
+    .affil-logo-box:hover img {
+      filter: grayscale(0%) opacity(1);
+      transform: scale(1.08);
+    }
+
+    /* ============================================================
+       ZONE 11: SUSTAINABILITY (FULL SCREEN COVER 100VH)
+       Image: /assets/img/ref/green-leaves.webp
+       ============================================================ */
+    .sustainability-kknag-sec {
+      height: calc(100vh - 80px);
+      min-height: calc(100vh - 80px);
+      max-height: calc(100vh - 80px);
+      padding: clamp(16px, 2.5vh, 32px) 0;
+      background: var(--eg-forest-deep);
+      color: #ffffff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      scroll-snap-align: start;
+      scroll-margin-top: 80px;
+      box-sizing: border-box;
+    }
+
+    .sustain-leaves-backdrop {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      background: url('/assets/img/ref/green-leaves.webp') center/cover no-repeat;
+      opacity: 0.85;
+      pointer-events: none;
+      mask-image: linear-gradient(to right, transparent 0%, black 35%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%);
+    }
+
+    .sustain-kknag-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: clamp(24px, 4vw, 60px);
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sustain-kknag-left .kknag-eyebrow {
+      color: var(--eg-green-mint);
+    }
+
+    .sustain-kknag-left h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 3.4vh, 34px);
+      font-weight: 700;
+      line-height: 1.32;
+      margin-bottom: clamp(16px, 2.4vh, 28px);
+      color: #ffffff;
+    }
+
+    .sustain-kknag-check-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: clamp(12px, 1.8vh, 18px);
+      font-family: var(--font-heading);
+      font-size: clamp(13px, 1.5vh, 15px);
+      font-weight: 600;
+    }
+
+    .green-circle-arrow {
+      width: clamp(24px, 3vh, 28px);
+      height: clamp(24px, 3vh, 28px);
+      border-radius: 50%;
+      background: var(--eg-green-light);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .sustain-kknag-right-badges {
+      display: flex;
+      gap: clamp(16px, 2.2vw, 32px);
+      justify-content: center;
+    }
+
+    .sustain-circle-seal {
+      width: clamp(135px, 18vh, 180px);
+      height: clamp(135px, 18vh, 180px);
+      border-radius: 50%;
+      border: 3px solid #4CAF50;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(76, 175, 80, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: clamp(10px, 1.5vh, 16px);
+      background: rgba(10, 26, 16, 0.88);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .sustain-circle-seal:hover {
+      transform: translateY(-6px) scale(1.04);
+      border-color: #81C784;
+    }
+    .sustain-circle-seal strong {
+      font-family: var(--font-heading);
+      font-size: clamp(20px, 2.8vh, 28px);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 2px;
+      line-height: 1;
+    }
+    .sustain-circle-seal strong span {
+      color: var(--eg-green-mint);
+    }
+    .sustain-circle-seal span {
+      font-size: clamp(9.5px, 1.1vh, 11px);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--eg-green-mint);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* ============================================================
+       ZONE 12: PRODUCT CARDS (FULL SCREEN COVER 100VH)
+       Images: /assets/img/ref/product-1.jpg, 2.jpg, 3.jpg
+       ============================================================ */
+    .streams-kknag-sec {
+      height: calc(100vh - 80px);
+      min-height: calc(100vh - 80px);
+      max-height: calc(100vh - 80px);
+      padding: clamp(16px, 2.5vh, 32px) 0;
+      background: linear-gradient(180deg, #edf4ee 0%, #e2ece3 50%, #edf4ee 100%);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      scroll-snap-align: start;
+      scroll-margin-top: 80px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .streams-filter-pills {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: clamp(14px, 2vh, 26px);
+    }
+
+    .filter-pill {
+      background: #ffffff;
+      color: var(--eg-forest-card);
+      font-family: var(--font-heading);
+      font-size: clamp(11.5px, 1.3vh, 13px);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: clamp(8px, 1.1vh, 11px) clamp(18px, 2vw, 26px);
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+    }
+    .filter-pill.active, .filter-pill:hover {
+      background: var(--eg-green);
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(46, 125, 50, 0.35);
+    }
+
+    .streams-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(16px, 2vw, 30px);
+    }
+
+    .stream-ribbon-card {
+      background: #ffffff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: clamp(340px, 48vh, 460px);
+      display: flex;
+      flex-direction: column;
+    }
+    .stream-ribbon-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+    }
+
+    /* Folded Green Triangle Corner Ribbon */
+    .card-corner-ribbon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 64px solid var(--eg-green);
+      border-left: 64px solid transparent;
+      z-index: 3;
+    }
+    .card-corner-ribbon-text {
+      position: absolute;
+      top: 12px;
+      right: 4px;
+      transform: rotate(45deg);
+      font-size: 9.5px;
+      font-weight: 800;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-family: var(--font-heading);
+      letter-spacing: 0.08em;
+      z-index: 4;
+    }
+
+    .stream-card-img-wrap {
+      height: clamp(130px, 18vh, 190px);
+      background: #06140c;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .stream-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+    .stream-ribbon-card:hover .stream-card-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .stream-card-body {
+      padding: clamp(16px, 2vh, 22px);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .stream-card-title {
+      font-family: var(--font-heading);
+      font-size: clamp(15px, 1.8vh, 18px);
+      font-weight: 700;
+      color: var(--eg-forest-card);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .stream-card-desc {
+      font-size: clamp(11.5px, 1.3vh, 13px);
+      color: #666666;
+      line-height: 1.55;
+      margin-bottom: clamp(10px, 1.5vh, 16px);
+      flex-grow: 1;
+    }
+
+    .stream-card-link {
+      color: var(--eg-green);
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stream-card-link:hover {
+      color: var(--eg-green-dark);
+    }
+
+    /* ============================================================
+       ZONE 13: FOOTER (FULL SCREEN COVER 100VH)
+       Image: /assets/img/ref/footer-badge.svg
+       ============================================================ */
+    .footer-kknag-sec {
+      height: calc(100vh - 80px);
+      min-height: calc(100vh - 80px);
+      max-height: calc(100vh - 80px);
+      background: var(--eg-forest-deep);
+      color: rgba(255, 255, 255, 0.78);
+      padding: clamp(20px, 3vh, 40px) 0 clamp(16px, 2vh, 24px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      scroll-snap-align: start;
+      scroll-margin-top: 80px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .footer-main-grid {
+      display: grid;
+      grid-template-columns: 1.7fr 1.1fr;
+      gap: clamp(24px, 4vw, 50px);
+      margin-bottom: clamp(18px, 2.5vh, 32px);
+      align-items: center;
+    }
+
+    .footer-brand-hashtag {
+      font-family: var(--font-heading);
+      font-size: clamp(26px, 3.8vh, 36px);
+      font-weight: 800;
+      font-style: italic;
+      color: #ffffff;
+      margin-bottom: clamp(16px, 2.4vh, 26px);
+    }
+
+    .footer-nav-columns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(14px, 2vw, 24px);
+    }
+
+    .footer-nav-col h4 {
+      font-family: var(--font-heading);
+      font-size: clamp(12.5px, 1.4vh, 14px);
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: clamp(10px, 1.5vh, 16px);
+    }
+
+    .footer-nav-col ul {
+      list-style: none;
+    }
+
+    .footer-nav-col li {
+      margin-bottom: clamp(6px, 0.9vh, 10px);
+    }
+
+    .footer-nav-col a {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+    .footer-nav-col a:hover {
+      color: var(--eg-green-mint);
+      padding-left: 4px;
+    }
+
+    /* Distinctive White Floating "Contact Us" Card on the right */
+    .footer-floating-contact-card {
+      background: #ffffff;
+      border-radius: 6px;
+      padding: clamp(20px, 2.8vh, 34px) clamp(20px, 2.2vw, 30px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      color: #333333;
+      text-align: left;
+    }
+
+    .footer-contact-title {
+      font-family: var(--font-heading);
+      font-size: clamp(19px, 2.4vh, 24px);
+      font-weight: 700;
+      color: var(--eg-green-dark);
+      margin-bottom: clamp(12px, 1.6vh, 18px);
+    }
+
+    .footer-contact-item {
+      margin-bottom: clamp(10px, 1.4vh, 15px);
+      font-size: clamp(12px, 1.3vh, 13.5px);
+      line-height: 1.5;
+    }
+
+    .footer-contact-item strong {
+      display: block;
+      color: var(--eg-green-dark);
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .footer-contact-item a {
+      color: var(--eg-green);
+      font-weight: 600;
+    }
+
+    .footer-card-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: clamp(12px, 1.6vh, 20px);
+      padding-top: clamp(10px, 1.4vh, 16px);
+      border-top: 1px solid #eeeeee;
+    }
+
+    .footer-stamp-badge img {
+      max-height: clamp(36px, 5vh, 48px);
+      width: auto;
+    }
+
+    .footer-bottom-bar {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: clamp(12px, 1.6vh, 18px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.6);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom-bar nav {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-bottom-bar a:hover {
+      color: #ffffff;
+    }
+
+    /* ============================================================
+       SMOOTH SECTION-TO-SECTION MOTION & REVEAL SYSTEM
+       ============================================================ */
+    .sec-reveal-fade {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .sec-reveal-scale {
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    /* Stagger Delays */
+    .sec-delay-1 { transition-delay: 0.1s; }
+    .sec-delay-2 { transition-delay: 0.2s; }
+    .sec-delay-3 { transition-delay: 0.3s; }
+    .sec-delay-4 { transition-delay: 0.4s; }
+    .sec-delay-5 { transition-delay: 0.5s; }
+
+    /* Active section trigger */
+    .is-active-sec .sec-reveal-fade {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .is-active-sec .sec-reveal-scale {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Side Dot Navigation (Floating Right Track) */
+    .section-dots-nav {
+      position: fixed;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: auto;
+    }
+
+    .sec-dot-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      cursor: pointer;
+      padding: 3px;
+    }
+
+    .sec-dot-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .dot-dark-theme .sec-dot-bullet {
+      background: rgba(255, 255, 255, 0.35);
+      border-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .sec-dot-item.active .sec-dot-bullet {
+      height: 22px;
+      background: #4CAF50;
+      border-color: #ffffff;
+      box-shadow: 0 0 14px rgba(76, 175, 80, 0.9);
+    }
+
+    .sec-dot-label {
+      position: absolute;
+      right: 22px;
+      background: rgba(14, 22, 17, 0.94);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      padding: 4px 10px;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(8px);
+      transition: all 0.22s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .sec-dot-item:hover .sec-dot-label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .section-dots-nav { display: none; }
+      .sec-reveal-fade, .sec-reveal-scale {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .hero-hashtag-main { font-size: 46px; margin-bottom: 40px; }
+      .hero-stat-num { font-size: 46px; }
+      .hero-kknag-banner,
+      .overview-sec,
+      .clients-accred-unified-sec,
+      .business-cards-sec,
+      .industries-dark-sec,
+      .services-dark-sec,
+      .testimonials-split-sec,
+      .sustainability-kknag-sec,
+      .streams-kknag-sec,
+      .footer-kknag-sec {
+        height: auto;
+        min-height: auto;
+        max-height: none;
+        padding: 60px 0;
+        scroll-snap-align: none;
+      }
+      .overview-floating-card { width: 100%; max-height: none; }
+      .business-cards-grid { grid-template-columns: 1fr; }
+      .business-photo-card { height: 420px; }
+      .services-white-cards-row { grid-template-columns: 1fr; }
+      .industries-pills-grid { grid-template-columns: repeat(2, 1fr); }
+      .testi-split-grid { grid-template-columns: 1fr; }
+      .sustain-kknag-grid { grid-template-columns: 1fr; }
+      .streams-cards-grid { grid-template-columns: 1fr; }
+      .stream-ribbon-card { height: auto; min-height: 440px; }
+      .footer-main-grid { grid-template-columns: 1fr; }
+      .footer-nav-columns { grid-template-columns: repeat(2, 1fr); }
+      .main-nav-list { display: none; }
+    }
+  </style>
 </head>
-
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
-<div class="progress" id="progress" aria-hidden="true"></div>
 
-<header class="site-header on-dark" id="siteHeader">
-  <div class="header-inner">
-    <a class="brand" href="/" aria-label="EcoGreen home">
-      <img src="/assets/img/ecogreen-logo.png" alt="EcoGreen" class="brand-logo brand-logo--light" width="170" height="32" decoding="async">
-      <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen" class="brand-logo brand-logo--dark" width="170" height="32" decoding="async">
-    </a>
+  <!-- ============================================================
+       ZONE 2: MAIN NAVIGATION (WHITE STICKY HEADER)
+       ============================================================ -->
+  <header class="main-header">
+    <div class="container">
+      <a href="/" class="brand-logo-wrap" aria-label="EcoGreen Home">
+        <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen Recyclers (P) Limited">
+      </a>
 
-    <nav class="nav" id="primaryNav" aria-label="Primary">
-      <ul class="nav-list">
-        <li class="nav-item"><a class="nav-link" href="/story/">Story</a></li>
-        <li class="nav-item has-drop">
-          <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
-            Services
-            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <ul class="drop">
-            <li><a href="/services/">Services overview<span>What we do and who we serve</span></a></li>
-            <li><a href="/services/itad/">ITAD &amp; Data Destruction<span>NIST 800-88 purge, on-site shredding</span></a></li>
-            <li><a href="/services/recycling/">Recycling &amp; Recovery<span>Hydrometallurgical recovery streams</span></a></li>
-          </ul>
-        </li>
-        <li class="nav-item has-drop">
-          <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
-            Impact
-            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <ul class="drop">
-            <li><a href="/sustainability/">Sustainability<span>ESG reporting and impact data</span></a></li>
-            <li><a href="/compliance/">Compliance<span>Certifications and regulatory record</span></a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="/press/">Press</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about/">About</a></li>
-      </ul>
-    </nav>
-
-    <a class="header-cta" href="/contact/">
-      Book a pickup
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-
-    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<main id="main">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero__media" aria-hidden="true">
-      <video autoplay muted loop playsinline poster="/assets/img/facility-aerial.jpg">
-        <source src="/assets/vid/hero.mp4" type="video/mp4">
-        <source src="/assets/vid/hero-mobile.mp4" type="video/mp4">
-        <source src="/assets/vid/Plastic_E_Waste_Recycling.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="hero__scrim" aria-hidden="true"></div>
-
-    <div class="hero__name" data-anim="slide-left">
-      <div class="hero__name-rule"></div>
-      <div class="hero__name-line">THE ECOGREEN STANDARD</div>
-      <div class="hero__name-role">CPCB Authorised · Since 2015</div>
-    </div>
-
-    <div class="hero__rail">
-      <h1 class="hero__title" data-split>The E-Waste India <em>Forgot.</em> The Standard We Built.</h1>
-
-      <div class="hero__aside" data-anim="fade-up">
-        <p>India generates <strong>1.75 million tonnes</strong> of electronic waste every year. Most of it disappears into an informal economy no auditor can trace.</p>
-        <p>This is the story of what happens to it — and the standard we built to make sure it happens <strong>properly.</strong></p>
-        <div class="hero__cta-row">
-          <a href="#began" class="btn btn--primary">
-            Read the story
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="/contact/" class="btn btn--ghost">
-            Schedule a pickup
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 1 — BEGAN WITH A REFUSAL -->
-  <section class="section section--paper" id="began">
-    <div class="wrap">
-      <div class="chead" data-anim="fade-up">
-        <h2 data-split>It Began with a <em>Refusal.</em></h2>
-        <p>The story started in 2015, when e-waste in India was handled by an informal sector no one could trace. We refused to process a single device we could not account for. What looked like a business limitation became the foundation of everything we've built since.</p>
-      </div>
-    </div>
-
-    <div class="strip" data-stagger>
-      <figure>
-        <img src="/assets/img/story-01.jpg" alt="Early EcoGreen collection operations">
-        <figcaption>First collection route — Greater Noida, 2015</figcaption>
-      </figure>
-      <figure>
-        <img src="/assets/img/story-02.jpg" alt="Manual sorting floor at the EcoGreen facility">
-        <figcaption>Manual sorting floor — every asset tagged and logged</figcaption>
-      </figure>
-      <figure>
-        <img src="/assets/img/story-03.jpg" alt="First NIST-certified data destruction event">
-        <figcaption>First NIST 800-88 Rev.1 certified destruction — 2017</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- 2 — TWO STANDARDS (focus-pull) -->
-  <section class="section section--dark standards">
-    <div class="standards__grid">
-
-      <aside class="standard standard--old" data-focus data-delay="1">
-        <span class="standard__eyebrow">The Old Way</span>
-        <h3>What the sector did.</h3>
-        <ul>
-          <li><span class="mark">×</span>No serialised manifests</li>
-          <li><span class="mark">×</span>No certificates of destruction</li>
-          <li><span class="mark">×</span>No downstream audits</li>
-          <li><span class="mark">×</span>No proof of where data went</li>
+      <nav aria-label="Primary Navigation">
+        <ul class="main-nav-list">
+          <li class="main-nav-item">
+            <a href="/about/">ABOUT US <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/services/">BUSINESS LINES <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/services/">SERVICES <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/sustainability/">SUSTAINABILITY <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/press/">RESOURCES <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
         </ul>
-      </aside>
+      </nav>
 
-      <div class="standards__body" data-focus>
-        <h2 data-split>A Decision That Reshaped <em>E-Waste in India.</em></h2>
-        <p>When we started, the entire sector ran on trust. No manifests, no serialised certificates, no downstream audits. Enterprise clients had no way to prove what had happened to their data.</p>
-        <p>We built the opposite. Every asset was photographed, weighed, scanned and logged the moment it entered our facility. Every gram that left was documented against a chain of custody an enterprise auditor could accept without follow-up.</p>
-        <p>That decision shaped everything that came after — our own collection network, NIST 800-88 Rev.1 certification, unannounced downstream audits. It was slower. It was more expensive. It was the only version worth doing.</p>
-      </div>
-
-      <aside class="standard standard--new" data-focus data-delay="2">
-        <span class="standard__eyebrow">The EcoGreen Way</span>
-        <h3>What we built instead.</h3>
-        <ul>
-          <li><span class="mark">✓</span>Serialised manifest per asset</li>
-          <li><span class="mark">✓</span>NIST 800-88 Rev.1 certificate per device</li>
-          <li><span class="mark">✓</span>Unannounced downstream audits</li>
-          <li><span class="mark">✓</span>Complete auditable chain of custody</li>
-        </ul>
-      </aside>
-
-    </div>
-  </section>
-
-  <!-- 3 — REGULATORY TIMELINE -->
-  <section class="section section--soft">
-    <div class="wrap">
-      <div class="chead" data-anim="fade-up">
-        <h2 data-split>Securing India's First <em>Auditable Chain of Custody.</em></h2>
-        <p>In 2016 the E-Waste (Management) Rules formalised what responsible recycling had to look like. We were already there. What followed was a decade of stacking certifications — each one forcing a stricter standard than the last.</p>
+      <div class="header-right-tools">
+        <svg class="search-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <a href="/contact/" class="btn-eg-green">GET IN TOUCH</a>
       </div>
     </div>
+  </header>
 
-    <div class="timeline">
-      <div class="timeline__track" data-stagger>
-        <div class="tl-item">
-          <span class="tl-item__year">2011</span>
-          <span class="tl-item__dot"></span>
-          <h4>Rules Introduced</h4>
-          <p>E-Waste (Management &amp; Handling) Rules notified</p>
-        </div>
-        <div class="tl-item">
-          <span class="tl-item__year">2015</span>
-          <span class="tl-item__dot"></span>
-          <h4>EcoGreen Founded</h4>
-          <p>First collection route in Greater Noida</p>
-        </div>
-        <div class="tl-item">
-          <span class="tl-item__year">2016</span>
-          <span class="tl-item__dot"></span>
-          <h4>CPCB Authorised</h4>
-          <p>Formal recycler &amp; dismantler authorisation granted</p>
-        </div>
-        <div class="tl-item">
-          <span class="tl-item__year">2018</span>
-          <span class="tl-item__dot"></span>
-          <h4>ISO Certified</h4>
-          <p>ISO 14001 (environment) &amp; ISO 45001 (safety)</p>
-        </div>
-        <div class="tl-item">
-          <span class="tl-item__year">2023</span>
-          <span class="tl-item__dot"></span>
-          <h4>R2v3 Aligned</h4>
-          <p>Downstream vendor chain independently audited</p>
-        </div>
-        <div class="tl-item">
-          <span class="tl-item__year">2025</span>
-          <span class="tl-item__dot"></span>
-          <h4>60,142 MT</h4>
-          <p>Certified processing volume — FY25 milestone</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ============================================================
+       ZONE 3: HERO VIDEO BANNER (840PX WITH 3 STATS)
+       ============================================================ -->
+  <section class="hero-kknag-banner">
+    <video class="hero-kknag-video" autoplay muted loop playsinline poster="/assets/img/ref/hero-poster.jpg">
+      <source src="/assets/vid/hero-part1.mp4" type="video/mp4">
+    </video>
+    <div class="hero-kknag-scrim"></div>
 
-  <!-- 4 — CLOSED LOOP -->
-  <section class="section patterned">
-    <div class="wrap">
-      <div class="chead" style="margin-bottom:0;" data-anim="fade-up">
-        <h2 data-split>Why We Call It <em>a Closed Loop.</em></h2>
-        <p style="max-width:720px;">Because the material that comes out of your devices goes back into India — not into an export container, not into an open yard, not into a smelter someone signed off on without ever visiting.</p>
+    <div class="container">
+      <div class="hero-kknag-center">
+        <h1 class="hero-hashtag-main sec-reveal-fade">#ClosingTheLoop</h1>
 
-        <div class="formula" data-anim="scale-in">
-          Collect <em class="op">+</em> Certify <em class="op">+</em> Recover <em class="op">=</em> <em>Closed&nbsp;Loop</em>
-        </div>
+        <div class="hero-stats-row sec-reveal-fade sec-delay-2">
+          <div class="hero-stat-box">
+            <div class="hero-stat-num">60,142<span>+</span></div>
+            <div class="hero-stat-lbl">MT E-Waste Recycled</div>
+          </div>
 
-        <p style="max-width:720px;">Every stage is documented. Every downstream refiner is audited. Every certificate is retrievable by serial number. Nothing is assumed.</p>
-        <p class="italic-quote">Not disposal. Recovery. Not export. Domestic supply. Not trust. <em>Proof.</em></p>
-      </div>
-    </div>
-  </section>
+          <div class="hero-stat-pipe">|</div>
 
-  <!-- 5 — DECADE LATER -->
-  <section class="section section--paper">
-    <div class="decade">
-      <div class="decade__media" data-anim="fade-up">
-        <div class="badge">
-          <svg viewBox="0 0 100 100" aria-hidden="true">
-            <polygon points="50,3 92,26 92,74 50,97 8,74 8,26" fill="#1B5E20"/>
-            <polygon points="50,9 86,29 86,71 50,91 14,71 14,29" fill="none" stroke="#A5D6A7" stroke-width="0.9"/>
-          </svg>
-          <div class="badge__inner">
-            <strong>SINCE</strong>
-            <span>2015</span>
+          <div class="hero-stat-box">
+            <div class="hero-stat-num">728.5<span>+</span></div>
+            <div class="hero-stat-lbl">tCO₂e Emissions Saved</div>
+          </div>
+
+          <div class="hero-stat-pipe">|</div>
+
+          <div class="hero-stat-box">
+            <div class="hero-stat-num">10<span>+</span></div>
+            <div class="hero-stat-lbl">Years of Compliance</div>
           </div>
         </div>
-        <img src="/assets/img/facility-aerial.jpg" alt="EcoGreen facility — Greater Noida" data-parallax="0.08">
-      </div>
-
-      <div class="decade__body" data-anim="fade-up">
-        <h2 data-split>A Decade Later, <em>Still Refusing.</em></h2>
-        <p>What started as a single collection route in Greater Noida is now a national network — five facilities, licensed collection partners in major metros, and a downstream refiner chain audited unannounced every quarter.</p>
-        <p>We have processed <strong>60,142 metric tonnes</strong> of certified e-waste. We have saved an estimated <strong>728.5 tCO₂e</strong> against primary mining. We have recovered <strong>98%</strong> of the recoverable metals — and shipped every gram back into Indian manufacturing.</p>
-        <p>The scale changed. The refusal didn't.</p>
       </div>
     </div>
 
-    <div class="wrap">
-      <div class="stats" data-stagger>
-        <div class="stat">
-          <div class="stat__value"><span data-count="60142">0</span><small>MT</small></div>
-          <div class="stat__label">E-Waste Recycled</div>
-          <p class="stat__note">Certified enterprise ITAD and mechanical dismantling.</p>
+    <div class="hero-control-btn" title="Toggle Sound / Pause">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 4: CORPORATE INTRO WITH HI-RES FACTORY OPERATOR (780PX)
+       ============================================================ -->
+  <section class="overview-sec">
+    <div class="container">
+      <div class="overview-floating-card sec-reveal-scale">
+        <span class="kknag-eyebrow">WELCOME TO ECOGREEN</span>
+        <h2>Advanced Closed-Loop Material Recovery &amp; ITAD for Critical Applications</h2>
+        <p>
+          Founded in 2015, EcoGreen Recyclers (P) Limited is a statutory leader in end-to-end IT Asset Disposition (ITAD), high-purity non-ferrous metallurgical refining, and circular electronics manufacturing feed. Operating across 5 major industrial corridors, we secure India's closed-loop lifecycle from hardware decommissioning to domestic remanufacturing.
+        </p>
+        <a href="/about/" class="btn-eg-green">ABOUT ECOGREEN &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 5 & 6: CLIENTS & ACCREDITATIONS (UNIFIED FULL-SCREEN 100VH)
+       ============================================================ -->
+  <section class="clients-accred-unified-sec" id="clients-accreditations">
+    <div class="container">
+      <div class="clients-sub-block sec-reveal-fade">
+        <span class="kknag-eyebrow">OUR CLIENTS</span>
+        <h2 class="kknag-heading" style="margin-bottom:0;">Client Esteemed Customers</h2>
+
+        <div class="clients-logo-grid sec-reveal-fade sec-delay-1">
+          <div class="clients-logo-cell" title="Samsung"><img src="/assets/img/logos/samsung.svg" alt="Samsung"></div>
+          <div class="clients-logo-cell" title="Mercedes-Benz"><img src="/assets/img/logos/mercedes-benz.png" alt="Mercedes-Benz"></div>
+          <div class="clients-logo-cell" title="HCL Technologies"><img src="/assets/img/logos/hcl.svg" alt="HCL Technologies"></div>
+          <div class="clients-logo-cell" title="Wipro"><img src="/assets/img/logos/wipro.svg" alt="Wipro"></div>
+          <div class="clients-logo-cell" title="Whirlpool"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool"></div>
+          <div class="clients-logo-cell" title="Haier"><img src="/assets/img/logos/haier.png" alt="Haier"></div>
+          <div class="clients-logo-cell" title="ITC Limited"><img src="/assets/img/logos/itc.png" alt="ITC Limited"></div>
+          <div class="clients-logo-cell" title="OPPO"><img src="/assets/img/logos/oppo.svg" alt="OPPO"></div>
+          <div class="clients-logo-cell" title="Vivo"><img src="/assets/img/logos/vivo.svg" alt="Vivo"></div>
+          <div class="clients-logo-cell" title="Paytm"><img src="/assets/img/logos/paytm.svg" alt="Paytm"></div>
         </div>
-        <div class="stat">
-          <div class="stat__value"><span data-count="728.5" data-decimals="1">0</span><small>tCO₂e</small></div>
-          <div class="stat__label">Emissions Saved</div>
-          <p class="stat__note">Scope 3 displacement vs. primary mining.</p>
-        </div>
-        <div class="stat">
-          <div class="stat__value"><span data-count="98">0</span><small>%</small></div>
-          <div class="stat__label">Extraction Efficiency</div>
-          <p class="stat__note">Hydrometallurgical recovery of cobalt, lithium, nickel.</p>
-        </div>
-        <div class="stat">
-          <div class="stat__value"><span data-count="99.5" data-decimals="1">0</span><small>%</small></div>
-          <div class="stat__label">Metal Purity</div>
-          <p class="stat__note">Gold, silver, copper and palladium at manufacturing grade.</p>
+      </div>
+
+      <div class="accred-sub-block sec-reveal-fade sec-delay-2">
+        <h3 class="accred-unified-heading">Our Accreditations</h3>
+
+        <div class="accred-seals-row sec-reveal-scale sec-delay-3">
+          <!-- Seal 1: IATF 16949 -->
+          <div class="accred-seal-item" title="IATF 16949 Automotive Standard Certified">
+            <img src="/assets/img/ref/iaft.png" alt="IATF 16949 Certified" class="seal-badge-img">
+          </div>
+
+          <!-- Seal 2: ISO 9001 -->
+          <div class="accred-seal-item" title="ISO 9001:2015 Quality Management Certified">
+            <img src="/assets/img/ref/iso9001.png" alt="ISO 9001 Quality Management Certified" class="seal-badge-img">
+          </div>
+
+          <!-- Seal 3: ISO 14001 -->
+          <div class="accred-seal-item" title="ISO 14001:2015 Environmental Management Certified">
+            <img src="/assets/img/ref/iso14001.png" alt="ISO 14001 Environmental EMS Certified" class="seal-badge-img">
+          </div>
+
+          <!-- Seal 4: ISO 27001 -->
+          <div class="accred-seal-item" title="ISO 27001 Information Security Management Certified">
+            <img src="/assets/img/ref/ISO27001.png" alt="ISO 27001 Information Security Certified" class="seal-badge-img">
+          </div>
+
+          <!-- Seal 5: ISO 45001 -->
+          <div class="accred-seal-item" title="ISO 45001:2018 Occupational Health & Safety Certified">
+            <img src="/assets/img/ref/iso45001.png" alt="ISO 45001 Occupational Safety Certified" class="seal-badge-img">
+          </div>
+
+          <!-- Seal 6: TISAX -->
+          <div class="accred-seal-item" title="TISAX Automotive Security Assessment">
+            <img src="/assets/img/ref/tisax.png" alt="TISAX Automotive Information Security Certified" class="seal-badge-img">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6 — SERVICES -->
-  <section class="section section--soft">
-    <div class="wrap">
-      <div class="chead" data-anim="fade-up">
-        <h2 data-split>Three Services. <em>One Unbroken Chain of Custody.</em></h2>
-        <p>Everything we do is in service of a single outcome: your e-waste disappears, and you can prove exactly where it went.</p>
-      </div>
-    </div>
+  <!-- ============================================================
+       ZONE 7: 3 BUSINESS LINES (TALL 660PX PHOTO CARDS)
+       ============================================================ -->
+  <section class="business-cards-sec">
+    <div class="container">
+      <span class="kknag-eyebrow sec-reveal-fade">OUR BUSINESS LINES</span>
+      <h2 class="kknag-heading sec-reveal-fade sec-delay-1">Three Distinctive Business Lines, Using Advanced Dismantling and Hydrometallurgical Processes</h2>
 
-    <div class="svc" data-stagger>
-      <article class="svc-card">
-        <div class="svc-card__num">01 / ITAD</div>
-        <h3>IT Asset Disposition &amp; Data Destruction</h3>
-        <p>NIST 800-88 Rev.1 Purge wipes or on-site physical shredding, with a serialised certificate of destruction issued per device. Reconciliation reports accepted by enterprise auditors without follow-up.</p>
-        <a class="svc-card__link" href="/services/itad/">
-          Explore ITAD
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__num">02 / RECOVERY</div>
-        <h3>E-Waste Recycling &amp; Material Recovery</h3>
-        <p>Closed-loop recovery of copper, gold, silver, palladium, cobalt, lithium and nickel — separated and routed to refiners who feed Indian manufacturing, not exported raw.</p>
-        <a class="svc-card__link" href="/services/recycling/">
-          Explore recycling
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>
-      <article class="svc-card">
-        <div class="svc-card__num">03 / COMPLIANCE</div>
-        <h3>Compliance, Reporting &amp; Chain of Custody</h3>
-        <p>CPCB authorisation, E-Waste Rules 2016 documentation, and the complete audit trail your procurement team needs. Unannounced downstream vendor audits, published openly.</p>
-        <a class="svc-card__link" href="/compliance/">
-          View certifications
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </article>
+      <div class="business-cards-grid">
+        <!-- Card 1: ITAD (EPP) -->
+        <div class="business-photo-card sec-reveal-fade sec-delay-1">
+          <img src="/assets/img/ref/business-epp.webp" alt="ITAD and Data Destruction" class="business-card-bg">
+          <div class="business-card-overlay"></div>
+          <div class="business-card-text">
+            <h3 class="business-card-title">IT Asset Disposition (ITAD)</h3>
+            <p class="business-card-desc">
+              Certified non-recoverable NIST SP 800-88 Clear and Purge data sanitization, on-site optical shredding, and serialized chain of custody.
+            </p>
+            <a href="/services/itad/" class="btn-eg-green">KNOW MORE &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 2: Hydrometallurgy (EPS) -->
+        <div class="business-photo-card sec-reveal-fade sec-delay-2">
+          <img src="/assets/img/ref/business-eps.webp" alt="Hydrometallurgical Refining" class="business-card-bg">
+          <div class="business-card-overlay"></div>
+          <div class="business-card-text">
+            <h3 class="business-card-title">Hydrometallurgical Refining</h3>
+            <p class="business-card-desc">
+              Zero-emission chemical leaching recovering 98% of Gold, Silver, Copper, Cobalt, and Lithium re-injected into domestic production.
+            </p>
+            <a href="/services/recovery/" class="btn-eg-green">KNOW MORE &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 3: EPR Compliance (Rotomould) -->
+        <div class="business-photo-card sec-reveal-fade sec-delay-3">
+          <img src="/assets/img/ref/business-rotomould.webp" alt="Statutory EPR Compliance" class="business-card-bg">
+          <div class="business-card-overlay"></div>
+          <div class="business-card-text">
+            <h3 class="business-card-title">Statutory EPR Compliance</h3>
+            <p class="business-card-desc">
+              Direct Central Pollution Control Board portal synchronization, automated Form 6 manifests, and quarterly vendor audit validation.
+            </p>
+            <a href="/compliance/" class="btn-eg-green">KNOW MORE &rarr;</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-</main>
-
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot__top">
-      <h2 class="foot__hashtag" data-anim="fade-up">#ClosingThe<em>Loop</em></h2>
-
-      <div class="contact-card" data-anim="fade-up">
-        <h3>Contact Us</h3>
-        <p>EcoGreen Recyclers (P) Limited<br>Plot No. 479, Habibpur, Main Dadri Road<br>Greater Noida (U.P.) — 201306</p>
-        <h4>Phone</h4>
-        <p><a href="tel:+919319253708">+91 93192 53708</a></p>
-        <h4>Email</h4>
-        <p><a href="mailto:operation@ecogreen.eco">operation@ecogreen.eco</a></p>
-        <div class="contact-card__socials">
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 0 1 2.5 6 2.5 2.5 0 0 1 0 3.5 2.5 2.5 0 0 1 2.5 1a2.5 2.5 0 0 1 2.48 2.5ZM.22 8h4.56v14H.22V8Zm7.32 0h4.37v1.92h.06c.61-1.1 2.1-2.26 4.32-2.26 4.62 0 5.47 2.92 5.47 6.72V22h-4.56v-6.68c0-1.59-.03-3.64-2.22-3.64-2.22 0-2.56 1.73-2.56 3.52V22H7.54V8Z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.8-.48-5.62a2.95 2.95 0 0 0-2.08-2.08C18.62 3.8 12 3.8 12 3.8s-6.62 0-8.44.5A2.95 2.95 0 0 0 1.48 6.38C1 8.2 1 12 1 12s0 3.8.48 5.62a2.95 2.95 0 0 0 2.08 2.08c1.82.5 8.44.5 8.44.5s6.62 0 8.44-.5a2.95 2.95 0 0 0 2.08-2.08C23 15.8 23 12 23 12ZM9.8 15.5v-7l6 3.5-6 3.5Z"/></svg></a>
-          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.24 2h3.3l-7.2 8.24L23 22h-6.62l-5.18-6.78L5.27 22H1.96l7.7-8.8L1 2h6.79l4.68 6.2L18.24 2Zm-1.16 18h1.83L7.02 3.9H5.06L17.08 20Z"/></svg></a>
+  <!-- ============================================================
+       ZONE 8: INDUSTRIES WE SERVE (WITH AMBER PANEL IMAGE)
+       Image: /assets/img/ref/amber-circuit.jpg
+       ============================================================ -->
+  <section class="industries-dark-sec">
+    <div class="industries-dark-scrim"></div>
+    <div class="container industries-dark-content">
+      <div class="industries-top-split">
+        <div class="industries-left-head sec-reveal-fade">
+          <span class="kknag-eyebrow" style="color: #f26522;">INDUSTRIES WE SERVE</span>
+          <h2>A Broad and Varied Spectrum of Industries</h2>
+          <a href="/services/" class="btn-eg-pill">EXPLORE ALL SECTORS</a>
         </div>
-        <a class="contact-card__cta" href="/contact/">
-          Get in Touch
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
+        <div class="industries-amber-panel sec-reveal-scale sec-delay-1">
+          <img src="/assets/img/ref/amber-circuit.jpg" alt="Industries We Serve — Microelectronics & High-Tech Materials">
+        </div>
+      </div>
+
+      <div class="industries-pills-grid sec-reveal-fade sec-delay-2" id="industriesPillsGrid">
+        <div class="industry-pill-btn active" data-sector="data-centers">
+          <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/><line x1="10" y1="6" x2="18" y2="6"/><line x1="10" y1="18" x2="18" y2="18"/></svg>
+          <span>Data Centers &amp; Cloud</span>
+        </div>
+        <div class="industry-pill-btn" data-sector="banking">
+          <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M3 10h18"/><path d="M12 3l9 7H3l9-7z"/><path d="M6 10v8"/><path d="M10 10v8"/><path d="M14 10v8"/><path d="M18 10v8"/></svg>
+          <span>Banking &amp; Financial (BFSI)</span>
+        </div>
+        <div class="industry-pill-btn" data-sector="telecom">
+          <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.93 4.93a10 10 0 0 1 14.14 0"/><path d="M7.76 7.76a6 6 0 0 1 8.48 0"/><circle cx="12" cy="12" r="2"/><path d="M12 14v7"/><path d="M9 21h6"/></svg>
+          <span>Telecommunications</span>
+        </div>
+        <div class="industry-pill-btn" data-sector="automotive">
+          <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 3c-.1.2-.1.5-.1.8v4.3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 10l1.5-3"/></svg>
+          <span>Automotive &amp; EV Mobility</span>
+        </div>
+        <div class="industry-pill-btn" data-sector="electronics">
+          <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="9" y1="6" x2="15" y2="6"/></svg>
+          <span>Consumer Electronics OEMs</span>
+        </div>
+        <div class="industry-pill-btn" data-sector="healthcare">
+          <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+          <span>Healthcare &amp; Medical IT</span>
+        </div>
+        <div class="industry-pill-btn" data-sector="aerospace">
+          <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Aerospace &amp; Defense</span>
+        </div>
+        <div class="industry-pill-btn" data-sector="clean-tech">
+          <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Renewable Energy &amp; CleanTech</span>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="foot__cols">
-      <div class="foot-col">
-        <h4>About Us</h4>
-        <ul>
-          <li><a href="/about/">Company Overview</a></li>
-          <li><a href="/story/">Our Journey</a></li>
-          <li><a href="/about/leadership/">Leadership</a></li>
-          <li><a href="/about/csr/">Corporate Social Responsibility</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/services/itad/">ITAD &amp; Data Destruction</a></li>
-          <li><a href="/services/recycling/">E-Waste Recycling</a></li>
-          <li><a href="/services/recovery/">Material Recovery</a></li>
-          <li><a href="/services/refurbishment/">Refurbishment</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Compliance</h4>
-        <ul>
-          <li><a href="/compliance/cpcb/">CPCB Authorisation</a></li>
-          <li><a href="/compliance/iso/">ISO 14001 &amp; 45001</a></li>
-          <li><a href="/compliance/r2v3/">R2v3 Downstream</a></li>
-          <li><a href="/compliance/reports/">Annual Reports</a></li>
-        </ul>
-      </div>
-      <div class="foot-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="/contact/">Schedule a Pickup</a></li>
-          <li><a href="/press/">Press &amp; Media</a></li>
-          <li><a href="/privacy/">Privacy Policy</a></li>
-          <li><a href="/terms/">Terms of Use</a></li>
-        </ul>
+  <!-- ============================================================
+       ZONE 9: SERVICES (FULL-BLEED FACILITY VIDEO BACKGROUND + 3 WHITE CARDS)
+       ============================================================ -->
+  <section class="services-dark-sec">
+    <!-- Full-bleed background video covering the whole section -->
+    <video class="services-full-bg-video" autoplay muted loop playsinline poster="/assets/img/ref/services-bg-poster.jpg">
+      <source src="/assets/vid/services-bg.mp4" type="video/mp4">
+    </video>
+    <div class="services-full-bg-overlay"></div>
+
+    <div class="container" style="position: relative; z-index: 3; width: 100%;">
+      <span class="kknag-eyebrow sec-reveal-fade" style="color: #4CAF50;">OUR SERVICES</span>
+      <h2 class="kknag-heading sec-reveal-fade sec-delay-1" style="color: #ffffff; margin-bottom: 44px;">Meeting Every Demand</h2>
+
+      <div class="services-white-cards-row">
+        <!-- Box 1 -->
+        <div class="service-white-card sec-reveal-fade sec-delay-1">
+          <div>
+            <div class="service-white-card-num">01</div>
+            <h3 class="service-white-card-title">GPS REVERSE LOGISTICS</h3>
+            <p class="service-white-card-desc">
+              Geo-fenced nationwide fleet with biometric tamper-evident seals and electronic chain-of-custody transfer.
+            </p>
+          </div>
+          <div class="service-white-card-arrow">&rarr;</div>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="service-white-card sec-reveal-fade sec-delay-2">
+          <div>
+            <div class="service-white-card-num">02</div>
+            <h3 class="service-white-card-title">VALUE ENGINEERING</h3>
+            <p class="service-white-card-desc">
+              Hydrometallurgical extraction yielding LME-grade copper cathodes, investment-grade bullion, and precursor battery black mass.
+            </p>
+          </div>
+          <div class="service-white-card-arrow">&rarr;</div>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="service-white-card sec-reveal-fade sec-delay-3">
+          <div>
+            <div class="service-white-card-num">03</div>
+            <h3 class="service-white-card-title">WITNESSED DESTRUCTION</h3>
+            <p class="service-white-card-desc">
+              Heavy-duty mobile shredder units dispatched to client campus facilities with dual-camera live streaming.
+            </p>
+          </div>
+          <div class="service-white-card-arrow">&rarr;</div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="foot__bottom">
-      <span>© <span id="year">2026</span> EcoGreen Recyclers (P) Limited — All Rights Reserved.</span>
-      <nav aria-label="Legal">
-        <a href="/privacy/">Privacy</a>
-        <a href="/terms/">Terms</a>
-        <a href="/contact/">Contact</a>
-      </nav>
+  <!-- ============================================================
+       ZONE 10: TESTIMONIALS & AFFILIATIONS (WITH REAL AFFIL LOGOS)
+       ============================================================ -->
+  <section class="testimonials-split-sec">
+    <div class="container">
+      <div class="testi-split-grid">
+        <div class="testi-left-box sec-reveal-fade">
+          <span class="kknag-eyebrow">CUSTOMER TESTIMONIALS</span>
+          <h2>What Our Customers Say</h2>
+          <a href="/about/" class="btn-eg-green">READ MORE SUCCESS STORIES</a>
+        </div>
+
+        <div class="testi-right-quote-box sec-reveal-scale sec-delay-1">
+          <div style="font-size: 54px; line-height: 1; font-family: Georgia, serif; color: #2E7D32; opacity: 0.35; margin-bottom: 4px;">&ldquo;</div>
+          <p class="testi-quote-text">
+            "EcoGreen manages our nationwide ITAD across 14 enterprise branches. Their NIST 800-88 certificates and serialized custody reports satisfy our external Big-4 compliance audits with zero findings."
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 24px; padding-top: 18px; border-top: 1px solid #f0f0f0;">
+            <div>
+              <div class="testi-author-name">Head of Corporate IT Infrastructure</div>
+              <div class="testi-author-desig">Leading Multinational Technology Provider</div>
+            </div>
+            <img src="/assets/img/logos/hcl.svg" alt="HCL Technologies" style="height: 24px; width: auto; opacity: 0.75;">
+          </div>
+        </div>
+      </div>
+
+      <div class="affiliations-row-wrap sec-reveal-fade sec-delay-2">
+        <div class="affiliations-lbl">Our Affiliations</div>
+        <div class="affiliations-badges-row">
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-1.png" alt="Affiliation Body"></div>
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-2.png" alt="Affiliation Body"></div>
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-3.png" alt="Affiliation Body"></div>
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-4.png" alt="Affiliation Body"></div>
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-5.png" alt="Affiliation Body"></div>
+          <div class="affil-logo-box"><img src="/assets/img/ref/affil-6.png" alt="Affiliation Body"></div>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<script src="/assets/js/main.js"></script>
-<script>
-/* ============================================================
-   1. Headline word-split
-   ============================================================ */
-document.querySelectorAll('[data-split]').forEach(el => {
-  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
-  const textNodes = [];
-  while (walker.nextNode()) textNodes.push(walker.currentNode);
+  <!-- ============================================================
+       ZONE 11: SUSTAINABILITY (WITH DIAGONAL GREEN LEAVES IMAGE)
+       ============================================================ -->
+  <section class="sustainability-kknag-sec">
+    <div class="sustain-leaves-backdrop"></div>
+    <div class="container">
+      <div class="sustain-kknag-grid">
+        <div class="sustain-kknag-left sec-reveal-fade">
+          <span class="kknag-eyebrow" style="color: #A5D6A7;">SUSTAINABILITY INITIATIVES</span>
+          <h2>Our Material Recovery and Processing Has Minimal Environmental Impact</h2>
 
-  textNodes.forEach(node => {
-    const words = node.textContent.split(/(\s+)/);
-    const frag = document.createDocumentFragment();
-    words.forEach(w => {
-      if (!w.trim()) { frag.appendChild(document.createTextNode(w)); return; }
-      const wrap = document.createElement('span');
-      wrap.className = 'word';
-      const inner = document.createElement('span');
-      inner.textContent = w;
-      wrap.appendChild(inner);
-      frag.appendChild(wrap);
+          <div class="sustain-kknag-check-item">
+            <span class="green-circle-arrow">&rarr;</span>
+            <span>Zero Landfill, Zero Export — 100% Domestic Supply Chain</span>
+          </div>
+
+          <div class="sustain-kknag-check-item">
+            <span class="green-circle-arrow">&rarr;</span>
+            <span>Scope 3 Carbon Displacement — 728.5+ tCO₂e Saved</span>
+          </div>
+
+          <div class="sustain-kknag-check-item">
+            <span class="green-circle-arrow">&rarr;</span>
+            <span>Closed-Loop Circular Economy — ISO 14001:2015 Audited</span>
+          </div>
+        </div>
+
+        <div class="sustain-kknag-right-badges">
+          <div class="sustain-circle-seal sec-reveal-scale sec-delay-1">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A5D6A7" stroke-width="2" style="margin-bottom:6px;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            <strong>60,142<span>+</span></strong>
+            <span>Metric Tonnes Re-entered</span>
+          </div>
+          <div class="sustain-circle-seal sec-reveal-scale sec-delay-2">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A5D6A7" stroke-width="2" style="margin-bottom:6px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <strong>728.5<span>+</span></strong>
+            <span>tCO₂e Emissions Avoided</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 12: PRODUCT CARDS WITH CORNER RIBBONS & HI-RES IMAGES
+       ============================================================ -->
+  <section class="streams-kknag-sec">
+    <div class="container">
+      <div class="streams-filter-pills sec-reveal-fade">
+        <div class="filter-pill active">ALL RECOVERY STREAMS</div>
+        <div class="filter-pill">ITAD HARDWARE</div>
+        <div class="filter-pill">REFINED METALS</div>
+      </div>
+
+      <div class="streams-cards-grid">
+        <!-- Card 1 -->
+        <div class="stream-ribbon-card sec-reveal-fade sec-delay-1">
+          <div class="card-corner-ribbon"></div>
+          <span class="card-corner-ribbon-text">NIST 800</span>
+          <div class="stream-card-img-wrap">
+            <img src="/assets/img/ref/product-1.jpg" alt="Enterprise Server Racks ITAD">
+          </div>
+          <div class="stream-card-body">
+            <h3 class="stream-card-title">Enterprise Server Racks &amp; Cryptographic Storage</h3>
+            <p class="stream-card-desc">
+              High-density rack decommissioning with certified media destruction, cryptographic purge, and serialized custody certificates.
+            </p>
+            <a href="/services/itad/" class="stream-card-link">KNOW MORE &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="stream-ribbon-card sec-reveal-fade sec-delay-2">
+          <div class="card-corner-ribbon"></div>
+          <span class="card-corner-ribbon-text">99.5%</span>
+          <div class="stream-card-img-wrap">
+            <img src="/assets/img/ref/product-2.jpg" alt="Precious Metals & Accelerator Hardware">
+          </div>
+          <div class="stream-card-body">
+            <h3 class="stream-card-title">Hydrometallurgical Copper &amp; Precious Metals</h3>
+            <p class="stream-card-desc">
+              Extracted manufacturing-grade gold, silver, palladium, and copper cathodes recovering 98% of critical mineral inputs.
+            </p>
+            <a href="/services/recovery/" class="stream-card-link">KNOW MORE &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="stream-ribbon-card sec-reveal-fade sec-delay-3">
+          <div class="card-corner-ribbon"></div>
+          <span class="card-corner-ribbon-text">FORM 6</span>
+          <div class="stream-card-img-wrap">
+            <img src="/assets/img/ref/product-3.jpg" alt="Circuit Boards & Li-ion Battery Packs">
+          </div>
+          <div class="stream-card-body">
+            <h3 class="stream-card-title">High-Density Circuit Boards &amp; Li-ion Batteries</h3>
+            <p class="stream-card-desc">
+              Black mass separation recovering cobalt, nickel, and battery-grade lithium salts re-injected into domestic production.
+            </p>
+            <a href="/compliance/" class="stream-card-link">KNOW MORE &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ZONE 13: FOOTER WITH FLOATING WHITE CARD & STAMP BADGE
+       ============================================================ -->
+  <footer class="footer-kknag-sec">
+    <div class="container">
+      <div class="footer-main-grid">
+        <!-- Left: Brand Hashtag & 4 Nav Columns -->
+        <div class="sec-reveal-fade">
+          <div class="footer-brand-hashtag">#ClosingTheLoop</div>
+
+          <div class="footer-nav-columns">
+            <div class="footer-nav-col">
+              <h4>About Us</h4>
+              <ul>
+                <li><a href="/about/">Overview</a></li>
+                <li><a href="/story/">Our Journey</a></li>
+                <li><a href="/about/leadership/">Leadership</a></li>
+                <li><a href="/about/csr/">CSR Policy</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Business Lines</h4>
+              <ul>
+                <li><a href="/services/itad/">ITAD Services</a></li>
+                <li><a href="/services/recovery/">Metal Recovery</a></li>
+                <li><a href="/compliance/">EPR Fulfillment</a></li>
+                <li><a href="/services/refurbishment/">Refurbishment</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Services</h4>
+              <ul>
+                <li><a href="/services/">Reverse Logistics</a></li>
+                <li><a href="/services/recovery/">Urban Mining</a></li>
+                <li><a href="/services/itad/">Witnessed Shredding</a></li>
+                <li><a href="/compliance/">Audited Disposal</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Portals</h4>
+              <ul>
+                <li><a href="/compliance/">EPR Portal</a></li>
+                <li><a href="/services/itad/">ITAD Vault</a></li>
+                <li><a href="/compliance/reports/">Form 6 Retrieval</a></li>
+                <li><a href="/press/">Annual Returns</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: The Distinctive White Floating "Contact Us" Card -->
+        <div class="sec-reveal-scale sec-delay-1">
+          <div class="footer-floating-contact-card">
+            <h3 class="footer-contact-title">Contact Us</h3>
+
+            <div class="footer-contact-item">
+              <strong>Corporate Headquarters &amp; Plant:</strong>
+              EcoGreen Recyclers (P) Limited<br>
+              Plot No. 479, Habibpur, Main Dadri Road,<br>
+              Greater Noida (U.P.) — 201306
+            </div>
+
+            <div class="footer-contact-item">
+              <strong>Direct Helpline:</strong>
+              <a href="tel:+919319253708">+91 93192 53708</a>
+            </div>
+
+            <div class="footer-contact-item">
+              <strong>Email Operations Desk:</strong>
+              <a href="mailto:operation@ecogreen.eco">operation@ecogreen.eco</a>
+            </div>
+
+            <div class="footer-card-bottom-row">
+              <a href="/contact/" class="btn-eg-green">GET IN TOUCH</a>
+              <div class="footer-stamp-badge">
+                <img src="/assets/img/ref/footer-badge.svg" alt="Certified Standards Badge">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>&copy; <span id="kknagYear">2026</span> EcoGreen Recyclers (P) Limited. All Rights Reserved.</span>
+        <nav aria-label="Legal">
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms &amp; Conditions</a>
+          <a href="/assets/docs/code-of-conduct.pdf" target="_blank">Code of Conduct</a>
+          <a href="/sitemap.xml">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('kknagYear').textContent = new Date().getFullYear();
+
+    // Industry Pills Interactive Tab Selection
+    const indPills = document.querySelectorAll('#industriesPillsGrid .industry-pill-btn');
+    indPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        indPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+      });
     });
-    node.parentNode.replaceChild(frag, node);
-  });
-});
 
-/* ============================================================
-   2. Reveal observer — includes [data-focus]
-   ============================================================ */
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-in');
-      revealObs.unobserve(entry.target);
+    // Stream Cards Interactive Filter
+    const filterPills = document.querySelectorAll('.streams-filter-pills .filter-pill');
+    const streamCards = document.querySelectorAll('.stream-ribbon-card');
+    filterPills.forEach((pill, idx) => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        if (idx === 0) {
+          streamCards.forEach(c => c.style.display = 'flex');
+        } else if (idx === 1) {
+          streamCards[0].style.display = 'flex';
+          streamCards[1].style.display = 'none';
+          streamCards[2].style.display = 'none';
+        } else if (idx === 2) {
+          streamCards[0].style.display = 'none';
+          streamCards[1].style.display = 'flex';
+          streamCards[2].style.display = 'flex';
+        }
+      });
+    });
+
+    // Hero Video Pause / Play Control
+    const heroVid = document.querySelector('.hero-kknag-video');
+    const heroCtrl = document.querySelector('.hero-control-btn');
+    if (heroVid && heroCtrl) {
+      heroCtrl.addEventListener('click', () => {
+        if (heroVid.paused) {
+          heroVid.play();
+          heroCtrl.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
+        } else {
+          heroVid.pause();
+          heroCtrl.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+        }
+      });
     }
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
 
-document.querySelectorAll('[data-anim], [data-stagger], [data-split], [data-focus]').forEach(el => {
-  revealObs.observe(el);
-});
+    // ============================================================
+    // SMOOTH SECTION-TO-SECTION MOTION CONTROLLER & DOT NAVIGATION
+    // ============================================================
+    (function() {
+      const sections = [
+        document.querySelector('.hero-kknag-banner'),
+        document.querySelector('.overview-sec'),
+        document.querySelector('#clients-accreditations'),
+        document.querySelector('.business-cards-sec'),
+        document.querySelector('.industries-dark-sec'),
+        document.querySelector('.services-dark-sec'),
+        document.querySelector('.testimonials-split-sec'),
+        document.querySelector('.sustainability-kknag-sec'),
+        document.querySelector('.streams-kknag-sec'),
+        document.querySelector('.footer-kknag-sec')
+      ].filter(Boolean);
 
-/* Timeline dots */
-const dotObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-in');
-      dotObs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.6 });
+      const sectionLabels = [
+        'Closing The Loop',
+        'Corporate Overview',
+        'Clients & Accreditations',
+        'Business Lines',
+        'Industries We Serve',
+        'Services',
+        'Testimonials',
+        'Sustainability',
+        'Material Streams',
+        'Contact & Plant'
+      ];
 
-document.querySelectorAll('.tl-item').forEach(el => dotObs.observe(el));
+      // Indices of sections with dark backgrounds for dot contrast
+      const darkSections = [0, 1, 4, 5, 7, 9];
 
-/* ============================================================
-   3. Count-up
-   ============================================================ */
-const easeOut = t => 1 - Math.pow(1 - t, 3);
-const animateCount = (el) => {
-  const target = parseFloat(el.dataset.count);
-  const decimals = parseInt(el.dataset.decimals || '0', 10);
-  const duration = 1600;
-  const start = performance.now();
-  const tick = (now) => {
-    const t = Math.min((now - start) / duration, 1);
-    const val = target * easeOut(t);
-    el.textContent = val.toLocaleString('en-IN', {
-      minimumFractionDigits: decimals,
-      maximumFractionDigits: decimals
-    });
-    if (t < 1) requestAnimationFrame(tick);
-  };
-  requestAnimationFrame(tick);
-};
-const countObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('[data-count]').forEach(el => countObs.observe(el));
+      // Build Floating Side Dot Navigation
+      const dotsNav = document.createElement('nav');
+      dotsNav.className = 'section-dots-nav';
+      dotsNav.setAttribute('aria-label', 'Section Quick Navigation');
 
-/* ============================================================
-   4. Parallax
-   ============================================================ */
-const parallaxEls = [...document.querySelectorAll('[data-parallax]')];
-if (parallaxEls.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  let ticking = false;
-  const updateParallax = () => {
-    const vh = window.innerHeight;
-    parallaxEls.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      const speed = parseFloat(el.dataset.parallax) || 0.08;
-      const offset = (rect.top + rect.height / 2 - vh / 2) * -speed;
-      el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0) scale(1.06)`;
-    });
-    ticking = false;
-  };
-  const onScroll = () => {
-    if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  updateParallax();
-}
+      sections.forEach((sec, idx) => {
+        const item = document.createElement('div');
+        item.className = 'sec-dot-item' + (idx === 0 ? ' active' : '');
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('aria-label', `Jump to ${sectionLabels[idx]}`);
+        item.innerHTML = `
+          <span class="sec-dot-label">${sectionLabels[idx]}</span>
+          <span class="sec-dot-bullet"></span>
+        `;
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          scrollToSection(idx);
+        });
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            scrollToSection(idx);
+          }
+        });
+        dotsNav.appendChild(item);
+      });
+      document.body.appendChild(dotsNav);
 
-/* ============================================================
-   5. Progress bar
-   ============================================================ */
-const progress = document.getElementById('progress');
-let progTicking = false;
-const updateProgress = () => {
-  const h = document.documentElement;
-  const max = h.scrollHeight - h.clientHeight;
-  progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
-  progTicking = false;
-};
-window.addEventListener('scroll', () => {
-  if (!progTicking) { requestAnimationFrame(updateProgress); progTicking = true; }
-}, { passive: true });
-updateProgress();
+      const dotItems = dotsNav.querySelectorAll('.sec-dot-item');
 
-/* Year */
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+      let currentSecIndex = 0;
+      let isAnimating = false;
+      let lastScrollTime = 0;
+      let animFrameId = null;
 
+      const HEADER_HEIGHT = 80;
+
+      function getSectionTop(idx) {
+        if (!sections[idx]) return 0;
+        if (idx === 0) return 0;
+        const rect = sections[idx].getBoundingClientRect();
+        return Math.max(0, Math.round(rect.top + window.pageYOffset - HEADER_HEIGHT));
+      }
+
+      // Easing: easeInOutCubic for organic, luxury deceleration
+      function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+
+      function scrollToSection(targetIdx, duration = 750) {
+        if (targetIdx < 0 || targetIdx >= sections.length) return;
+
+        if (window.innerWidth <= 1024) {
+          const targetY = getSectionTop(targetIdx);
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+          return;
+        }
+
+        if (animFrameId) cancelAnimationFrame(animFrameId);
+        isAnimating = true;
+
+        const startY = window.pageYOffset;
+        const targetY = getSectionTop(targetIdx);
+        const distance = targetY - startY;
+        let startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const elapsed = timestamp - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = easeInOutCubic(progress);
+
+          window.scrollTo(0, startY + distance * ease);
+
+          if (progress < 1) {
+            animFrameId = requestAnimationFrame(step);
+          } else {
+            isAnimating = false;
+            currentSecIndex = targetIdx;
+            updateActiveState(currentSecIndex);
+          }
+        }
+
+        animFrameId = requestAnimationFrame(step);
+        currentSecIndex = targetIdx;
+        updateActiveState(targetIdx);
+      }
+
+      function updateActiveState(idx) {
+        dotItems.forEach((dot, dIdx) => {
+          if (dIdx === idx) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+
+        if (darkSections.includes(idx)) {
+          dotsNav.classList.add('dot-dark-theme');
+        } else {
+          dotsNav.classList.remove('dot-dark-theme');
+        }
+
+        sections.forEach((sec, sIdx) => {
+          if (sIdx === idx) {
+            sec.classList.add('is-active-sec');
+          }
+        });
+      }
+
+      // Smooth Wheel Transition Handler on Desktop
+      let wheelDelta = 0;
+      let wheelCooldownTimer = null;
+
+      window.addEventListener('wheel', (e) => {
+        if (window.innerWidth <= 1024) return;
+
+        e.preventDefault();
+
+        const now = Date.now();
+        if (isAnimating || now - lastScrollTime < 380) return;
+
+        wheelDelta += e.deltaY;
+
+        clearTimeout(wheelCooldownTimer);
+        wheelCooldownTimer = setTimeout(() => {
+          wheelDelta = 0;
+        }, 180);
+
+        if (Math.abs(wheelDelta) >= 30) {
+          lastScrollTime = now;
+          if (wheelDelta > 0) {
+            if (currentSecIndex < sections.length - 1) {
+              scrollToSection(currentSecIndex + 1);
+            }
+          } else {
+            if (currentSecIndex > 0) {
+              scrollToSection(currentSecIndex - 1);
+            }
+          }
+          wheelDelta = 0;
+        }
+      }, { passive: false });
+
+      // Keyboard Arrow / Page Navigation
+      window.addEventListener('keydown', (e) => {
+        if (window.innerWidth <= 1024) return;
+        if (['ArrowDown', 'PageDown'].includes(e.key)) {
+          e.preventDefault();
+          if (!isAnimating && currentSecIndex < sections.length - 1) {
+            scrollToSection(currentSecIndex + 1);
+          }
+        } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
+          e.preventDefault();
+          if (!isAnimating && currentSecIndex > 0) {
+            scrollToSection(currentSecIndex - 1);
+          }
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          scrollToSection(0);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          scrollToSection(sections.length - 1);
+        }
+      });
+
+      // IntersectionObserver to keep state aligned when resized or navigated
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const idx = sections.indexOf(entry.target);
+            if (idx !== -1) {
+              entry.target.classList.add('is-active-sec');
+              if (!isAnimating) {
+                currentSecIndex = idx;
+                updateActiveState(idx);
+              }
+            }
+          }
+        });
+      }, {
+        root: null,
+        threshold: 0.35
+      });
+
+      sections.forEach(sec => observer.observe(sec));
+
+      // Trigger initial active state for Hero
+      setTimeout(() => {
+        updateActiveState(0);
+      }, 120);
+    })();
+  </script>
 </body>
 </html>
