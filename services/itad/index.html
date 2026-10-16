@@ -1,409 +1,502 @@
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ITAD & Data Destruction — NIST 800-88 Purge & Certified Shredding | EcoGreen</title>
-<meta name="description" content="NIST 800-88 Rev.1 Purge wipes or on-site physical shredding, with a serialised certificate of destruction issued per device.">
-<link rel="canonical" href="https://ecogreen.eco/services/itad/">
-<meta name="theme-color" content="#0B2E13">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ITAD & Data Destruction — NIST 800-88 Purge & Certified Shredding | EcoGreen">
-<meta property="og:description" content="NIST 800-88 Rev.1 Purge wipes or on-site physical shredding, with a serialised certificate of destruction issued per device.">
-<meta property="og:url" content="https://ecogreen.eco/services/itad/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%231B5E20'/%3E%3Cpath d='M11 19a6 6 0 0 1-1-11.9C15 6 16 5.6 17.6 3.5c.8 1.7 1.6 3.5 1.6 6.7 0 4.7-4.1 8.8-8.2 8.8Z' fill='%23A5D6A7'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="/assets/css/main.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ITAD &amp; Data Destruction — NIST 800-88 Purge &amp; Certified Shredding | EcoGreen</title>
+  <meta name="description" content="NIST 800-88 Rev.1 Purge wipes or on-site physical shredding, with a serialised certificate of destruction issued per device.">
+  <link rel="canonical" href="https://ecogreen.eco/services/itad/">
+  <meta name="theme-color" content="#2E7D32">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ITAD &amp; Data Destruction — NIST 800-88 Purge &amp; Certified Shredding | EcoGreen">
+  <meta property="og:description" content="NIST 800-88 Rev.1 Purge wipes or on-site physical shredding, with a serialised certificate of destruction issued per device.">
+  <meta property="og:url" content="https://ecogreen.eco/services/itad/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%231B5E20'/%3E%3Cpath d='M11 19a6 6 0 0 1-1-11.9C15 6 16 5.6 17.6 3.5c.8 1.7 1.6 3.5 1.6 6.7 0 4.7-4.1 8.8-8.2 8.8Z' fill='%23A5D6A7'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/assets/css/kknag-inner.css">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the difference between Clear, Purge, and Destroy?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Clear applies logical techniques that sanitize data in all user-addressable storage locations against simple non-invasive recovery. Purge applies cryptographic or physical techniques that render target data recovery infeasible using state-of-the-art laboratory techniques. Destroy uses physical shredding or disintegration to completely eliminate the media."
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between Clear, Purge, and Destroy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Clear applies logical techniques that sanitize data in all user-addressable storage locations against simple non-invasive recovery. Purge applies cryptographic or physical techniques that render target data recovery infeasible using state-of-the-art laboratory techniques. Destroy uses physical shredding or disintegration to completely eliminate the media."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you shred on our premises?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our mobile high-torque shredding units deploy directly to enterprise loading docks across major metros. Media is shredded into sub-2mm particles under security camera supervision with serialized scanning."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a batch take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard on-site sanitization processes between 200 to 500 drives per day per mobile station. Off-site processing at our authorized facilities completes inventory triage and certification within 48 hours of intake."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you handle mixed asset types?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We process heterogeneous enterprise consignments including server blades, SAN storage arrays, tape cartridges, laptops, smartphones, and networking switches under one unified manifest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to devices that still work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Working units undergo NIST 800-88 sanitization followed by diagnostic component testing. With client authorization, tested units are refurbished for certified secondary use or partner educational donation programs."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you shred on our premises?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Our mobile high-torque shredding units deploy directly to enterprise loading docks across major metros. Media is shredded into sub-2mm particles under security camera supervision with serialized scanning."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does a batch take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Standard on-site sanitization processes between 200 to 500 drives per day per mobile station. Off-site processing at our authorized facilities completes inventory triage and certification within 48 hours of intake."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you handle mixed asset types?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We process heterogeneous enterprise consignments including server blades, SAN storage arrays, tape cartridges, laptops, smartphones, and networking switches under one unified manifest."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens to devices that still work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Working units undergo NIST 800-88 sanitization followed by diagnostic component testing. With client authorization, tested units are refurbished for certified secondary use or partner educational donation programs."
-      }
-    }
-  ]
-}
-</script>
-
+    ]
+  }
+  </script>
 </head>
-<body data-motion="b">
+<body>
 
-<a class="skip" href="#main">Skip to content</a>
+  <!-- ============================================================
+       TOP HEADER (K. K. Nag Finalized Structure)
+       ============================================================ -->
+  <header class="main-header">
+    <div class="container">
+      <a href="/" class="brand-logo-wrap" aria-label="EcoGreen Home">
+        <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen Recyclers (P) Limited">
+      </a>
 
-<header class="site-header on-dark" id="siteHeader">
-  <div class="header-inner">
-    <a class="brand" href="/" aria-label="EcoGreen home">
-      <img src="/assets/img/ecogreen-logo.png" alt="EcoGreen" class="brand-logo brand-logo--light" width="170" height="32" decoding="async">
-      <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen" class="brand-logo brand-logo--dark" width="170" height="32" decoding="async">
-    </a>
-
-    <nav class="nav" id="primaryNav" aria-label="Primary">
-      <ul class="nav-list">
-        <li class="nav-item"><a class="nav-link" href="/story/">Story</a></li>
-        <li class="nav-item has-drop">
-          <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
-            Services
-            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <ul class="drop">
-            <li><a href="/services/">Services overview<span>What we do and who we serve</span></a></li>
-            <li><a href="/services/itad/" aria-current="page">ITAD &amp; Data Destruction<span>NIST 800-88 purge, on-site shredding</span></a></li>
-            <li><a href="/services/recycling/">Recycling &amp; Recovery<span>Hydrometallurgical recovery streams</span></a></li>
-          </ul>
-        </li>
-        <li class="nav-item has-drop">
-          <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
-            Impact
-            <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <ul class="drop">
-            <li><a href="/sustainability/">Sustainability<span>ESG reporting and impact data</span></a></li>
-            <li><a href="/compliance/">Compliance<span>Certifications and regulatory record</span></a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="/press/">Press</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about/">About</a></li>
-      </ul>
-    </nav>
-
-    <a class="header-cta" href="/contact/">
-      Book a pickup
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-
-    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<main id="main">
-
-  <section class="pagehead">
-    <div class="wrap">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <span class="breadcrumb-sep">/</span>
-        <a href="/services/">Services</a>
-        <span class="breadcrumb-sep">/</span>
-        <span>ITAD &amp; Data Destruction</span>
+      <nav aria-label="Primary Navigation">
+        <ul class="main-nav-list">
+          <li class="main-nav-item">
+            <a href="/about/">ABOUT US <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item active">
+            <a href="/services/">BUSINESS LINES <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item active">
+            <a href="/services/">SERVICES <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/sustainability/">SUSTAINABILITY <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+          <li class="main-nav-item">
+            <a href="/press/">RESOURCES <span class="nav-arrow-icon">&#9662;</span></a>
+          </li>
+        </ul>
       </nav>
-      <span class="eyebrow" data-reveal>IT Asset Disposition</span>
-      <h1 class="h-xxl" data-reveal>Certified destruction. Documented chain of custody.</h1>
-      <p class="lede" data-reveal style="--d:200ms">
-        NIST 800-88 Rev.1 Purge. On-site shredding. A serialised certificate for every device that leaves your premises.
-      </p>
-    </div>
-  </section>
 
-  <!-- 1. What ITAD covers -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow" data-reveal>Scope of coverage</span>
-        <h2 class="h-l">Comprehensive lifecycle management for corporate IT assets.</h2>
-      </div>
-
-      <div style="display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,0.8fr); gap:clamp(32px,5vw,72px); align-items:start;">
-        <div style="display:flex; flex-direction:column; gap:20px; font-size:15.5px; line-height:1.75; color:var(--ink-soft);">
-          <p>
-            EcoGreen's IT Asset Disposition (ITAD) framework protects enterprise data security, regulatory compliance, and maximum financial recovery across end-of-life hardware refreshes. We support multinational corporations, financial institutions, defense contractors, and technology leaders decommissioning complex hardware estates.
-          </p>
-          <p>
-            Our scope spans enterprise rack servers, SAN and NAS storage arrays, core switches, firewalls, blade chassis, corporate laptop fleets, workstations, smartphones, and peripheral devices. Every asset is tagged with a tamper-evident serial barcode the moment it enters our secure chain of custody.
-          </p>
-          <p>
-            Logistics are executed using dedicated GPS-tracked lockboxes and telematics-monitored vehicles with dual-driver security escorts. From client loading bays directly into ISO 27001 audited cleanrooms, zero intermediate custody transfers occur.
-          </p>
-        </div>
-
-        <div style="background:var(--neutral); padding:36px; border-radius:var(--r-m); border:1px solid var(--line);">
-          <h3 style="font-size:1.2rem; color:var(--green-900); margin-bottom:16px;">Core ITAD Capabilities</h3>
-          <ul style="display:flex; flex-direction:column; gap:12px; font-size:14px; color:var(--ink-soft);">
-            <li>✓ NIST SP 800-88 Rev. 1 Purge sanitization</li>
-            <li>✓ Mobile loading-bay physical shredding</li>
-            <li>✓ Magnetic degaussing up to 10,000 Gauss</li>
-            <li>✓ Serial-level inventory reconciliation in 48 hours</li>
-            <li>✓ CPCB Form 6 regulatory manifest filings</li>
-            <li>✓ Value recovery through certified secondary channels</li>
-          </ul>
-        </div>
+      <div class="header-right-tools">
+        <svg class="search-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <a href="/contact/" class="btn-eg-green">GET IN TOUCH</a>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- 2. NIST 800-88 Rev.1 Purge explained -->
-  <section class="section section--neutral">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow" data-reveal>Sanitization standard</span>
-        <h2 class="h-l">NIST 800-88 Rev.1 Purge explained.</h2>
-      </div>
+  <main id="main">
 
-      <div style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:clamp(32px, 5vw, 64px); align-items:start;">
-        <div style="display:flex; flex-direction:column; gap:18px; font-size:15px; line-height:1.75; color:var(--ink-soft);">
-          <p>
-            Simple drive formatting or partition deletion leaves magnetic domains and flash NAND blocks vulnerable to forensic extraction. EcoGreen executes cryptographic erasure and multi-pass overwrite protocols certified to NIST Special Publication 800-88 Rev. 1 (Guidelines for Media Sanitization).
-          </p>
-          <p>
-            The Purge command executes internal drive controller routines that overwrite all addressable logical blocks, host-protected areas (HPA), and device configuration overlays (DCO) with pseudorandom binary sequences, followed by full bit-level verification.
-          </p>
-        </div>
-
-        <div style="background:#fff; padding:32px; border-radius:var(--r-m); border:1px solid var(--line); box-shadow:var(--shadow-s);">
-          <h3 style="font-size:1.15rem; color:var(--green-900); margin-bottom:18px;">Technical Specifications</h3>
-          <ul style="display:flex; flex-direction:column; gap:14px; font-size:14px;">
-            <li><strong>Purge standard:</strong> NIST SP 800-88 Rev. 1 cryptographic wipe and multi-pass overwrite protocols.</li>
-            <li><strong>Verification method:</strong> Sector-by-sector LBA hash validation across 100% of addressable logical blocks.</li>
-            <li><strong>Certificate format:</strong> Tamper-evident PDF certificate citing serial number, drive model, and sanitization timestamp.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. On-site shredding capability -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow" data-reveal>Physical destruction</span>
-        <h2 class="h-l">On-site industrial shredding capability.</h2>
-      </div>
-
-      <div style="max-width:820px; display:flex; flex-direction:column; gap:20px; font-size:15.5px; line-height:1.75; color:var(--ink-soft);">
-        <p>
-          For government agencies, banking institutions, and defense contractors whose compliance rules forbid storage media from leaving the corporate premises alive, EcoGreen deploys mobile high-torque physical shredding units directly to your site.
+    <!-- ============================================================
+         PAGE HERO (Chevron Watermark & Stat Counters)
+         ============================================================ -->
+    <section class="inner-hero">
+      <div class="container">
+        <nav class="inner-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="sep">/</span>
+          <a href="/services/">Services</a>
+          <span class="sep">/</span>
+          <span>ITAD &amp; Data Destruction</span>
+        </nav>
+        <br>
+        <span class="inner-hero-eyebrow">Enterprise IT Asset Disposition</span>
+        <h1 class="inner-hero-title">Certified Destruction.<br>Documented Chain of Custody.</h1>
+        <p class="inner-hero-lede">
+          NIST 800-88 Rev.1 Purge. On-site shredding. A serialized certificate for every device that leaves your premises.
         </p>
-        <p>
-          Hard drives, SSDs, tapes, optical media, and cryptographic security tokens are barcode-scanned and dropped into cross-cut counter-rotating rotary shredder teeth. Media is pulverized to sub-2mm fragments under real-time security camera recording and client witness observation, rendering data recovery physically impossible.
-        </p>
-      </div>
-    </div>
-  </section>
 
-  <!-- 4. Chain-of-custody documentation & 5. Sample CoD -->
-  <section class="section section--neutral">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow" data-reveal>Verification &amp; reporting</span>
-        <h2 class="h-l">Chain-of-custody documentation deliverables.</h2>
-        <p class="lede">Every consignment concludes with an airtight audit package accepted by enterprise and statutory auditors without follow-up.</p>
+        <!-- 4-Stat Metric Bar -->
+        <div class="inner-hero-stats">
+          <div class="inner-hero-stat-item">
+            <div class="inner-hero-stat-num">99.999%</div>
+            <div class="inner-hero-stat-label">Data Sanitization Assurance</div>
+          </div>
+          <div class="inner-hero-stat-item">
+            <div class="inner-hero-stat-num">10,000G</div>
+            <div class="inner-hero-stat-label">Magnetic Degaussing Power</div>
+          </div>
+          <div class="inner-hero-stat-item">
+            <div class="inner-hero-stat-num">&lt;2mm</div>
+            <div class="inner-hero-stat-label">Sub-Particle Optical Shredding</div>
+          </div>
+          <div class="inner-hero-stat-item">
+            <div class="inner-hero-stat-num">48 Hrs</div>
+            <div class="inner-hero-stat-label">Serialized Manifest Turnaround</div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:clamp(32px, 5vw, 64px); align-items:start; margin-bottom:56px;">
-        <div style="background:#fff; padding:36px; border-radius:var(--r-m); border:1px solid var(--line);">
-          <h3 style="font-size:1.2rem; color:var(--green-900); margin-bottom:18px;">What Your IT Team Receives</h3>
-          <ul style="display:flex; flex-direction:column; gap:14px; font-size:14.5px; color:var(--ink-soft);">
-            <li>✓ <strong>Reconciled inventory report:</strong> Complete serial-level report delivered within 48 hours of intake.</li>
-            <li>✓ <strong>Certificate of Data Destruction (CoD):</strong> Serialized legal document verifying NIST 800-88 Purge or physical shredding.</li>
-            <li>✓ <strong>Weighbridge reconciliation:</strong> Gross and tare weight certificates matching transport manifests.</li>
-            <li>✓ <strong>Downstream confirmation:</strong> Audit trail certifying zero landfill diversion and secondary mineral routing.</li>
-          </ul>
+    <!-- ============================================================
+         SECTION 1: SCOPE OF COVERAGE & CORE CAPABILITIES
+         ============================================================ -->
+    <section class="inner-section">
+      <div class="container">
+        <div class="inner-section-head">
+          <span class="section-eyebrow">Scope of Coverage</span>
+          <h2 class="section-title">Comprehensive Lifecycle Management for Corporate IT Assets</h2>
+          <p class="section-lede">Protecting enterprise data security, regulatory compliance, and maximum financial recovery across end-of-life hardware refreshes.</p>
         </div>
 
-        <div style="display:flex; flex-direction:column; gap:24px;">
-          <h3 style="font-size:1.2rem; color:var(--green-900);">Sample Certificate of Destruction</h3>
-          <p style="font-size:14.5px; line-height:1.65; color:var(--ink-soft);">
-            Examine our standard Certificate of Data Destruction (CoD) format, complete with serialized drive manifests, hash validations, and accredited officer signatures.
-          </p>
-          <div class="download-list">
-            <div class="download-row">
-              <div class="download-meta">
-                <span class="download-title">Sample Certificate of Data Destruction (CoD)</span>
-                <span class="download-desc">Official verification template · PDF · 1.2 MB</span>
-              </div>
-              <a class="download-action" href="/assets/docs/sample-cod.pdf" download>
-                Download sample
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              </a>
+        <div class="split-feature-row">
+          <div class="split-feature-content">
+            <h3>Enterprise Hardware Estates Decommissioned with Zero Risk</h3>
+            <p>
+              EcoGreen's IT Asset Disposition (ITAD) framework protects enterprise data security, regulatory compliance, and maximum financial recovery across end-of-life hardware refreshes. We support multinational corporations, financial institutions, defense contractors, and technology leaders decommissioning complex hardware estates.
+            </p>
+            <p>
+              Our scope spans enterprise rack servers, SAN and NAS storage arrays, core switches, firewalls, blade chassis, corporate laptop fleets, workstations, smartphones, and peripheral devices. Every asset is tagged with a tamper-evident serial barcode the moment it enters our secure chain of custody.
+            </p>
+            <p>
+              Logistics are executed using dedicated GPS-tracked lockboxes and telematics-monitored vehicles with dual-driver security escorts. From client loading bays directly into ISO 27001 audited cleanrooms, zero intermediate custody transfers occur.
+            </p>
+          </div>
+          <div class="split-feature-media">
+            <img src="/assets/img/service-itad-hardware.png" alt="Enterprise ITAD hardware dismantling and sanitization">
+          </div>
+        </div>
+
+        <div class="cards-grid-3" style="margin-top:48px;">
+          <article class="info-card">
+            <div class="info-card-num">CAPABILITY 01</div>
+            <h3 class="info-card-title">NIST SP 800-88 Purge</h3>
+            <p class="info-card-body">Cryptographic erasure and multi-pass overwrite protocols certified to NIST Guidelines for Media Sanitization.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-num">CAPABILITY 02</div>
+            <h3 class="info-card-title">Mobile Loading-Bay Shredding</h3>
+            <p class="info-card-body">On-site high-torque shredding units deploy directly to enterprise facilities, disintegrating storage media before client observers.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-num">CAPABILITY 03</div>
+            <h3 class="info-card-title">Magnetic Degaussing</h3>
+            <p class="info-card-body">High-intensity magnetic field pulses exceeding 10,000 Gauss neutralizing magnetic domains on legacy tapes and platter drives.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-num">CAPABILITY 04</div>
+            <h3 class="info-card-title">48-Hour Serial Reconciliation</h3>
+            <p class="info-card-body">Individual serial-level inventory passbooks and tamper-evident PDF certificates delivered directly to procurement desks.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-num">CAPABILITY 05</div>
+            <h3 class="info-card-title">Form 6 Manifest Filings</h3>
+            <p class="info-card-body">Direct Central Pollution Control Board portal synchronization fulfilling all statutory EPR transfer mandates.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-num">CAPABILITY 06</div>
+            <h3 class="info-card-title">Certified Value Recovery</h3>
+            <p class="info-card-body">Component-level testing and remarketing through certified secondary channels, maximizing asset residual valuation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2: NIST 800-88 PURGE EXPLAINED & TECHNICAL SPECS
+         ============================================================ -->
+    <section class="inner-section inner-section-alt">
+      <div class="container">
+        <div class="inner-section-head">
+          <span class="section-eyebrow">Sanitization Standards</span>
+          <h2 class="section-title">NIST 800-88 Rev.1 Purge Explained</h2>
+          <p class="section-lede">Why simple formatting fails enterprise audits — and how cryptographic erasure guarantees data finality.</p>
+        </div>
+
+        <div class="split-feature-row">
+          <div class="split-feature-content">
+            <p>
+              Simple drive formatting or partition deletion leaves magnetic domains and flash NAND blocks vulnerable to forensic extraction. EcoGreen executes cryptographic erasure and multi-pass overwrite protocols certified to NIST Special Publication 800-88 Rev. 1 (Guidelines for Media Sanitization).
+            </p>
+            <p>
+              The Purge command executes internal drive controller routines that overwrite all addressable logical blocks, host-protected areas (HPA), and device configuration overlays (DCO) with pseudorandom binary sequences, followed by full bit-level verification.
+            </p>
+          </div>
+          <div class="info-card" style="box-shadow:var(--shadow-md); border-top: 4px solid var(--eg-green-primary);">
+            <h3 style="font-family:var(--font-heading); font-size:18px; font-weight:800; color:var(--eg-ink-heading); margin-bottom:16px;">Technical Specifications</h3>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:14px; font-size:14px; color:var(--eg-ink-body);">
+              <li><strong>Purge standard:</strong> NIST SP 800-88 Rev. 1 cryptographic wipe and multi-pass overwrite protocols.</li>
+              <li><strong>Verification method:</strong> Sector-by-sector LBA hash validation across 100% of addressable logical blocks.</li>
+              <li><strong>Certificate format:</strong> Tamper-evident PDF certificate citing serial number, drive model, and sanitization timestamp.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3: DESTRUCTION METHODS COMPARED TABLE
+         ============================================================ -->
+    <section class="inner-section">
+      <div class="container">
+        <div class="inner-section-head">
+          <span class="section-eyebrow">Methods Matrix</span>
+          <h2 class="section-title">Destruction Methods Compared</h2>
+          <p class="section-lede">Choose the appropriate sanitization tier for your organization's risk profile.</p>
+        </div>
+
+        <div class="kknag-table-wrap">
+          <table class="kknag-table">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Process Execution</th>
+                <th>Applicable Media</th>
+                <th>Assurance Level</th>
+                <th>Hardware Reusability</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Clear</strong></td>
+                <td>Logical overwrite of user addressable sectors</td>
+                <td>Magnetic HDDs, SATA SSDs</td>
+                <td>Low-Risk Commercial</td>
+                <td>100% Reusable</td>
+              </tr>
+              <tr>
+                <td><strong>Purge</strong></td>
+                <td>Cryptographic sanitize + firmware controller erase + DCO/HPA overwrite</td>
+                <td>Enterprise SAS, NVMe, Flash arrays</td>
+                <td>High-Assurance Enterprise &amp; BFSI</td>
+                <td>100% Reusable</td>
+              </tr>
+              <tr>
+                <td><strong>Destroy (Degauss)</strong></td>
+                <td>High-intensity magnetic field collapse (>10,000 Gauss)</td>
+                <td>Magnetic tape, spinning platters</td>
+                <td>National Security Grade</td>
+                <td>Non-Reusable (Recycled for Metals)</td>
+              </tr>
+              <tr>
+                <td><strong>Destroy (Shred)</strong></td>
+                <td>Sub-2mm mechanical disintegration in high-torque shear blades</td>
+                <td>All solid-state &amp; magnetic storage</td>
+                <td>Absolute Zero-Recovery Finality</td>
+                <td>Non-Reusable (Refined in Mathura)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 4: FAQ ACCORDION (Interactive)
+         ============================================================ -->
+    <section class="inner-section inner-section-alt">
+      <div class="container">
+        <div class="inner-section-head">
+          <span class="section-eyebrow">Frequently Asked Questions</span>
+          <h2 class="section-title">ITAD &amp; Data Security Queries</h2>
+          <p class="section-lede">Key answers regarding our on-site sanitization, audits, and certificate issuance.</p>
+        </div>
+
+        <div class="kknag-accordion">
+          <div class="kknag-accordion-item is-open">
+            <div class="kknag-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+              <span>What is the difference between Clear, Purge, and Destroy?</span>
+              <span class="kknag-accordion-icon">+</span>
+            </div>
+            <div class="kknag-accordion-body">
+              Clear applies logical techniques that sanitize data in all user-addressable storage locations against simple non-invasive recovery. Purge applies cryptographic or physical techniques that render target data recovery infeasible using state-of-the-art laboratory techniques. Destroy uses physical shredding or disintegration to completely eliminate the media.
+            </div>
+          </div>
+
+          <div class="kknag-accordion-item">
+            <div class="kknag-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+              <span>Do you shred on our premises?</span>
+              <span class="kknag-accordion-icon">+</span>
+            </div>
+            <div class="kknag-accordion-body">
+              Yes. Our mobile high-torque shredding units deploy directly to enterprise loading docks across major metros. Media is shredded into sub-2mm particles under security camera supervision with serialized scanning.
+            </div>
+          </div>
+
+          <div class="kknag-accordion-item">
+            <div class="kknag-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+              <span>How long does a batch take?</span>
+              <span class="kknag-accordion-icon">+</span>
+            </div>
+            <div class="kknag-accordion-body">
+              Standard on-site sanitization processes between 200 to 500 drives per day per mobile station. Off-site processing at our authorized facilities completes inventory triage and certification within 48 hours of intake.
+            </div>
+          </div>
+
+          <div class="kknag-accordion-item">
+            <div class="kknag-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+              <span>Do you handle mixed asset types?</span>
+              <span class="kknag-accordion-icon">+</span>
+            </div>
+            <div class="kknag-accordion-body">
+              Yes. We process heterogeneous enterprise consignments including server blades, SAN storage arrays, tape cartridges, laptops, smartphones, and networking switches under one unified manifest.
+            </div>
+          </div>
+
+          <div class="kknag-accordion-item">
+            <div class="kknag-accordion-header" onclick="this.parentElement.classList.toggle('is-open')">
+              <span>What happens to devices that still work?</span>
+              <span class="kknag-accordion-icon">+</span>
+            </div>
+            <div class="kknag-accordion-body">
+              Working units undergo NIST 800-88 sanitization followed by diagnostic component testing. With client authorization, tested units are refurbished for certified secondary use or partner educational donation programs.
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 6. FAQ accordion -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow" data-reveal>Frequently asked questions</span>
-        <h2 class="h-l">ITAD &amp; data sanitization FAQs.</h2>
+    <!-- CTA Band -->
+    <section class="cta-band">
+      <div class="container">
+        <span class="section-eyebrow">Get Started</span>
+        <h2 class="section-title">Schedule an Enterprise ITAD Audit</h2>
+        <p class="section-lede">
+          Our certified engineers deploy on-site to inspect your storage infrastructure and draft an unassailable data destruction manifest.
+        </p>
+        <div class="cta-btn-row">
+          <a href="/contact/" class="btn-eg-green">REQUEST ON-SITE AUDIT</a>
+          <a href="/compliance/" class="btn-eg-outline" style="border-color:#ffffff; color:#ffffff !important;">VIEW CERTIFICATES</a>
+        </div>
       </div>
+    </section>
 
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary class="faq-summary">
-            <span>What is the difference between Clear, Purge, and Destroy?</span>
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </summary>
-          <div class="faq-content">
-            Clear applies logical techniques that sanitize data in all user-addressable storage locations against simple non-invasive recovery. Purge applies cryptographic or physical techniques that render target data recovery infeasible using state-of-the-art laboratory techniques. Destroy uses physical shredding, degaussing, or disintegration that completely eliminates the media.
+  </main>
+
+  <!-- ============================================================
+       STANDARDIZED K. K. NAG FOOTER
+       ============================================================ -->
+  <footer class="footer-kknag-sec">
+    <div class="container">
+      <div class="footer-main-grid">
+        <!-- Left: Brand Hashtag & 4 Nav Columns -->
+        <div>
+          <div class="footer-brand-hashtag">#ClosingTheLoop</div>
+
+          <div class="footer-nav-columns">
+            <div class="footer-nav-col">
+              <h4>About Us</h4>
+              <ul>
+                <li><a href="/about/">Overview</a></li>
+                <li><a href="/story/">Our Journey</a></li>
+                <li><a href="/about/">Leadership</a></li>
+                <li><a href="/compliance/">CSR &amp; Governance</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Business Lines</h4>
+              <ul>
+                <li><a href="/services/itad/">ITAD Services</a></li>
+                <li><a href="/services/recycling/">Metal Recovery</a></li>
+                <li><a href="/compliance/">EPR Fulfillment</a></li>
+                <li><a href="/services/">Refurbishment</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Services</h4>
+              <ul>
+                <li><a href="/services/">Reverse Logistics</a></li>
+                <li><a href="/services/recycling/">Urban Mining</a></li>
+                <li><a href="/services/itad/">Witnessed Shredding</a></li>
+                <li><a href="/compliance/">Audited Disposal</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Portals</h4>
+              <ul>
+                <li><a href="/compliance/">EPR Portal</a></li>
+                <li><a href="/services/itad/">ITAD Vault</a></li>
+                <li><a href="/compliance/">Form 6 Retrieval</a></li>
+                <li><a href="/press/">Annual Returns</a></li>
+              </ul>
+            </div>
           </div>
-        </details>
+        </div>
 
-        <details class="faq-item">
-          <summary class="faq-summary">
-            <span>Do you shred on our premises?</span>
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </summary>
-          <div class="faq-content">
-            Yes. Our mobile high-torque shredding units deploy directly to enterprise loading docks across major metros. Media is shredded into sub-2mm particles under security camera supervision with serialized scanning.
+        <!-- Right: The Distinctive White Floating "Contact Us" Card -->
+        <div>
+          <div class="footer-floating-contact-card">
+            <h3 class="footer-contact-title">Contact Us</h3>
+
+            <div class="footer-contact-item">
+              <strong>Corporate Headquarters &amp; Plant:</strong>
+              EcoGreen Recyclers (P) Limited<br>
+              Plot No. 479, Habibpur, Main Dadri Road,<br>
+              Greater Noida (U.P.) — 201306
+            </div>
+
+            <div class="footer-contact-item">
+              <strong>Direct Helpline:</strong>
+              <a href="tel:+919319253708">+91 93192 53708</a>
+            </div>
+
+            <div class="footer-contact-item">
+              <strong>Email Operations Desk:</strong>
+              <a href="mailto:operation@ecogreen.eco">operation@ecogreen.eco</a>
+            </div>
+
+            <div class="footer-card-bottom-row">
+              <a href="/contact/" class="btn-eg-green">GET IN TOUCH</a>
+              <div class="footer-stamp-badge">
+                <img src="/assets/img/ref/footer-badge.svg" alt="Certified Standards Badge">
+              </div>
+            </div>
           </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-summary">
-            <span>How long does a batch take?</span>
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </summary>
-          <div class="faq-content">
-            Standard on-site sanitization processes between 200 to 500 drives per day per mobile station. Off-site processing at our authorized facilities completes inventory triage and certification within 48 hours of intake.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-summary">
-            <span>Do you handle mixed asset types?</span>
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </summary>
-          <div class="faq-content">
-            Yes. We process heterogeneous enterprise consignments including server blades, SAN storage arrays, tape cartridges, laptops, smartphones, and networking switches under one unified manifest.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-summary">
-            <span>What happens to devices that still work?</span>
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </summary>
-          <div class="faq-content">
-            Working units undergo NIST 800-88 sanitization followed by diagnostic component testing. With client authorization, tested units are refurbished for certified secondary use or partner educational donation programs, while non-viable units proceed directly to mechanical material recovery.
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. CTA: Request a Data Security Audit -->
-  <section class="section section--dark cta">
-    <div class="wrap">
-      <span class="eyebrow" data-reveal style="justify-content:center;display:inline-flex;margin-bottom:28px">Enterprise data security</span>
-      <h2 class="h-l" data-split>Schedule an on-site data destruction audit.</h2>
-      <p data-reveal style="--d:200ms">
-        Speak directly with our technical compliance engineers. We review your hardware retirement roadmap and issue tailored manifest schedules.
-      </p>
-      <div class="btn-row" data-reveal style="--d:320ms">
-        <a class="btn btn--primary" href="/contact/">
-          Request a Data Security Audit
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="/compliance/">
-          View Certifications
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a class="brand" href="/" aria-label="EcoGreen home">
-          <img src="/assets/img/ecogreen-logo.png" alt="EcoGreen" class="brand-logo" width="170" height="32" decoding="async">
-        </a>
-        <p>India's certified e-waste recycling and IT Asset Disposition partner. Zero landfill, full chain of custody.</p>
-        <div class="footer-certs">
-          <span>CPCB Authorised</span>
-          <span>ISO 14001</span>
-          <span>ISO 45001</span>
-          <span>R2v3 aligned</span>
         </div>
       </div>
 
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/services/">Overview</a></li>
-          <li><a href="/services/itad/" aria-current="page">ITAD &amp; Data Destruction</a></li>
-          <li><a href="/services/recycling/">Recycling &amp; Recovery</a></li>
-          <li><a href="/compliance/">Compliance</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/story/">Our Story</a></li>
-          <li><a href="/about/">About &amp; Leadership</a></li>
-          <li><a href="/sustainability/">Sustainability</a></li>
-          <li><a href="/press/">Press &amp; Media</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="/contact/">Schedule a Pickup</a></li>
-          <li><a href="/contact/">Enterprise Inquiry</a></li>
-          <li><a href="tel:+919319253708">+91 93192 53708</a></li>
-          <li><a href="mailto:operation@ecogreen.eco">operation@ecogreen.eco</a></li>
-        </ul>
+      <div class="footer-bottom-bar">
+        <span>&copy; <span id="kknagYear">2026</span> EcoGreen Recyclers (P) Limited. All Rights Reserved.</span>
+        <nav aria-label="Legal">
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms &amp; Conditions</a>
+          <a href="/assets/docs/compliance-pack.pdf" target="_blank">Code of Conduct</a>
+          <a href="/sitemap.xml">Sitemap</a>
+        </nav>
       </div>
     </div>
+  </footer>
 
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> EcoGreen.eco — All rights reserved.</span>
-      <nav aria-label="Legal">
-        <a href="/privacy/">Privacy Policy</a>
-        <a href="/terms/">Terms of Use</a>
-        <a href="/contact/">Contact</a>
-      </nav>
-    </div>
-  </div>
-</footer>
+  <!-- FLOATING COMPARISON SWITCHER (TESTING SETTING) -->
+  <aside id="testing-comparison-dock" aria-label="Version Switcher">
+    <span style="color: #A5D6A7; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0 10px 0 6px; border-right: 1px solid rgba(255,255,255,0.15); display: flex; align-items: center; gap: 6px;">
+      <span style="display:inline-block; width: 7px; height: 7px; border-radius: 50%; background: #4CAF50; box-shadow: 0 0 8px #4CAF50;"></span>
+      Testing Setting
+    </span>
+    <a href="/" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 9999px; font-size: 12px; font-weight: 600; text-decoration: none; color: #d0d0d0; transition: all 0.2s ease;">
+      <span>🌱</span> Original EcoGreen
+    </a>
+    <a href="/test" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-weight: 700; text-decoration: none; background: #2E7D32; color: #ffffff; box-shadow: 0 2px 10px rgba(46, 125, 50, 0.5);">
+      <span>★</span> K. K. Nag Structure
+    </a>
+  </aside>
 
-<script src="/assets/js/main.js"></script>
 </body>
 </html>
