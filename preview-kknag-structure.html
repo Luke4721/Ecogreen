@@ -168,7 +168,7 @@
     .header-logo-img {
       height: 44px;
       width: auto;
-      max-width: 240px;
+      max-width: 280px;
       object-fit: contain;
       display: block;
     }
@@ -176,7 +176,7 @@
     .footer-logo-img {
       height: 48px;
       width: auto;
-      max-width: 240px;
+      max-width: 280px;
       object-fit: contain;
       display: block;
     }
@@ -1517,7 +1517,7 @@
        ZONE 12: ECOGREEN CONNECT (KK NAG EQUIVALENT: INSIGHTS & CASE STUDIES)
        ============================================================ */
     .connect-kknag-sec {
-      padding: clamp(54px, 7vh, 84px) 0;
+      padding: clamp(100px, 12vh, 130px) 0 clamp(70px, 9vh, 96px) 0;
       background: #F8FAFC;
       border-top: 1px solid #E2E8F0;
       border-bottom: 1px solid #E2E8F0;
@@ -2066,19 +2066,16 @@
       <nav aria-label="Primary Navigation">
         <ul class="main-nav-list">
           <li class="main-nav-item">
-            <a href="/about/">ABOUT US <span class="nav-arrow-icon">&#9662;</span></a>
+            <a href="/about/">ABOUT US</a>
           </li>
           <li class="main-nav-item">
-            <a href="/services/">BUSINESS LINES <span class="nav-arrow-icon">&#9662;</span></a>
+            <a href="/services/">SERVICES</a>
           </li>
           <li class="main-nav-item">
-            <a href="/services/">SERVICES <span class="nav-arrow-icon">&#9662;</span></a>
+            <a href="/sustainability/">SUSTAINABILITY</a>
           </li>
           <li class="main-nav-item">
-            <a href="/sustainability/">SUSTAINABILITY <span class="nav-arrow-icon">&#9662;</span></a>
-          </li>
-          <li class="main-nav-item">
-            <a href="/press/">RESOURCES <span class="nav-arrow-icon">&#9662;</span></a>
+            <a href="/press/">RESOURCES</a>
           </li>
         </ul>
       </nav>
@@ -2603,68 +2600,69 @@
   </section>
 
   <!-- ============================================================
-       ZONE 12: ECOGREEN CONNECT (KK NAG EQUIVALENT: INSIGHTS & CASE STUDIES)
+       ZONE 12: CIRCULAR PRODUCTS & SECONDARY RAW MATERIALS
        ============================================================ -->
-  <section class="connect-kknag-sec" id="ecogreen-connect">
+  <section class="connect-kknag-sec" id="circular-products">
     <div class="container">
       <div class="connect-header-wrap sec-reveal-fade">
-        <span class="kknag-eyebrow">ECOGREEN CONNECT</span>
-        <h2>Circular Economy in Action: Insights &amp; Case Studies</h2>
-        <p>Verified technical whitepapers, hyperscale ITAD case studies, and statutory compliance updates from India's leader in closed-loop electronics recycling.</p>
+        <span class="kknag-eyebrow">CLOSED-LOOP RECOVERY OUTPUTS</span>
+        <h2>From Electronic Waste to Certified Industrial Feedstock</h2>
+        <p>Every consignment processed across our facilities undergoes high-yield recovery, supplying verified LME-grade metals, precursor battery concentrates, and circular polymers back to domestic manufacturing.</p>
       </div>
 
       <div class="connect-filter-pills sec-reveal-fade sec-delay-1">
-        <div class="connect-pill active">ALL INSIGHTS</div>
-        <div class="connect-pill">CASE STUDIES</div>
-        <div class="connect-pill">METALLURGY &amp; EPR</div>
+        <div class="connect-pill active" onclick="filterMaterials('all', this)">ALL OUTPUTS</div>
+        <div class="connect-pill" onclick="filterMaterials('metals', this)">METALS &amp; BULLION</div>
+        <div class="connect-pill" onclick="filterMaterials('battery', this)">BATTERY MINERALS</div>
+        <div class="connect-pill" onclick="filterMaterials('polymers', this)">CIRCULAR POLYMERS</div>
       </div>
 
       <div class="connect-cards-grid">
-        <!-- Card 1: Hyperscale ITAD Case Study -->
-        <div class="connect-card sec-reveal-fade sec-delay-1">
+        <!-- Card 1: Copper & Precious Metals -->
+        <div class="connect-card sec-reveal-fade sec-delay-1" data-cat="metals">
           <div class="connect-card-img-wrap">
-            <span class="connect-tag-badge">CASE STUDY</span>
-            <img src="/assets/img/business-itad.jpg" alt="Hyperscale Data Center ITAD Decommissioning">
+            <span class="connect-tag-badge">99.8% RECOVERED PURITY</span>
+            <img src="/assets/img/business-hydrometallurgical.jpg" alt="Electrolytic Copper Cathodes and Precious Metals">
           </div>
           <div class="connect-card-body">
-            <div class="connect-meta">DATA CENTER INFRASTRUCTURE &bull; 4 MIN READ</div>
-            <h3 class="connect-card-title">Hyperscale Cloud Decommissioning: 14,000 Blades Sanitized with Zero Discrepancy</h3>
+            <div class="connect-meta">BASE &amp; PRECIOUS METALS &bull; LME GRADE-A</div>
+            <h3 class="connect-card-title">Refined Copper Cathodes &amp; High-Purity Precious Bullion</h3>
             <p class="connect-card-desc">
-              How EcoGreen executed multi-facility serialized cryptographic erasure and de-manufacturing for a Tier-4 hyperscaler, delivering verified NIST 800-88 compliance across Bangalore and Hyderabad corridors.
+              Hydrometallurgically extracted from printed circuit board assemblies and heavy telecommunications busbars with zero smelting emissions, supplying sovereign wire drawing and semiconductor metallurgy.
             </p>
-            <a href="/services/itad/" class="connect-card-link">READ FULL CASE STUDY &rarr;</a>
+            <a href="/services/recycling/" class="connect-card-link">VIEW EXTRACTION PROCESS &rarr;</a>
           </div>
         </div>
 
-        <!-- Card 2: Hydrometallurgical Copper & Precious Metals -->
-        <div class="connect-card sec-reveal-fade sec-delay-2">
+        <!-- Card 2: Lithium Battery Black Mass -->
+        <div class="connect-card sec-reveal-fade sec-delay-2" data-cat="battery">
           <div class="connect-card-img-wrap">
-            <span class="connect-tag-badge">TECHNICAL WHITEPAPER</span>
-            <img src="/assets/img/business-hydrometallurgical.jpg" alt="Hydrometallurgical Precious Metals Extraction">
+            <span class="connect-tag-badge">ACTIVE PRECURSOR FEED</span>
+            <img src="/assets/img/circular-battery-blackmass.jpg" alt="Lithium-Ion Battery Black Mass Extraction">
           </div>
           <div class="connect-card-body">
-            <div class="connect-meta">CRITICAL MINERAL RECOVERY &bull; 6 MIN READ</div>
-            <h3 class="connect-card-title">Recovering 99.8% LME-Grade Copper Cathodes from High-Density PCB Feedstock</h3>
+            <div class="connect-meta">STRATEGIC MINERALS &bull; LITHIUM &bull; COBALT &bull; NICKEL</div>
+            <h3 class="connect-card-title">Lithium Battery Black Mass &amp; Critical Precursor Salts</h3>
             <p class="connect-card-desc">
-              An engineering analysis of EcoGreen’s zero-emission hydrometallurgical leaching circuit, displacing primary copper ore mining while generating verified Scope 3 carbon reduction certificates.
+              Safely processed in inert-atmosphere shredding circuits from decommissioned EV battery packs, energy storage systems (ESS), and industrial cells to power domestic circular cell manufacturing.
             </p>
-            <a href="/services/recovery/" class="connect-card-link">DOWNLOAD TECHNICAL BRIEF &rarr;</a>
+            <a href="/services/" class="connect-card-link">EXPLORE BATTERY RECYCLING &rarr;</a>
           </div>
         </div>
 
-        <!-- Card 3: Statutory & EPR Compliance -->
-        <div class="connect-card sec-reveal-fade sec-delay-3">
+        <!-- Card 3: Engineering Polymers -->
+        <div class="connect-card sec-reveal-fade sec-delay-3" data-cat="polymers">
           <div class="connect-card-img-wrap">
-            <span class="connect-tag-badge">STATUTORY COMPLIANCE</span>
-            <img src="/assets/img/business-epr.jpg" alt="CPCB EPR Statutory Fulfillment & Form 6">
+            <span class="connect-tag-badge">RoHS &amp; REACH COMPLIANT</span>
+            <img src="/assets/img/circular-polymers-pellets.jpg" alt="Circular Engineering Plastics and Polymers">
           </div>
           <div class="connect-card-body">
-            <div class="connect-meta">REGULATORY PLAYBOOK &bull; 5 MIN READ</div>
-            <h3 class="connect-card-title">E-Waste Rules 2022: Streamlining Form 6 Filings &amp; EPR Credit Portals for OEMs</h3>
+            <div class="connect-meta">CIRCULAR THERMOPLASTICS &bull; ABS &bull; PC &bull; HIPS</div>
+            <h3 class="connect-card-title">Engineering Polymer Granules &amp; Resins</h3>
             <p class="connect-card-desc">
-              A comprehensive operational roadmap for consumer electronics manufacturers navigating CPCB portal audits, reverse logistics tracking, and verified recycling targets under statutory mandate.
+              Optical NIR separation removes brominated flame retardants before mechanical compounding, producing clean, high-impact recycled pellets tailored for consumer appliance and automotive OEMs.
             </p>
-            <a href="/compliance/" class="connect-card-link">EXPLORE COMPLIANCE GUIDE &rarr;</a>
+            <a href="/sustainability/" class="connect-card-link">EXPLORE CIRCULAR POLYMERS &rarr;</a>
           </div>
         </div>
       </div>
@@ -3179,6 +3177,21 @@
       });
 
       sections.forEach(sec => observer.observe(sec));
+
+      // Filter Materials interactive handler for Zone 12
+      window.filterMaterials = function(category, el) {
+        document.querySelectorAll(".connect-pill").forEach(p => p.classList.remove("active"));
+        if (el) el.classList.add("active");
+        const cards = document.querySelectorAll(".connect-card");
+        cards.forEach(card => {
+          if (category === "all" || card.getAttribute("data-cat") === category) {
+            card.style.display = "flex";
+            card.style.opacity = "1";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      };
 
       // Trigger initial active state for Hero
       setTimeout(() => {

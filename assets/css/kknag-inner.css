@@ -116,7 +116,7 @@ img {
 .header-logo-img {
   height: 44px;
   width: auto;
-  max-width: 240px;
+  max-width: 280px;
   object-fit: contain;
   display: block;
 }
@@ -1213,7 +1213,7 @@ img {
 .footer-logo-img {
   height: 48px;
   width: auto;
-  max-width: 240px;
+  max-width: 280px;
   object-fit: contain;
   display: block;
 }
