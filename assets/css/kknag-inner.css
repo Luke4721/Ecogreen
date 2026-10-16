@@ -395,13 +395,13 @@ img {
   text-align: center;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(229, 169, 60, 0.45);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.75);
   margin-bottom: 36px;
   user-select: none;
 }
 
 .wireframe-watermark.green {
-  -webkit-text-stroke: 1.5px rgba(129, 199, 132, 0.35);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.75);
 }
 
 /* ============================================================
@@ -1203,7 +1203,7 @@ img {
   font-size: 38px;
   font-weight: 800;
   font-style: italic;
-  color: #2E7D32;
+  color: #ffffff;
   margin-bottom: 32px;
 }
 
