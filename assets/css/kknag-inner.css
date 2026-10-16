@@ -112,10 +112,13 @@ img {
   width: 100%;
 }
 
-.brand-logo-wrap img {
-  height: 42px;
+.brand-logo-wrap img,
+.header-logo-img {
+  height: 44px;
   width: auto;
+  max-width: 240px;
   object-fit: contain;
+  display: block;
 }
 
 .main-nav-list {
@@ -1203,13 +1206,28 @@ img {
   line-height: 1.6;
 }
 
+.footer-logo-wrap {
+  margin-bottom: 22px;
+}
+
+.footer-logo-img {
+  height: 48px;
+  width: auto;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
+}
+
 .footer-brand-hashtag {
   font-family: var(--font-heading);
-  font-size: 38px;
+  font-size: clamp(26px, 3.8vh, 36px);
   font-weight: 800;
   font-style: italic;
   color: #ffffff;
-  margin-bottom: 32px;
+  margin-bottom: clamp(16px, 2.4vh, 26px);
+  background: linear-gradient(135deg, #ffffff 60%, #a9de59 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .footer-nav-columns {
@@ -1304,12 +1322,22 @@ img {
   border-top: 1px solid #edf2f7;
 }
 
-.footer-stamp-badge img {
-  height: 52px;
+.footer-stamp-badge img,
+.footer-stamp-badges img {
+  height: 48px;
   width: auto;
+  object-fit: contain;
 }
 
-/* Green Buttons */
+.footer-stamp-badges {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ============================================================
+   BUTTON SYSTEM (Primary Green, Crisp White, Outline, Pill)
+   ============================================================ */
 .btn-eg-green,
 a.btn-eg-green,
 button.btn-eg-green {
@@ -1319,18 +1347,18 @@ button.btn-eg-green {
   gap: 10px;
   background: var(--eg-green-primary, #2E7D32) !important;
   color: #FFFFFF !important;
-  font-family: var(--font-body, 'Inter', sans-serif);
+  font-family: var(--font-heading, 'Montserrat', sans-serif) !important;
   font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 13px 26px;
+  padding: 13px 28px;
   border-radius: 4px;
   transition: all 0.25s ease;
   border: none;
   cursor: pointer;
   text-decoration: none !important;
-  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25);
+  box-shadow: 0 4px 14px rgba(46, 125, 50, 0.28);
   line-height: 1.2;
 }
 
@@ -1340,12 +1368,162 @@ button.btn-eg-green:hover {
   background: var(--eg-green-dark, #1B5E20) !important;
   color: #FFFFFF !important;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(46, 125, 50, 0.4);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.45);
 }
 
 .btn-eg-green:active,
 a.btn-eg-green:active {
   transform: translateY(0);
+}
+
+.btn-eg-white,
+a.btn-eg-white,
+button.btn-eg-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #ffffff !important;
+  color: #0B2518 !important;
+  font-family: var(--font-heading, 'Montserrat', sans-serif) !important;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 15px 34px;
+  border-radius: 9999px;
+  white-space: nowrap;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-eg-white:hover,
+a.btn-eg-white:hover,
+button.btn-eg-white:hover {
+  background: #A5D6A7 !important;
+  color: #0B2518 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+.btn-eg-white:active,
+a.btn-eg-white:active {
+  transform: translateY(0);
+}
+
+.btn-eg-outline,
+a.btn-eg-outline,
+button.btn-eg-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: transparent !important;
+  color: var(--eg-green-primary, #2E7D32) !important;
+  font-family: var(--font-heading, 'Montserrat', sans-serif) !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 26px;
+  border-radius: 4px;
+  border: 1.5px solid var(--eg-green-primary, #2E7D32) !important;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-eg-outline:hover,
+a.btn-eg-outline:hover,
+button.btn-eg-outline:hover {
+  background: var(--eg-green-primary, #2E7D32) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(46, 125, 50, 0.3);
+}
+
+.btn-eg-pill,
+a.btn-eg-pill,
+button.btn-eg-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--eg-green-primary, #2E7D32) !important;
+  color: #ffffff !important;
+  font-family: var(--font-heading, 'Montserrat', sans-serif) !important;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 13px 30px;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  text-decoration: none !important;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-eg-pill:hover,
+a.btn-eg-pill:hover {
+  background: var(--eg-green-dark, #1B5E20) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(46, 125, 50, 0.45);
+}
+
+/* ============================================================
+   CLOSING CTA CARD SECTION
+   ============================================================ */
+.closing-cta-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.closing-cta-card {
+  background: linear-gradient(135deg, #0B2518 0%, #133E29 100%);
+  border-radius: 20px;
+  padding: clamp(36px, 5vw, 56px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  color: #ffffff;
+  box-shadow: 0 20px 45px rgba(11, 37, 24, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.closing-cta-text h2 {
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: clamp(24px, 3.2vw, 34px);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.closing-cta-text p {
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 640px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.closing-cta-actions {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .closing-cta-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+    padding: 32px 24px;
+  }
+  .closing-cta-text p {
+    margin: 0 auto;
+  }
 }
 
 .footer-bottom-bar {

@@ -164,9 +164,21 @@
       height: 80px;
     }
 
-    .brand-logo-wrap img {
+    .brand-logo-wrap img,
+    .header-logo-img {
       height: 44px;
       width: auto;
+      max-width: 240px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .footer-logo-img {
+      height: 48px;
+      width: auto;
+      max-width: 240px;
+      object-fit: contain;
+      display: block;
     }
 
     .main-nav-list {
@@ -326,17 +338,26 @@
 
     /* ============================================================
        ZONE 4: CORPORATE INTRO (FULL SCREEN COVER 100VH)
-       Image: /assets/img/ecogreen-technician.jpg
+       Image: /assets/img/ecogreen-technician.jpg?v=4
        ============================================================ */
     .overview-sec {
       position: relative;
       height: calc(100vh - 80px);
       min-height: calc(100vh - 80px);
-      background: #0f1626 url('/assets/img/ecogreen-technician.jpg') right center / cover no-repeat;
+      background: #07170e url('/assets/img/ecogreen-technician.jpg?v=4') center right / cover no-repeat;
       display: flex;
       align-items: center;
       scroll-snap-align: start;
       scroll-margin-top: 80px;
+      overflow: hidden;
+    }
+    .overview-sec::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(7, 22, 14, 0.88) 0%, rgba(7, 22, 14, 0.5) 45%, rgba(7, 22, 14, 0.12) 75%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .overview-floating-card {
@@ -377,27 +398,28 @@
        ZONE 5 & 6: CLIENTS & ACCREDITATIONS (SHOWCASE)
        ============================================================ */
     .clients-accred-unified-sec {
-      min-height: calc(100vh - 80px);
-      background: #fbfcfc;
+      min-height: auto;
+      background: #f8fafc;
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: center;
-      border-bottom: 1px solid #eef0f2;
+      border-bottom: 1px solid #e2e8f0;
       scroll-snap-align: start;
       scroll-margin-top: 80px;
-      padding: clamp(36px, 5vh, 64px) 0;
+      padding: clamp(48px, 6vh, 76px) 0;
       position: relative;
+      overflow: hidden;
     }
 
     .clients-sub-block {
-      margin-bottom: clamp(24px, 3.8vh, 38px);
+      margin-bottom: clamp(20px, 2.8vh, 32px);
     }
 
     .clients-header-eyebrow {
       display: inline-block;
       font-family: var(--font-heading);
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -409,9 +431,9 @@
       font-family: var(--font-heading);
       font-size: clamp(24px, 3.2vh, 34px);
       font-weight: 800;
-      color: #111827;
+      color: #0f172a;
       letter-spacing: -0.01em;
-      margin: 0 0 6px 0;
+      margin: 0 0 8px 0;
     }
 
     .clients-header-sub {
@@ -422,64 +444,197 @@
       line-height: 1.5;
     }
 
-    /* Modern Corporate Logos Grid */
-    .clients-logo-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: clamp(10px, 1.2vw, 16px);
-      max-width: 1140px;
+    /* Dual-Row Modern Corporate Logos Marquee */
+    .clients-marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      max-width: 100%;
       margin: 0 auto;
+      padding: 6px 0;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .clients-marquee-row {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .clients-marquee-row.row-2 {
+      margin-top: clamp(10px, 1.4vh, 14px);
+    }
+
+    .clients-marquee-track {
+      display: flex;
+      width: max-content;
+      will-change: transform;
+    }
+
+    .track-left {
+      animation: logoMarqueeScrollLeft 28s linear infinite;
+    }
+
+    .track-right {
+      animation: logoMarqueeScrollRight 32s linear infinite;
+    }
+
+    .clients-marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .clients-marquee-group {
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 1.4vw, 18px);
+      padding-right: clamp(12px, 1.4vw, 18px);
+      flex-shrink: 0;
+    }
+
+    .clients-logo-grid {
+      display: none;
+    }
+
+    @keyframes logoMarqueeScrollLeft {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-33.3333%, 0, 0); }
+    }
+
+    @keyframes logoMarqueeScrollRight {
+      0% { transform: translate3d(-33.3333%, 0, 0); }
+      100% { transform: translate3d(0, 0, 0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .track-left, .track-right {
+        animation-duration: 90s;
+      }
     }
 
     .clients-logo-card {
-      height: clamp(74px, 9vh, 90px);
+      height: 76px;
+      width: clamp(170px, 14vw, 210px);
       background: #ffffff;
-      border: 1px solid #e6e9ec;
-      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 20px;
+      padding: 12px 24px;
       transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
       position: relative;
+      flex-shrink: 0;
     }
 
     .clients-logo-card:hover {
       background: #ffffff;
-      border-color: rgba(46, 125, 50, 0.35);
-      box-shadow: 0 10px 24px rgba(46, 125, 50, 0.08);
+      border-color: rgba(46, 125, 50, 0.5);
+      box-shadow: 0 12px 28px rgba(46, 125, 50, 0.14);
       transform: translateY(-3px);
     }
 
     .client-logo-img {
+      max-width: 140px;
+      max-height: 44px;
+      height: 30px;
       width: auto;
       object-fit: contain;
-      transition: transform 0.28s ease, filter 0.28s ease;
-      filter: grayscale(100%) opacity(0.78);
+      display: block;
+      transition: transform 0.28s ease, filter 0.28s ease, opacity 0.28s ease;
+      filter: grayscale(100%) contrast(1.18) brightness(0.78);
+      opacity: 0.92;
     }
 
     .clients-logo-card:hover .client-logo-img {
-      transform: scale(1.05);
-      filter: grayscale(0%) opacity(1);
+      transform: scale(1.08);
+      filter: grayscale(0%) contrast(1);
+      opacity: 1;
     }
 
-    /* Individual Logo Proportional Balancing */
-    .logo-samsung { max-height: 25px; max-width: 125px; }
-    .logo-mercedes { max-height: 48px; max-width: 120px; }
-    .logo-hcl { max-height: 24px; max-width: 115px; }
-    .logo-wipro { max-height: 38px; max-width: 110px; }
-    .logo-whirlpool { max-height: 34px; max-width: 125px; }
-    .logo-haier { max-height: 28px; max-width: 120px; }
-    .logo-itc { max-height: 46px; max-width: 100px; }
-    .logo-oppo { max-height: 22px; max-width: 115px; }
-    .logo-vivo { max-height: 22px; max-width: 115px; }
-    .logo-paytm { max-height: 26px; max-width: 115px; }
+    .logo-samsung { height: 26px; width: auto; max-width: 130px; }
+    .logo-mercedes { height: 44px; width: auto; max-width: 135px; }
+    .logo-hcl { height: 24px; width: auto; max-width: 120px; }
+    .logo-wipro { height: 38px; width: auto; max-width: 120px; }
+    .logo-whirlpool { height: 32px; width: auto; max-width: 130px; }
+    .logo-haier { height: 30px; width: auto; max-width: 120px; }
+    .logo-itc { height: 42px; width: auto; max-width: 120px; }
+    .logo-oppo { height: 24px; width: auto; max-width: 120px; }
+    .logo-vivo { height: 28px; width: auto; max-width: 120px; }
+    .logo-paytm { height: 28px; width: auto; max-width: 120px; }
+
+    /* High-Impact Enterprise Trust & Proof Bar */
+    .enterprise-proof-bar {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: clamp(18px, 2.5vh, 26px) clamp(20px, 3vw, 36px);
+      margin: clamp(26px, 3.5vh, 38px) auto clamp(28px, 4vh, 42px) auto;
+      max-width: 1140px;
+      box-shadow: 0 6px 24px rgba(15, 23, 42, 0.04);
+      position: relative;
+    }
+
+    .proof-metric-item {
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .proof-metric-value {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 3vh, 30px);
+      font-weight: 800;
+      color: var(--eg-green-dark);
+      line-height: 1.15;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .proof-metric-value .metric-plus {
+      color: var(--eg-green);
+      font-weight: 700;
+    }
+
+    .proof-metric-title {
+      font-family: var(--font-heading);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+
+    .proof-metric-sub {
+      font-size: 11px;
+      color: #64748b;
+      line-height: 1.3;
+    }
+
+    .proof-metric-divider {
+      width: 1px;
+      height: 42px;
+      background: #e2e8f0;
+    }
+
+    @media (max-width: 860px) {
+      .enterprise-proof-bar {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        padding: 20px;
+      }
+      .proof-metric-divider {
+        display: none;
+      }
+    }
 
     /* Accreditations Section */
     .accred-sub-block {
-      padding-top: clamp(20px, 3vh, 32px);
-      border-top: 1px solid #e9ecef;
+      padding-top: clamp(18px, 2.5vh, 28px);
+      border-top: 1px solid #e2e8f0;
       max-width: 1140px;
       margin: 0 auto;
       width: 100%;
@@ -515,33 +670,59 @@
       gap: clamp(10px, 1.2vw, 16px);
     }
 
+    @media (max-width: 900px) {
+      .accred-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 580px) {
+      .accred-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     .accred-card {
       background: #ffffff;
-      border: 1px solid #e6e9ec;
-      border-radius: 8px;
-      padding: clamp(12px, 1.8vh, 18px) 10px;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: clamp(14px, 1.8vh, 20px) 10px clamp(12px, 1.5vh, 16px) 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
       cursor: default;
+      position: relative;
     }
 
     .accred-card:hover {
       border-color: #0284c7;
-      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.1);
+      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.12);
       transform: translateY(-4px);
     }
 
+    .accred-status-tag {
+      font-family: var(--font-heading);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #059669;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin-bottom: 8px;
+    }
+
     .accred-badge-wrap {
-      width: clamp(52px, 6.5vh, 66px);
-      height: clamp(52px, 6.5vh, 66px);
+      width: clamp(48px, 6vh, 60px);
+      height: clamp(48px, 6vh, 60px);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: clamp(8px, 1.2vh, 12px);
+      margin-bottom: clamp(6px, 1vh, 10px);
     }
 
     .accred-badge-img {
@@ -557,7 +738,7 @@
 
     .accred-code {
       font-family: var(--font-heading);
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 800;
       color: #0f172a;
       letter-spacing: 0.02em;
@@ -572,13 +753,9 @@
       line-height: 1.35;
     }
 
-    /* ============================================================
-       ZONE 7: THREE BUSINESS LINES (FULL SCREEN COVER 100VH)
-       Images: /assets/img/ref/business-epp.webp, eps.webp, rotomould.webp
-       ============================================================ */
     .business-cards-sec {
-      height: calc(100vh - 80px);
-      min-height: calc(100vh - 80px);
+      height: auto;
+      min-height: auto;
       background: #ffffff;
       display: flex;
       flex-direction: column;
@@ -586,34 +763,66 @@
       text-align: center;
       scroll-snap-align: start;
       scroll-margin-top: 80px;
-      padding: clamp(16px, 2.5vh, 32px) 0;
+      padding: clamp(56px, 7.5vh, 92px) 0;
+      position: relative;
+    }
+
+    .business-cards-container {
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 3.5vw, 60px);
+      box-sizing: border-box;
+    }
+
+    .business-section-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(25px, 3.6vh, 38px);
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.015em;
+      line-height: 1.24;
+      max-width: 920px;
+      margin: 0 auto;
     }
 
     .business-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: clamp(16px, 2vw, 32px);
-      margin-top: clamp(18px, 2.5vh, 32px);
+      gap: clamp(20px, 2.4vw, 36px);
+      margin-top: clamp(28px, 4vh, 48px);
+    }
+
+    @media (max-width: 992px) {
+      .business-cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
 
     .business-photo-card {
       position: relative;
-      height: clamp(360px, 52vh, 490px);
-      border-radius: 4px;
+      height: clamp(520px, 66vh, 640px);
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(15, 23, 42, 0.08);
       text-align: left;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: clamp(20px, 2.8vh, 32px) clamp(18px, 2vw, 28px);
+      justify-content: space-between;
+      padding: clamp(22px, 3vh, 32px) clamp(22px, 2.4vw, 32px);
       color: #ffffff;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+      background: #06140c;
     }
 
     .business-photo-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.26);
+      box-shadow: 0 26px 64px rgba(15, 23, 42, 0.24);
+      border-color: rgba(46, 125, 50, 0.4);
     }
 
     .business-card-bg {
@@ -622,8 +831,9 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.55s ease;
+      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .business-photo-card:hover .business-card-bg {
       transform: scale(1.08);
     }
@@ -631,7 +841,55 @@
     .business-card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(8, 20, 13, 0.05) 0%, rgba(8, 20, 13, 0.45) 45%, rgba(8, 20, 13, 0.94) 75%, rgba(8, 20, 13, 0.99) 100%);
+      background: linear-gradient(180deg, 
+        rgba(6, 16, 10, 0.02) 0%, 
+        rgba(6, 16, 10, 0.22) 35%, 
+        rgba(6, 16, 10, 0.78) 65%, 
+        rgba(6, 16, 10, 0.98) 100%);
+      transition: opacity 0.35s ease;
+    }
+
+    .business-photo-card:hover .business-card-overlay {
+      background: linear-gradient(180deg, 
+        rgba(6, 16, 10, 0.0) 0%, 
+        rgba(6, 16, 10, 0.18) 30%, 
+        rgba(6, 16, 10, 0.74) 60%, 
+        rgba(6, 16, 10, 0.98) 100%);
+    }
+
+    .business-card-top {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .business-card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 5px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .business-card-num {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.75);
+      letter-spacing: 0.06em;
     }
 
     .business-card-text {
@@ -641,30 +899,71 @@
 
     .business-card-title {
       font-family: var(--font-heading);
-      font-size: clamp(18px, 2.4vh, 23px);
-      font-weight: 700;
+      font-size: clamp(23px, 2.8vh, 28px);
+      font-weight: 800;
       color: #ffffff;
-      margin-bottom: clamp(8px, 1.2vh, 14px);
-      line-height: 1.3;
+      margin-bottom: clamp(10px, 1.4vh, 14px);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
     }
 
     .business-card-desc {
-      font-size: clamp(12px, 1.4vh, 13.5px);
-      color: rgba(255, 255, 255, 0.88);
-      line-height: 1.6;
-      margin-bottom: clamp(14px, 2vh, 22px);
+      font-size: clamp(13px, 1.5vh, 14.5px);
+      color: rgba(255, 255, 255, 0.92);
+      line-height: 1.65;
+      margin-bottom: clamp(18px, 2.4vh, 26px);
+      max-width: 440px;
+    }
+
+    .business-card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--eg-green);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 16px rgba(46, 125, 50, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    .business-card-btn:hover {
+      background: var(--eg-green-dark);
+      color: #ffffff;
+      transform: translateX(4px);
+      box-shadow: 0 8px 24px rgba(46, 125, 50, 0.55);
+    }
+
+    .business-card-btn svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.25s ease;
+    }
+
+    .business-card-btn:hover svg {
+      transform: translateX(4px);
     }
 
     /* ============================================================
        ZONE 8: INDUSTRIES WE SERVE (FULL SCREEN COVER 100VH)
-       Image: /assets/img/ref/amber-circuit.jpg
+       Image: /assets/img/ref/product-1.jpg
        ============================================================ */
     .industries-dark-sec {
-      height: calc(100vh - 80px);
-      min-height: calc(100vh - 80px);
-      max-height: calc(100vh - 80px);
-      padding: clamp(16px, 2.5vh, 32px) 0;
-      background: var(--eg-forest-sec);
+      height: auto;
+      min-height: auto;
+      padding: clamp(48px, 6vh, 76px) 0;
+      background-color: var(--eg-forest-sec);
+      background-image: url('/assets/img/ref/product-1.jpg');
+      background-size: cover;
+      background-position: center;
       position: relative;
       color: #ffffff;
       display: flex;
@@ -674,12 +973,15 @@
       scroll-margin-top: 80px;
       box-sizing: border-box;
       overflow: hidden;
+      transition: background-image 0.5s ease-in-out;
     }
 
     .industries-dark-scrim {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(6, 16, 10, 0.98) 0%, rgba(11, 28, 18, 0.96) 100%);
+      background: linear-gradient(135deg, rgba(6, 16, 10, 0.94) 0%, rgba(11, 28, 18, 0.92) 100%);
+      z-index: 1;
+      transition: background 0.5s ease;
     }
 
     .industries-dark-content {
@@ -692,7 +994,13 @@
       grid-template-columns: 1fr 1fr;
       gap: clamp(24px, 3.5vw, 50px);
       align-items: center;
-      margin-bottom: clamp(16px, 2.4vh, 32px);
+      margin-bottom: clamp(18px, 2.5vh, 32px);
+    }
+
+    @media (max-width: 900px) {
+      .industries-top-split {
+        grid-template-columns: 1fr;
+      }
     }
 
     .industries-left-head h2 {
@@ -705,36 +1013,117 @@
       margin-bottom: clamp(14px, 2vh, 22px);
     }
 
-    .industries-amber-panel {
+    .industries-display-panel {
       position: relative;
-      height: clamp(150px, 22vh, 220px);
-      border-radius: 6px;
+      height: clamp(260px, 34vh, 340px);
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 16px 45px rgba(242, 101, 34, 0.35);
-      border: 1px solid rgba(242, 101, 34, 0.45);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #000000;
     }
-    .industries-amber-panel img {
+
+    .industries-stage-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: sepia(0.85) saturate(3) hue-rotate(-22deg) brightness(1.15) contrast(1.1);
-      transition: transform 0.4s ease;
+      transition: opacity 0.35s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
-    .industries-amber-panel:hover img {
+
+    .industries-stage-img.switching {
+      opacity: 0.15;
       transform: scale(1.05);
     }
-    .industries-amber-panel::after {
-      content: '';
+
+    .industries-display-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 60% 40%, rgba(242, 101, 34, 0.2) 0%, rgba(0, 0, 0, 0.45) 100%);
+      background: linear-gradient(to top, rgba(6, 16, 10, 0.95) 0%, rgba(6, 16, 10, 0.6) 55%, rgba(6, 16, 10, 0.2) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(16px, 2.2vh, 24px) clamp(18px, 2.4vw, 28px);
       pointer-events: none;
+      z-index: 2;
+    }
+
+    .industries-display-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .industries-display-badge {
+      display: inline-block;
+      background: rgba(242, 101, 34, 0.95);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 10px rgba(242, 101, 34, 0.35);
+    }
+
+    .industries-display-counter {
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.85);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .industries-display-title {
+      font-family: var(--font-heading);
+      font-size: clamp(20px, 2.6vh, 24px);
+      font-weight: 800;
+      color: #ffffff;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.01em;
+    }
+
+    .industries-display-desc {
+      font-size: clamp(12.5px, 1.4vh, 13.5px);
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.5;
+      margin: 0 0 10px 0;
+      max-width: 580px;
+    }
+
+    .industries-display-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .ind-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      color: #A5D6A7;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 3px;
+      border: 1px solid rgba(165, 214, 167, 0.3);
     }
 
     .industries-pills-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: clamp(10px, 1.2vw, 16px);
+    }
+
+    @media (max-width: 900px) {
+      .industries-pills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     .industry-pill-btn {
@@ -1125,155 +1514,193 @@
     }
 
     /* ============================================================
-       ZONE 12: PRODUCT CARDS (FULL SCREEN COVER 100VH)
-       Images: /assets/img/ref/product-1.jpg, 2.jpg, 3.jpg
+       ZONE 12: ECOGREEN CONNECT (KK NAG EQUIVALENT: INSIGHTS & CASE STUDIES)
        ============================================================ */
-    .streams-kknag-sec {
-      height: calc(100vh - 80px);
-      min-height: calc(100vh - 80px);
-      max-height: calc(100vh - 80px);
-      padding: clamp(16px, 2.5vh, 32px) 0;
-      background: linear-gradient(180deg, #edf4ee 0%, #e2ece3 50%, #edf4ee 100%);
+    .connect-kknag-sec {
+      padding: clamp(54px, 7vh, 84px) 0;
+      background: #F8FAFC;
+      border-top: 1px solid #E2E8F0;
+      border-bottom: 1px solid #E2E8F0;
+      position: relative;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       scroll-snap-align: start;
       scroll-margin-top: 80px;
-      box-sizing: border-box;
-      overflow: hidden;
     }
 
-    .streams-filter-pills {
+    .connect-header-wrap {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto clamp(24px, 3.5vh, 36px) auto;
+    }
+
+    .connect-header-wrap .kknag-eyebrow {
+      color: var(--eg-green);
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    .connect-header-wrap h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 3.4vw, 40px);
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .connect-header-wrap p {
+      font-size: 15.5px;
+      color: #64748B;
+      line-height: 1.6;
+    }
+
+    .connect-filter-pills {
       display: flex;
       justify-content: center;
       gap: 12px;
-      margin-bottom: clamp(14px, 2vh, 26px);
+      margin-bottom: clamp(26px, 3.5vh, 38px);
     }
 
-    .filter-pill {
+    .connect-pill {
       background: #ffffff;
-      color: var(--eg-forest-card);
+      color: #334155;
       font-family: var(--font-heading);
-      font-size: clamp(11.5px, 1.3vh, 13px);
+      font-size: 13px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      padding: clamp(8px, 1.1vh, 11px) clamp(18px, 2vw, 26px);
+      padding: 10px 24px;
       border-radius: 9999px;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      border: 1px solid #CBD5E1;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
       transition: all 0.25s ease;
-      border: 1px solid transparent;
     }
-    .filter-pill.active, .filter-pill:hover {
+
+    .connect-pill.active, .connect-pill:hover {
       background: var(--eg-green);
       color: #ffffff;
-      box-shadow: 0 6px 18px rgba(46, 125, 50, 0.35);
+      border-color: var(--eg-green);
+      box-shadow: 0 6px 18px rgba(46, 125, 50, 0.28);
     }
 
-    .streams-cards-grid {
+    .connect-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: clamp(16px, 2vw, 30px);
+      gap: clamp(20px, 2.5vw, 32px);
+      max-width: 1240px;
+      margin: 0 auto;
     }
 
-    .stream-ribbon-card {
+    @media (max-width: 900px) {
+      .connect-cards-grid { grid-template-columns: 1fr; }
+    }
+
+    .connect-card {
       background: #ffffff;
-      border-radius: 6px;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-      text-align: left;
-      position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: clamp(340px, 48vh, 460px);
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
       display: flex;
       flex-direction: column;
-    }
-    .stream-ribbon-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: left;
     }
 
-    /* Folded Green Triangle Corner Ribbon */
-    .card-corner-ribbon {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 0;
-      height: 0;
-      border-top: 64px solid var(--eg-green);
-      border-left: 64px solid transparent;
-      z-index: 3;
-    }
-    .card-corner-ribbon-text {
-      position: absolute;
-      top: 12px;
-      right: 4px;
-      transform: rotate(45deg);
-      font-size: 9.5px;
-      font-weight: 800;
-      color: #ffffff;
-      text-transform: uppercase;
-      font-family: var(--font-heading);
-      letter-spacing: 0.08em;
-      z-index: 4;
+    .connect-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(46, 125, 50, 0.4);
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.1);
     }
 
-    .stream-card-img-wrap {
-      height: clamp(130px, 18vh, 190px);
-      background: #06140c;
+    .connect-card-img-wrap {
+      height: 220px;
+      position: relative;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      background: #0B2518;
     }
-    .stream-card-img-wrap img {
+
+    .connect-card-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.45s ease;
     }
-    .stream-ribbon-card:hover .stream-card-img-wrap img {
-      transform: scale(1.08);
+
+    .connect-card:hover .connect-card-img-wrap img {
+      transform: scale(1.06);
     }
 
-    .stream-card-body {
-      padding: clamp(16px, 2vh, 22px);
+    .connect-tag-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(11, 37, 24, 0.88);
+      backdrop-filter: blur(8px);
+      color: #A5D6A7;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(165, 214, 167, 0.3);
+    }
+
+    .connect-card-body {
+      padding: 24px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
-    .stream-card-title {
-      font-family: var(--font-heading);
-      font-size: clamp(15px, 1.8vh, 18px);
+    .connect-meta {
+      font-size: 12px;
       font-weight: 700;
-      color: var(--eg-forest-card);
-      margin-bottom: 8px;
-      line-height: 1.3;
+      color: #94A3B8;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    .stream-card-desc {
-      font-size: clamp(11.5px, 1.3vh, 13px);
-      color: #666666;
-      line-height: 1.55;
-      margin-bottom: clamp(10px, 1.5vh, 16px);
+    .connect-card-title {
+      font-family: var(--font-heading);
+      font-size: 18.5px;
+      font-weight: 700;
+      color: #0F172A;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .connect-card-desc {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 20px;
       flex-grow: 1;
     }
 
-    .stream-card-link {
-      color: var(--eg-green);
+    .connect-card-link {
       font-family: var(--font-heading);
       font-size: 13px;
       font-weight: 700;
+      color: var(--eg-green);
       text-transform: uppercase;
+      letter-spacing: 0.06em;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      transition: gap 0.2s ease, color 0.2s ease;
     }
-    .stream-card-link:hover {
+
+    .connect-card-link:hover {
+      gap: 10px;
       color: var(--eg-green-dark);
     }
 
@@ -1281,20 +1708,65 @@
        ZONE 13: FOOTER (FULL SCREEN COVER 100VH)
        Image: /assets/img/ref/footer-badge.svg
        ============================================================ */
-    .footer-kknag-sec {
-      height: calc(100vh - 80px);
-      min-height: calc(100vh - 80px);
-      max-height: calc(100vh - 80px);
-      background: var(--eg-forest-deep);
-      color: rgba(255, 255, 255, 0.78);
-      padding: clamp(20px, 3vh, 40px) 0 clamp(16px, 2vh, 24px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      scroll-snap-align: start;
-      scroll-margin-top: 80px;
+        .footer-kknag-sec {
+      height: auto;
+      min-height: auto;
+      max-height: none;
+      background: #05140b;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 80px 0 36px;
+      display: block;
+      position: relative;
       box-sizing: border-box;
-      overflow: hidden;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      scroll-snap-align: none;
+    }
+
+    .footer-brand-desc {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.74);
+      line-height: 1.65;
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    .footer-stamp-badges {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-stamp-badges img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-contact-cin {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .footer-item-flex {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .footer-row-icon {
+      width: 18px;
+      height: 18px;
+      color: #2e7d32;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-brand-hashtag {
+      background: linear-gradient(135deg, #ffffff 60%, #a9de59 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .footer-main-grid {
@@ -1541,7 +2013,7 @@
       .services-dark-sec,
       .testimonials-split-sec,
       .sustainability-kknag-sec,
-      .streams-kknag-sec,
+      .connect-kknag-sec,
       .footer-kknag-sec {
         height: auto;
         min-height: auto;
@@ -1556,7 +2028,7 @@
       .industries-pills-grid { grid-template-columns: repeat(2, 1fr); }
       .testi-split-grid { grid-template-columns: 1fr; }
       .sustain-kknag-grid { grid-template-columns: 1fr; }
-      .streams-cards-grid { grid-template-columns: 1fr; }
+      .connect-cards-grid { grid-template-columns: 1fr; }
       .stream-ribbon-card { height: auto; min-height: 440px; }
       .clients-logo-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
       .accred-cards-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -1587,8 +2059,8 @@
        ============================================================ -->
   <header class="main-header">
     <div class="container">
-      <a href="/" class="brand-logo-wrap" aria-label="EcoGreen Home">
-        <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen Recyclers (P) Limited">
+      <a href="/" class="brand-logo-wrap" aria-label="EcoGreen Recyclers Home">
+        <img src="/assets/img/logo_transparent.png" alt="EcoGreen Recycling Pvt. Ltd" class="header-logo-img">
       </a>
 
       <nav aria-label="Primary Navigation">
@@ -1686,19 +2158,96 @@
       <div class="clients-sub-block sec-reveal-fade">
         <span class="clients-header-eyebrow">OUR ESTEEMED PARTNERS</span>
         <h2 class="clients-header-title">Trusted by Global Industry Leaders</h2>
-        <p class="clients-header-sub">Providing statutory e-waste recycling, IT Asset Disposition (ITAD), and closed-loop material recovery for India's leading OEMs and global enterprises.</p>
+        <p class="clients-header-sub">Providing statutory e-waste recycling, IT Asset Disposition (ITAD), and closed-loop material recovery for India's leading OEMs, hyperscalers, and global enterprises.</p>
 
-        <div class="clients-logo-grid sec-reveal-fade sec-delay-1">
-          <div class="clients-logo-card" title="Samsung Electronics"><img src="/assets/img/logos/samsung.svg" alt="Samsung" class="client-logo-img logo-samsung"></div>
-          <div class="clients-logo-card" title="Mercedes-Benz"><img src="/assets/img/logos/mercedes-benz.png" alt="Mercedes-Benz" class="client-logo-img logo-mercedes"></div>
-          <div class="clients-logo-card" title="HCL Technologies"><img src="/assets/img/logos/hcl.svg" alt="HCL Technologies" class="client-logo-img logo-hcl"></div>
-          <div class="clients-logo-card" title="Wipro Limited"><img src="/assets/img/logos/wipro.svg" alt="Wipro" class="client-logo-img logo-wipro"></div>
-          <div class="clients-logo-card" title="Whirlpool Corporation"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool" class="client-logo-img logo-whirlpool"></div>
-          <div class="clients-logo-card" title="Haier Appliances"><img src="/assets/img/logos/haier.png" alt="Haier" class="client-logo-img logo-haier"></div>
-          <div class="clients-logo-card" title="ITC Limited"><img src="/assets/img/logos/itc.png" alt="ITC Limited" class="client-logo-img logo-itc"></div>
-          <div class="clients-logo-card" title="OPPO Mobiles"><img src="/assets/img/logos/oppo.svg" alt="OPPO" class="client-logo-img logo-oppo"></div>
-          <div class="clients-logo-card" title="Vivo Mobile"><img src="/assets/img/logos/vivo.svg" alt="Vivo" class="client-logo-img logo-vivo"></div>
-          <div class="clients-logo-card" title="Paytm (One97 Communications)"><img src="/assets/img/logos/paytm.svg" alt="Paytm" class="client-logo-img logo-paytm"></div>
+        <!-- Dual-Row Marquee System -->
+        <div class="clients-marquee-wrapper sec-reveal-fade sec-delay-1" id="clientsMarquee">
+          <!-- Row 1: Sliding Left -->
+          <div class="clients-marquee-row row-1">
+            <div class="clients-marquee-track track-left">
+              <!-- Set 1 -->
+              <div class="clients-marquee-group">
+                <div class="clients-logo-card" title="Samsung Electronics"><img src="/assets/img/logos/samsung.svg" alt="Samsung" class="client-logo-img logo-samsung"></div>
+                <div class="clients-logo-card" title="Mercedes-Benz"><img src="/assets/img/logos/mercedes-benz.png" alt="Mercedes-Benz" class="client-logo-img logo-mercedes"></div>
+                <div class="clients-logo-card" title="HCL Technologies"><img src="/assets/img/logos/hcl.svg" alt="HCL Technologies" class="client-logo-img logo-hcl"></div>
+                <div class="clients-logo-card" title="Wipro Limited"><img src="/assets/img/logos/wipro.svg" alt="Wipro" class="client-logo-img logo-wipro"></div>
+                <div class="clients-logo-card" title="Whirlpool Corporation"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool" class="client-logo-img logo-whirlpool"></div>
+              </div>
+              <!-- Set 2 -->
+              <div class="clients-marquee-group" aria-hidden="true">
+                <div class="clients-logo-card" title="Samsung Electronics"><img src="/assets/img/logos/samsung.svg" alt="Samsung" class="client-logo-img logo-samsung"></div>
+                <div class="clients-logo-card" title="Mercedes-Benz"><img src="/assets/img/logos/mercedes-benz.png" alt="Mercedes-Benz" class="client-logo-img logo-mercedes"></div>
+                <div class="clients-logo-card" title="HCL Technologies"><img src="/assets/img/logos/hcl.svg" alt="HCL Technologies" class="client-logo-img logo-hcl"></div>
+                <div class="clients-logo-card" title="Wipro Limited"><img src="/assets/img/logos/wipro.svg" alt="Wipro" class="client-logo-img logo-wipro"></div>
+                <div class="clients-logo-card" title="Whirlpool Corporation"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool" class="client-logo-img logo-whirlpool"></div>
+              </div>
+              <!-- Set 3 -->
+              <div class="clients-marquee-group" aria-hidden="true">
+                <div class="clients-logo-card" title="Samsung Electronics"><img src="/assets/img/logos/samsung.svg" alt="Samsung" class="client-logo-img logo-samsung"></div>
+                <div class="clients-logo-card" title="Mercedes-Benz"><img src="/assets/img/logos/mercedes-benz.png" alt="Mercedes-Benz" class="client-logo-img logo-mercedes"></div>
+                <div class="clients-logo-card" title="HCL Technologies"><img src="/assets/img/logos/hcl.svg" alt="HCL Technologies" class="client-logo-img logo-hcl"></div>
+                <div class="clients-logo-card" title="Wipro Limited"><img src="/assets/img/logos/wipro.svg" alt="Wipro" class="client-logo-img logo-wipro"></div>
+                <div class="clients-logo-card" title="Whirlpool Corporation"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool" class="client-logo-img logo-whirlpool"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2: Sliding Right (Reverse Direction) -->
+          <div class="clients-marquee-row row-2">
+            <div class="clients-marquee-track track-right">
+              <!-- Set 1 -->
+              <div class="clients-marquee-group">
+                <div class="clients-logo-card" title="Haier Appliances"><img src="/assets/img/logos/haier.png" alt="Haier" class="client-logo-img logo-haier"></div>
+                <div class="clients-logo-card" title="ITC Limited"><img src="/assets/img/logos/itc.png" alt="ITC Limited" class="client-logo-img logo-itc"></div>
+                <div class="clients-logo-card" title="OPPO Mobiles"><img src="/assets/img/logos/oppo.svg" alt="OPPO" class="client-logo-img logo-oppo"></div>
+                <div class="clients-logo-card" title="Vivo Mobile"><img src="/assets/img/logos/vivo.svg" alt="Vivo" class="client-logo-img logo-vivo"></div>
+                <div class="clients-logo-card" title="Paytm (One97 Communications)"><img src="/assets/img/logos/paytm.svg" alt="Paytm" class="client-logo-img logo-paytm"></div>
+              </div>
+              <!-- Set 2 -->
+              <div class="clients-marquee-group" aria-hidden="true">
+                <div class="clients-logo-card" title="Haier Appliances"><img src="/assets/img/logos/haier.png" alt="Haier" class="client-logo-img logo-haier"></div>
+                <div class="clients-logo-card" title="ITC Limited"><img src="/assets/img/logos/itc.png" alt="ITC Limited" class="client-logo-img logo-itc"></div>
+                <div class="clients-logo-card" title="OPPO Mobiles"><img src="/assets/img/logos/oppo.svg" alt="OPPO" class="client-logo-img logo-oppo"></div>
+                <div class="clients-logo-card" title="Vivo Mobile"><img src="/assets/img/logos/vivo.svg" alt="Vivo" class="client-logo-img logo-vivo"></div>
+                <div class="clients-logo-card" title="Paytm (One97 Communications)"><img src="/assets/img/logos/paytm.svg" alt="Paytm" class="client-logo-img logo-paytm"></div>
+              </div>
+              <!-- Set 3 -->
+              <div class="clients-marquee-group" aria-hidden="true">
+                <div class="clients-logo-card" title="Haier Appliances"><img src="/assets/img/logos/haier.png" alt="Haier" class="client-logo-img logo-haier"></div>
+                <div class="clients-logo-card" title="ITC Limited"><img src="/assets/img/logos/itc.png" alt="ITC Limited" class="client-logo-img logo-itc"></div>
+                <div class="clients-logo-card" title="OPPO Mobiles"><img src="/assets/img/logos/oppo.svg" alt="OPPO" class="client-logo-img logo-oppo"></div>
+                <div class="clients-logo-card" title="Vivo Mobile"><img src="/assets/img/logos/vivo.svg" alt="Vivo" class="client-logo-img logo-vivo"></div>
+                <div class="clients-logo-card" title="Paytm (One97 Communications)"><img src="/assets/img/logos/paytm.svg" alt="Paytm" class="client-logo-img logo-paytm"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- High-Impact Enterprise Trust & Proof Ribbon -->
+        <div class="enterprise-proof-bar sec-reveal-fade sec-delay-2">
+          <div class="proof-metric-item">
+            <div class="proof-metric-value"><span class="metric-num">500</span><span class="metric-plus">+</span></div>
+            <div class="proof-metric-title">Enterprise Clients Decommissioned</div>
+            <div class="proof-metric-sub">Fortune-500 OEMs, Hyperscalers &amp; BFSI</div>
+          </div>
+          <div class="proof-metric-divider"></div>
+          <div class="proof-metric-item">
+            <div class="proof-metric-value"><span class="metric-num">100,000</span><span class="metric-plus">+ MT</span></div>
+            <div class="proof-metric-title">Certified E-Waste Recycled</div>
+            <div class="proof-metric-sub">Zero-Landfill Circular Feedstock</div>
+          </div>
+          <div class="proof-metric-divider"></div>
+          <div class="proof-metric-item">
+            <div class="proof-metric-value"><span class="metric-num">99.8</span><span class="metric-plus">%</span></div>
+            <div class="proof-metric-title">Precious Metal Recovery Purity</div>
+            <div class="proof-metric-sub">LME-Grade Gold, Copper &amp; Silver</div>
+          </div>
+          <div class="proof-metric-divider"></div>
+          <div class="proof-metric-item">
+            <div class="proof-metric-value"><span class="metric-num">Pan-India</span></div>
+            <div class="proof-metric-title">Reverse Logistics Network</div>
+            <div class="proof-metric-sub">CPCB &amp; R2v3 Certified Chain of Custody</div>
+          </div>
         </div>
       </div>
 
@@ -1711,6 +2260,7 @@
         <div class="accred-cards-grid sec-reveal-scale sec-delay-3">
           <!-- Card 1: IATF 16949 -->
           <div class="accred-card" title="IATF 16949:2016 Certified">
+            <span class="accred-status-tag">AUTOMOTIVE</span>
             <div class="accred-badge-wrap">
               <img src="/assets/img/ref/iaft.png" alt="IATF 16949:2016" class="accred-badge-img">
             </div>
@@ -1720,6 +2270,7 @@
 
           <!-- Card 2: ISO 9001 -->
           <div class="accred-card" title="ISO 9001:2015 Certified">
+            <span class="accred-status-tag">QUALITY</span>
             <div class="accred-badge-wrap">
               <img src="/assets/img/ref/iso9001.png" alt="ISO 9001:2015" class="accred-badge-img">
             </div>
@@ -1729,6 +2280,7 @@
 
           <!-- Card 3: ISO 14001 -->
           <div class="accred-card" title="ISO 14001:2015 Certified">
+            <span class="accred-status-tag">ENVIRONMENT</span>
             <div class="accred-badge-wrap">
               <img src="/assets/img/ref/iso14001.png" alt="ISO 14001:2015" class="accred-badge-img">
             </div>
@@ -1738,6 +2290,7 @@
 
           <!-- Card 4: ISO 27001 -->
           <div class="accred-card" title="ISO 27001 Certified">
+            <span class="accred-status-tag">DATA SECURITY</span>
             <div class="accred-badge-wrap">
               <img src="/assets/img/ref/ISO27001.png" alt="ISO 27001" class="accred-badge-img">
             </div>
@@ -1747,6 +2300,7 @@
 
           <!-- Card 5: ISO 45001 -->
           <div class="accred-card" title="ISO 45001:2018 Certified">
+            <span class="accred-status-tag">HEALTH &amp; SAFETY</span>
             <div class="accred-badge-wrap">
               <img src="/assets/img/ref/iso45001.png" alt="ISO 45001:2018" class="accred-badge-img">
             </div>
@@ -1756,6 +2310,7 @@
 
           <!-- Card 6: TISAX -->
           <div class="accred-card" title="TISAX Certified">
+            <span class="accred-status-tag">DATA PRIVACY</span>
             <div class="accred-badge-wrap">
               <img src="/assets/img/ref/tisax.png" alt="TISAX Certified" class="accred-badge-img">
             </div>
@@ -1770,22 +2325,29 @@
   <!-- ============================================================
        ZONE 7: 3 BUSINESS LINES (TALL 660PX PHOTO CARDS)
        ============================================================ -->
-  <section class="business-cards-sec">
-    <div class="container">
-      <span class="kknag-eyebrow sec-reveal-fade">OUR BUSINESS LINES</span>
-      <h2 class="kknag-heading sec-reveal-fade sec-delay-1">Three Distinctive Business Lines, Using Advanced Dismantling and Hydrometallurgical Processes</h2>
+  <section class="business-cards-sec" id="business-lines">
+    <div class="business-cards-container">
+      <span class="clients-header-eyebrow sec-reveal-fade">OUR BUSINESS LINES</span>
+      <h2 class="business-section-heading sec-reveal-fade sec-delay-1">Three Distinctive Business Lines, Using Advanced Dismantling<br class="d-none d-md-inline"> and Hydrometallurgical Processes</h2>
 
       <div class="business-cards-grid">
         <!-- Card 1: ITAD -->
         <div class="business-photo-card sec-reveal-fade sec-delay-1">
-          <img src="/assets/img/business-itad.jpg" alt="ITAD and Data Destruction" class="business-card-bg">
+          <img src="/assets/img/business-itad.jpg" alt="IT Asset Disposition (ITAD)" class="business-card-bg">
           <div class="business-card-overlay"></div>
+          <div class="business-card-top">
+            <span class="business-card-badge">DECOMMISSIONING</span>
+            <span class="business-card-num">01 / 03</span>
+          </div>
           <div class="business-card-text">
             <h3 class="business-card-title">IT Asset Disposition (ITAD)</h3>
             <p class="business-card-desc">
               Certified non-recoverable NIST SP 800-88 Clear and Purge data sanitization, on-site optical shredding, and serialized chain of custody.
             </p>
-            <a href="/services/itad/" class="btn-eg-green">KNOW MORE &rarr;</a>
+            <a href="/services/itad/" class="business-card-btn">
+              <span>Know More</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
           </div>
         </div>
 
@@ -1793,12 +2355,19 @@
         <div class="business-photo-card sec-reveal-fade sec-delay-2">
           <img src="/assets/img/business-hydrometallurgical.jpg" alt="Hydrometallurgical Refining" class="business-card-bg">
           <div class="business-card-overlay"></div>
+          <div class="business-card-top">
+            <span class="business-card-badge">PRECIOUS METALS</span>
+            <span class="business-card-num">02 / 03</span>
+          </div>
           <div class="business-card-text">
             <h3 class="business-card-title">Hydrometallurgical Refining</h3>
             <p class="business-card-desc">
               Zero-emission chemical leaching recovering 98% of Gold, Silver, Copper, Cobalt, and Lithium re-injected into domestic production.
             </p>
-            <a href="/services/recovery/" class="btn-eg-green">KNOW MORE &rarr;</a>
+            <a href="/services/recovery/" class="business-card-btn">
+              <span>Know More</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
           </div>
         </div>
 
@@ -1806,12 +2375,19 @@
         <div class="business-photo-card sec-reveal-fade sec-delay-3">
           <img src="/assets/img/business-epr.jpg" alt="Statutory EPR Compliance" class="business-card-bg">
           <div class="business-card-overlay"></div>
+          <div class="business-card-top">
+            <span class="business-card-badge">EPR FULFILLMENT</span>
+            <span class="business-card-num">03 / 03</span>
+          </div>
           <div class="business-card-text">
             <h3 class="business-card-title">Statutory EPR Compliance</h3>
             <p class="business-card-desc">
               Direct Central Pollution Control Board portal synchronization, automated Form 6 manifests, and quarterly vendor audit validation.
             </p>
-            <a href="/compliance/" class="btn-eg-green">KNOW MORE &rarr;</a>
+            <a href="/compliance/" class="business-card-btn">
+              <span>Know More</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
           </div>
         </div>
       </div>
@@ -1831,8 +2407,23 @@
           <h2>A Broad and Varied Spectrum of Industries</h2>
           <a href="/services/" class="btn-eg-pill">EXPLORE ALL SECTORS</a>
         </div>
-        <div class="industries-amber-panel sec-reveal-scale sec-delay-1">
-          <img src="/assets/img/ref/amber-circuit.jpg" alt="Industries We Serve — Microelectronics & High-Tech Materials">
+        <div class="industries-display-panel sec-reveal-scale sec-delay-1" id="industriesDisplayPanel">
+          <img id="industriesActiveImg" src="/assets/img/ref/product-1.jpg" alt="Data Centers & Cloud" class="industries-stage-img">
+          <div class="industries-display-overlay">
+            <div class="industries-display-top">
+              <span class="industries-display-badge" id="industriesActiveBadge">HYPERSCALE ITAD</span>
+              <span class="industries-display-counter" id="industriesActiveCounter">01 / 08</span>
+            </div>
+            <div class="industries-display-info">
+              <h3 class="industries-display-title" id="industriesActiveTitle">Data Centers &amp; Cloud</h3>
+              <p class="industries-display-desc" id="industriesActiveDesc">Mission-critical ITAD for cloud hyperscalers, high-density blade enclosures, and storage SANs with certified NIST 800-88 Purge data sanitization, serialized tracking, and zero-landfill electronic scrap recovery.</p>
+              <div class="industries-display-tags" id="industriesActiveTags">
+                <span class="ind-tag">NIST 800-88 Clear &amp; Purge</span>
+                <span class="ind-tag">100% Serialized Audit Trail</span>
+                <span class="ind-tag">Zero Landfill ITAD</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2012,62 +2603,68 @@
   </section>
 
   <!-- ============================================================
-       ZONE 12: PRODUCT CARDS WITH CORNER RIBBONS & HI-RES IMAGES
+       ZONE 12: ECOGREEN CONNECT (KK NAG EQUIVALENT: INSIGHTS & CASE STUDIES)
        ============================================================ -->
-  <section class="streams-kknag-sec">
+  <section class="connect-kknag-sec" id="ecogreen-connect">
     <div class="container">
-      <div class="streams-filter-pills sec-reveal-fade">
-        <div class="filter-pill active">ALL RECOVERY STREAMS</div>
-        <div class="filter-pill">ITAD HARDWARE</div>
-        <div class="filter-pill">REFINED METALS</div>
+      <div class="connect-header-wrap sec-reveal-fade">
+        <span class="kknag-eyebrow">ECOGREEN CONNECT</span>
+        <h2>Circular Economy in Action: Insights &amp; Case Studies</h2>
+        <p>Verified technical whitepapers, hyperscale ITAD case studies, and statutory compliance updates from India's leader in closed-loop electronics recycling.</p>
       </div>
 
-      <div class="streams-cards-grid">
-        <!-- Card 1 -->
-        <div class="stream-ribbon-card sec-reveal-fade sec-delay-1">
-          <div class="card-corner-ribbon"></div>
-          <span class="card-corner-ribbon-text">NIST 800</span>
-          <div class="stream-card-img-wrap">
-            <img src="/assets/img/ref/product-1.jpg" alt="Enterprise Server Racks ITAD">
+      <div class="connect-filter-pills sec-reveal-fade sec-delay-1">
+        <div class="connect-pill active">ALL INSIGHTS</div>
+        <div class="connect-pill">CASE STUDIES</div>
+        <div class="connect-pill">METALLURGY &amp; EPR</div>
+      </div>
+
+      <div class="connect-cards-grid">
+        <!-- Card 1: Hyperscale ITAD Case Study -->
+        <div class="connect-card sec-reveal-fade sec-delay-1">
+          <div class="connect-card-img-wrap">
+            <span class="connect-tag-badge">CASE STUDY</span>
+            <img src="/assets/img/business-itad.jpg" alt="Hyperscale Data Center ITAD Decommissioning">
           </div>
-          <div class="stream-card-body">
-            <h3 class="stream-card-title">Enterprise Server Racks &amp; Cryptographic Storage</h3>
-            <p class="stream-card-desc">
-              High-density rack decommissioning with certified media destruction, cryptographic purge, and serialized custody certificates.
+          <div class="connect-card-body">
+            <div class="connect-meta">DATA CENTER INFRASTRUCTURE &bull; 4 MIN READ</div>
+            <h3 class="connect-card-title">Hyperscale Cloud Decommissioning: 14,000 Blades Sanitized with Zero Discrepancy</h3>
+            <p class="connect-card-desc">
+              How EcoGreen executed multi-facility serialized cryptographic erasure and de-manufacturing for a Tier-4 hyperscaler, delivering verified NIST 800-88 compliance across Bangalore and Hyderabad corridors.
             </p>
-            <a href="/services/itad/" class="stream-card-link">KNOW MORE &rarr;</a>
+            <a href="/services/itad/" class="connect-card-link">READ FULL CASE STUDY &rarr;</a>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="stream-ribbon-card sec-reveal-fade sec-delay-2">
-          <div class="card-corner-ribbon"></div>
-          <span class="card-corner-ribbon-text">99.5%</span>
-          <div class="stream-card-img-wrap">
-            <img src="/assets/img/ref/product-2.jpg" alt="Precious Metals & Accelerator Hardware">
+        <!-- Card 2: Hydrometallurgical Copper & Precious Metals -->
+        <div class="connect-card sec-reveal-fade sec-delay-2">
+          <div class="connect-card-img-wrap">
+            <span class="connect-tag-badge">TECHNICAL WHITEPAPER</span>
+            <img src="/assets/img/business-hydrometallurgical.jpg" alt="Hydrometallurgical Precious Metals Extraction">
           </div>
-          <div class="stream-card-body">
-            <h3 class="stream-card-title">Hydrometallurgical Copper &amp; Precious Metals</h3>
-            <p class="stream-card-desc">
-              Extracted manufacturing-grade gold, silver, palladium, and copper cathodes recovering 98% of critical mineral inputs.
+          <div class="connect-card-body">
+            <div class="connect-meta">CRITICAL MINERAL RECOVERY &bull; 6 MIN READ</div>
+            <h3 class="connect-card-title">Recovering 99.8% LME-Grade Copper Cathodes from High-Density PCB Feedstock</h3>
+            <p class="connect-card-desc">
+              An engineering analysis of EcoGreen’s zero-emission hydrometallurgical leaching circuit, displacing primary copper ore mining while generating verified Scope 3 carbon reduction certificates.
             </p>
-            <a href="/services/recovery/" class="stream-card-link">KNOW MORE &rarr;</a>
+            <a href="/services/recovery/" class="connect-card-link">DOWNLOAD TECHNICAL BRIEF &rarr;</a>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="stream-ribbon-card sec-reveal-fade sec-delay-3">
-          <div class="card-corner-ribbon"></div>
-          <span class="card-corner-ribbon-text">FORM 6</span>
-          <div class="stream-card-img-wrap">
-            <img src="/assets/img/ref/product-3.jpg" alt="Circuit Boards & Li-ion Battery Packs">
+        <!-- Card 3: Statutory & EPR Compliance -->
+        <div class="connect-card sec-reveal-fade sec-delay-3">
+          <div class="connect-card-img-wrap">
+            <span class="connect-tag-badge">STATUTORY COMPLIANCE</span>
+            <img src="/assets/img/business-epr.jpg" alt="CPCB EPR Statutory Fulfillment & Form 6">
           </div>
-          <div class="stream-card-body">
-            <h3 class="stream-card-title">High-Density Circuit Boards &amp; Li-ion Batteries</h3>
-            <p class="stream-card-desc">
-              Black mass separation recovering cobalt, nickel, and battery-grade lithium salts re-injected into domestic production.
+          <div class="connect-card-body">
+            <div class="connect-meta">REGULATORY PLAYBOOK &bull; 5 MIN READ</div>
+            <h3 class="connect-card-title">E-Waste Rules 2022: Streamlining Form 6 Filings &amp; EPR Credit Portals for OEMs</h3>
+            <p class="connect-card-desc">
+              A comprehensive operational roadmap for consumer electronics manufacturers navigating CPCB portal audits, reverse logistics tracking, and verified recycling targets under statutory mandate.
             </p>
-            <a href="/compliance/" class="stream-card-link">KNOW MORE &rarr;</a>
+            <a href="/compliance/" class="connect-card-link">EXPLORE COMPLIANCE GUIDE &rarr;</a>
           </div>
         </div>
       </div>
@@ -2077,12 +2674,20 @@
   <!-- ============================================================
        ZONE 13: FOOTER WITH FLOATING WHITE CARD & STAMP BADGE
        ============================================================ -->
-  <footer class="footer-kknag-sec">
+    <footer class="footer-kknag-sec">
     <div class="container">
       <div class="footer-main-grid">
-        <!-- Left: Brand Hashtag & 4 Nav Columns -->
+        <!-- Left: Brand Hashtag, Mission & 4 Nav Columns -->
         <div class="sec-reveal-fade">
+          <div class="footer-logo-wrap" style="margin-bottom: 22px;">
+            <a href="/" aria-label="EcoGreen Recycling Pvt. Ltd Home">
+              <img src="/assets/img/logo_white_text.png" alt="EcoGreen Recycling Pvt. Ltd" class="footer-logo-img">
+            </a>
+          </div>
           <div class="footer-brand-hashtag">#ClosingTheLoop</div>
+          <p class="footer-brand-desc">
+            EcoGreen Recyclers (P) Limited is India's statutory leader in closed-loop electronics recycling, IT Asset Disposition (ITAD), and circular metallurgical extraction, securing sovereign e-waste compliance and circular feed for global OEMs across nationwide corridors.
+          </p>
 
           <div class="footer-nav-columns">
             <div class="footer-nav-col">
@@ -2092,6 +2697,7 @@
                 <li><a href="/story/">Our Journey</a></li>
                 <li><a href="/about/leadership/">Leadership</a></li>
                 <li><a href="/about/csr/">CSR Policy</a></li>
+                <li><a href="/contact/">Careers</a></li>
               </ul>
             </div>
 
@@ -2102,6 +2708,7 @@
                 <li><a href="/services/recovery/">Metal Recovery</a></li>
                 <li><a href="/compliance/">EPR Fulfillment</a></li>
                 <li><a href="/services/refurbishment/">Refurbishment</a></li>
+                <li><a href="/services/">Circular Raw Feed</a></li>
               </ul>
             </div>
 
@@ -2112,6 +2719,7 @@
                 <li><a href="/services/recovery/">Urban Mining</a></li>
                 <li><a href="/services/itad/">Witnessed Shredding</a></li>
                 <li><a href="/compliance/">Audited Disposal</a></li>
+                <li><a href="/compliance/">NIST 800-88 Purge</a></li>
               </ul>
             </div>
 
@@ -2122,37 +2730,50 @@
                 <li><a href="/services/itad/">ITAD Vault</a></li>
                 <li><a href="/compliance/reports/">Form 6 Retrieval</a></li>
                 <li><a href="/press/">Annual Returns</a></li>
+                <li><a href="/compliance/">CPCB Disclosures</a></li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- Right: The Distinctive White Floating "Contact Us" Card -->
+        <!-- Right: The Distinctive White "Contact Us" Card (Styled to Replicate & Beat KK Nag) -->
         <div class="sec-reveal-scale sec-delay-1">
           <div class="footer-floating-contact-card">
             <h3 class="footer-contact-title">Contact Us</h3>
 
-            <div class="footer-contact-item">
-              <strong>Corporate Headquarters &amp; Plant:</strong>
-              EcoGreen Recyclers (P) Limited<br>
-              Plot No. 479, Habibpur, Main Dadri Road,<br>
-              Greater Noida (U.P.) — 201306
+            <div class="footer-contact-item footer-item-flex">
+              <svg class="footer-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <strong>Corporate Headquarters &amp; Plant:</strong>
+                EcoGreen Recyclers (P) Limited<br>
+                Plot No. 479, Habibpur, Main Dadri Road,<br>
+                Greater Noida (U.P.) — 201306<br>
+                <span class="footer-contact-cin">CIN: U37100DL2015PTC288123</span>
+              </div>
             </div>
 
-            <div class="footer-contact-item">
-              <strong>Direct Helpline:</strong>
-              <a href="tel:+919319253708">+91 93192 53708</a>
+            <div class="footer-contact-item footer-item-flex">
+              <svg class="footer-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <strong>Direct Helplines:</strong>
+                <a href="tel:+919319253708">+91 93192 53708</a> &bull; <a href="tel:+911202975000">+91 120 2975000</a>
+              </div>
             </div>
 
-            <div class="footer-contact-item">
-              <strong>Email Operations Desk:</strong>
-              <a href="mailto:operation@ecogreen.eco">operation@ecogreen.eco</a>
+            <div class="footer-contact-item footer-item-flex">
+              <svg class="footer-row-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <div>
+                <strong>Email Operations Desk:</strong>
+                <a href="mailto:operation@ecogreen.eco">operation@ecogreen.eco</a><br>
+                <span style="font-size: 12px; color: #64748b;">Enterprise Grievances: <a href="mailto:compliance@ecogreen.eco">compliance@ecogreen.eco</a></span>
+              </div>
             </div>
 
             <div class="footer-card-bottom-row">
-              <a href="/contact/" class="btn-eg-green">GET IN TOUCH</a>
-              <div class="footer-stamp-badge">
-                <img src="/assets/img/ref/footer-badge.svg" alt="Certified Standards Badge">
+              <a href="/contact/" class="btn-eg-green">GET IN TOUCH &rarr;</a>
+              <div class="footer-stamp-badges">
+                <img src="/assets/img/ecogreen-greenco-gold-badge.svg" alt="GreenCo Gold Certified" title="GreenCo Gold Certified Recycler">
+                <img src="/assets/img/ref/footer-badge.svg" alt="CPCB Statutory Certified" title="CPCB Statutory Certified Recycler">
               </div>
             </div>
           </div>
@@ -2160,11 +2781,12 @@
       </div>
 
       <div class="footer-bottom-bar">
-        <span>&copy; <span id="kknagYear">2026</span> EcoGreen Recyclers (P) Limited. All Rights Reserved.</span>
+        <span>&copy; <span id="kknagYear">2026</span> EcoGreen Recyclers (P) Limited. All Rights Reserved. India's Statutory Closed-Loop Leader.</span>
         <nav aria-label="Legal">
           <a href="/privacy/">Privacy Policy</a>
           <a href="/terms/">Terms &amp; Conditions</a>
           <a href="/assets/docs/code-of-conduct.pdf" target="_blank">Code of Conduct</a>
+          <a href="/compliance/">Statutory Disclosures</a>
           <a href="/sitemap.xml">Sitemap</a>
         </nav>
       </div>
@@ -2174,12 +2796,130 @@
   <script>
     document.getElementById('kknagYear').textContent = new Date().getFullYear();
 
-    // Industry Pills Interactive Tab Selection
+    //     // Dynamic Rebranded Industries We Serve Image & Content Switcher
+    const industriesData = {
+      'data-centers': {
+        badge: 'HYPERSCALE ITAD',
+        title: 'Data Centers &amp; Cloud Hyperscale',
+        desc: 'Mission-critical ITAD for cloud hyperscalers, high-density blade enclosures, and storage SANs with certified NIST 800-88 Purge data sanitization, serialized tracking, and zero-landfill electronic scrap recovery.',
+        counter: '01 / 08',
+        tags: ['NIST 800-88 Clear &amp; Purge', '100% Serialized Audit Trail', 'Zero Landfill ITAD'],
+        img: '/assets/img/ref/product-1.jpg',
+        bg: '/assets/img/ref/product-1.jpg',
+        alt: 'Data Centers and Cloud Infrastructure Decommissioning'
+      },
+      'banking': {
+        badge: 'HIGH-SECURITY BFSI',
+        title: 'Banking &amp; Financial (BFSI)',
+        desc: 'Tamper-evident chain of custody, witnessed mechanical shredding, and certified data erasure for core banking servers, ATM cash modules, and financial storage arrays with complete compliance audit trails.',
+        counter: '02 / 08',
+        tags: ['Witnessed Video Destruction', 'ISO 27001 Certified ITAD', 'Form 6 Statutory Manifest'],
+        img: '/assets/img/business-itad.jpg',
+        bg: '/assets/img/business-itad.jpg',
+        alt: 'Banking and Financial IT Asset Disposition and Data Destruction'
+      },
+      'telecom': {
+        badge: '5G &amp; NETWORK INFRASTRUCTURE',
+        title: 'Telecommunications &amp; 5G Infrastructure',
+        desc: 'Lifecycle recovery for 5G cellular base stations, carrier-grade optical switches, telecom exchange racks, microwave antennas, and central office backup battery modules across nationwide circles.',
+        counter: '03 / 08',
+        tags: ['Pan-India Reverse Logistics', 'CPCB Statutory Authorized', '99.2% Precious Metal Yield'],
+        img: '/assets/img/industries/telecom.webp',
+        bg: '/assets/img/industries/telecom.webp',
+        alt: '5G Cellular Telecommunications Infrastructure and Network Hardware Recovery'
+      },
+      'automotive': {
+        badge: 'EV MOBILITY &amp; BATTERY',
+        title: 'Automotive &amp; EV Mobility',
+        desc: 'Closed-loop recovery of automotive electronic control units (ECUs), infotainment hardware, ADAS sensors, and high-purity metallurgical extraction from traction Li-ion battery modules.',
+        counter: '04 / 08',
+        tags: ['IATF 16949 / TISAX Standards', 'Black Mass Refining', 'Closed-Loop Material Feed'],
+        img: '/assets/img/industries/automotive.webp',
+        bg: '/assets/img/industries/automotive.webp',
+        alt: 'Electric Vehicle Powertrain Architecture and Automotive Electronic Control Units'
+      },
+      'electronics': {
+        badge: 'OEM CIRCULAR SCRAP',
+        title: 'Consumer Electronics OEMs',
+        desc: 'Statutory Extended Producer Responsibility (EPR) fulfillment, defective manufacturing scrap reclamation, warranty return processing, and circular raw material feed for multinational brands.',
+        counter: '05 / 08',
+        tags: ['100% EPR Target Fulfillment', 'CPCB Portal Synchronization', 'Form 6 Destruction Vault'],
+        img: '/assets/img/ref/amber-circuit.jpg',
+        bg: '/assets/img/ref/amber-circuit.jpg',
+        alt: 'Consumer Electronics OEMs SMT Circuit Board Recovery'
+      },
+      'healthcare': {
+        badge: 'MEDICAL IT &amp; DIAGNOSTICS',
+        title: 'Healthcare &amp; Medical IT',
+        desc: 'Compliant decommissioning of diagnostic imaging workstations, MRI/CT telemetry, laboratory analyzers, biomedical computing rigs, and patient monitoring electronics under strict bio-safety protocols.',
+        counter: '06 / 08',
+        tags: ['Bio-Safety Compliance', 'AERB Protocol Decontamination', 'NIST 800-88 Data Sanitization'],
+        img: '/assets/img/industries/pharma.webp',
+        bg: '/assets/img/industries/pharma.webp',
+        alt: 'Healthcare and Medical Diagnostic Electronics Cleanroom Recovery'
+      },
+      'aerospace': {
+        badge: 'DEFENSE &amp; AVIONICS',
+        title: 'Aerospace &amp; Defense',
+        desc: 'Ultra-secure demilitarization and non-ferrous precious metal recovery from mission-critical radar equipment, avionics navigation computers, and aerospace guidance systems.',
+        counter: '07 / 08',
+        tags: ['High-Purity Gold/Silver Refining', 'Tamper-Sealed Vault Transport', 'Zero Security Compromise'],
+        img: '/assets/img/industries/defence.webp',
+        bg: '/assets/img/industries/defence.webp',
+        alt: 'Aerospace and Defense Precision Electronics and Avionics Recovery'
+      },
+      'clean-tech': {
+        badge: 'CLEANTECH &amp; SOLAR',
+        title: 'Renewable Energy &amp; CleanTech',
+        desc: 'Sustainable end-of-life recovery for central grid inverters, solar micro-inverter circuitry, utility-scale photovoltaic arrays, wind turbine power converters, and commercial energy storage electronics.',
+        counter: '08 / 08',
+        tags: ['Hydrometallurgical Refining', '99.5% Precious Metal Purity', 'Circularity Certification'],
+        img: '/assets/img/industries/solar.webp',
+        bg: '/assets/img/industries/solar.webp',
+        alt: 'Renewable Energy Utility Solar Power and CleanTech Electronics Recycling'
+      }
+    };
+
     const indPills = document.querySelectorAll('#industriesPillsGrid .industry-pill-btn');
+    const indImg = document.getElementById('industriesActiveImg');
+    const indSec = document.querySelector('.industries-dark-sec');
+    const indBadge = document.getElementById('industriesActiveBadge');
+    const indCounter = document.getElementById('industriesActiveCounter');
+    const indTitle = document.getElementById('industriesActiveTitle');
+    const indDesc = document.getElementById('industriesActiveDesc');
+    const indTags = document.getElementById('industriesActiveTags');
+
+    function switchIndustry(sectorKey) {
+      const data = industriesData[sectorKey];
+      if (!data) return;
+
+      if (indSec && data.bg) {
+        indSec.style.backgroundImage = 'url("' + data.bg + '")';
+      }
+
+      if (indImg) {
+        indImg.classList.add('switching');
+        setTimeout(() => {
+          indImg.src = data.img;
+          indImg.alt = data.alt;
+          indImg.classList.remove('switching');
+        }, 180);
+      }
+      if (indBadge) indBadge.innerHTML = data.badge;
+      if (indCounter) indCounter.textContent = data.counter;
+      if (indTitle) indTitle.innerHTML = data.title;
+      if (indDesc) indDesc.textContent = data.desc;
+      if (indTags) {
+        indTags.innerHTML = data.tags.map(t => '<span class="ind-tag">' + t + '</span>').join('');
+      }
+    }
+
     indPills.forEach(pill => {
       pill.addEventListener('click', () => {
         indPills.forEach(p => p.classList.remove('active'));
         pill.classList.add('active');
+        const sector = pill.getAttribute('data-sector');
+        switchIndustry(sector);
       });
     });
 
@@ -2232,7 +2972,7 @@
         document.querySelector('.services-dark-sec'),
         document.querySelector('.testimonials-split-sec'),
         document.querySelector('.sustainability-kknag-sec'),
-        document.querySelector('.streams-kknag-sec'),
+        document.querySelector('.connect-kknag-sec'),
         document.querySelector('.footer-kknag-sec')
       ].filter(Boolean);
 
@@ -2245,7 +2985,7 @@
         'Services',
         'Testimonials',
         'Sustainability',
-        'Material Streams',
+        'EcoGreen Connect',
         'Contact & Plant'
       ];
 
