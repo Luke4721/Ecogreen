@@ -11,42 +11,53 @@
 </head>
 <body>
 
-  <!-- ============================================================
-       TOP HEADER (K. K. Nag Finalized Structure)
-       ============================================================ -->
-  <header class="main-header">
-    <div class="container">
-      <a href="/" class="brand-logo-wrap" aria-label="EcoGreen Home">
-        <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen Recyclers (P) Limited">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="EcoGreen home">
+        <img src="/assets/img/ecogreen-logo.png" alt="EcoGreen" class="brand-logo brand-logo--light" width="170" height="32" decoding="async">
+        <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen" class="brand-logo brand-logo--dark" width="170" height="32" decoding="async">
       </a>
 
-      <nav aria-label="Primary Navigation">
-        <ul class="main-nav-list">
-          <li class="main-nav-item active">
-            <a href="/about/">ABOUT US <span class="nav-arrow-icon">&#9662;</span></a>
+      <nav class="nav" id="primaryNav" aria-label="Primary">
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="/story/">Story</a></li>
+          <li class="nav-item has-drop">
+            <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
+              Services
+              <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <ul class="drop">
+              <li><a href="/services/">Services overview<span>What we do and who we serve</span></a></li>
+              <li><a href="/services/itad/">ITAD &amp; Data Destruction<span>NIST 800-88 purge, on-site shredding</span></a></li>
+              <li><a href="/services/recycling/">Recycling &amp; Recovery<span>Hydrometallurgical recovery streams</span></a></li>
+            </ul>
           </li>
-          <li class="main-nav-item">
-            <a href="/services/">BUSINESS LINES <span class="nav-arrow-icon">&#9662;</span></a>
+          <li class="nav-item has-drop">
+            <button class="nav-link" type="button" aria-expanded="false" aria-haspopup="true">
+              Impact
+              <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <ul class="drop">
+              <li><a href="/sustainability/">Sustainability<span>ESG reporting and impact data</span></a></li>
+              <li><a href="/compliance/">Compliance<span>Certifications and regulatory record</span></a></li>
+            </ul>
           </li>
-          <li class="main-nav-item">
-            <a href="/services/">SERVICES <span class="nav-arrow-icon">&#9662;</span></a>
-          </li>
-          <li class="main-nav-item">
-            <a href="/sustainability/">SUSTAINABILITY <span class="nav-arrow-icon">&#9662;</span></a>
-          </li>
-          <li class="main-nav-item">
-            <a href="/press/">RESOURCES <span class="nav-arrow-icon">&#9662;</span></a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="/press/">Press</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about/" aria-current="page">About</a></li>
         </ul>
       </nav>
 
-      <div class="header-right-tools">
-        <svg class="search-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-        <a href="/contact/" class="btn-eg-green">GET IN TOUCH</a>
-      </div>
+      <a class="header-cta" href="/contact/">
+        Book a pickup
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
@@ -253,99 +264,99 @@
   <!-- ============================================================
        STANDARDIZED K. K. NAG FOOTER
        ============================================================ -->
-  <footer class="kknag-footer">
+  <footer class="footer-kknag-sec">
     <div class="container">
-      <div class="footer-floating-contact">
-        <div class="footer-contact-brand">
-          <span class="footer-contact-hashtag">#ClosingTheLoop</span>
-          <h3 class="footer-contact-title">We're Here to Help!</h3>
-          <p class="footer-contact-lede">
-            Whether you need certified ITAD services or responsible recycling, our enterprise specialists are ready to assist.
-          </p>
+      <div class="footer-main-grid">
+        <!-- Left: Brand Hashtag & 4 Nav Columns -->
+        <div>
+          <div class="footer-brand-hashtag">#ClosingTheLoop</div>
+
+          <div class="footer-nav-columns">
+            <div class="footer-nav-col">
+              <h4>About Us</h4>
+              <ul>
+                <li><a href="/about/">Overview</a></li>
+                <li><a href="/story/">Our Journey</a></li>
+                <li><a href="/about/leadership/">Leadership</a></li>
+                <li><a href="/compliance/">CSR &amp; Governance</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Business Lines</h4>
+              <ul>
+                <li><a href="/services/itad/">ITAD Services</a></li>
+                <li><a href="/services/recycling/">Metal Recovery</a></li>
+                <li><a href="/compliance/">EPR Fulfillment</a></li>
+                <li><a href="/services/">Refurbishment</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Services</h4>
+              <ul>
+                <li><a href="/services/">Reverse Logistics</a></li>
+                <li><a href="/services/recycling/">Urban Mining</a></li>
+                <li><a href="/services/itad/">Witnessed Shredding</a></li>
+                <li><a href="/compliance/">Audited Disposal</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-nav-col">
+              <h4>Portals</h4>
+              <ul>
+                <li><a href="/compliance/">EPR Portal</a></li>
+                <li><a href="/services/itad/">ITAD Vault</a></li>
+                <li><a href="/compliance/">Form 6 Retrieval</a></li>
+                <li><a href="/press/">Annual Returns</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="footer-contact-methods">
-          <div class="footer-contact-col">
-            <div class="footer-contact-label">REACH US AT:</div>
-            <div class="footer-contact-val">
+
+        <!-- Right: The Distinctive White Floating "Contact Us" Card -->
+        <div>
+          <div class="footer-floating-contact-card">
+            <h3 class="footer-contact-title">Contact Us</h3>
+
+            <div class="footer-contact-item">
+              <strong>Corporate Headquarters &amp; Plant:</strong>
+              EcoGreen Recyclers (P) Limited<br>
+              Plot No. 479, Habibpur, Main Dadri Road,<br>
+              Greater Noida (U.P.) — 201306
+            </div>
+
+            <div class="footer-contact-item">
+              <strong>Direct Helpline:</strong>
               <a href="tel:+919319253708">+91 93192 53708</a>
             </div>
-            <div class="footer-contact-val">
-              <a href="mailto:info@ecogreen.eco">info@ecogreen.eco</a>
-            </div>
-          </div>
-          <div class="footer-contact-col">
-            <div class="footer-contact-label">CORPORATE OFFICE &amp; PLANT:</div>
-            <div class="footer-contact-val" style="font-weight: 500; font-size: 13.5px; line-height: 1.5;">
-              EcoGreen Recyclers (P) Limited<br>
-              Plot No. 48, Ecotech-XII, Greater Noida,<br>
-              Gautam Buddha Nagar, UP – 201306
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="footer-main-grid">
-        <div class="footer-brand-summary">
-          <img src="/assets/img/ecogreen-dark.png" alt="EcoGreen Logo" style="filter: brightness(0) invert(1); height: 32px; margin-bottom: 16px;">
-          <p>
-            India's premier certified e-waste recycler and IT asset disposition partner. Empowering circular electronics through zero-landfill hydrometallurgy and verifiable data destruction.
-          </p>
-        </div>
-        <div class="footer-nav-columns">
-          <div class="footer-nav-col">
-            <h4>ABOUT US</h4>
-            <ul>
-              <li><a href="/about/">Company Overview</a></li>
-              <li><a href="/story/">Our Journey</a></li>
-              <li><a href="/about/leadership/">Our Leaders</a></li>
-              <li><a href="/compliance/">Accreditations</a></li>
-              <li><a href="/sustainability/">ESG &amp; Circularity</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-col">
-            <h4>SERVICES</h4>
-            <ul>
-              <li><a href="/services/itad/">IT Asset Disposition</a></li>
-              <li><a href="/services/recycling/">Hydrometallurgy</a></li>
-              <li><a href="/services/">Chain of Custody</a></li>
-              <li><a href="/compliance/">Statutory Compliance</a></li>
-            </ul>
-          </div>
-          <div class="footer-nav-col">
-            <h4>RESOURCES</h4>
-            <ul>
-              <li><a href="/press/">Press &amp; Media</a></li>
-              <li><a href="/compliance/">CPCB Form 6</a></li>
-              <li><a href="/privacy/">Privacy Policy</a></li>
-              <li><a href="/terms/">Terms of Service</a></li>
-            </ul>
+            <div class="footer-contact-item">
+              <strong>Email Operations Desk:</strong>
+              <a href="mailto:operation@ecogreen.eco">operation@ecogreen.eco</a>
+            </div>
+
+            <div class="footer-card-bottom-row">
+              <a href="/contact/" class="btn-eg-green">GET IN TOUCH</a>
+              <div class="footer-stamp-badge">
+                <img src="/assets/img/ref/footer-badge.svg" alt="Certified Standards Badge">
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom-bar">
-        <div>&copy; 2026 EcoGreen Recyclers (P) Limited. All Rights Reserved.</div>
-        <div style="font-size: 12px; color: rgba(255,255,255,0.5);">
-          CPCB Reg: B-29016/(E-Waste)/2018/CPCB &bull; ISO 9001, 14001, 45001 Certified
-        </div>
+        <span>&copy; <span id="kknagYear">2026</span> EcoGreen Recyclers (P) Limited. All Rights Reserved.</span>
+        <nav aria-label="Legal">
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms &amp; Conditions</a>
+          <a href="/assets/docs/compliance-pack.pdf" target="_blank">Code of Conduct</a>
+        </nav>
       </div>
     </div>
   </footer>
 
-  <!-- Testing Comparison Dock -->
-  <aside id="testing-comparison-dock" style="position: fixed; bottom: 18px; right: 18px; z-index: 99999; display: flex; align-items: center; gap: 8px; background: rgba(17, 24, 39, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 999px; padding: 6px 10px 6px 14px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; color: #fff;">
-    <span style="display: flex; align-items: center; gap: 6px; font-weight: 600; letter-spacing: 0.04em; color: #9CA3AF; text-transform: uppercase; font-size: 10.5px;">
-      <span style="width: 7px; height: 7px; border-radius: 50%; background: #10B981; box-shadow: 0 0 8px #10B981;"></span>
-      Testing Setting
-    </span>
-    <span style="width: 1px; height: 14px; background: rgba(255, 255, 255, 0.2); margin: 0 2px;"></span>
-    <a href="/" style="display: inline-flex; align-items: center; gap: 5px; padding: 5px 11px; border-radius: 999px; text-decoration: none; color: #D1D5DB; background: transparent; font-weight: 500; transition: all 0.15s ease;">
-      🌱 Original EcoGreen
-    </a>
-    <a href="/kknag.html" style="display: inline-flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 999px; text-decoration: none; color: #fff; background: #2E7D32; font-weight: 600; box-shadow: 0 2px 8px rgba(46, 125, 50, 0.5);">
-      ★ K. K. Nag Structure
-    </a>
-  </aside>
-
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>

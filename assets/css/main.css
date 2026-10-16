@@ -703,7 +703,8 @@ ul,ol{margin:0;padding:0;list-style:none;}
     opacity:1;visibility:visible;pointer-events:auto;
     max-height:0;overflow:hidden;transition:max-height .4s var(--ease);
   }
-  .nav-item.open .drop{max-height:480px;}
+  .nav-item.open .drop{max-height:480px;transform:none !important;left:auto;}
+  .drop a{padding:10px 12px;}
   .burger{display:flex;}
   .header-cta{display:none;}
 }
