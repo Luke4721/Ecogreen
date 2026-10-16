@@ -40,7 +40,13 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
+    }
+
+    @media (min-width: 1025px) {
+      html {
+        scroll-behavior: auto; /* Let custom RAF controller drive the luxury smooth deceleration */
+        scroll-snap-type: none; /* Prevents browser snap engine conflict with smooth glide */
+      }
     }
 
     body {
@@ -1336,10 +1342,117 @@
       color: #ffffff;
     }
 
+    /* ============================================================
+       SMOOTH SECTION-TO-SECTION MOTION & REVEAL SYSTEM
+       ============================================================ */
+    .sec-reveal-fade {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .sec-reveal-scale {
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    /* Stagger Delays */
+    .sec-delay-1 { transition-delay: 0.1s; }
+    .sec-delay-2 { transition-delay: 0.2s; }
+    .sec-delay-3 { transition-delay: 0.3s; }
+    .sec-delay-4 { transition-delay: 0.4s; }
+    .sec-delay-5 { transition-delay: 0.5s; }
+
+    /* Active section trigger */
+    .is-active-sec .sec-reveal-fade {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .is-active-sec .sec-reveal-scale {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Side Dot Navigation (Floating Right Track) */
+    .section-dots-nav {
+      position: fixed;
+      right: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: auto;
+    }
+
+    .sec-dot-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      cursor: pointer;
+      padding: 3px;
+    }
+
+    .sec-dot-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .dot-dark-theme .sec-dot-bullet {
+      background: rgba(255, 255, 255, 0.35);
+      border-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .sec-dot-item.active .sec-dot-bullet {
+      height: 22px;
+      background: #4CAF50;
+      border-color: #ffffff;
+      box-shadow: 0 0 14px rgba(76, 175, 80, 0.9);
+    }
+
+    .sec-dot-label {
+      position: absolute;
+      right: 22px;
+      background: rgba(14, 22, 17, 0.94);
+      color: #ffffff;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      padding: 4px 10px;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(8px);
+      transition: all 0.22s ease;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .sec-dot-item:hover .sec-dot-label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
-      html {
-        scroll-snap-type: none;
+      .section-dots-nav { display: none; }
+      .sec-reveal-fade, .sec-reveal-scale {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
       }
       .hero-hashtag-main { font-size: 46px; margin-bottom: 40px; }
       .hero-stat-num { font-size: 46px; }
@@ -1427,9 +1540,9 @@
 
     <div class="container">
       <div class="hero-kknag-center">
-        <h1 class="hero-hashtag-main">#ClosingTheLoop</h1>
+        <h1 class="hero-hashtag-main sec-reveal-fade">#ClosingTheLoop</h1>
 
-        <div class="hero-stats-row">
+        <div class="hero-stats-row sec-reveal-fade sec-delay-2">
           <div class="hero-stat-box">
             <div class="hero-stat-num">60,142<span>+</span></div>
             <div class="hero-stat-lbl">MT E-Waste Recycled</div>
@@ -1462,7 +1575,7 @@
        ============================================================ -->
   <section class="overview-sec">
     <div class="container">
-      <div class="overview-floating-card">
+      <div class="overview-floating-card sec-reveal-scale">
         <span class="kknag-eyebrow">WELCOME TO ECOGREEN</span>
         <h2>Advanced Closed-Loop Material Recovery &amp; ITAD for Critical Applications</h2>
         <p>
@@ -1478,11 +1591,11 @@
        ============================================================ -->
   <section class="clients-accred-unified-sec" id="clients-accreditations">
     <div class="container">
-      <div class="clients-sub-block">
+      <div class="clients-sub-block sec-reveal-fade">
         <span class="kknag-eyebrow">OUR CLIENTS</span>
         <h2 class="kknag-heading" style="margin-bottom:0;">Client Esteemed Customers</h2>
 
-        <div class="clients-logo-grid">
+        <div class="clients-logo-grid sec-reveal-fade sec-delay-1">
           <div class="clients-logo-cell" title="Samsung"><img src="/assets/img/logos/samsung.svg" alt="Samsung"></div>
           <div class="clients-logo-cell" title="Mercedes-Benz"><img src="/assets/img/logos/mercedes-benz.png" alt="Mercedes-Benz"></div>
           <div class="clients-logo-cell" title="HCL Technologies"><img src="/assets/img/logos/hcl.svg" alt="HCL Technologies"></div>
@@ -1496,10 +1609,10 @@
         </div>
       </div>
 
-      <div class="accred-sub-block">
+      <div class="accred-sub-block sec-reveal-fade sec-delay-2">
         <h3 class="accred-unified-heading">Our Accreditations</h3>
 
-        <div class="accred-seals-row">
+        <div class="accred-seals-row sec-reveal-scale sec-delay-3">
           <!-- Seal 1: IATF 16949 -->
           <div class="accred-seal-item" title="IATF 16949 Automotive Standard Certified">
             <img src="/assets/img/ref/iaft.png" alt="IATF 16949 Certified" class="seal-badge-img">
@@ -1539,12 +1652,12 @@
        ============================================================ -->
   <section class="business-cards-sec">
     <div class="container">
-      <span class="kknag-eyebrow">OUR BUSINESS LINES</span>
-      <h2 class="kknag-heading">Three Distinctive Business Lines, Using Advanced Dismantling and Hydrometallurgical Processes</h2>
+      <span class="kknag-eyebrow sec-reveal-fade">OUR BUSINESS LINES</span>
+      <h2 class="kknag-heading sec-reveal-fade sec-delay-1">Three Distinctive Business Lines, Using Advanced Dismantling and Hydrometallurgical Processes</h2>
 
       <div class="business-cards-grid">
         <!-- Card 1: ITAD (EPP) -->
-        <div class="business-photo-card">
+        <div class="business-photo-card sec-reveal-fade sec-delay-1">
           <img src="/assets/img/ref/business-epp.webp" alt="ITAD and Data Destruction" class="business-card-bg">
           <div class="business-card-overlay"></div>
           <div class="business-card-text">
@@ -1557,7 +1670,7 @@
         </div>
 
         <!-- Card 2: Hydrometallurgy (EPS) -->
-        <div class="business-photo-card">
+        <div class="business-photo-card sec-reveal-fade sec-delay-2">
           <img src="/assets/img/ref/business-eps.webp" alt="Hydrometallurgical Refining" class="business-card-bg">
           <div class="business-card-overlay"></div>
           <div class="business-card-text">
@@ -1570,7 +1683,7 @@
         </div>
 
         <!-- Card 3: EPR Compliance (Rotomould) -->
-        <div class="business-photo-card">
+        <div class="business-photo-card sec-reveal-fade sec-delay-3">
           <img src="/assets/img/ref/business-rotomould.webp" alt="Statutory EPR Compliance" class="business-card-bg">
           <div class="business-card-overlay"></div>
           <div class="business-card-text">
@@ -1593,17 +1706,17 @@
     <div class="industries-dark-scrim"></div>
     <div class="container industries-dark-content">
       <div class="industries-top-split">
-        <div class="industries-left-head">
+        <div class="industries-left-head sec-reveal-fade">
           <span class="kknag-eyebrow" style="color: #f26522;">INDUSTRIES WE SERVE</span>
           <h2>A Broad and Varied Spectrum of Industries</h2>
           <a href="/services/" class="btn-eg-pill">EXPLORE ALL SECTORS</a>
         </div>
-        <div class="industries-amber-panel">
+        <div class="industries-amber-panel sec-reveal-scale sec-delay-1">
           <img src="/assets/img/ref/amber-circuit.jpg" alt="Industries We Serve — Microelectronics & High-Tech Materials">
         </div>
       </div>
 
-      <div class="industries-pills-grid" id="industriesPillsGrid">
+      <div class="industries-pills-grid sec-reveal-fade sec-delay-2" id="industriesPillsGrid">
         <div class="industry-pill-btn active" data-sector="data-centers">
           <svg class="ind-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/><line x1="10" y1="6" x2="18" y2="6"/><line x1="10" y1="18" x2="18" y2="18"/></svg>
           <span>Data Centers &amp; Cloud</span>
@@ -1651,12 +1764,12 @@
     <div class="services-full-bg-overlay"></div>
 
     <div class="container" style="position: relative; z-index: 3; width: 100%;">
-      <span class="kknag-eyebrow" style="color: #4CAF50;">OUR SERVICES</span>
-      <h2 class="kknag-heading" style="color: #ffffff; margin-bottom: 44px;">Meeting Every Demand</h2>
+      <span class="kknag-eyebrow sec-reveal-fade" style="color: #4CAF50;">OUR SERVICES</span>
+      <h2 class="kknag-heading sec-reveal-fade sec-delay-1" style="color: #ffffff; margin-bottom: 44px;">Meeting Every Demand</h2>
 
       <div class="services-white-cards-row">
         <!-- Box 1 -->
-        <div class="service-white-card">
+        <div class="service-white-card sec-reveal-fade sec-delay-1">
           <div>
             <div class="service-white-card-num">01</div>
             <h3 class="service-white-card-title">GPS REVERSE LOGISTICS</h3>
@@ -1668,7 +1781,7 @@
         </div>
 
         <!-- Box 2 -->
-        <div class="service-white-card">
+        <div class="service-white-card sec-reveal-fade sec-delay-2">
           <div>
             <div class="service-white-card-num">02</div>
             <h3 class="service-white-card-title">VALUE ENGINEERING</h3>
@@ -1680,7 +1793,7 @@
         </div>
 
         <!-- Box 3 -->
-        <div class="service-white-card">
+        <div class="service-white-card sec-reveal-fade sec-delay-3">
           <div>
             <div class="service-white-card-num">03</div>
             <h3 class="service-white-card-title">WITNESSED DESTRUCTION</h3>
@@ -1700,13 +1813,13 @@
   <section class="testimonials-split-sec">
     <div class="container">
       <div class="testi-split-grid">
-        <div class="testi-left-box">
+        <div class="testi-left-box sec-reveal-fade">
           <span class="kknag-eyebrow">CUSTOMER TESTIMONIALS</span>
           <h2>What Our Customers Say</h2>
           <a href="/about/" class="btn-eg-green">READ MORE SUCCESS STORIES</a>
         </div>
 
-        <div class="testi-right-quote-box">
+        <div class="testi-right-quote-box sec-reveal-scale sec-delay-1">
           <div style="font-size: 54px; line-height: 1; font-family: Georgia, serif; color: #2E7D32; opacity: 0.35; margin-bottom: 4px;">&ldquo;</div>
           <p class="testi-quote-text">
             "EcoGreen manages our nationwide ITAD across 14 enterprise branches. Their NIST 800-88 certificates and serialized custody reports satisfy our external Big-4 compliance audits with zero findings."
@@ -1721,7 +1834,7 @@
         </div>
       </div>
 
-      <div class="affiliations-row-wrap">
+      <div class="affiliations-row-wrap sec-reveal-fade sec-delay-2">
         <div class="affiliations-lbl">Our Affiliations</div>
         <div class="affiliations-badges-row">
           <div class="affil-logo-box"><img src="/assets/img/ref/affil-1.png" alt="Affiliation Body"></div>
@@ -1742,7 +1855,7 @@
     <div class="sustain-leaves-backdrop"></div>
     <div class="container">
       <div class="sustain-kknag-grid">
-        <div class="sustain-kknag-left">
+        <div class="sustain-kknag-left sec-reveal-fade">
           <span class="kknag-eyebrow" style="color: #A5D6A7;">SUSTAINABILITY INITIATIVES</span>
           <h2>Our Material Recovery and Processing Has Minimal Environmental Impact</h2>
 
@@ -1763,12 +1876,12 @@
         </div>
 
         <div class="sustain-kknag-right-badges">
-          <div class="sustain-circle-seal">
+          <div class="sustain-circle-seal sec-reveal-scale sec-delay-1">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A5D6A7" stroke-width="2" style="margin-bottom:6px;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
             <strong>60,142<span>+</span></strong>
             <span>Metric Tonnes Re-entered</span>
           </div>
-          <div class="sustain-circle-seal">
+          <div class="sustain-circle-seal sec-reveal-scale sec-delay-2">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A5D6A7" stroke-width="2" style="margin-bottom:6px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
             <strong>728.5<span>+</span></strong>
             <span>tCO₂e Emissions Avoided</span>
@@ -1783,7 +1896,7 @@
        ============================================================ -->
   <section class="streams-kknag-sec">
     <div class="container">
-      <div class="streams-filter-pills">
+      <div class="streams-filter-pills sec-reveal-fade">
         <div class="filter-pill active">ALL RECOVERY STREAMS</div>
         <div class="filter-pill">ITAD HARDWARE</div>
         <div class="filter-pill">REFINED METALS</div>
@@ -1791,7 +1904,7 @@
 
       <div class="streams-cards-grid">
         <!-- Card 1 -->
-        <div class="stream-ribbon-card">
+        <div class="stream-ribbon-card sec-reveal-fade sec-delay-1">
           <div class="card-corner-ribbon"></div>
           <span class="card-corner-ribbon-text">NIST 800</span>
           <div class="stream-card-img-wrap">
@@ -1807,7 +1920,7 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="stream-ribbon-card">
+        <div class="stream-ribbon-card sec-reveal-fade sec-delay-2">
           <div class="card-corner-ribbon"></div>
           <span class="card-corner-ribbon-text">99.5%</span>
           <div class="stream-card-img-wrap">
@@ -1823,7 +1936,7 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="stream-ribbon-card">
+        <div class="stream-ribbon-card sec-reveal-fade sec-delay-3">
           <div class="card-corner-ribbon"></div>
           <span class="card-corner-ribbon-text">FORM 6</span>
           <div class="stream-card-img-wrap">
@@ -1848,7 +1961,7 @@
     <div class="container">
       <div class="footer-main-grid">
         <!-- Left: Brand Hashtag & 4 Nav Columns -->
-        <div>
+        <div class="sec-reveal-fade">
           <div class="footer-brand-hashtag">#ClosingTheLoop</div>
 
           <div class="footer-nav-columns">
@@ -1895,7 +2008,7 @@
         </div>
 
         <!-- Right: The Distinctive White Floating "Contact Us" Card -->
-        <div>
+        <div class="sec-reveal-scale sec-delay-1">
           <div class="footer-floating-contact-card">
             <h3 class="footer-contact-title">Contact Us</h3>
 
@@ -1985,6 +2098,233 @@
         }
       });
     }
+
+    // ============================================================
+    // SMOOTH SECTION-TO-SECTION MOTION CONTROLLER & DOT NAVIGATION
+    // ============================================================
+    (function() {
+      const sections = [
+        document.querySelector('.hero-kknag-banner'),
+        document.querySelector('.overview-sec'),
+        document.querySelector('#clients-accreditations'),
+        document.querySelector('.business-cards-sec'),
+        document.querySelector('.industries-dark-sec'),
+        document.querySelector('.services-dark-sec'),
+        document.querySelector('.testimonials-split-sec'),
+        document.querySelector('.sustainability-kknag-sec'),
+        document.querySelector('.streams-kknag-sec'),
+        document.querySelector('.footer-kknag-sec')
+      ].filter(Boolean);
+
+      const sectionLabels = [
+        'Closing The Loop',
+        'Corporate Overview',
+        'Clients & Accreditations',
+        'Business Lines',
+        'Industries We Serve',
+        'Services',
+        'Testimonials',
+        'Sustainability',
+        'Material Streams',
+        'Contact & Plant'
+      ];
+
+      // Indices of sections with dark backgrounds for dot contrast
+      const darkSections = [0, 1, 4, 5, 7, 9];
+
+      // Build Floating Side Dot Navigation
+      const dotsNav = document.createElement('nav');
+      dotsNav.className = 'section-dots-nav';
+      dotsNav.setAttribute('aria-label', 'Section Quick Navigation');
+
+      sections.forEach((sec, idx) => {
+        const item = document.createElement('div');
+        item.className = 'sec-dot-item' + (idx === 0 ? ' active' : '');
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('aria-label', `Jump to ${sectionLabels[idx]}`);
+        item.innerHTML = `
+          <span class="sec-dot-label">${sectionLabels[idx]}</span>
+          <span class="sec-dot-bullet"></span>
+        `;
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          scrollToSection(idx);
+        });
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            scrollToSection(idx);
+          }
+        });
+        dotsNav.appendChild(item);
+      });
+      document.body.appendChild(dotsNav);
+
+      const dotItems = dotsNav.querySelectorAll('.sec-dot-item');
+
+      let currentSecIndex = 0;
+      let isAnimating = false;
+      let lastScrollTime = 0;
+      let animFrameId = null;
+
+      const HEADER_HEIGHT = 80;
+
+      function getSectionTop(idx) {
+        if (!sections[idx]) return 0;
+        if (idx === 0) return 0;
+        const rect = sections[idx].getBoundingClientRect();
+        return Math.max(0, Math.round(rect.top + window.pageYOffset - HEADER_HEIGHT));
+      }
+
+      // Easing: easeInOutCubic for organic, luxury deceleration
+      function easeInOutCubic(t) {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      }
+
+      function scrollToSection(targetIdx, duration = 750) {
+        if (targetIdx < 0 || targetIdx >= sections.length) return;
+
+        if (window.innerWidth <= 1024) {
+          const targetY = getSectionTop(targetIdx);
+          window.scrollTo({ top: targetY, behavior: 'smooth' });
+          return;
+        }
+
+        if (animFrameId) cancelAnimationFrame(animFrameId);
+        isAnimating = true;
+
+        const startY = window.pageYOffset;
+        const targetY = getSectionTop(targetIdx);
+        const distance = targetY - startY;
+        let startTime = null;
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          const elapsed = timestamp - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = easeInOutCubic(progress);
+
+          window.scrollTo(0, startY + distance * ease);
+
+          if (progress < 1) {
+            animFrameId = requestAnimationFrame(step);
+          } else {
+            isAnimating = false;
+            currentSecIndex = targetIdx;
+            updateActiveState(currentSecIndex);
+          }
+        }
+
+        animFrameId = requestAnimationFrame(step);
+        currentSecIndex = targetIdx;
+        updateActiveState(targetIdx);
+      }
+
+      function updateActiveState(idx) {
+        dotItems.forEach((dot, dIdx) => {
+          if (dIdx === idx) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+
+        if (darkSections.includes(idx)) {
+          dotsNav.classList.add('dot-dark-theme');
+        } else {
+          dotsNav.classList.remove('dot-dark-theme');
+        }
+
+        sections.forEach((sec, sIdx) => {
+          if (sIdx === idx) {
+            sec.classList.add('is-active-sec');
+          }
+        });
+      }
+
+      // Smooth Wheel Transition Handler on Desktop
+      let wheelDelta = 0;
+      let wheelCooldownTimer = null;
+
+      window.addEventListener('wheel', (e) => {
+        if (window.innerWidth <= 1024) return;
+
+        e.preventDefault();
+
+        const now = Date.now();
+        if (isAnimating || now - lastScrollTime < 380) return;
+
+        wheelDelta += e.deltaY;
+
+        clearTimeout(wheelCooldownTimer);
+        wheelCooldownTimer = setTimeout(() => {
+          wheelDelta = 0;
+        }, 180);
+
+        if (Math.abs(wheelDelta) >= 30) {
+          lastScrollTime = now;
+          if (wheelDelta > 0) {
+            if (currentSecIndex < sections.length - 1) {
+              scrollToSection(currentSecIndex + 1);
+            }
+          } else {
+            if (currentSecIndex > 0) {
+              scrollToSection(currentSecIndex - 1);
+            }
+          }
+          wheelDelta = 0;
+        }
+      }, { passive: false });
+
+      // Keyboard Arrow / Page Navigation
+      window.addEventListener('keydown', (e) => {
+        if (window.innerWidth <= 1024) return;
+        if (['ArrowDown', 'PageDown'].includes(e.key)) {
+          e.preventDefault();
+          if (!isAnimating && currentSecIndex < sections.length - 1) {
+            scrollToSection(currentSecIndex + 1);
+          }
+        } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
+          e.preventDefault();
+          if (!isAnimating && currentSecIndex > 0) {
+            scrollToSection(currentSecIndex - 1);
+          }
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          scrollToSection(0);
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          scrollToSection(sections.length - 1);
+        }
+      });
+
+      // IntersectionObserver to keep state aligned when resized or navigated
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const idx = sections.indexOf(entry.target);
+            if (idx !== -1) {
+              entry.target.classList.add('is-active-sec');
+              if (!isAnimating) {
+                currentSecIndex = idx;
+                updateActiveState(idx);
+              }
+            }
+          }
+        });
+      }, {
+        root: null,
+        threshold: 0.35
+      });
+
+      sections.forEach(sec => observer.observe(sec));
+
+      // Trigger initial active state for Hero
+      setTimeout(() => {
+        updateActiveState(0);
+      }, 120);
+    })();
   </script>
   <!-- ============================================================
        FLOATING COMPARISON SWITCHER (TESTING SETTING)
