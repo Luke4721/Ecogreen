@@ -1402,3 +1402,752 @@ img {
     text-align: center;
   }
 }
+
+/* ============================================================
+   K.K. NAG 1:1 MIRROR COMPONENTS SYSTEM
+   ============================================================ */
+
+/* --- 1. SIGNATURE HORIZONTAL TIMELINE SCRUBBER SLIDER --- */
+.timeline_slider {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 40px 0 60px 0;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-radius: 12px;
+  border: 1px solid var(--eg-border);
+}
+
+.slider-container-hs {
+  width: 100%;
+  margin: 0;
+  background: #FFFFFF;
+}
+
+.slider-hs {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slide-hs {
+  display: none;
+  width: 100%;
+  background-color: #F8FAF8;
+}
+
+.slide-hs.active {
+  display: block;
+  animation: fadeInSlide 0.35s ease-in-out;
+}
+
+@keyframes fadeInSlide {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.time-hs-container {
+  display: flex;
+  min-height: 540px;
+  background: #F4F6F4 url('/assets/img/kknag-ref/paper-texture.webp') repeat center / cover;
+  align-items: stretch;
+}
+
+.time-hs-img-wrap {
+  width: 52%;
+  position: relative;
+  overflow: hidden;
+  background: #1B5E20;
+}
+
+.time-hs-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.time-hs-text {
+  width: 48%;
+  padding: 60px 60px 60px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+p.time-hs-year {
+  color: #1B5E20;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(64px, 7vw, 110px);
+  font-weight: 800;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.03em;
+}
+
+p.time-hs-year:after {
+  content: "";
+  display: block;
+  background: #1B5E20;
+  height: 4px;
+  flex: 1;
+  margin-left: 24px;
+  margin-right: -40px;
+  border-radius: 2px;
+}
+
+p.time-hs-content {
+  color: #1F2937;
+  font-family: var(--font-body);
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 500;
+  line-height: 1.45;
+  width: 90%;
+  min-height: 90px;
+  margin: 0 0 36px 0;
+}
+
+.time-hs-subdesc {
+  font-size: 15px;
+  color: #4B5563;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.next-button-hs {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+  padding: 12px 32px;
+  background-color: #2E7D32;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(46, 125, 50, 0.25);
+}
+
+.next-button-hs:hover {
+  background-color: #1B5E20;
+  transform: translateX(4px);
+  box-shadow: 0 6px 18px rgba(27, 94, 32, 0.35);
+}
+
+.next-button-hs svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+/* Scrubber bar below */
+.tabs-hs {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 24px 30px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #133917; /* Dark Forest Green / KK Nag Navy mirror */
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.25);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.25) transparent;
+  user-select: none;
+}
+
+.tabs-hs::-webkit-scrollbar {
+  height: 6px;
+}
+.tabs-hs::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+  border-radius: 3px;
+}
+
+.tab-button-hs {
+  background-color: transparent;
+  border: none;
+  padding: 12px 18px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1;
+  position: relative;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.tab-button-hs:before {
+  content: "";
+  height: 12px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.35);
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tab-button-hs:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tab-button-hs.active {
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 44px;
+}
+
+.tab-button-hs.active:before {
+  height: 18px;
+  width: 3px;
+  background: #A5D6A7;
+}
+
+.tab-button-hs.active:after {
+  content: "";
+  height: 4px;
+  width: 80%;
+  background: #4CAF50;
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 10%;
+  border-radius: 2px;
+}
+
+@media (max-width: 992px) {
+  .time-hs-container {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .time-hs-img-wrap {
+    width: 100%;
+    height: 320px;
+  }
+  .time-hs-text {
+    width: 100%;
+    padding: 40px 30px;
+  }
+  p.time-hs-year:after {
+    margin-right: 0;
+  }
+}
+
+/* --- 2. 7 CORE VALUES INTERACTIVE GRID --- */
+.core-values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.core-value-card {
+  background: #FFFFFF;
+  border: 1px solid var(--eg-border);
+  border-radius: 12px;
+  padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.core-value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: #2E7D32;
+}
+
+.core-value-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #E5E7EB;
+  transition: background 0.3s ease;
+}
+
+.core-value-card:hover:before {
+  background: #2E7D32;
+}
+
+.core-value-num {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 800;
+  color: #2E7D32;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.core-value-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--eg-ink-heading);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.core-value-desc {
+  font-size: 14.5px;
+  color: var(--eg-ink-body);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* --- 3. 3-BLOCK INDUSTRIAL CAPABILITY SHOWCASE --- */
+.kknag-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin: 50px 0;
+}
+
+.kknag-capability-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--eg-border);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.kknag-capability-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(46, 125, 50, 0.4);
+}
+
+.kknag-cap-media {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+  background: #E8F5E9;
+}
+
+.kknag-cap-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.kknag-capability-card:hover .kknag-cap-media img {
+  transform: scale(1.05);
+}
+
+.kknag-cap-body {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.kknag-cap-tag {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #2E7D32;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.kknag-cap-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--eg-ink-heading);
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.kknag-cap-text {
+  font-size: 14.5px;
+  color: var(--eg-ink-body);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.kknag-cap-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #2E7D32;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.kknag-cap-link:hover {
+  color: #1B5E20;
+}
+
+@media (max-width: 992px) {
+  .kknag-capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- 4. GREENCO & AUDITED 6-METRIC GRID --- */
+.greenco-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.greenco-metric-card {
+  background: #FFFFFF;
+  border: 1px solid var(--eg-border);
+  border-radius: 12px;
+  padding: 36px 30px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.greenco-metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: #2E7D32;
+}
+
+.greenco-metric-val {
+  font-family: var(--font-heading);
+  font-size: clamp(38px, 4vw, 54px);
+  font-weight: 800;
+  color: #2E7D32;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.greenco-metric-label {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--eg-ink-heading);
+  margin-bottom: 8px;
+}
+
+.greenco-metric-sub {
+  font-size: 13.5px;
+  color: #6B7280;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .greenco-metric-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 500px) {
+  .greenco-metric-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- 5. 3 PILLARS: COMPETE, COLLABORATE, EXCEL --- */
+.three-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin: 40px 0;
+}
+
+.pillar-card {
+  background: #1B5E20;
+  color: #FFFFFF;
+  border-radius: 14px;
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-6px);
+}
+
+.pillar-card:before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+}
+
+.pillar-num {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 800;
+  color: #A5D6A7;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+
+.pillar-title {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.pillar-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .three-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- 6. ALTERNATING APPLICATION ROWS --- */
+.kknag-app-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.kknag-app-split.invert {
+  direction: rtl;
+}
+
+.kknag-app-split.invert > * {
+  direction: ltr;
+}
+
+.kknag-app-media {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--eg-border);
+}
+
+.kknag-app-media img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.kknag-app-info h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 2.2vw, 32px);
+  font-weight: 800;
+  color: var(--eg-ink-heading);
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.kknag-app-info p {
+  font-size: 15.5px;
+  color: var(--eg-ink-body);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.kknag-app-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.kknag-app-points li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 14.5px;
+  color: var(--eg-ink-body);
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.kknag-app-points li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2E7D32;
+}
+
+@media (max-width: 900px) {
+  .kknag-app-split {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .kknag-app-media img {
+    height: 260px;
+  }
+}
+
+/* --- 7. CLEAN FAQ ACCORDION --- */
+.kknag-faq-list {
+  max-width: 860px;
+  margin: 30px auto;
+}
+
+.kknag-faq-item {
+  border-bottom: 1px solid var(--eg-border);
+  padding: 20px 0;
+}
+
+.kknag-faq-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--eg-ink-heading);
+  text-align: left;
+  cursor: pointer;
+  gap: 16px;
+  transition: color 0.2s;
+}
+
+.kknag-faq-trigger:hover {
+  color: #2E7D32;
+}
+
+.kknag-faq-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #2E7D32;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.kknag-faq-item.active .kknag-faq-icon {
+  transform: rotate(45deg);
+}
+
+.kknag-faq-panel {
+  display: none;
+  padding-top: 14px;
+  font-size: 15px;
+  color: var(--eg-ink-body);
+  line-height: 1.7;
+}
+
+.kknag-faq-item.active .kknag-faq-panel {
+  display: block;
+}
+
+/* --- 8. FACILITY LOCATION CARDS WITH BADGES --- */
+.kknag-facility-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.kknag-facility-card {
+  background: #FFFFFF;
+  border: 1px solid var(--eg-border);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.kknag-facility-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: #2E7D32;
+}
+
+.plant-type-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 12px;
+  background: #E8F5E9;
+  color: #1B5E20;
+  border-radius: 100px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.plant-name {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--eg-ink-heading);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.plant-addr {
+  font-size: 14px;
+  color: var(--eg-ink-body);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.plant-specs {
+  font-size: 12.5px;
+  color: #6B7280;
+  border-top: 1px dashed var(--eg-border);
+  padding-top: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .kknag-facility-grid {
+    grid-template-columns: 1fr;
+  }
+}
