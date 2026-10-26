@@ -1,16 +1,6 @@
 {
   "framework": null,
   "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/test",
-      "destination": "/preview-kknag-structure.html"
-    },
-    {
-      "source": "/kknag",
-      "destination": "/preview-kknag-structure.html"
-    }
-  ],
   "redirects": [
     {
       "source": "/investors/:path*",

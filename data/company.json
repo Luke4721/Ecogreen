@@ -1,0 +1,40 @@
+{
+  "facilities": [
+    {
+      "name": "Greater Noida",
+      "label": "Corporate Headquarters & Plant",
+      "isHQ": true,
+      "address": "Khasra No. 109, Namoli, Knowledge Park 3, Greater Noida, Gautam Buddha Nagar, Uttar Pradesh 201306"
+    },
+    {
+      "name": "Sri City",
+      "address": "1025 Central Expressway - South, Sri City, District Tirupati, Andhra Pradesh 517646"
+    },
+    {
+      "name": "New Delhi",
+      "address": "Khasra No. 447, Shahabad Mohammadpur, New Delhi, Delhi 110061"
+    },
+    {
+      "name": "Ahmedabad",
+      "address": "Industrial Estate GIDC, Sanand-II, Sanand, Ahmedabad, Gujarat 382170"
+    },
+    {
+      "name": "Neemrana",
+      "address": "New Ind Complex, Rajasthan 301705"
+    }
+  ],
+  "capacities": [
+    { "metric": "E-Waste Recycling",      "value": 26000, "unit": "MT/year" },
+    { "metric": "Plastic Waste Recycling", "value": 10000, "unit": "MT/year" },
+    { "metric": "Refurbishing",            "value": 1560,  "unit": "MT/year" }
+  ],
+  "services": [
+    "E-Waste Management",
+    "Plastic Waste Recycling",
+    "EPR Services",
+    "Data Extraction Service",
+    "Electronics Refurbishment",
+    "Paper Recycling",
+    "Lithium Battery Recycling"
+  ]
+}
