@@ -631,12 +631,11 @@ img {
    PEOPLE / LEADERSHIP (KK Nag The Leaders Style)
    ============================================================ */
 .leader-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 480px));
+  display: flex;
   justify-content: center;
-  gap: 28px;
-  max-width: 1000px;
+  max-width: 500px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .leader-card {
