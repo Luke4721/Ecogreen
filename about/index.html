@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>About EcoGreen — A Decade of Operating History, One Standard</title>
+  <title>About EcoGreen - Circular Electronics Stewardship</title>
   <meta name="description" content="EcoGreen is India's certified e-waste recycling and IT asset disposition partner, operating an authorised network across the country.">
   <link rel="canonical" href="https://ecogreen.eco/about/">
   <meta name="theme-color" content="#2E7D32">
@@ -18,6 +18,70 @@
     }
     .leader-grid .leader-card {
       width: 100%;
+    }
+
+    /* 4-Column Centered Metric Cards */
+    .inner-hero .inner-hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      max-width: 1140px;
+      margin: 40px auto 0;
+      gap: 20px;
+      justify-content: center;
+      padding-top: 36px;
+      border-top: 1px solid var(--eg-border);
+    }
+    .inner-hero .inner-hero-stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 26px 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--eg-border);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .inner-hero .inner-hero-stat-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(46, 125, 50, 0.09);
+      border-color: rgba(46, 125, 50, 0.35);
+    }
+    .inner-hero .inner-hero-stat-num {
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 2.5vw, 36px);
+      font-weight: 800;
+      color: var(--eg-ink-heading);
+      line-height: 1.15;
+      margin-bottom: 8px;
+      white-space: nowrap;
+    }
+    .inner-hero .inner-hero-stat-label {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--eg-ink-muted);
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 900px) {
+      .inner-hero .inner-hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
+        gap: 16px;
+      }
+    }
+    @media (max-width: 480px) {
+      .inner-hero .inner-hero-stats {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+      }
+    }
+    .tabs-hs {
+      justify-content: center;
+      gap: 36px;
     }
   </style>
 </head>
@@ -83,22 +147,22 @@
           safeguarding enterprise data while securing critical domestic raw materials.
         </p>
 
-        <!-- 4-Stat Metric Bar (Exact 1:1 KK Nag Style) -->
+        <!-- 4-Stat Metric Bar -->
         <div class="inner-hero-stats">
           <div class="inner-hero-stat-item">
-            <div class="inner-hero-stat-num">10+</div>
+            <div class="inner-hero-stat-num"><span data-count="10">10</span>+</div>
             <div class="inner-hero-stat-label">Years of Compliance &amp; Excellence</div>
           </div>
           <div class="inner-hero-stat-item">
-            <div class="inner-hero-stat-num">60,142+</div>
+            <div class="inner-hero-stat-num"><span data-count="60142">60,142</span>+</div>
             <div class="inner-hero-stat-label">MT Cumulative E-Waste Recycled</div>
           </div>
           <div class="inner-hero-stat-item">
-            <div class="inner-hero-stat-num">728.5+</div>
+            <div class="inner-hero-stat-num"><span data-count="728.5" data-decimals="1">728.5</span>+</div>
             <div class="inner-hero-stat-label">tCO₂e Net Emissions Displaced</div>
           </div>
           <div class="inner-hero-stat-item">
-            <div class="inner-hero-stat-num">06</div>
+            <div class="inner-hero-stat-num"><span data-count="6">06</span></div>
             <div class="inner-hero-stat-label">Authorized Facilities Across India</div>
           </div>
         </div>
@@ -114,30 +178,111 @@
          SECTION 1: "MAKING THE IMPOSSIBLE POSSIBLE" (1:1 with KK Nag)
          ============================================================ -->
     <section class="inner-section">
-      <div class="container">
+      <div class="inner-container">
         <div class="inner-section-head">
-          <span class="section-eyebrow">Enterprise Stewardship</span>
-          <h2 class="section-title">Making The Impossible Possible<br>in the Circular Electronics Industry</h2>
+          <span class="section-eyebrow">ENTERPRISE STEWARDSHIP</span>
+          <h2 class="section-title">Making The Impossible Possible in the Circular Electronics Industry</h2>
+          <p class="section-lede">Founded in 2024, EcoGreen is India's statutory leader in certified e-waste recycling and IT asset disposition. We operate an integrated network of authorized processing plants bridging high-volume corporate refresh cycles with domestic raw material security.</p>
+        </div>
+
+        <div class="split-feature" style="display: flex; gap: 40px; align-items: center; margin-top: 40px;">
+          <div class="split-feature-content" style="flex: 1;">
+            <h3 style="font-size: 24px; margin-bottom: 16px;">Enterprise Security Meets Environmental Stewardship</h3>
+            <p style="margin-bottom: 16px; color: #555;">Operating across Uttar Pradesh, Karnataka, Maharashtra, and Telangana, we provide enterprise organizations with auditable chain-of-custody tracking, cryptographic data destruction, and manufacturing-grade chemical material recovery.</p>
+            <p style="margin-bottom: 24px; color: #555;">We operate under zero-landfill mandates, converting discarded printed circuit boards, high-density storage arrays, and lithium battery cells into strategic industrial inputs for Indian manufacturers.</p>
+            <a href="/services/" class="btn-eg-outline">EXPLORE OUR BUSINESS LINES &rarr;</a>
+          </div>
+          <div class="split-feature-media" style="flex: 1;">
+            <img src="/assets/img/service-image-4.jpg" alt="EcoGreen Facility" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION: OUR MILESTONES (2024 - 2026 TIMELINE)
+         ============================================================ -->
+    <section class="inner-section" style="padding-bottom: 40px;">
+      <div class="container" style="max-width: 1360px; padding: 0 20px;">
+        <div class="inner-section-head" style="text-align: center; margin-bottom: 30px;">
+          <span class="section-eyebrow">OUR MILESTONES</span>
+          <h2 class="section-title">Milestones in Circular Innovation</h2>
           <p class="section-lede">
-            Founded in 2015, EcoGreen is India's statutory leader in certified e-waste recycling and IT asset disposition. We operate an integrated network of authorized processing plants bridging high-volume corporate refresh cycles with domestic raw material security.
+            Advancing certified e-waste recycling and sustainable mineral recovery across India.
           </p>
         </div>
 
-        <div class="split-feature-row">
-          <div class="split-feature-content">
-            <h3>Enterprise Security Meets Environmental Stewardship</h3>
-            <p>
-              Operating across Uttar Pradesh, Karnataka, Maharashtra, and Telangana, we provide enterprise organizations with auditable chain-of-custody tracking, cryptographic data destruction, and manufacturing-grade chemical material recovery.
-            </p>
-            <p>
-              We operate under zero-landfill mandates, converting discarded printed circuit boards, high-density storage arrays, and lithium battery cells into strategic industrial inputs for Indian manufacturers.
-            </p>
-            <a href="/services/" class="split-feature-link">
-              Explore Our Business Lines <span>&rarr;</span>
-            </a>
-          </div>
-          <div class="split-feature-media">
-            <img src="/assets/img/service-image-4.jpg" alt="Precision dismantling and hardware recovery at EcoGreen facility">
+        <div class="timeline_slider">
+          <div class="slider-container-hs">
+            
+            <div class="slider-hs">
+              
+              <!-- Slide 2024 -->
+              <div id="slide2024" class="slide-hs active">
+                <div class="time-hs-container">
+                  <div class="time-hs-img-wrap">
+                    <img src="/assets/img/ref/amber-circuit.jpg" alt="Launched digital tracking platform">
+                  </div>
+                  <div class="time-hs-text">
+                    <p class="time-hs-year">2024</p>
+                    <p class="time-hs-content">
+                      Launched automated digital chain-of-custody tracking platform and statutory CPCB Form 6 compliance portal for enterprise corporate clients.
+                    </p>
+                    <button class="next-button-hs" data-next="slide2025">
+                      Next
+                      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2025 -->
+              <div id="slide2025" class="slide-hs">
+                <div class="time-hs-container">
+                  <div class="time-hs-img-wrap">
+                    <img src="/assets/img/service-image-4.jpg" alt="Certified secure with TISAX">
+                  </div>
+                  <div class="time-hs-text">
+                    <p class="time-hs-year">2025</p>
+                    <p class="time-hs-content">
+                      Crossed 60,000 MT milestone. Certified secure with international TISAX® level information security compliance for enterprise hardware.
+                    </p>
+                    <button class="next-button-hs" data-next="slide2026">
+                      Next
+                      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2026 -->
+              <div id="slide2026" class="slide-hs">
+                <div class="time-hs-container">
+                  <div class="time-hs-img-wrap">
+                    <img src="/assets/img/facility-aerial.jpg" alt="Circular Leadership">
+                  </div>
+                  <div class="time-hs-text">
+                    <p class="time-hs-year">2026</p>
+                    <p class="time-hs-content">
+                      Expanding specialized lithium-ion battery and solar PV module recovery lines across 6 authorized facilities nationwide.
+                    </p>
+                    <button class="next-button-hs" data-next="slide2024">
+                      Next
+                      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Bottom Scrubber Navigation Bar -->
+            <div class="tabs-hs" id="journeyTabs">
+              <button class="tab-button-hs active" data-target="slide2024">2024</button>
+              <button class="tab-button-hs" data-target="slide2025">2025</button>
+              <button class="tab-button-hs" data-target="slide2026">2026</button>
+            </div>
+
           </div>
         </div>
       </div>
@@ -198,7 +343,7 @@
             </div>
             <div class="kknag-cap-body">
               <span class="kknag-cap-tag">Material Sovereignty</span>
-              <h3 class="kknag-cap-title">Over 10 Years of Delivering High-Purity Precious Minerals Nationwide</h3>
+              <h3 class="kknag-cap-title">Delivering High-Purity Precious Minerals Nationwide</h3>
               <p class="kknag-cap-text">
                 Directly feeding recovered copper ingots, tin concentrates, and precious metal salts back into Indian component manufacturers to fortify national domestic supply security.
               </p>
@@ -303,7 +448,7 @@
         <div class="awards-grid">
           <div class="award-card">
             <div class="award-icon-badge">
-              <img src="/assets/img/ref/iaft.png" alt="CPCB Authorization">
+              <img src="/assets/img/ref/cpcb.png" alt="CPCB Authorization">
             </div>
             <div class="award-title">CPCB AUTHORISED</div>
             <div class="award-entity">Central Pollution Control Board</div>
@@ -330,47 +475,11 @@
 
           <div class="award-card">
             <div class="award-icon-badge">
-              <img src="/assets/img/ref/tisax.png" alt="ISO 45001:2018">
+              <img src="/assets/img/ref/iso45001.png" alt="ISO 45001:2018">
             </div>
             <div class="award-title">OCCUPATIONAL SAFETY</div>
             <div class="award-entity">ISO 45001:2018 Certified</div>
             <div class="award-year">Worker Health &amp; Hygiene</div>
-          </div>
-
-          <div class="award-card">
-            <div class="award-icon-badge">
-              <img src="/assets/img/ecogreen-greenco-gold-badge.svg" alt="GreenCo Rating">
-            </div>
-            <div class="award-title">GREENCO RATING</div>
-            <div class="award-entity">Confederation of Indian Industry</div>
-            <div class="award-year">3 Gold &bull; 2 Silver Plants</div>
-          </div>
-
-          <div class="award-card">
-            <div class="award-icon-badge">
-              <img src="/assets/img/ref/iaft.png" alt="NIST 800-88 Purge">
-            </div>
-            <div class="award-title">NIST 800-88 PURGE</div>
-            <div class="award-entity">Media Sanitization Standards</div>
-            <div class="award-year">Certified Data Erasure</div>
-          </div>
-
-          <div class="award-card">
-            <div class="award-icon-badge">
-              <img src="/assets/img/ref/iso9001.png" alt="R2v3 Verified">
-            </div>
-            <div class="award-title">R2v3 COMPLIANT</div>
-            <div class="award-entity">Responsible Recycling Standard</div>
-            <div class="award-year">Downstream Accountability</div>
-          </div>
-
-          <div class="award-card">
-            <div class="award-icon-badge">
-              <img src="/assets/img/ref/iso14001.png" alt="BIS Certification">
-            </div>
-            <div class="award-title">BIS RECOGNISED</div>
-            <div class="award-entity">Bureau of Indian Standards</div>
-            <div class="award-year">Mineral Ingot Quality</div>
           </div>
         </div>
       </div>
@@ -414,7 +523,7 @@
          ============================================================ -->
     <section class="inner-section" style="background: #FAFCFA; border-top: 1px solid var(--eg-border);">
       <div class="container">
-        <div class="wireframe-watermark">LOCATIONS</div>
+        <div class="wireframe-watermark" style="color: transparent; -webkit-text-stroke: 1px #d1d5db;">LOCATIONS</div>
         
         <div class="inner-section-head">
           <span class="section-eyebrow">National Network</span>
@@ -429,35 +538,35 @@
             <span class="plant-type-badge">Corporate HQ &amp; Central Plant</span>
             <h4 class="plant-name">Greater Noida (Corporate HQ &amp; Plant)</h4>
             <p class="plant-addr">Khasra No. 109, Namoli, Knowledge Park 3, Greater Noida, Gautam Buddha Nagar, Uttar Pradesh 201306</p>
-            <div class="plant-specs">Corporate HQ &bull; E-Waste Management &amp; EPR Services</div>
+            <div class="plant-specs">Facility</div>
           </div>
 
           <div class="kknag-facility-card">
             <span class="plant-type-badge">Southern Regional Hub</span>
             <h4 class="plant-name">Sri City Facility</h4>
             <p class="plant-addr">1025 Central Expressway - South, Sri City, District Tirupati, Andhra Pradesh 517646</p>
-            <div class="plant-specs">Southern Regional Hub &bull; Data Extraction &amp; Electronics Refurbishment</div>
+            <div class="plant-specs">Facility</div>
           </div>
 
           <div class="kknag-facility-card">
             <span class="plant-type-badge">Western Processing Plant</span>
             <h4 class="plant-name">New Delhi Facility</h4>
             <p class="plant-addr">Khasra No. 447, Shahabad Mohammadpur, New Delhi, Delhi 110061</p>
-            <div class="plant-specs">Northern Processing Plant &bull; E-Waste Management</div>
+            <div class="plant-specs">Warehouse</div>
           </div>
 
           <div class="kknag-facility-card">
             <span class="plant-type-badge">Western Processing Facility</span>
             <h4 class="plant-name">Ahmedabad Facility</h4>
             <p class="plant-addr">Industrial Estate GIDC, Sanand-II, Sanand, Ahmedabad, Gujarat 382170</p>
-            <div class="plant-specs">Western Processing Plant &bull; Plastic Waste Recycling</div>
+            <div class="plant-specs">Warehouse</div>
           </div>
 
           <div class="kknag-facility-card">
-            <span class="plant-type-badge">Tech Corridor Hub</span>
-            <h4 class="plant-name">Neemrana Facility</h4>
-            <p class="plant-addr">New Ind Complex, Rajasthan 301705</p>
-            <div class="plant-specs">Tech Corridor Hub &bull; Paper &amp; Lithium Battery Recycling</div>
+            <span class="plant-type-badge">Regional Hub</span>
+            <h4 class="plant-name">Lucknow</h4>
+            <p class="plant-addr">5/66 Gonti Nagar Lucknow</p>
+            <div class="plant-specs">Warehouse</div>
           </div>
         </div>
       </div>
@@ -573,10 +682,6 @@
 
             <div class="footer-card-bottom-row">
               <a href="/contact/" class="btn-eg-green">GET IN TOUCH &rarr;</a>
-              <div class="footer-stamp-badges">
-                <img src="/assets/img/ecogreen-greenco-gold-badge.svg" alt="GreenCo Gold Certified" title="GreenCo Gold Certified Recycler">
-                <img src="/assets/img/ref/footer-badge.svg" alt="CPCB Statutory Certified" title="CPCB Statutory Certified Recycler">
-              </div>
             </div>
           </div>
         </div>
@@ -594,5 +699,55 @@
   </footer>
 
   <script src="/assets/js/main.js"></script>
+
+  <!-- Interactive Timeline Slider Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabButtons = document.querySelectorAll(".tab-button-hs");
+      const slides = document.querySelectorAll(".slide-hs");
+      const nextButtons = document.querySelectorAll(".next-button-hs");
+      const tabsBar = document.getElementById("journeyTabs");
+
+      function activateSlide(targetId) {
+        tabButtons.forEach(btn => btn.classList.remove("active"));
+        slides.forEach(slide => slide.classList.remove("active"));
+
+        const activeSlide = document.getElementById(targetId);
+        const activeTab = document.querySelector(`.tab-button-hs[data-target="${targetId}"]`);
+        
+        if (activeSlide) activeSlide.classList.add("active");
+        if (activeTab) {
+          activeTab.classList.add("active");
+          if (tabsBar) {
+            const tabLeft = activeTab.offsetLeft;
+            const tabWidth = activeTab.offsetWidth;
+            const barWidth = tabsBar.offsetWidth;
+            tabsBar.scrollTo({
+              left: tabLeft - (barWidth / 2) + (tabWidth / 2),
+              behavior: "smooth"
+            });
+          }
+        }
+      }
+
+      tabButtons.forEach(button => {
+        button.addEventListener("click", function () {
+          const targetId = this.getAttribute("data-target");
+          activateSlide(targetId);
+        });
+      });
+
+      nextButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+          const nextTarget = this.getAttribute("data-next");
+          if (nextTarget) {
+            activateSlide(nextTarget);
+          }
+        });
+      });
+
+      activateSlide("slide2024");
+    });
+  </script>
 </body>
 </html>

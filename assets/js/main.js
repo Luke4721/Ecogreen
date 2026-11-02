@@ -130,23 +130,28 @@
     var els = $$('[data-count]');
     if (!els.length) return;
     function ease(t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
-    function fmt(n, dec) {
+    function fmt(n, dec, pad) {
       var s = n.toFixed(dec);
       var parts = s.split('.');
       parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      if (pad && parts[0].length < pad) {
+        parts[0] = ('0000' + parts[0]).slice(-pad);
+      }
       return parts.join('.');
     }
     function run(el) {
       var to = parseFloat(el.getAttribute('data-count'));
       var dec = parseInt(el.getAttribute('data-decimals') || '0', 10);
+      var raw = el.textContent.trim();
+      var pad = (raw.length > 1 && raw.charAt(0) === '0' && dec === 0) ? raw.length : 0;
       if (isNaN(to)) return;
-      if (REDUCED) { el.textContent = fmt(to, dec); return; }
+      if (REDUCED) { el.textContent = fmt(to, dec, pad); return; }
       var dur = 1900, start = performance.now();
       (function tick(now) {
         var t = Math.min((now - start) / dur, 1);
-        el.textContent = fmt(ease(t) * to, dec);
+        el.textContent = fmt(ease(t) * to, dec, pad);
         if (t < 1) requestAnimationFrame(tick);
-        else el.textContent = fmt(to, dec);
+        else el.textContent = fmt(to, dec, pad);
       })(start);
     }
     if (REDUCED || !('IntersectionObserver' in window)) { els.forEach(run); return; }
@@ -156,7 +161,7 @@
         run(e.target);
         io.unobserve(e.target);
       });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.15 });
     els.forEach(function (el) { io.observe(el); });
   })();
 

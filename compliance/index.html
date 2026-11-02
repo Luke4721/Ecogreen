@@ -54,6 +54,18 @@
     ]
   }
   </script>
+  <style>
+    .inner-hero .inner-hero-stats {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      max-width: 900px;
+    }
+    @media (max-width: 768px) {
+      .inner-hero .inner-hero-stats {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -63,7 +75,7 @@
   <header class="main-header">
     <div class="container">
       <a href="/" class="brand-logo-wrap" aria-label="EcoGreen Recyclers Home">
-        <img src="/assets/img/logo_transparent.png" alt="EcoGreen Recycling Pvt. Ltd" class="header-logo-img">
+        <img src="/assets/img/logo_transparent.png" alt="EcoGreen Recyclers" class="header-logo-img">
       </a>
 
       <nav aria-label="Primary Navigation">
@@ -125,11 +137,7 @@
             <div class="inner-hero-stat-num">04</div>
             <div class="inner-hero-stat-label">Accredited ISO Standards</div>
           </div>
-          <div class="inner-hero-stat-item">
-            <div class="inner-hero-stat-num">7 Years</div>
-            <div class="inner-hero-stat-label">Digital Manifest Cloud Archive</div>
-          </div>
-          <div class="inner-hero-stat-item">
+<div class="inner-hero-stat-item">
             <div class="inner-hero-stat-num">0</div>
             <div class="inner-hero-stat-label">Non-Compliance Sanctions Since 2015</div>
           </div>
@@ -152,12 +160,10 @@
           <!-- Cert 1: CPCB -->
           <article class="info-card" style="border-top:4px solid var(--eg-green-primary);">
             <div class="info-card-num">AUTHORISATION 01</div>
-            <h3 class="info-card-title">CPCB Authorised Recycler</h3>
             <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:14px; color:var(--eg-ink-body); margin:14px 0 20px;">
               <li><strong>Certificate Number:</strong> CPCB/B-29016/(SC)/EW-04/2016</li>
               <li><strong>Issuing Body:</strong> Central Pollution Control Board (MoEFCC)</li>
               <li><strong>Scope:</strong> Authorized e-waste dismantler, recycler, and statutory EPR fulfillment partner</li>
-              <li><strong>Expiry Date:</strong> 31 December 2028</li>
             </ul>
             <div style="margin-top:auto;">
               <a href="/assets/docs/compliance-pack.pdf" class="btn-eg-outline" download>DOWNLOAD CERTIFICATE (PDF) &darr;</a>
@@ -167,12 +173,10 @@
           <!-- Cert 2: ISO 14001 -->
           <article class="info-card" style="border-top:4px solid var(--eg-green-primary);">
             <div class="info-card-num">STANDARDS 02</div>
-            <h3 class="info-card-title">ISO 14001:2015 Environmental System</h3>
             <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:14px; color:var(--eg-ink-body); margin:14px 0 20px;">
               <li><strong>Certificate Number:</strong> ISO-EMS-14001-2015-612</li>
               <li><strong>Issuing Body:</strong> TUV Rheinland / ISO Accreditation</li>
               <li><strong>Scope:</strong> Environmental management systems, zero-harm atmospheric emissions, closed-loop liquid recovery</li>
-              <li><strong>Expiry Date:</strong> 30 August 2027</li>
             </ul>
             <div style="margin-top:auto;">
               <a href="/assets/docs/compliance-pack.pdf" class="btn-eg-outline" download>DOWNLOAD CERTIFICATE (PDF) &darr;</a>
@@ -184,10 +188,8 @@
             <div class="info-card-num">STANDARDS 03</div>
             <h3 class="info-card-title">ISO 45001:2018 Health &amp; Safety</h3>
             <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:14px; color:var(--eg-ink-body); margin:14px 0 20px;">
-              <li><strong>Certificate Number:</strong> ISO-OHSMS-45001-2018-309</li>
               <li><strong>Issuing Body:</strong> Global Quality Certifications</li>
               <li><strong>Scope:</strong> Occupational health and safety in advanced metallurgical and dismantling operations</li>
-              <li><strong>Expiry Date:</strong> 12 November 2027</li>
             </ul>
             <div style="margin-top:auto;">
               <a href="/assets/docs/compliance-pack.pdf" class="btn-eg-outline" download>DOWNLOAD CERTIFICATE (PDF) &darr;</a>
@@ -199,10 +201,8 @@
             <div class="info-card-num">AUTHORISATION 04</div>
             <h3 class="info-card-title">E-Waste (Management) Rules 2016</h3>
             <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; font-size:14px; color:var(--eg-ink-body); margin:14px 0 20px;">
-              <li><strong>Statutory Registration:</strong> EW-REG-UPPCB-2016-09</li>
               <li><strong>Issuing Body:</strong> State Pollution Control Board &amp; MoEFCC</li>
               <li><strong>Scope:</strong> Full regulatory compliance authorization for collection, storage, dismantling and recycling</li>
-              <li><strong>Expiry Date:</strong> 30 June 2028</li>
             </ul>
             <div style="margin-top:auto;">
               <a href="/assets/docs/compliance-pack.pdf" class="btn-eg-outline" download>DOWNLOAD CERTIFICATE (PDF) &darr;</a>
@@ -315,8 +315,8 @@
         <!-- Left: Brand Hashtag & 4 Nav Columns -->
         <div>
           <div class="footer-logo-wrap" style="margin-bottom: 22px;">
-            <a href="/" aria-label="EcoGreen Recycling Pvt. Ltd Home">
-              <img src="/assets/img/logo_white_text.png" alt="EcoGreen Recycling Pvt. Ltd" class="footer-logo-img">
+            <a href="/" aria-label="EcoGreen Recyclers Home">
+              <img src="/assets/img/logo_white_text.png" alt="EcoGreen Recyclers" class="footer-logo-img">
             </a>
           </div>
           <div class="footer-brand-hashtag">Giving Yesterday's Tech a Tomorrow.</div>
@@ -375,7 +375,7 @@
 
             <div class="footer-contact-item">
               <strong>Corporate Headquarters &amp; Plant:</strong>
-              EcoGreen Recyclers (P) Limited<br>
+              EcoGreen Recyclers<br>
               Khasra No. 109, Namoli, Knowledge Park 3,<br>
               Greater Noida, Gautam Buddha Nagar, Uttar Pradesh 201306
             </div>
@@ -392,17 +392,13 @@
 
             <div class="footer-card-bottom-row">
               <a href="/contact/" class="btn-eg-green">GET IN TOUCH &rarr;</a>
-              <div class="footer-stamp-badges">
-                <img src="/assets/img/ecogreen-greenco-gold-badge.svg" alt="GreenCo Gold Certified" title="GreenCo Gold Certified Recycler">
-                <img src="/assets/img/ref/footer-badge.svg" alt="CPCB Statutory Certified" title="CPCB Statutory Certified Recycler">
-              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom-bar">
-        <span>&copy; <span id="kknagYear">2026</span> EcoGreen Recyclers (P) Limited. All Rights Reserved.</span>
+        <span>&copy; <span id="kknagYear">2026</span> EcoGreen Recyclers. All Rights Reserved.</span>
         <nav aria-label="Legal">
           <a href="/privacy/">Privacy Policy</a>
           <a href="/terms/">Terms &amp; Conditions</a>
