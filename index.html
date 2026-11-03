@@ -535,11 +535,13 @@
       transform: translateY(-3px);
     }
 
+    /* Every marquee logo sits in the same 140 x 36 box, scaled to fit, so all brands read at one visual size */
     .client-logo-img {
+      width: 140px;
+      height: 36px;
       max-width: 140px;
-      max-height: 44px;
-      height: 30px;
-      width: auto;
+      max-height: 36px;
+      flex-shrink: 0;
       object-fit: contain;
       display: block;
       transition: transform 0.28s ease, filter 0.28s ease, opacity 0.28s ease;
@@ -553,11 +555,6 @@
       opacity: 1;
     }
 
-    .logo-samsung { height: 26px; width: auto; max-width: 130px; }
-    .logo-mercedes { height: 44px; width: auto; max-width: 135px; }
-    .logo-hcl { height: 24px; width: auto; max-width: 120px; }
-    .logo-wipro { height: 38px; width: auto; max-width: 120px; }
-    .logo-whirlpool { height: 32px; width: auto; max-width: 130px; }
     .logo-haier { height: 30px; width: auto; max-width: 120px; }
     .logo-itc { height: 42px; width: auto; max-width: 120px; }
     .logo-oppo { height: 24px; width: auto; max-width: 120px; }
@@ -2330,33 +2327,33 @@
             <div class="clients-marquee-track track-left">
               <!-- Set 1 -->
               <div class="clients-marquee-group">
-                <div class="clients-logo-card" title="Samsung Electronics"><img src="/assets/img/logos/samsung.svg" alt="Samsung" class="client-logo-img logo-samsung"></div>
-                <div class="clients-logo-card" title="Whirlpool Corporation"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool" class="client-logo-img logo-whirlpool"></div>
-                <div class="clients-logo-card" title="Avery Dennison"><img src="/assets/img/partners/Avery Dennison.png" alt="Avery Dennison" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Bhagwati"><img src="/assets/img/partners/Bhagwati.png" alt="Bhagwati" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="E Pack"><img src="/assets/img/partners/E Pack.png" alt="E Pack" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="ECDM"><img src="/assets/img/partners/ECDM.png" alt="ECDM" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Havells"><img src="/assets/img/partners/Havells.png" alt="Havells" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
+                <div class="clients-logo-card" title="Samsung Electronics"><img src="/assets/img/logos/samsung.svg" alt="Samsung" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Whirlpool Corporation"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Avery Dennison"><img src="/assets/img/partners/Avery Dennison.png" alt="Avery Dennison" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Bhagwati"><img src="/assets/img/partners/Bhagwati.png" alt="Bhagwati" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="E Pack"><img src="/assets/img/partners/E Pack.png" alt="E Pack" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="ECDM"><img src="/assets/img/partners/ECDM.png" alt="ECDM" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Havells"><img src="/assets/img/partners/Havells.png" alt="Havells" class="client-logo-img"></div>
               </div>
               <!-- Set 2 -->
               <div class="clients-marquee-group" aria-hidden="true">
-                <div class="clients-logo-card" title="Samsung Electronics"><img src="/assets/img/logos/samsung.svg" alt="Samsung" class="client-logo-img logo-samsung"></div>
-                <div class="clients-logo-card" title="Whirlpool Corporation"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool" class="client-logo-img logo-whirlpool"></div>
-                <div class="clients-logo-card" title="Avery Dennison"><img src="/assets/img/partners/Avery Dennison.png" alt="Avery Dennison" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Bhagwati"><img src="/assets/img/partners/Bhagwati.png" alt="Bhagwati" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="E Pack"><img src="/assets/img/partners/E Pack.png" alt="E Pack" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="ECDM"><img src="/assets/img/partners/ECDM.png" alt="ECDM" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Havells"><img src="/assets/img/partners/Havells.png" alt="Havells" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
+                <div class="clients-logo-card" title="Samsung Electronics"><img src="/assets/img/logos/samsung.svg" alt="Samsung" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Whirlpool Corporation"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Avery Dennison"><img src="/assets/img/partners/Avery Dennison.png" alt="Avery Dennison" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Bhagwati"><img src="/assets/img/partners/Bhagwati.png" alt="Bhagwati" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="E Pack"><img src="/assets/img/partners/E Pack.png" alt="E Pack" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="ECDM"><img src="/assets/img/partners/ECDM.png" alt="ECDM" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Havells"><img src="/assets/img/partners/Havells.png" alt="Havells" class="client-logo-img"></div>
               </div>
               <!-- Set 3 -->
               <div class="clients-marquee-group" aria-hidden="true">
-                <div class="clients-logo-card" title="Samsung Electronics"><img src="/assets/img/logos/samsung.svg" alt="Samsung" class="client-logo-img logo-samsung"></div>
-                <div class="clients-logo-card" title="Whirlpool Corporation"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool" class="client-logo-img logo-whirlpool"></div>
-                <div class="clients-logo-card" title="Avery Dennison"><img src="/assets/img/partners/Avery Dennison.png" alt="Avery Dennison" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Bhagwati"><img src="/assets/img/partners/Bhagwati.png" alt="Bhagwati" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="E Pack"><img src="/assets/img/partners/E Pack.png" alt="E Pack" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="ECDM"><img src="/assets/img/partners/ECDM.png" alt="ECDM" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Havells"><img src="/assets/img/partners/Havells.png" alt="Havells" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
+                <div class="clients-logo-card" title="Samsung Electronics"><img src="/assets/img/logos/samsung.svg" alt="Samsung" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Whirlpool Corporation"><img src="/assets/img/logos/whirlpool.png" alt="Whirlpool" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Avery Dennison"><img src="/assets/img/partners/Avery Dennison.png" alt="Avery Dennison" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Bhagwati"><img src="/assets/img/partners/Bhagwati.png" alt="Bhagwati" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="E Pack"><img src="/assets/img/partners/E Pack.png" alt="E Pack" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="ECDM"><img src="/assets/img/partners/ECDM.png" alt="ECDM" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Havells"><img src="/assets/img/partners/Havells.png" alt="Havells" class="client-logo-img"></div>
               </div>
             </div>
           </div>
@@ -2366,33 +2363,33 @@
             <div class="clients-marquee-track track-right">
               <!-- Set 1 -->
               <div class="clients-marquee-group">
-                <div class="clients-logo-card" title="Haier Appliances"><img src="/assets/img/logos/haier.png" alt="Haier" class="client-logo-img logo-haier"></div>
-                <div class="clients-logo-card" title="OPPO Mobiles"><img src="/assets/img/logos/oppo.svg" alt="OPPO" class="client-logo-img logo-oppo"></div>
-                <div class="clients-logo-card" title="Vivo Mobile"><img src="/assets/img/logos/vivo.svg" alt="Vivo" class="client-logo-img logo-vivo"></div>
-                <div class="clients-logo-card" title="Hye woo"><img src="/assets/img/partners/Hye woo.png" alt="Hye woo" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Panasonic"><img src="/assets/img/partners/Panasonic.png" alt="Panasonic" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Samkwang"><img src="/assets/img/partners/Samkwang.png" alt="Samkwang" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Sinwoo"><img src="/assets/img/partners/Sinwoo.png" alt="Sinwoo" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
+                <div class="clients-logo-card" title="Haier Appliances"><img src="/assets/img/logos/haier.png" alt="Haier" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="OPPO Mobiles"><img src="/assets/img/logos/oppo.svg" alt="OPPO" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Vivo Mobile"><img src="/assets/img/logos/vivo.svg" alt="Vivo" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Hye woo"><img src="/assets/img/partners/Hye woo.png" alt="Hye woo" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Panasonic"><img src="/assets/img/partners/Panasonic.png" alt="Panasonic" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Samkwang"><img src="/assets/img/partners/Samkwang.png" alt="Samkwang" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Sinwoo"><img src="/assets/img/partners/Sinwoo.png" alt="Sinwoo" class="client-logo-img"></div>
               </div>
               <!-- Set 2 -->
               <div class="clients-marquee-group" aria-hidden="true">
-                <div class="clients-logo-card" title="Haier Appliances"><img src="/assets/img/logos/haier.png" alt="Haier" class="client-logo-img logo-haier"></div>
-                <div class="clients-logo-card" title="OPPO Mobiles"><img src="/assets/img/logos/oppo.svg" alt="OPPO" class="client-logo-img logo-oppo"></div>
-                <div class="clients-logo-card" title="Vivo Mobile"><img src="/assets/img/logos/vivo.svg" alt="Vivo" class="client-logo-img logo-vivo"></div>
-                <div class="clients-logo-card" title="Hye woo"><img src="/assets/img/partners/Hye woo.png" alt="Hye woo" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Panasonic"><img src="/assets/img/partners/Panasonic.png" alt="Panasonic" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Samkwang"><img src="/assets/img/partners/Samkwang.png" alt="Samkwang" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Sinwoo"><img src="/assets/img/partners/Sinwoo.png" alt="Sinwoo" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
+                <div class="clients-logo-card" title="Haier Appliances"><img src="/assets/img/logos/haier.png" alt="Haier" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="OPPO Mobiles"><img src="/assets/img/logos/oppo.svg" alt="OPPO" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Vivo Mobile"><img src="/assets/img/logos/vivo.svg" alt="Vivo" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Hye woo"><img src="/assets/img/partners/Hye woo.png" alt="Hye woo" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Panasonic"><img src="/assets/img/partners/Panasonic.png" alt="Panasonic" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Samkwang"><img src="/assets/img/partners/Samkwang.png" alt="Samkwang" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Sinwoo"><img src="/assets/img/partners/Sinwoo.png" alt="Sinwoo" class="client-logo-img"></div>
               </div>
               <!-- Set 3 -->
               <div class="clients-marquee-group" aria-hidden="true">
-                <div class="clients-logo-card" title="Haier Appliances"><img src="/assets/img/logos/haier.png" alt="Haier" class="client-logo-img logo-haier"></div>
-                <div class="clients-logo-card" title="OPPO Mobiles"><img src="/assets/img/logos/oppo.svg" alt="OPPO" class="client-logo-img logo-oppo"></div>
-                <div class="clients-logo-card" title="Vivo Mobile"><img src="/assets/img/logos/vivo.svg" alt="Vivo" class="client-logo-img logo-vivo"></div>
-                <div class="clients-logo-card" title="Hye woo"><img src="/assets/img/partners/Hye woo.png" alt="Hye woo" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Panasonic"><img src="/assets/img/partners/Panasonic.png" alt="Panasonic" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Samkwang"><img src="/assets/img/partners/Samkwang.png" alt="Samkwang" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
-                <div class="clients-logo-card" title="Sinwoo"><img src="/assets/img/partners/Sinwoo.png" alt="Sinwoo" class="client-logo-img" style="height: 36px; max-width: 140px; width: auto; object-fit: contain;"></div>
+                <div class="clients-logo-card" title="Haier Appliances"><img src="/assets/img/logos/haier.png" alt="Haier" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="OPPO Mobiles"><img src="/assets/img/logos/oppo.svg" alt="OPPO" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Vivo Mobile"><img src="/assets/img/logos/vivo.svg" alt="Vivo" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Hye woo"><img src="/assets/img/partners/Hye woo.png" alt="Hye woo" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Panasonic"><img src="/assets/img/partners/Panasonic.png" alt="Panasonic" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Samkwang"><img src="/assets/img/partners/Samkwang.png" alt="Samkwang" class="client-logo-img"></div>
+                <div class="clients-logo-card" title="Sinwoo"><img src="/assets/img/partners/Sinwoo.png" alt="Sinwoo" class="client-logo-img"></div>
               </div>
             </div>
           </div>
