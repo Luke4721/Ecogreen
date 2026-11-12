@@ -45,8 +45,14 @@
     @media (min-width: 1025px) {
       html {
         scroll-behavior: auto; /* Let custom RAF controller drive the luxury smooth deceleration */
-        scroll-snap-type: y proximity; /* gentle native snap to section tops (scroll-snap-align: start) */
+        scroll-snap-type: y mandatory; /* native snap to section tops (scroll-snap-align: start) */
       }
+      .hero-kknag-banner, .overview-sec, .clients-accred-unified-sec, .business-cards-sec,
+      .industries-dark-sec, .services-dark-sec, .testimonials-split-sec,
+      .sustainability-kknag-sec, .custody-process-sec {
+        scroll-snap-stop: always; /* a hard flick lands on the next section, never skips one */
+      }
+      html body .footer-kknag-sec { scroll-snap-align: end; } /* lets the page bottom be reachable under mandatory snap */
     }
 
     body {
@@ -3211,6 +3217,7 @@
 
         if (animFrameId) cancelAnimationFrame(animFrameId);
         isAnimating = true;
+        document.documentElement.style.scrollSnapType = 'none';
 
         const startY = window.pageYOffset;
         const targetY = getSectionTop(targetIdx);
@@ -3229,6 +3236,7 @@
             animFrameId = requestAnimationFrame(step);
           } else {
             isAnimating = false;
+            document.documentElement.style.scrollSnapType = '';
             currentSecIndex = targetIdx;
             updateActiveState(currentSecIndex);
           }
@@ -3242,6 +3250,7 @@
           cancelAnimationFrame(animFrameId);
           window.scrollTo(0, targetY);
           isAnimating = false;
+          document.documentElement.style.scrollSnapType = '';
         }, duration + 150);
         currentSecIndex = targetIdx;
         updateActiveState(targetIdx);
