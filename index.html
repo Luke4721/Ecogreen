@@ -653,9 +653,13 @@
 
     .accred-cards-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: clamp(10px, 1.2vw, 16px);
     }
+
+    /* white UPPCB logo recoloured to brand blue so it shows on white cards */
+    .accred-badge-mask { width: 100%; height: 100%; background: #1f3f9f; -webkit-mask: url(/assets/img/ref/uppcb.png) center / contain no-repeat; mask: url(/assets/img/ref/uppcb.png) center / contain no-repeat; transition: transform 0.25s ease; }
+    .accred-card:hover .accred-badge-mask { transform: scale(1.08); }
 
     @media (max-width: 900px) {
       .accred-cards-grid {
@@ -2414,6 +2418,26 @@
         </div>
 
         <div class="accred-cards-grid sec-reveal-scale sec-delay-3">
+
+          <!-- Card 1: CPCB -->
+          <div class="accred-card" title="CPCB Authorised">
+            <span class="accred-status-tag">STATUTORY</span>
+            <div class="accred-badge-wrap">
+              <img src="/assets/img/ref/cpcb.png" alt="Central Pollution Control Board" class="accred-badge-img">
+            </div>
+            <div class="accred-code">CPCB</div>
+            <div class="accred-desc">Central Pollution Control Board</div>
+          </div>
+
+          <!-- Card 1b: UPPCB -->
+          <div class="accred-card" title="UPPCB Authorised">
+            <span class="accred-status-tag">STATE AUTHORITY</span>
+            <div class="accred-badge-wrap">
+              <div class="accred-badge-mask" role="img" aria-label="Uttar Pradesh Pollution Control Board"></div>
+            </div>
+            <div class="accred-code">UPPCB</div>
+            <div class="accred-desc">UP Pollution Control Board</div>
+          </div>
 
           <!-- Card 2: ISO 9001 -->
           <div class="accred-card" title="ISO 9001:2015 Certified">
