@@ -3272,23 +3272,27 @@
       // Smooth Wheel Transition Handler on Desktop
       // One jump per gesture: trackpad inertia keeps firing wheel events, so a jump only
       // starts after a quiet gap, otherwise the leftovers freeze or double-skip the scroll.
-      let lastWheelEvt = 0;
+      let lastWheelEvt = 0, wheelAcc = 0, wheelFired = false;
 
       window.addEventListener('wheel', (e) => {
         if (window.innerWidth <= 1024) return;
 
         const now = Date.now();
-        const gap = now - lastWheelEvt;
+        if (now - lastWheelEvt > 140) { wheelAcc = 0; wheelFired = false; } // new gesture
         lastWheelEvt = now;
 
         const r = sections[currentSecIndex].getBoundingClientRect();
         if (!isAnimating && (e.deltaY > 0 ? r.bottom > innerHeight + 100 : r.top < HEADER_HEIGHT - 2)) return;
 
         e.preventDefault();
-        if (isAnimating || gap < 140 || Math.abs(e.deltaY) < 4) return;
 
-        if (e.deltaY > 0 && currentSecIndex < sections.length - 1) scrollToSection(currentSecIndex + 1);
-        else if (e.deltaY < 0 && currentSecIndex > 0) scrollToSection(currentSecIndex - 1);
+        // Touchpads start with tiny deltas, so add them up instead of judging the first event.
+        wheelAcc += e.deltaY;
+        if (isAnimating || wheelFired || Math.abs(wheelAcc) < 20) return;
+        wheelFired = true;
+
+        if (wheelAcc > 0 && currentSecIndex < sections.length - 1) scrollToSection(currentSecIndex + 1);
+        else if (wheelAcc < 0 && currentSecIndex > 0) scrollToSection(currentSecIndex - 1);
       }, { passive: false });
 
       // Keyboard Arrow / Page Navigation
