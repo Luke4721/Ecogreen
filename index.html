@@ -45,7 +45,7 @@
     @media (min-width: 1025px) {
       html {
         scroll-behavior: auto; /* Let custom RAF controller drive the luxury smooth deceleration */
-        scroll-snap-type: none; /* Prevents browser snap engine conflict with smooth glide */
+        scroll-snap-type: y proximity; /* gentle native snap to section tops (scroll-snap-align: start) */
       }
     }
 
@@ -3269,35 +3269,7 @@
         });
       }
 
-      // Smooth Wheel Transition Handler on Desktop
-      // One jump per gesture: trackpad inertia keeps firing wheel events, so a jump only
-      // starts after a quiet gap, otherwise the leftovers freeze or double-skip the scroll.
-      let lastWheelEvt = 0, wheelAcc = 0, wheelFired = false;
-
-      window.addEventListener('wheel', (e) => {
-        if (window.innerWidth <= 1024) return;
-
-        const now = Date.now();
-        if (now - lastWheelEvt > 140) { wheelAcc = 0; wheelFired = false; } // new gesture
-        lastWheelEvt = now;
-
-        // Touchpads latch a swipe as native scrolling, after which preventDefault is ignored and
-        // our jump would fight the browser. Leave those events alone so the page always scrolls.
-        if (!e.cancelable) return;
-
-        const r = sections[currentSecIndex].getBoundingClientRect();
-        if (!isAnimating && (e.deltaY > 0 ? r.bottom > innerHeight + 100 : r.top < HEADER_HEIGHT - 2)) return;
-
-        e.preventDefault();
-
-        // Touchpads start with tiny deltas, so add them up instead of judging the first event.
-        wheelAcc += e.deltaY;
-        if (isAnimating || wheelFired || Math.abs(wheelAcc) < 20) return;
-        wheelFired = true;
-
-        if (wheelAcc > 0 && currentSecIndex < sections.length - 1) scrollToSection(currentSecIndex + 1);
-        else if (wheelAcc < 0 && currentSecIndex > 0) scrollToSection(currentSecIndex - 1);
-      }, { passive: false });
+      // Wheel/trackpad scrolling is native (hijacking it broke touchpads); CSS scroll-snap adds the section feel.
 
       // Keyboard Arrow / Page Navigation
       window.addEventListener('keydown', (e) => {
