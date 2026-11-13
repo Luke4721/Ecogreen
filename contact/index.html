@@ -126,10 +126,15 @@
           <!-- Right Column: Dark Forest Form Card -->
           <div class="contact-split-right">
             <h3 class="contact-form-title">Get in Touch with Us</h3>
+            <p id="formSent" style="display:none; background:#E8F5E9; color:#1B5E20; border-radius:8px; padding:12px 16px; font-weight:700; margin-bottom:14px;">Thank you! Your request has been sent. Our team will get back to you shortly.</p>
             <p class="contact-form-subtitle">We look forward to connecting with your team!</p>
 
             <!-- Enterprise Form -->
-            <form id="formBiz" action="mailto:enterprise@ecogreen.eco" method="post" enctype="text/plain">
+            <form id="formBiz" action="https://formsubmit.co/operation@ecogreen.eco" method="post">
+              <input type="hidden" name="_subject" value="New Enterprise Enquiry - ecogreen.eco">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_next" value="https://www.ecogreen.eco/contact/?sent=1">
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
               <div class="kknag-form-grid">
                 <div class="kknag-form-group">
                   <label class="kknag-form-label" for="bizName">Your Name *</label>
@@ -179,7 +184,11 @@
             </form>
 
             <!-- Individual Form (Hidden by default, toggled via tab) -->
-            <form id="formInd" action="mailto:pickup@ecogreen.eco" method="post" enctype="text/plain" style="display:none;">
+            <form id="formInd" action="https://formsubmit.co/operation@ecogreen.eco" method="post" style="display:none;">
+              <input type="hidden" name="_subject" value="New Free Pickup Request - ecogreen.eco">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_next" value="https://www.ecogreen.eco/contact/?sent=1">
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
               <div class="kknag-form-grid">
                 <div class="kknag-form-group">
                   <label class="kknag-form-label" for="indName">Your Name *</label>
@@ -431,6 +440,7 @@
   <script src="/assets/js/main.js"></script>
 
   <script>
+    if (/[?&]sent=1/.test(location.search)) document.getElementById('formSent').style.display = 'block';
     function switchTab(type) {
       var btnBiz = document.getElementById('tabBtnBiz');
       var btnInd = document.getElementById('tabBtnInd');
